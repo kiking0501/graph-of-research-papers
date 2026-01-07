@@ -1,0 +1,158 @@
+{
+  "name": "Wide & Deep",
+  "year": "2016",
+  "url": "https://ar5iv.labs.arxiv.org/html/1606.07792",
+  "title": "Wide & Deep Learning for Recommender Systems",
+  "sections": {
+    "S1": "1 Introduction",
+    "S2": "2 Recommender System Overview",
+    "S3": "3 Wide & Deep Learning",
+    "S4": "4 System Implementation",
+    "S5": "5 Experiment Results",
+    "S6": "6 Related Work",
+    "S7": "7 Conclusion"
+  },
+  "references": {
+    "1": {
+      "id": "2011-adaptive_subgradient_methods_for_online_learning_and_stochastic_optimization",
+      "enum": "1",
+      "authors": "J. Duchi, E. Hazan, and Y. Singer",
+      "title": "Adaptive subgradient methods for online learning and stochastic optimization",
+      "publication": "Journal of Machine Learning Research, 12:2121–2159, July 2011",
+      "year": "2011",
+      "summary": null,
+      "standard_url": null
+    },
+    "2": {
+      "id": "2016-deep_residual_learning_for_image_recognition",
+      "enum": "2",
+      "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun",
+      "title": "Deep residual learning for image recognition",
+      "publication": "Proc. IEEE Conference on Computer Vision and Pattern Recognition, 2016",
+      "year": "2016",
+      "summary": "Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers---8x deeper than VGG nets but still having lower complexity. An ensemble of these residual nets achieves 3.57% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers.\n  The depth of representations is of central importance for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28% relative improvement on the COCO object detection dataset. Deep residual nets are foundations of our submissions to ILSVRC & COCO 2015 competitions, where we also won the 1st places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.",
+      "standard_url": "http://arxiv.org/abs/1512.03385v1"
+    },
+    "3": {
+      "id": "2011-follow-the-regularized-leader_and_mirror_descent:_equivalence_theorems_and_l1_regularization",
+      "enum": "3",
+      "authors": "H. B. McMahan",
+      "title": "Follow-the-regularized-leader and mirror descent: Equivalence theorems and l1 regularization",
+      "publication": "In Proc. AISTATS, 2011",
+      "year": "2011",
+      "summary": null,
+      "standard_url": null
+    },
+    "4": {
+      "id": "2011-strategies_for_training_large_scale_neural_network_language_models",
+      "enum": "4",
+      "authors": "T. Mikolov, A. Deoras, D. Povey, L. Burget, and J. H. Cernocky",
+      "title": "Strategies for training large scale neural network language models",
+      "publication": "In IEEE Automatic Speech Recognition & Understanding Workshop, 2011",
+      "year": "2011",
+      "summary": null,
+      "standard_url": null
+    },
+    "5": {
+      "id": "2012-factorization_machines_with_libfm",
+      "enum": "5",
+      "authors": "S. Rendle",
+      "title": "Factorization machines with libFM",
+      "publication": "ACM Trans. Intell. Syst. Technol., 3(3):57:1–57:22, May 2012",
+      "year": "2012",
+      "summary": null,
+      "standard_url": null
+    },
+    "6": {
+      "id": "1799-joint_training_of_a_convolutional_network_and_a_graphical_model_for_human_pose_estimation",
+      "enum": "6",
+      "authors": "Jonathan Tompson, Arjun Jain, Yann LeCun, Christoph Bregler",
+      "title": "Joint training of a convolutional network and a graphical model for human pose estimation",
+      "publication": "In Z. Ghahramani, M. Welling, C. Cortes, N. D. Lawrence, and K. Q. Weinberger, editors, NIPS, pages 1799–1807. 2014",
+      "year": "1799",
+      "summary": "This paper proposes a new hybrid architecture that consists of a deep Convolutional Network and a Markov Random Field. We show how this architecture is successfully applied to the challenging problem of articulated human pose estimation in monocular images. The architecture can exploit structural domain constraints such as geometric relationships between body joint locations. We show that joint training of these two model paradigms improves performance and allows us to significantly outperform existing state-of-the-art techniques.",
+      "standard_url": "http://arxiv.org/abs/1406.2984v2"
+    },
+    "7": {
+      "id": "2015-collaborative_deep_learning_for_recommender_systems",
+      "enum": "7",
+      "authors": "Hao Wang, Naiyan Wang, Dit-Yan Yeung",
+      "title": "Collaborative deep learning for recommender systems",
+      "publication": "In Proc. KDD, pages 1235–1244, 2015",
+      "year": "2015",
+      "summary": "Collaborative filtering (CF) is a successful approach commonly used by many recommender systems. Conventional CF-based methods use the ratings given to items by users as the sole source of information for learning to make recommendation. However, the ratings are often very sparse in many applications, causing CF-based methods to degrade significantly in their recommendation performance. To address this sparsity problem, auxiliary information such as item content information may be utilized. Collaborative topic regression (CTR) is an appealing recent method taking this approach which tightly couples the two components that learn from two different sources of information. Nevertheless, the latent representation learned by CTR may not be very effective when the auxiliary information is very sparse. To address this problem, we generalize recent advances in deep learning from i.i.d. input to non-i.i.d. (CF-based) input and propose in this paper a hierarchical Bayesian model called collaborative deep learning (CDL), which jointly performs deep representation learning for the content information and collaborative filtering for the ratings (feedback) matrix. Extensive experiments on three real-world datasets from different domains show that CDL can significantly advance the state of the art.",
+      "standard_url": "http://arxiv.org/abs/1409.2944v2"
+    },
+    "8": {
+      "id": "2011-appjoy:_personalized_mobile_application_discovery",
+      "enum": "8",
+      "authors": "B. Yan and G. Chen",
+      "title": "AppJoy: Personalized mobile application discovery",
+      "publication": "In MobiSys, pages 113–126, 2011",
+      "year": "2011",
+      "summary": null,
+      "standard_url": null
+    }
+  },
+  "citations": [
+    {
+      "section_id": "S1",
+      "cite_enum": "5",
+      "cite_id": "bib.bib5",
+      "sentence": "Embedding-based models, such as factorization machines[5]or deep neural networks, can generalize to previously unseen query-item feature pairs by learning a low-dimensional dense embedding vector for each query and item feature, with less burden of feature engineering"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "In the experiments, we used Follow-the-regularized-leader (FTRL) algorithm[3]withL1subscript𝐿1L_{1}regularization as the optimizer for the wide part of the model, and AdaGrad[1]for the deep part"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "In the experiments, we used Follow-the-regularized-leader (FTRL) algorithm[3]withL1subscript𝐿1L_{1}regularization as the optimizer for the wide part of the model, and AdaGrad[1]for the deep part"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "5",
+      "cite_id": "bib.bib5",
+      "sentence": "The idea of combining wide linear models with cross-product feature transformations and deep neural networks with dense embeddings is inspired by previous work, such as factorization machines[5]which add generalization to linear models by factorizing the interactions between two variables as a dot product between two low-dimensional embedding vectors"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "4",
+      "cite_id": "bib.bib4",
+      "sentence": ", hidden layer sizes) by learning direct weights between inputs and outputs[4]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "In computer vision, deep residual learning[2]has been used to reduce the difficulty of training deeper models and improve accuracy with shortcut connections which skip one or more layers"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "6",
+      "cite_id": "bib.bib6",
+      "sentence": "Joint training of neural networks with graphical models has also been applied to human pose estimation from images[6]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "In the recommender systems literature, collaborative deep learning has been explored by coupling deep learning for content information and collaborative filtering (CF) for the ratings matrix[7]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "There has also been previous work on mobile app recommender systems, such as AppJoy which used CF on users’ app usage records[8]"
+    }
+  ],
+  "preview": "<div class=\"ltx_para\" id=\"S1.p1\">\n<p class=\"ltx_p\" id=\"S1.p1.1\">A recommender system can be viewed as a search ranking system, where the input query is a set of user and contextual information, and the output is a ranked list of items. Given a query, the recommendation task is to find the relevant items in a database and then rank the items based on certain objectives, such as clicks or purchases.</p>\n</div><div class=\"ltx_para\" id=\"S1.p2\">\n<p class=\"ltx_p\" id=\"S1.p2.1\">One challenge in recommender systems, similar to the general search ranking problem, is to achieve both <span class=\"ltx_text ltx_font_italic\" id=\"S1.p2.1.1\">memorization</span> and <span class=\"ltx_text ltx_font_italic\" id=\"S1.p2.1.2\">generalization</span>.\nMemorization can be loosely defined as learning the frequent co-occurrence of items or features and exploiting the correlation available in the historical data. Generalization, on the other hand, is based on transitivity of correlation and explores new feature combinations that have never or rarely occurred in the past.\nRecommendations based on memorization are usually more topical and directly relevant to the items on which users have already performed actions.\nCompared with memorization, generalization tends to improve the diversity of the recommended items. In this paper, we focus on the apps recommendation problem for the Google Play store, but the approach should apply to generic recommender systems.</p>\n</div><div class=\"ltx_para\" id=\"S1.p3\">\n<p class=\"ltx_p\" id=\"S1.p3.1\">For massive-scale online recommendation and ranking systems in an industrial setting, generalized linear models such as logistic regression are widely used because they are simple, scalable and interpretable. The models are often trained on binarized sparse features with one-hot encoding. E.g., the binary feature “<span class=\"ltx_text ltx_font_typewriter\" id=\"S1.p3.1.1\">user_installed_app=netflix</span>” has value 1 if the user installed Netflix. Memorization can be achieved effectively using cross-product transformations over sparse features, such as <span class=\"ltx_text ltx_font_typewriter\" id=\"S1.p3.1.2\">AND</span>(<span class=\"ltx_text ltx_font_typewriter\" id=\"S1.p3.1.3\">user_installed_app=netflix</span>, <span class=\"ltx_text ltx_font_typewriter\" id=\"S1.p3.1.4\">impression_app=pandora</span>”), whose value is 1 if the user installed Netflix and then is later shown Pandora. This explains how the co-occurrence of a feature pair correlates with the target label. Generalization can be added by using features that are less granular, such as <span class=\"ltx_text ltx_font_typewriter\" id=\"S1.p3.1.5\">AND</span>(<span class=\"ltx_text ltx_font_typewriter\" id=\"S1.p3.1.6\">user_installed_category=video</span>, <span class=\"ltx_text ltx_font_typewriter\" id=\"S1.p3.1.7\">impression_category=music</span>), but manual feature engineering is often required. One limitation of cross-product transformations is that they do not generalize to query-item feature pairs that have not appeared in the training data.</p>\n</div><div class=\"ltx_para\" id=\"S1.p4\">\n<p class=\"ltx_p\" id=\"S1.p4.1\">Embedding-based models, such as factorization machines  or deep neural networks, can generalize to previously unseen query-item feature pairs by learning a low-dimensional dense embedding vector for each query and item feature, with less burden of feature engineering. However, it is difficult to learn effective low-dimensional representations for queries and items when the underlying query-item matrix is sparse and high-rank, such as users with specific preferences or niche items with a narrow appeal. In such cases, there should be no interactions between most query-item pairs, but dense embeddings will lead to nonzero predictions for all query-item pairs, and thus can over-generalize and make less relevant recommendations. On the other hand, linear models with cross-product feature transformations can memorize these “exception rules” with much fewer parameters.</p>\n</div><div class=\"ltx_para\" id=\"S1.p5\">\n<p class=\"ltx_p\" id=\"S1.p5.1\">In this paper, we present the Wide &amp; Deep learning framework to achieve both memorization and generalization in one model, by jointly training a linear model component and a neural network component as shown in Figure <a class=\"ltx_ref\" href=\"#S1.F1\" title=\"Figure 1 ‣ 1 Introduction ‣ Wide &amp; Deep Learning for Recommender Systems\"><span class=\"ltx_text ltx_ref_tag\">1</span></a>.</p>\n</div><div class=\"ltx_para\" id=\"S1.p6\">\n<p class=\"ltx_p\" id=\"S1.p6.1\">The main contributions of the paper include:</p>\n<ul class=\"ltx_itemize\" id=\"S1.I1\">\n<li class=\"ltx_item\" id=\"S1.I1.i1\" style=\"list-style-type:none;\">\n<span class=\"ltx_tag ltx_tag_item\">•</span>\n<div class=\"ltx_para\" id=\"S1.I1.i1.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i1.p1.1\">The Wide &amp; Deep learning framework for jointly training feed-forward neural networks with embeddings and linear model with feature transformations for generic recommender systems with sparse inputs.</p>\n</div>\n</li>\n<li class=\"ltx_item\" id=\"S1.I1.i2\" style=\"list-style-type:none;\">\n<span class=\"ltx_tag ltx_tag_item\">•</span>\n<div class=\"ltx_para\" id=\"S1.I1.i2.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i2.p1.1\">The implementation and evaluation of the Wide &amp; Deep recommender system productionized on Google Play, a mobile app store with over one billion active users and over one million apps.</p>\n</div>\n</li>\n<li class=\"ltx_item\" id=\"S1.I1.i3\" style=\"list-style-type:none;\">\n<span class=\"ltx_tag ltx_tag_item\">•</span>\n<div class=\"ltx_para\" id=\"S1.I1.i3.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i3.p1.1\">We have open-sourced our implementation along with a high-level API in TensorFlow<span class=\"ltx_note ltx_role_footnote\" id=\"footnote1\"><sup class=\"ltx_note_mark\">1</sup><span class=\"ltx_note_outer\"><span class=\"ltx_note_content\"><sup class=\"ltx_note_mark\">1</sup><span class=\"ltx_tag ltx_tag_note\">1</span>See Wide &amp; Deep Tutorial on <span class=\"ltx_text ltx_font_typewriter\" id=\"footnote1.1\">http://tensorflow.org</span>.</span></span></span>.</p>\n</div>\n</li>\n</ul>\n</div><div class=\"ltx_para\" id=\"S1.I1.i1.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i1.p1.1\">The Wide &amp; Deep learning framework for jointly training feed-forward neural networks with embeddings and linear model with feature transformations for generic recommender systems with sparse inputs.</p>\n</div><div class=\"ltx_para\" id=\"S1.I1.i2.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i2.p1.1\">The implementation and evaluation of the Wide &amp; Deep recommender system productionized on Google Play, a mobile app store with over one billion active users and over one million apps.</p>\n</div><div class=\"ltx_para\" id=\"S1.I1.i3.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i3.p1.1\">We have open-sourced our implementation along with a high-level API in TensorFlow<span class=\"ltx_note ltx_role_footnote\" id=\"footnote1\"><sup class=\"ltx_note_mark\">1</sup><span class=\"ltx_note_outer\"><span class=\"ltx_note_content\"><sup class=\"ltx_note_mark\">1</sup><span class=\"ltx_tag ltx_tag_note\">1</span>See Wide &amp; Deep Tutorial on <span class=\"ltx_text ltx_font_typewriter\" id=\"footnote1.1\">http://tensorflow.org</span>.</span></span></span>.</p>\n</div><div class=\"ltx_para\" id=\"S1.p7\">\n<p class=\"ltx_p\" id=\"S1.p7.1\">While the idea is simple, we show that the Wide &amp; Deep framework significantly improves the app acquisition rate on the mobile app store, while satisfying the training and serving speed requirements.</p>\n</div>",
+  "authors": "Heng-Tze Cheng, Levent Koc, Jeremiah Harmsen, Tal Shaked, Tushar Chandra, Hrishi Aradhye, Glen Anderson, Greg Corrado, Wei Chai, Mustafa Ispir, Rohan Anil, Zakaria Haque, Lichan Hong, Vihan Jain, Xiaobing Liu, Hemal Shah",
+  "summary": "Generalized linear models with nonlinear feature transformations are widely used for large-scale regression and classification problems with sparse inputs. Memorization of feature interactions through a wide set of cross-product feature transformations are effective and interpretable, while generalization requires more feature engineering effort. With less feature engineering, deep neural networks can generalize better to unseen feature combinations through low-dimensional dense embeddings learned for the sparse features. However, deep neural networks with embeddings can over-generalize and recommend less relevant items when the user-item interactions are sparse and high-rank. In this paper, we present Wide & Deep learning---jointly trained wide linear models and deep neural networks---to combine the benefits of memorization and generalization for recommender systems. We productionized and evaluated the system on Google Play, a commercial mobile app store with over one billion active users and over one million apps. Online experiment results show that Wide & Deep significantly increased app acquisitions compared with wide-only and deep-only models. We have also open-sourced our implementation in TensorFlow.",
+  "standard_url": "http://arxiv.org/abs/1606.07792v1",
+  "id": "2016-wide_&_deep_learning_for_recommender_systems"
+}

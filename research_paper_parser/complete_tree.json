@@ -1,0 +1,1071 @@
+[
+  [
+    {
+      "id": "2017-attention_is_all_you_need",
+      "type": "core",
+      "title": "Attention Is All You Need",
+      "year": "2017",
+      "authors": null,
+      "name": "Transformer"
+    },
+    {
+      "id": "2016-wide_&_deep_learning_for_recommender_systems",
+      "type": "core",
+      "title": "Wide & Deep Learning for Recommender Systems",
+      "year": "2016",
+      "authors": null,
+      "name": "Wide & Deep"
+    }
+  ],
+  [
+    {
+      "id": "2017-structured_attention_networks",
+      "type": "core",
+      "title": "Structured attention networks",
+      "year": "2017",
+      "authors": "Yoon Kim, Carl Denton, Luong Hoang, and Alexander M. Rush",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2017-outrageously_large_neural_networks:_the_sparsely-gated_mixture-of-experts_layer",
+      "type": "core",
+      "title": "Outrageously large neural networks: The sparsely-gated mixture-of-experts layer",
+      "year": "2017",
+      "authors": "Noam Shazeer, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le, Geoffrey Hinton, and Jeff Dean",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2017-neural_machine_translation_in_linear_time",
+      "type": "core",
+      "title": "Neural machine translation in linear time",
+      "year": "2017",
+      "authors": "Nal Kalchbrenner, Lasse Espeholt, Karen Simonyan, Aaron van den Oord, Alex Graves, and Koray Kavukcuoglu",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2017-massive_exploration_of_neural_machine_translation_architectures",
+      "type": "core",
+      "title": "Massive exploration of neural machine translation architectures",
+      "year": "2017",
+      "authors": "Denny Britz, Anna Goldie, Minh-Thang Luong, and Quoc V. Le",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2017-factorization_tricks_for_lstm_networks",
+      "type": "core",
+      "title": "Factorization tricks for LSTM networks",
+      "year": "2017",
+      "authors": "Oleksii Kuchaiev and Boris Ginsburg",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2017-convolutional_sequence_to_sequence_learning",
+      "type": "core",
+      "title": "Convolutional sequence to sequence learning",
+      "year": "2017",
+      "authors": "Jonas Gehring, Michael Auli, David Grangier, Denis Yarats, and Yann N. Dauphin",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2017-a_structured_self-attentive_sentence_embedding",
+      "type": "core",
+      "title": "A structured self-attentive sentence embedding",
+      "year": "2017",
+      "authors": "Zhouhan Lin, Minwei Feng, Cicero Nogueira dos Santos, Mo Yu, Bing Xiang, Bowen Zhou, and Yoshua Bengio",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2017-a_deep_reinforced_model_for_abstractive_summarization",
+      "type": "core",
+      "title": "A deep reinforced model for abstractive summarization",
+      "year": "2017",
+      "authors": "Romain Paulus, Caiming Xiong, and Richard Socher",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-xception:_deep_learning_with_depthwise_separable_convolutions",
+      "type": "core",
+      "title": "Xception: Deep learning with depthwise separable convolutions",
+      "year": "2016",
+      "authors": "Francois Chollet",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-using_the_output_embedding_to_improve_language_models",
+      "type": "core",
+      "title": "Using the output embedding to improve language models",
+      "year": "2016",
+      "authors": "Ofir Press and Lior Wolf",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-recurrent_neural_network_grammars",
+      "type": "core",
+      "title": "Recurrent neural network grammars",
+      "year": "2016",
+      "authors": "Chris Dyer, Adhiguna Kuncoro, Miguel Ballesteros, and Noah A. Smith",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-neural_gpus_learn_algorithms",
+      "type": "core",
+      "title": "Neural GPUs learn algorithms",
+      "year": "2016",
+      "authors": "Łukasz Kaiser and Ilya Sutskever",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-long_short-term_memory-networks_for_machine_reading",
+      "type": "core",
+      "title": "Long short-term memory-networks for machine reading",
+      "year": "2016",
+      "authors": "Jianpeng Cheng, Li Dong, and Mirella Lapata",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-layer_normalization",
+      "type": "core",
+      "title": "Layer normalization",
+      "year": "2016",
+      "authors": "Jimmy Lei Ba, Jamie Ryan Kiros, and Geoffrey E Hinton",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-google’s_neural_machine_translation_system:_bridging_the_gap_between_human_and_machine_translation",
+      "type": "core",
+      "title": "Google’s neural machine translation system: Bridging the gap between human and machine translation",
+      "year": "2016",
+      "authors": "Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V Le, Mohammad Norouzi, Wolfgang Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, et al",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-exploring_the_limits_of_language_modeling",
+      "type": "core",
+      "title": "Exploring the limits of language modeling",
+      "year": "2016",
+      "authors": "Rafal Jozefowicz, Oriol Vinyals, Mike Schuster, Noam Shazeer, and Yonghui Wu",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-deep_residual_learning_for_image_recognition",
+      "type": "core",
+      "title": "Deep Residual Learning for Image Recognition",
+      "year": "2016",
+      "authors": null,
+      "name": "Residual",
+      "parents": [
+        "2016-wide_&_deep_learning_for_recommender_systems",
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-deep_recurrent_models_with_fast-forward_connections_for_neural_machine_translation",
+      "type": "core",
+      "title": "Deep recurrent models with fast-forward connections for neural machine translation",
+      "year": "2016",
+      "authors": "Jie Zhou, Ying Cao, Xuguang Wang, Peng Li, and Wei Xu",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-can_active_memory_replace_attention?",
+      "type": "core",
+      "title": "Can active memory replace attention?",
+      "year": "2016",
+      "authors": "Łukasz Kaiser and Samy Bengio",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2016-a_decomposable_attention_model",
+      "type": "core",
+      "title": "A decomposable attention model",
+      "year": "2016",
+      "authors": "Ankur Parikh, Oscar Täckström, Dipanjan Das, and Jakob Uszkoreit",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2015-rethinking_the_inception_architecture_for_computer_vision",
+      "type": "core",
+      "title": "Rethinking the inception architecture for computer vision",
+      "year": "2015",
+      "authors": "Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, and Zbigniew Wojna",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2015-neural_machine_translation_of_rare_words_with_subword_units",
+      "type": "core",
+      "title": "Neural machine translation of rare words with subword units",
+      "year": "2015",
+      "authors": "Rico Sennrich, Barry Haddow, and Alexandra Birch",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2015-multi-task_sequence_to_sequence_learning",
+      "type": "core",
+      "title": "Multi-task sequence to sequence learning",
+      "year": "2015",
+      "authors": "Minh-Thang Luong, Quoc V. Le, Ilya Sutskever, Oriol Vinyals, and Lukasz Kaiser",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2015-grammar_as_a_foreign_language",
+      "type": "core",
+      "title": "Grammar as a foreign language",
+      "year": "2015",
+      "authors": "Vinyals & Kaiser, Koo, Petrov, Sutskever, and Hinton",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2015-end-to-end_memory_networks",
+      "type": "core",
+      "title": "End-to-end memory networks",
+      "year": "2015",
+      "authors": "Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, and Rob Fergus",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2015-effective_approaches_to_attention-based_neural_machine_translation",
+      "type": "core",
+      "title": "Effective approaches to attention-based neural machine translation",
+      "year": "2015",
+      "authors": "Minh-Thang Luong, Hieu Pham, and Christopher D Manning",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2015-collaborative_deep_learning_for_recommender_systems",
+      "type": "core",
+      "title": "Collaborative deep learning for recommender systems",
+      "year": "2015",
+      "authors": "H. Wang, N. Wang, and D.-Y. Yeung",
+      "name": null,
+      "parents": [
+        "2016-wide_&_deep_learning_for_recommender_systems"
+      ]
+    },
+    {
+      "id": "2015-adam:_a_method_for_stochastic_optimization",
+      "type": "core",
+      "title": "Adam: A method for stochastic optimization",
+      "year": "2015",
+      "authors": "Diederik Kingma and Jimmy Ba",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2014-sequence_to_sequence_learning_with_neural_networks",
+      "type": "core",
+      "title": "Sequence to sequence learning with neural networks",
+      "year": "2014",
+      "authors": "Ilya Sutskever, Oriol Vinyals, and Quoc VV Le",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2014-neural_machine_translation_by_jointly_learning_to_align_and_translate",
+      "type": "core",
+      "title": "Neural machine translation by jointly learning to align and translate",
+      "year": "2014",
+      "authors": "Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2014-learning_phrase_representations_using_rnn_encoder-decoder_for_statistical_machine_translation",
+      "type": "core",
+      "title": "Learning phrase representations using rnn encoder-decoder for statistical machine translation",
+      "year": "2014",
+      "authors": "Kyunghyun Cho, Bart van Merrienboer, Caglar Gulcehre, Fethi Bougares, Holger Schwenk, and Yoshua Bengio",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2014-empirical_evaluation_of_gated_recurrent_neural_networks_on_sequence_modeling",
+      "type": "core",
+      "title": "Empirical evaluation of gated recurrent neural networks on sequence modeling",
+      "year": "2014",
+      "authors": "Junyoung Chung, Çaglar Gülçehre, Kyunghyun Cho, and Yoshua Bengio",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2014-dropout:_a_simple_way_to_prevent_neural_networks_from_overfitting",
+      "type": "core",
+      "title": "Dropout: a simple way to prevent neural networks from overfitting",
+      "year": "2014",
+      "authors": "Nitish Srivastava, Geoffrey E Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2013-generating_sequences_with_recurrent_neural_networks",
+      "type": "core",
+      "title": "Generating sequences with recurrent neural networks",
+      "year": "2013",
+      "authors": "Alex Graves",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2013-fast_and_accurate_shift-reduce_constituent_parsing",
+      "type": "core",
+      "title": "Fast and accurate shift-reduce constituent parsing",
+      "year": "2013",
+      "authors": "Muhua Zhu, Yue Zhang, Wenliang Chen, Min Zhang, and Jingbo Zhu",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2012-factorization_machines_with_libfm",
+      "type": "core",
+      "title": "Factorization machines with libFM",
+      "year": "2012",
+      "authors": "S. Rendle",
+      "name": null,
+      "parents": [
+        "2016-wide_&_deep_learning_for_recommender_systems"
+      ]
+    },
+    {
+      "id": "2011-strategies_for_training_large_scale_neural_network_language_models",
+      "type": "core",
+      "title": "Strategies for training large scale neural network language models",
+      "year": "2011",
+      "authors": "T. Mikolov, A. Deoras, D. Povey, L. Burget, and J. H. Cernocky",
+      "name": null,
+      "parents": [
+        "2016-wide_&_deep_learning_for_recommender_systems"
+      ]
+    },
+    {
+      "id": "2011-follow-the-regularized-leader_and_mirror_descent:_equivalence_theorems_and_l1_regularization",
+      "type": "core",
+      "title": "Follow-the-regularized-leader and mirror descent: Equivalence theorems and l1 regularization",
+      "year": "2011",
+      "authors": "H. B. McMahan",
+      "name": null,
+      "parents": [
+        "2016-wide_&_deep_learning_for_recommender_systems"
+      ]
+    },
+    {
+      "id": "2011-appjoy:_personalized_mobile_application_discovery",
+      "type": "core",
+      "title": "AppJoy: Personalized mobile application discovery",
+      "year": "2011",
+      "authors": "B. Yan and G. Chen",
+      "name": null,
+      "parents": [
+        "2016-wide_&_deep_learning_for_recommender_systems"
+      ]
+    },
+    {
+      "id": "2011-adaptive_subgradient_methods_for_online_learning_and_stochastic_optimization",
+      "type": "core",
+      "title": "Adaptive subgradient methods for online learning and stochastic optimization",
+      "year": "2011",
+      "authors": "J. Duchi, E. Hazan, and Y. Singer",
+      "name": null,
+      "parents": [
+        "2016-wide_&_deep_learning_for_recommender_systems"
+      ]
+    },
+    {
+      "id": "2009-self-training_pcfg_grammars_with_latent_annotations_across_languages",
+      "type": "core",
+      "title": "Self-training PCFG grammars with latent annotations across languages",
+      "year": "2009",
+      "authors": "Zhongqiang Huang and Mary Harper",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2006-learning_accurate_compact_and_interpretable_tree_annotation",
+      "type": "core",
+      "title": "Learning accurate, compact, and interpretable tree annotation",
+      "year": "2006",
+      "authors": "Slav Petrov, Leon Barrett, Romain Thibaux, and Dan Klein",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2006-effective_self-training_for_parsing",
+      "type": "core",
+      "title": "Effective self-training for parsing",
+      "year": "2006",
+      "authors": "David McClosky, Eugene Charniak, and Mark Johnson",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "2001-gradient_flow_in_recurrent_nets:_the_difficulty_of_learning_long-term_dependencies_2001",
+      "type": "core",
+      "title": "Gradient flow in recurrent nets: the difficulty of learning long-term dependencies, 2001",
+      "year": "2001",
+      "authors": "Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, and Jürgen Schmidhuber",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "1993-building_a_large_annotated_corpus_of_english:_the_penn_treebank",
+      "type": "core",
+      "title": "Building a large annotated corpus of english: The penn treebank",
+      "year": "1993",
+      "authors": "Mitchell P Marcus, Mary Ann Marcinkiewicz, and Beatrice Santorini",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need"
+      ]
+    },
+    {
+      "id": "1799-joint_training_of_a_convolutional_network_and_a_graphical_model_for_human_pose_estimation",
+      "type": "core",
+      "title": "Joint training of a convolutional network and a graphical model for human pose estimation",
+      "year": "1799",
+      "authors": "J. J. Tompson, A. Jain, Y. LeCun, and C. Bregler",
+      "name": null,
+      "parents": [
+        "2016-wide_&_deep_learning_for_recommender_systems"
+      ]
+    }
+  ],
+  [
+    {
+      "id": "2015-very_deep_convolutional_networks_for_large-scale_image_recognition",
+      "type": "core",
+      "title": "Very deep convolutional networks for large-scale image recognition",
+      "year": "2015",
+      "authors": "K. Simonyan and A. Zisserman",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-training_very_deep_networks",
+      "type": "core",
+      "title": "Training very deep networks",
+      "year": "2015",
+      "authors": "R. K. Srivastava, K. Greff, and J. Schmidhuber",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-object_detection_via_a_multi-region_&_semantic_segmentation-aware_cnn_model",
+      "type": "core",
+      "title": "Object detection via a multi-region & semantic segmentation-aware cnn model",
+      "year": "2015",
+      "authors": "S. Gidaris and N. Komodakis",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-object_detection_networks_on_convolutional_feature_maps",
+      "type": "core",
+      "title": "Object detection networks on convolutional feature maps",
+      "year": "2015",
+      "authors": "S. Ren, K. He, R. Girshick, X. Zhang, and J. Sun",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-highway_networks",
+      "type": "core",
+      "title": "Highway networks",
+      "year": "2015",
+      "authors": "R. K. Srivastava, K. Greff, and J. Schmidhuber",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-going_deeper_with_convolutions",
+      "type": "core",
+      "title": "Going deeper with convolutions",
+      "year": "2015",
+      "authors": "C. Szegedy, W. Liu, Y. Jia, P. Sermanet, S. Reed, D. Anguelov, D. Erhan, V. Vanhoucke, and A. Rabinovich",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-fully_convolutional_networks_for_semantic_segmentation",
+      "type": "core",
+      "title": "Fully convolutional networks for semantic segmentation",
+      "year": "2015",
+      "authors": "J. Long, E. Shelhamer, and T. Darrell",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-fitnets:_hints_for_thin_deep_nets",
+      "type": "core",
+      "title": "Fitnets: Hints for thin deep nets",
+      "year": "2015",
+      "authors": "A. Romero, N. Ballas, S. E. Kahou, A. Chassang, C. Gatta, and Y. Bengio",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-faster_r-cnn:_towards_real-time_object_detection_with_region_proposal_networks",
+      "type": "core",
+      "title": "Faster R-CNN: Towards real-time object detection with region proposal networks",
+      "year": "2015",
+      "authors": "S. Ren, K. He, R. Girshick, and J. Sun",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-fast_r-cnn",
+      "type": "core",
+      "title": "Fast R-CNN",
+      "year": "2015",
+      "authors": "R. Girshick",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-delving_deep_into_rectifiers:_surpassing_human-level_performance_on_imagenet_classification",
+      "type": "core",
+      "title": "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification",
+      "year": "2015",
+      "authors": "K. He, X. Zhang, S. Ren, and J. Sun",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-convolutional_neural_networks_at_constrained_time_cost",
+      "type": "core",
+      "title": "Convolutional neural networks at constrained time cost",
+      "year": "2015",
+      "authors": "K. He and J. Sun",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2015-batch_normalization:_accelerating_deep_network_training_by_reducing_internal_covariate_shift",
+      "type": "core",
+      "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift",
+      "year": "2015",
+      "authors": "S. Ioffe and C. Szegedy",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2014-visualizing_and_understanding_convolutional_neural_networks",
+      "type": "core",
+      "title": "Visualizing and understanding convolutional neural networks",
+      "year": "2014",
+      "authors": "M. D. Zeiler and R. Fergus",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2014-spatial_pyramid_pooling_in_deep_convolutional_networks_for_visual_recognition",
+      "type": "core",
+      "title": "Spatial pyramid pooling in deep convolutional networks for visual recognition",
+      "year": "2014",
+      "authors": "K. He, X. Zhang, S. Ren, and J. Sun",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2014-rich_feature_hierarchies_for_accurate_object_detection_and_semantic_segmentation",
+      "type": "core",
+      "title": "Rich feature hierarchies for accurate object detection and semantic segmentation",
+      "year": "2014",
+      "authors": "R. Girshick, J. Donahue, T. Darrell, and J. Malik",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2014-overfeat:_integrated_recognition_localization_and_detection_using_convolutional_networks",
+      "type": "core",
+      "title": "Overfeat: Integrated recognition, localization and detection using convolutional networks",
+      "year": "2014",
+      "authors": "P. Sermanet, D. Eigen, X. Zhang, M. Mathieu, R. Fergus, and Y. LeCun",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2014-microsoft_coco:_common_objects_in_context",
+      "type": "core",
+      "title": "Microsoft COCO: Common objects in context",
+      "year": "2014",
+      "authors": "T.-Y. Lin, M. Maire, S. Belongie, J. Hays, P. Perona, D. Ramanan, P. Dollár, and C. L. Zitnick",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2014-imagenet_large_scale_visual_recognition_challenge",
+      "type": "core",
+      "title": "Imagenet large scale visual recognition challenge",
+      "year": "2014",
+      "authors": "O. Russakovsky, J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy, A. Khosla, M. Bernstein, et al",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2014-deeply-supervised_nets",
+      "type": "core",
+      "title": "Deeply-supervised nets",
+      "year": "2014",
+      "authors": "C.-Y. Lee, S. Xie, P. Gallagher, Z. Zhang, and Z. Tu",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2014-caffe:_convolutional_architecture_for_fast_feature_embedding",
+      "type": "core",
+      "title": "Caffe: Convolutional architecture for fast feature embedding",
+      "year": "2014",
+      "authors": "Y. Jia, E. Shelhamer, J. Donahue, S. Karayev, J. Long, R. Girshick, S. Guadarrama, and T. Darrell",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2013-pushing_stochastic_gradient_towards_second-order_methods–backpropagation_learning_with_transformations_in_nonlinearities",
+      "type": "core",
+      "title": "Pushing stochastic gradient towards second-order methods–backpropagation learning with transformations in nonlinearities",
+      "year": "2013",
+      "authors": "T. Vatanen, T. Raiko, H. Valpola, and Y. LeCun",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2013-network_in_network",
+      "type": "core",
+      "title": "Network in network",
+      "year": "2013",
+      "authors": "M. Lin, Q. Chen, and S. Yan",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2013-maxout_networks",
+      "type": "core",
+      "title": "Maxout networks",
+      "year": "2013",
+      "authors": "I. J. Goodfellow, D. Warde-Farley, M. Mirza, A. Courville, and Y. Bengio",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2013-exact_solutions_to_the_nonlinear_dynamics_of_learning_in_deep_linear_neural_networks",
+      "type": "core",
+      "title": "Exact solutions to the nonlinear dynamics of learning in deep linear neural networks",
+      "year": "2013",
+      "authors": "A. M. Saxe, J. L. McClelland, and S. Ganguli",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2012-improving_neural_networks_by_preventing_co-adaptation_of_feature_detectors",
+      "type": "core",
+      "title": "Improving neural networks by preventing co-adaptation of feature detectors",
+      "year": "2012",
+      "authors": "G. E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever, and R. R. Salakhutdinov",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2012-imagenet_classification_with_deep_convolutional_neural_networks",
+      "type": "core",
+      "title": "Imagenet classification with deep convolutional neural networks",
+      "year": "2012",
+      "authors": "A. Krizhevsky, I. Sutskever, and G. Hinton",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2012-deep_learning_made_easier_by_linear_transformations_in_perceptrons",
+      "type": "core",
+      "title": "Deep learning made easier by linear transformations in perceptrons",
+      "year": "2012",
+      "authors": "T. Raiko, H. Valpola, and Y. LeCun",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2012-aggregating_local_image_descriptors_into_compact_codes",
+      "type": "core",
+      "title": "Aggregating local image descriptors into compact codes",
+      "year": "2012",
+      "authors": "H. Jegou, F. Perronnin, M. Douze, J. Sanchez, P. Perez, and C. Schmid",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2011-the_devil_is_in_the_details:_an_evaluation_of_recent_feature_encoding_methods",
+      "type": "core",
+      "title": "The devil is in the details: an evaluation of recent feature encoding methods",
+      "year": "2011",
+      "authors": "K. Chatfield, V. Lempitsky, A. Vedaldi, and A. Zisserman",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2011-product_quantization_for_nearest_neighbor_search",
+      "type": "core",
+      "title": "Product quantization for nearest neighbor search",
+      "year": "2011",
+      "authors": "H. Jegou, M. Douze, and C. Schmid",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2010-understanding_the_difficulty_of_training_deep_feedforward_neural_networks",
+      "type": "core",
+      "title": "Understanding the difficulty of training deep feedforward neural networks",
+      "year": "2010",
+      "authors": "X. Glorot and Y. Bengio",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2010-the_pascal_visual_object_classes_(voc)_challenge",
+      "type": "core",
+      "title": "The Pascal Visual Object Classes (VOC) Challenge",
+      "year": "2010",
+      "authors": "M. Everingham, L. Van Gool, C. K. Williams, J. Winn, and A. Zisserman",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2010-rectified_linear_units_improve_restricted_boltzmann_machines",
+      "type": "core",
+      "title": "Rectified linear units improve restricted boltzmann machines",
+      "year": "2010",
+      "authors": "V. Nair and G. E. Hinton",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2009-learning_multiple_layers_of_features_from_tiny_images",
+      "type": "core",
+      "title": "Learning multiple layers of features from tiny images",
+      "year": "2009",
+      "authors": "A. Krizhevsky",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2008-vlfeat:_an_open_and_portable_library_of_computer_vision_algorithms_2008",
+      "type": "core",
+      "title": "VLFeat: An open and portable library of computer vision algorithms, 2008",
+      "year": "2008",
+      "authors": "A. Vedaldi and B. Fulkerson",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2007-fisher_kernels_on_visual_vocabularies_for_image_categorization",
+      "type": "core",
+      "title": "Fisher kernels on visual vocabularies for image categorization",
+      "year": "2007",
+      "authors": "F. Perronnin and C. Dance",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2006-locally_adapted_hierarchical_basis_preconditioning",
+      "type": "core",
+      "title": "Locally adapted hierarchical basis preconditioning",
+      "year": "2006",
+      "authors": "R. Szeliski",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "2000-a_multigrid_tutorial",
+      "type": "core",
+      "title": "A Multigrid Tutorial",
+      "year": "2000",
+      "authors": "W. L. Briggs, S. F. McCormick, et al",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "1999-modern_applied_statistics_with_s-plus",
+      "type": "core",
+      "title": "Modern applied statistics with s-plus",
+      "year": "1999",
+      "authors": "W. Venables and B. Ripley",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "1998-efficient_backprop",
+      "type": "core",
+      "title": "Efficient backprop",
+      "year": "1998",
+      "authors": "Y. LeCun, L. Bottou, G. B. Orr, and K.-R. Müller",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "1998-centering_neural_network_gradient_factors",
+      "type": "core",
+      "title": "Centering neural network gradient factors",
+      "year": "1998",
+      "authors": "N. N. Schraudolph",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "1998-accelerated_gradient_descent_by_factor-centering_decomposition",
+      "type": "core",
+      "title": "Accelerated gradient descent by factor-centering decomposition",
+      "year": "1998",
+      "authors": "N. N. Schraudolph",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "1997-long_short-term_memory",
+      "type": "core",
+      "title": "Long short-term memory",
+      "year": "1997",
+      "authors": "S. Hochreiter and J. Schmidhuber",
+      "name": null,
+      "parents": [
+        "2017-attention_is_all_you_need",
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "1996-pattern_recognition_and_neural_networks",
+      "type": "core",
+      "title": "Pattern recognition and neural networks",
+      "year": "1996",
+      "authors": "B. D. Ripley",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "1995-neural_networks_for_pattern_recognition",
+      "type": "core",
+      "title": "Neural networks for pattern recognition",
+      "year": "1995",
+      "authors": "C. M. Bishop",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "1994-learning_long-term_dependencies_with_gradient_descent_is_difficult",
+      "type": "core",
+      "title": "Learning long-term dependencies with gradient descent is difficult",
+      "year": "1994",
+      "authors": "Y. Bengio, P. Simard, and P. Frasconi",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "1990-fast_surface_interpolation_using_hierarchical_basis_functions",
+      "type": "core",
+      "title": "Fast surface interpolation using hierarchical basis functions",
+      "year": "1990",
+      "authors": "R. Szeliski",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    },
+    {
+      "id": "1989-backpropagation_applied_to_handwritten_zip_code_recognition",
+      "type": "core",
+      "title": "Backpropagation applied to handwritten zip code recognition",
+      "year": "1989",
+      "authors": "Y. LeCun, B. Boser, J. S. Denker, D. Henderson, R. E. Howard, W. Hubbard, and L. D. Jackel",
+      "name": null,
+      "parents": [
+        "2016-deep_residual_learning_for_image_recognition"
+      ]
+    }
+  ]
+]

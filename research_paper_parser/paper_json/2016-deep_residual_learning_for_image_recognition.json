@@ -1,0 +1,1553 @@
+{
+  "name": "Residual",
+  "year": "2016",
+  "url": "https://ar5iv.labs.arxiv.org/html/1512.03385",
+  "title": "Deep Residual Learning for Image Recognition",
+  "sections": {
+    "S1": "1 Introduction",
+    "S2": "2 Related Work",
+    "S3": "3 Deep Residual Learning",
+    "S4": "4 Experiments"
+  },
+  "references": {
+    "1": {
+      "id": "1994-learning_long-term_dependencies_with_gradient_descent_is_difficult",
+      "enum": "1",
+      "authors": "Y. Bengio, P. Simard, and P. Frasconi",
+      "title": "Learning long-term dependencies with gradient descent is difficult",
+      "publication": "IEEE Transactions on Neural Networks, 5(2):157–166, 1994",
+      "year": "1994",
+      "summary": null,
+      "standard_url": null
+    },
+    "2": {
+      "id": "1995-neural_networks_for_pattern_recognition",
+      "enum": "2",
+      "authors": "Kyongsik Yun, Alexander Huyen, Thomas Lu",
+      "title": "Neural networks for pattern recognition",
+      "publication": "Oxford university press, 1995",
+      "year": "1995",
+      "summary": "In the field of pattern recognition research, the method of using deep neural networks based on improved computing hardware recently attracted attention because of their superior accuracy compared to conventional methods. Deep neural networks simulate the human visual system and achieve human equivalent accuracy in image classification, object detection, and segmentation. This chapter introduces the basic structure of deep neural networks that simulate human neural networks. Then we identify the operational processes and applications of conditional generative adversarial networks, which are being actively researched based on the bottom-up and top-down mechanisms, the most important functions of the human visual perception process. Finally, recent developments in training strategies for effective learning of complex deep neural networks are addressed.",
+      "standard_url": "http://arxiv.org/abs/1809.09645v1"
+    },
+    "3": {
+      "id": "2000-a_multigrid_tutorial",
+      "enum": "3",
+      "authors": "W. L. Briggs, S. F. McCormick, et al",
+      "title": "A Multigrid Tutorial",
+      "publication": "Siam, 2000",
+      "year": "2000",
+      "summary": null,
+      "standard_url": null
+    },
+    "4": {
+      "id": "2011-the_devil_is_in_the_details:_an_evaluation_of_recent_feature_encoding_methods",
+      "enum": "4",
+      "authors": "K. Chatfield, V. Lempitsky, A. Vedaldi, and A. Zisserman",
+      "title": "The devil is in the details: an evaluation of recent feature encoding methods",
+      "publication": "In BMVC, 2011",
+      "year": "2011",
+      "summary": null,
+      "standard_url": null
+    },
+    "5": {
+      "id": "2010-the_pascal_visual_object_classes_(voc)_challenge",
+      "enum": "5",
+      "authors": "M. Everingham, L. Van Gool, C. K. Williams, J. Winn, and A. Zisserman",
+      "title": "The Pascal Visual Object Classes (VOC) Challenge",
+      "publication": "IJCV, pages 303–338, 2010",
+      "year": "2010",
+      "summary": null,
+      "standard_url": null
+    },
+    "6": {
+      "id": "2015-object_detection_via_a_multi-region_&_semantic_segmentation-aware_cnn_model",
+      "enum": "6",
+      "authors": "Spyros Gidaris, Nikos Komodakis",
+      "title": "Object detection via a multi-region & semantic segmentation-aware cnn model",
+      "publication": "In ICCV, 2015",
+      "year": "2015",
+      "summary": "We propose an object detection system that relies on a multi-region deep convolutional neural network (CNN) that also encodes semantic segmentation-aware features. The resulting CNN-based representation aims at capturing a diverse set of discriminative appearance factors and exhibits localization sensitivity that is essential for accurate object localization. We exploit the above properties of our recognition module by integrating it on an iterative localization mechanism that alternates between scoring a box proposal and refining its location with a deep CNN regression model. Thanks to the efficient use of our modules, we detect objects with very high localization accuracy. On the detection challenges of PASCAL VOC2007 and PASCAL VOC2012 we achieve mAP of 78.2% and 73.9% correspondingly, surpassing any other published work by a significant margin.",
+      "standard_url": "http://arxiv.org/abs/1505.01749v3"
+    },
+    "7": {
+      "id": "2015-fast_r-cnn",
+      "enum": "7",
+      "authors": "Ross Girshick",
+      "title": "Fast R-CNN",
+      "publication": "In ICCV, 2015",
+      "year": "2015",
+      "summary": "This paper proposes a Fast Region-based Convolutional Network method (Fast R-CNN) for object detection. Fast R-CNN builds on previous work to efficiently classify object proposals using deep convolutional networks. Compared to previous work, Fast R-CNN employs several innovations to improve training and testing speed while also increasing detection accuracy. Fast R-CNN trains the very deep VGG16 network 9x faster than R-CNN, is 213x faster at test-time, and achieves a higher mAP on PASCAL VOC 2012. Compared to SPPnet, Fast R-CNN trains VGG16 3x faster, tests 10x faster, and is more accurate. Fast R-CNN is implemented in Python and C++ (using Caffe) and is available under the open-source MIT License at https://github.com/rbgirshick/fast-rcnn.",
+      "standard_url": "http://arxiv.org/abs/1504.08083v2"
+    },
+    "8": {
+      "id": "2014-rich_feature_hierarchies_for_accurate_object_detection_and_semantic_segmentation",
+      "enum": "8",
+      "authors": "Ross Girshick, Jeff Donahue, Trevor Darrell, Jitendra Malik",
+      "title": "Rich feature hierarchies for accurate object detection and semantic segmentation",
+      "publication": "In CVPR, 2014",
+      "year": "2014",
+      "summary": "Object detection performance, as measured on the canonical PASCAL VOC dataset, has plateaued in the last few years. The best-performing methods are complex ensemble systems that typically combine multiple low-level image features with high-level context. In this paper, we propose a simple and scalable detection algorithm that improves mean average precision (mAP) by more than 30% relative to the previous best result on VOC 2012---achieving a mAP of 53.3%. Our approach combines two key insights: (1) one can apply high-capacity convolutional neural networks (CNNs) to bottom-up region proposals in order to localize and segment objects and (2) when labeled training data is scarce, supervised pre-training for an auxiliary task, followed by domain-specific fine-tuning, yields a significant performance boost. Since we combine region proposals with CNNs, we call our method R-CNN: Regions with CNN features. We also compare R-CNN to OverFeat, a recently proposed sliding-window detector based on a similar CNN architecture. We find that R-CNN outperforms OverFeat by a large margin on the 200-class ILSVRC2013 detection dataset. Source code for the complete system is available at http://www.cs.berkeley.edu/~rbg/rcnn.",
+      "standard_url": "http://arxiv.org/abs/1311.2524v5"
+    },
+    "9": {
+      "id": "2010-understanding_the_difficulty_of_training_deep_feedforward_neural_networks",
+      "enum": "9",
+      "authors": "X. Glorot and Y. Bengio",
+      "title": "Understanding the difficulty of training deep feedforward neural networks",
+      "publication": "In AISTATS, 2010",
+      "year": "2010",
+      "summary": null,
+      "standard_url": null
+    },
+    "10": {
+      "id": "2013-maxout_networks",
+      "enum": "10",
+      "authors": "Ian J. Goodfellow, David Warde-Farley, Mehdi Mirza, Aaron Courville, Yoshua Bengio",
+      "title": "Maxout networks",
+      "publication": "arXiv:1302.4389, 2013",
+      "year": "2013",
+      "summary": "We consider the problem of designing models to leverage a recently introduced approximate model averaging technique called dropout. We define a simple new model called maxout (so named because its output is the max of a set of inputs, and because it is a natural companion to dropout) designed to both facilitate optimization by dropout and improve the accuracy of dropout's fast approximate model averaging technique. We empirically verify that the model successfully accomplishes both of these tasks. We use maxout and dropout to demonstrate state of the art classification performance on four benchmark datasets: MNIST, CIFAR-10, CIFAR-100, and SVHN.",
+      "standard_url": "http://arxiv.org/abs/1302.4389v4"
+    },
+    "11": {
+      "id": "2015-convolutional_neural_networks_at_constrained_time_cost",
+      "enum": "11",
+      "authors": "Kaiming He, Jian Sun",
+      "title": "Convolutional neural networks at constrained time cost",
+      "publication": "In CVPR, 2015",
+      "year": "2015",
+      "summary": "Though recent advanced convolutional neural networks (CNNs) have been improving the image recognition accuracy, the models are getting more complex and time-consuming. For real-world applications in industrial and commercial scenarios, engineers and developers are often faced with the requirement of constrained time budget. In this paper, we investigate the accuracy of CNNs under constrained time cost. Under this constraint, the designs of the network architectures should exhibit as trade-offs among the factors like depth, numbers of filters, filter sizes, etc. With a series of controlled comparisons, we progressively modify a baseline model while preserving its time complexity. This is also helpful for understanding the importance of the factors in network designs. We present an architecture that achieves very competitive accuracy in the ImageNet dataset (11.8% top-5 error, 10-view test), yet is 20% faster than \"AlexNet\" (16.0% top-5 error, 10-view test).",
+      "standard_url": "http://arxiv.org/abs/1412.1710v1"
+    },
+    "12": {
+      "id": "2014-spatial_pyramid_pooling_in_deep_convolutional_networks_for_visual_recognition",
+      "enum": "12",
+      "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun",
+      "title": "Spatial pyramid pooling in deep convolutional networks for visual recognition",
+      "publication": "In ECCV, 2014",
+      "year": "2014",
+      "summary": "Existing deep convolutional neural networks (CNNs) require a fixed-size (e.g., 224x224) input image. This requirement is \"artificial\" and may reduce the recognition accuracy for the images or sub-images of an arbitrary size/scale. In this work, we equip the networks with another pooling strategy, \"spatial pyramid pooling\", to eliminate the above requirement. The new network structure, called SPP-net, can generate a fixed-length representation regardless of image size/scale. Pyramid pooling is also robust to object deformations. With these advantages, SPP-net should in general improve all CNN-based image classification methods. On the ImageNet 2012 dataset, we demonstrate that SPP-net boosts the accuracy of a variety of CNN architectures despite their different designs. On the Pascal VOC 2007 and Caltech101 datasets, SPP-net achieves state-of-the-art classification results using a single full-image representation and no fine-tuning.\n  The power of SPP-net is also significant in object detection. Using SPP-net, we compute the feature maps from the entire image only once, and then pool features in arbitrary regions (sub-images) to generate fixed-length representations for training the detectors. This method avoids repeatedly computing the convolutional features. In processing test images, our method is 24-102x faster than the R-CNN method, while achieving better or comparable accuracy on Pascal VOC 2007.\n  In ImageNet Large Scale Visual Recognition Challenge (ILSVRC) 2014, our methods rank #2 in object detection and #3 in image classification among all 38 teams. This manuscript also introduces the improvement made for this competition.",
+      "standard_url": "http://arxiv.org/abs/1406.4729v4"
+    },
+    "13": {
+      "id": "2015-delving_deep_into_rectifiers:_surpassing_human-level_performance_on_imagenet_classification",
+      "enum": "13",
+      "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun",
+      "title": "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification",
+      "publication": "In ICCV, 2015",
+      "year": "2015",
+      "summary": "Rectified activation units (rectifiers) are essential for state-of-the-art neural networks. In this work, we study rectifier neural networks for image classification from two aspects. First, we propose a Parametric Rectified Linear Unit (PReLU) that generalizes the traditional rectified unit. PReLU improves model fitting with nearly zero extra computational cost and little overfitting risk. Second, we derive a robust initialization method that particularly considers the rectifier nonlinearities. This method enables us to train extremely deep rectified models directly from scratch and to investigate deeper or wider network architectures. Based on our PReLU networks (PReLU-nets), we achieve 4.94% top-5 test error on the ImageNet 2012 classification dataset. This is a 26% relative improvement over the ILSVRC 2014 winner (GoogLeNet, 6.66%). To our knowledge, our result is the first to surpass human-level performance (5.1%, Russakovsky et al.) on this visual recognition challenge.",
+      "standard_url": "http://arxiv.org/abs/1502.01852v1"
+    },
+    "14": {
+      "id": "2012-improving_neural_networks_by_preventing_co-adaptation_of_feature_detectors",
+      "enum": "14",
+      "authors": "Geoffrey E. Hinton, Nitish Srivastava, Alex Krizhevsky, Ilya Sutskever, Ruslan R. Salakhutdinov",
+      "title": "Improving neural networks by preventing co-adaptation of feature detectors",
+      "publication": "arXiv:1207.0580, 2012",
+      "year": "2012",
+      "summary": "When a large feedforward neural network is trained on a small training set, it typically performs poorly on held-out test data. This \"overfitting\" is greatly reduced by randomly omitting half of the feature detectors on each training case. This prevents complex co-adaptations in which a feature detector is only helpful in the context of several other specific feature detectors. Instead, each neuron learns to detect a feature that is generally helpful for producing the correct answer given the combinatorially large variety of internal contexts in which it must operate. Random \"dropout\" gives big improvements on many benchmark tasks and sets new records for speech and object recognition.",
+      "standard_url": "http://arxiv.org/abs/1207.0580v1"
+    },
+    "15": {
+      "id": "1997-long_short-term_memory",
+      "enum": "15",
+      "authors": "Ivo Danihelka, Greg Wayne, Benigno Uria, Nal Kalchbrenner, Alex Graves",
+      "title": "Long short-term memory",
+      "publication": "Neural computation, 9(8):1735–1780, 1997",
+      "year": "1997",
+      "summary": "We investigate a new method to augment recurrent neural networks with extra memory without increasing the number of network parameters. The system has an associative memory based on complex-valued vectors and is closely related to Holographic Reduced Representations and Long Short-Term Memory networks. Holographic Reduced Representations have limited capacity: as they store more information, each retrieval becomes noisier due to interference. Our system in contrast creates redundant copies of stored information, which enables retrieval with reduced noise. Experiments demonstrate faster learning on multiple memorization tasks.",
+      "standard_url": "http://arxiv.org/abs/1602.03032v2"
+    },
+    "16": {
+      "id": "2015-batch_normalization:_accelerating_deep_network_training_by_reducing_internal_covariate_shift",
+      "enum": "16",
+      "authors": "Sergey Ioffe, Christian Szegedy",
+      "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift",
+      "publication": "In ICML, 2015",
+      "year": "2015",
+      "summary": "Training Deep Neural Networks is complicated by the fact that the distribution of each layer's inputs changes during training, as the parameters of the previous layers change. This slows down the training by requiring lower learning rates and careful parameter initialization, and makes it notoriously hard to train models with saturating nonlinearities. We refer to this phenomenon as internal covariate shift, and address the problem by normalizing layer inputs. Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch Normalization allows us to use much higher learning rates and be less careful about initialization. It also acts as a regularizer, in some cases eliminating the need for Dropout. Applied to a state-of-the-art image classification model, Batch Normalization achieves the same accuracy with 14 times fewer training steps, and beats the original model by a significant margin. Using an ensemble of batch-normalized networks, we improve upon the best published result on ImageNet classification: reaching 4.9% top-5 validation error (and 4.8% test error), exceeding the accuracy of human raters.",
+      "standard_url": "http://arxiv.org/abs/1502.03167v3"
+    },
+    "17": {
+      "id": "2011-product_quantization_for_nearest_neighbor_search",
+      "enum": "17",
+      "authors": "H. Jegou, M. Douze, and C. Schmid",
+      "title": "Product quantization for nearest neighbor search",
+      "publication": "TPAMI, 33, 2011",
+      "year": "2011",
+      "summary": null,
+      "standard_url": null
+    },
+    "18": {
+      "id": "2012-aggregating_local_image_descriptors_into_compact_codes",
+      "enum": "18",
+      "authors": "H. Jegou, F. Perronnin, M. Douze, J. Sanchez, P. Perez, and C. Schmid",
+      "title": "Aggregating local image descriptors into compact codes",
+      "publication": "TPAMI, 2012",
+      "year": "2012",
+      "summary": null,
+      "standard_url": null
+    },
+    "19": {
+      "id": "2014-caffe:_convolutional_architecture_for_fast_feature_embedding",
+      "enum": "19",
+      "authors": "Yangqing Jia, Evan Shelhamer, Jeff Donahue, Sergey Karayev, Jonathan Long, Ross Girshick, Sergio Guadarrama, Trevor Darrell",
+      "title": "Caffe: Convolutional architecture for fast feature embedding",
+      "publication": "arXiv:1408.5093, 2014",
+      "year": "2014",
+      "summary": "Caffe provides multimedia scientists and practitioners with a clean and modifiable framework for state-of-the-art deep learning algorithms and a collection of reference models. The framework is a BSD-licensed C++ library with Python and MATLAB bindings for training and deploying general-purpose convolutional neural networks and other deep models efficiently on commodity architectures. Caffe fits industry and internet-scale media needs by CUDA GPU computation, processing over 40 million images a day on a single K40 or Titan GPU ($\\approx$ 2.5 ms per image). By separating model representation from actual implementation, Caffe allows experimentation and seamless switching among platforms for ease of development and deployment from prototyping machines to cloud environments. Caffe is maintained and developed by the Berkeley Vision and Learning Center (BVLC) with the help of an active community of contributors on GitHub. It powers ongoing research projects, large-scale industrial applications, and startup prototypes in vision, speech, and multimedia.",
+      "standard_url": "http://arxiv.org/abs/1408.5093v1"
+    },
+    "20": {
+      "id": "2009-learning_multiple_layers_of_features_from_tiny_images",
+      "enum": "20",
+      "authors": "A. Krizhevsky",
+      "title": "Learning multiple layers of features from tiny images",
+      "publication": "Tech Report, 2009",
+      "year": "2009",
+      "summary": null,
+      "standard_url": null
+    },
+    "21": {
+      "id": "2012-imagenet_classification_with_deep_convolutional_neural_networks",
+      "enum": "21",
+      "authors": "A. Krizhevsky, I. Sutskever, and G. Hinton",
+      "title": "Imagenet classification with deep convolutional neural networks",
+      "publication": "In NIPS, 2012",
+      "year": "2012",
+      "summary": null,
+      "standard_url": null
+    },
+    "22": {
+      "id": "1989-backpropagation_applied_to_handwritten_zip_code_recognition",
+      "enum": "22",
+      "authors": "Y. LeCun, B. Boser, J. S. Denker, D. Henderson, R. E. Howard, W. Hubbard, and L. D. Jackel",
+      "title": "Backpropagation applied to handwritten zip code recognition",
+      "publication": "Neural computation, 1989",
+      "year": "1989",
+      "summary": null,
+      "standard_url": null
+    },
+    "23": {
+      "id": "1998-efficient_backprop",
+      "enum": "23",
+      "authors": "Y. LeCun, L. Bottou, G. B. Orr, and K.-R. Müller",
+      "title": "Efficient backprop",
+      "publication": "In Neural Networks: Tricks of the Trade, pages 9–50. Springer, 1998",
+      "year": "1998",
+      "summary": null,
+      "standard_url": null
+    },
+    "24": {
+      "id": "2014-deeply-supervised_nets",
+      "enum": "24",
+      "authors": "Chen-Yu Lee, Saining Xie, Patrick Gallagher, Zhengyou Zhang, Zhuowen Tu",
+      "title": "Deeply-supervised nets",
+      "publication": "arXiv:1409.5185, 2014",
+      "year": "2014",
+      "summary": "Our proposed deeply-supervised nets (DSN) method simultaneously minimizes classification error while making the learning process of hidden layers direct and transparent. We make an attempt to boost the classification performance by studying a new formulation in deep networks. Three aspects in convolutional neural networks (CNN) style architectures are being looked at: (1) transparency of the intermediate layers to the overall classification; (2) discriminativeness and robustness of learned features, especially in the early layers; (3) effectiveness in training due to the presence of the exploding and vanishing gradients. We introduce \"companion objective\" to the individual hidden layers, in addition to the overall objective at the output layer (a different strategy to layer-wise pre-training). We extend techniques from stochastic gradient methods to analyze our algorithm. The advantage of our method is evident and our experimental result on benchmark datasets shows significant performance gain over existing methods (e.g. all state-of-the-art results on MNIST, CIFAR-10, CIFAR-100, and SVHN).",
+      "standard_url": "http://arxiv.org/abs/1409.5185v2"
+    },
+    "25": {
+      "id": "2013-network_in_network",
+      "enum": "25",
+      "authors": "Min Lin, Qiang Chen, Shuicheng Yan",
+      "title": "Network in network",
+      "publication": "arXiv:1312.4400, 2013",
+      "year": "2013",
+      "summary": "We propose a novel deep network structure called \"Network In Network\" (NIN) to enhance model discriminability for local patches within the receptive field. The conventional convolutional layer uses linear filters followed by a nonlinear activation function to scan the input. Instead, we build micro neural networks with more complex structures to abstract the data within the receptive field. We instantiate the micro neural network with a multilayer perceptron, which is a potent function approximator. The feature maps are obtained by sliding the micro networks over the input in a similar manner as CNN; they are then fed into the next layer. Deep NIN can be implemented by stacking mutiple of the above described structure. With enhanced local modeling via the micro network, we are able to utilize global average pooling over feature maps in the classification layer, which is easier to interpret and less prone to overfitting than traditional fully connected layers. We demonstrated the state-of-the-art classification performances with NIN on CIFAR-10 and CIFAR-100, and reasonable performances on SVHN and MNIST datasets.",
+      "standard_url": "http://arxiv.org/abs/1312.4400v3"
+    },
+    "26": {
+      "id": "2014-microsoft_coco:_common_objects_in_context",
+      "enum": "26",
+      "authors": "Tsung-Yi Lin, Michael Maire, Serge Belongie, Lubomir Bourdev, Ross Girshick, James Hays, Pietro Perona, Deva Ramanan, C. Lawrence Zitnick, Piotr Dollár",
+      "title": "Microsoft COCO: Common objects in context",
+      "publication": "In ECCV. 2014",
+      "year": "2014",
+      "summary": "We present a new dataset with the goal of advancing the state-of-the-art in object recognition by placing the question of object recognition in the context of the broader question of scene understanding. This is achieved by gathering images of complex everyday scenes containing common objects in their natural context. Objects are labeled using per-instance segmentations to aid in precise object localization. Our dataset contains photos of 91 objects types that would be easily recognizable by a 4 year old. With a total of 2.5 million labeled instances in 328k images, the creation of our dataset drew upon extensive crowd worker involvement via novel user interfaces for category detection, instance spotting and instance segmentation. We present a detailed statistical analysis of the dataset in comparison to PASCAL, ImageNet, and SUN. Finally, we provide baseline performance analysis for bounding box and segmentation detection results using a Deformable Parts Model.",
+      "standard_url": "http://arxiv.org/abs/1405.0312v3"
+    },
+    "27": {
+      "id": "2015-fully_convolutional_networks_for_semantic_segmentation",
+      "enum": "27",
+      "authors": "Evan Shelhamer, Jonathan Long, Trevor Darrell",
+      "title": "Fully convolutional networks for semantic segmentation",
+      "publication": "In CVPR, 2015",
+      "year": "2015",
+      "summary": "Convolutional networks are powerful visual models that yield hierarchies of features. We show that convolutional networks by themselves, trained end-to-end, pixels-to-pixels, improve on the previous best result in semantic segmentation. Our key insight is to build \"fully convolutional\" networks that take input of arbitrary size and produce correspondingly-sized output with efficient inference and learning. We define and detail the space of fully convolutional networks, explain their application to spatially dense prediction tasks, and draw connections to prior models. We adapt contemporary classification networks (AlexNet, the VGG net, and GoogLeNet) into fully convolutional networks and transfer their learned representations by fine-tuning to the segmentation task. We then define a skip architecture that combines semantic information from a deep, coarse layer with appearance information from a shallow, fine layer to produce accurate and detailed segmentations. Our fully convolutional network achieves improved segmentation of PASCAL VOC (30% relative improvement to 67.2% mean IU on 2012), NYUDv2, SIFT Flow, and PASCAL-Context, while inference takes one tenth of a second for a typical image.",
+      "standard_url": "http://arxiv.org/abs/1605.06211v1"
+    },
+    "28": {
+      "id": "2014-on_the_number_of_linear_regions_of_deep_neural_networks",
+      "enum": "28",
+      "authors": "Guido Montúfar, Razvan Pascanu, Kyunghyun Cho, Yoshua Bengio",
+      "title": "On the number of linear regions of deep neural networks",
+      "publication": "In NIPS, 2014",
+      "year": "2014",
+      "summary": "We study the complexity of functions computable by deep feedforward neural networks with piecewise linear activations in terms of the symmetries and the number of linear regions that they have. Deep networks are able to sequentially map portions of each layer's input-space to the same output. In this way, deep models compute functions that react equally to complicated patterns of different inputs. The compositional structure of these functions enables them to re-use pieces of computation exponentially often in terms of the network's depth. This paper investigates the complexity of such compositional maps and contributes new theoretical results regarding the advantage of depth for neural networks with piecewise linear activation functions. In particular, our analysis is not specific to a single family of models, and as an example, we employ it for rectifier and maxout networks. We improve complexity bounds from pre-existing work and investigate the behavior of units in higher layers.",
+      "standard_url": "http://arxiv.org/abs/1402.1869v2"
+    },
+    "29": {
+      "id": "2010-rectified_linear_units_improve_restricted_boltzmann_machines",
+      "enum": "29",
+      "authors": "V. Nair and G. E. Hinton",
+      "title": "Rectified linear units improve restricted boltzmann machines",
+      "publication": "In ICML, 2010",
+      "year": "2010",
+      "summary": null,
+      "standard_url": null
+    },
+    "30": {
+      "id": "2007-fisher_kernels_on_visual_vocabularies_for_image_categorization",
+      "enum": "30",
+      "authors": "F. Perronnin and C. Dance",
+      "title": "Fisher kernels on visual vocabularies for image categorization",
+      "publication": "In CVPR, 2007",
+      "year": "2007",
+      "summary": null,
+      "standard_url": null
+    },
+    "31": {
+      "id": "2012-deep_learning_made_easier_by_linear_transformations_in_perceptrons",
+      "enum": "31",
+      "authors": "T. Raiko, H. Valpola, and Y. LeCun",
+      "title": "Deep learning made easier by linear transformations in perceptrons",
+      "publication": "In AISTATS, 2012",
+      "year": "2012",
+      "summary": null,
+      "standard_url": null
+    },
+    "32": {
+      "id": "2015-faster_r-cnn:_towards_real-time_object_detection_with_region_proposal_networks",
+      "enum": "32",
+      "authors": "Shaoqing Ren, Kaiming He, Ross Girshick, Jian Sun",
+      "title": "Faster R-CNN: Towards real-time object detection with region proposal networks",
+      "publication": "In NIPS, 2015",
+      "year": "2015",
+      "summary": "State-of-the-art object detection networks depend on region proposal algorithms to hypothesize object locations. Advances like SPPnet and Fast R-CNN have reduced the running time of these detection networks, exposing region proposal computation as a bottleneck. In this work, we introduce a Region Proposal Network (RPN) that shares full-image convolutional features with the detection network, thus enabling nearly cost-free region proposals. An RPN is a fully convolutional network that simultaneously predicts object bounds and objectness scores at each position. The RPN is trained end-to-end to generate high-quality region proposals, which are used by Fast R-CNN for detection. We further merge RPN and Fast R-CNN into a single network by sharing their convolutional features---using the recently popular terminology of neural networks with 'attention' mechanisms, the RPN component tells the unified network where to look. For the very deep VGG-16 model, our detection system has a frame rate of 5fps (including all steps) on a GPU, while achieving state-of-the-art object detection accuracy on PASCAL VOC 2007, 2012, and MS COCO datasets with only 300 proposals per image. In ILSVRC and COCO 2015 competitions, Faster R-CNN and RPN are the foundations of the 1st-place winning entries in several tracks. Code has been made publicly available.",
+      "standard_url": "http://arxiv.org/abs/1506.01497v3"
+    },
+    "33": {
+      "id": "2015-object_detection_networks_on_convolutional_feature_maps",
+      "enum": "33",
+      "authors": "Shaoqing Ren, Kaiming He, Ross Girshick, Xiangyu Zhang, Jian Sun",
+      "title": "Object detection networks on convolutional feature maps",
+      "publication": "arXiv:1504.06066, 2015",
+      "year": "2015",
+      "summary": "Most object detectors contain two important components: a feature extractor and an object classifier. The feature extractor has rapidly evolved with significant research efforts leading to better deep convolutional architectures. The object classifier, however, has not received much attention and many recent systems (like SPPnet and Fast/Faster R-CNN) use simple multi-layer perceptrons. This paper demonstrates that carefully designing deep networks for object classification is just as important. We experiment with region-wise classifier networks that use shared, region-independent convolutional features. We call them \"Networks on Convolutional feature maps\" (NoCs). We discover that aside from deep feature maps, a deep and convolutional per-region classifier is of particular importance for object detection, whereas latest superior image classification models (such as ResNets and GoogLeNets) do not directly lead to good detection accuracy without using such a per-region classifier. We show by experiments that despite the effective ResNets and Faster R-CNN systems, the design of NoCs is an essential element for the 1st-place winning entries in ImageNet and MS COCO challenges 2015.",
+      "standard_url": "http://arxiv.org/abs/1504.06066v2"
+    },
+    "34": {
+      "id": "1996-pattern_recognition_and_neural_networks",
+      "enum": "34",
+      "authors": "B. D. Ripley",
+      "title": "Pattern recognition and neural networks",
+      "publication": "Cambridge university press, 1996",
+      "year": "1996",
+      "summary": null,
+      "standard_url": null
+    },
+    "35": {
+      "id": "2015-fitnets:_hints_for_thin_deep_nets",
+      "enum": "35",
+      "authors": "Adriana Romero, Nicolas Ballas, Samira Ebrahimi Kahou, Antoine Chassang, Carlo Gatta, Yoshua Bengio",
+      "title": "Fitnets: Hints for thin deep nets",
+      "publication": "In ICLR, 2015",
+      "year": "2015",
+      "summary": "While depth tends to improve network performances, it also makes gradient-based training more difficult since deeper networks tend to be more non-linear. The recently proposed knowledge distillation approach is aimed at obtaining small and fast-to-execute models, and it has shown that a student network could imitate the soft output of a larger teacher network or ensemble of networks. In this paper, we extend this idea to allow the training of a student that is deeper and thinner than the teacher, using not only the outputs but also the intermediate representations learned by the teacher as hints to improve the training process and final performance of the student. Because the student intermediate hidden layer will generally be smaller than the teacher's intermediate hidden layer, additional parameters are introduced to map the student hidden layer to the prediction of the teacher hidden layer. This allows one to train deeper students that can generalize better or run faster, a trade-off that is controlled by the chosen student capacity. For example, on CIFAR-10, a deep student network with almost 10.4 times less parameters outperforms a larger, state-of-the-art teacher network.",
+      "standard_url": "http://arxiv.org/abs/1412.6550v4"
+    },
+    "36": {
+      "id": "2014-imagenet_large_scale_visual_recognition_challenge",
+      "enum": "36",
+      "authors": "Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, Zhiheng Huang, Andrej Karpathy, Aditya Khosla, Michael Bernstein, Alexander C. Berg, Li Fei-Fei",
+      "title": "Imagenet large scale visual recognition challenge",
+      "publication": "arXiv:1409.0575, 2014",
+      "year": "2014",
+      "summary": "The ImageNet Large Scale Visual Recognition Challenge is a benchmark in object category classification and detection on hundreds of object categories and millions of images. The challenge has been run annually from 2010 to present, attracting participation from more than fifty institutions.\n  This paper describes the creation of this benchmark dataset and the advances in object recognition that have been possible as a result. We discuss the challenges of collecting large-scale ground truth annotation, highlight key breakthroughs in categorical object recognition, provide a detailed analysis of the current state of the field of large-scale image classification and object detection, and compare the state-of-the-art computer vision accuracy with human accuracy. We conclude with lessons learned in the five years of the challenge, and propose future directions and improvements.",
+      "standard_url": "http://arxiv.org/abs/1409.0575v3"
+    },
+    "37": {
+      "id": "2013-exact_solutions_to_the_nonlinear_dynamics_of_learning_in_deep_linear_neural_networks",
+      "enum": "37",
+      "authors": "Andrew M. Saxe, James L. McClelland, Surya Ganguli",
+      "title": "Exact solutions to the nonlinear dynamics of learning in deep linear neural networks",
+      "publication": "arXiv:1312.6120, 2013",
+      "year": "2013",
+      "summary": "Despite the widespread practical success of deep learning methods, our theoretical understanding of the dynamics of learning in deep neural networks remains quite sparse. We attempt to bridge the gap between the theory and practice of deep learning by systematically analyzing learning dynamics for the restricted case of deep linear neural networks. Despite the linearity of their input-output map, such networks have nonlinear gradient descent dynamics on weights that change with the addition of each new hidden layer. We show that deep linear networks exhibit nonlinear learning phenomena similar to those seen in simulations of nonlinear networks, including long plateaus followed by rapid transitions to lower error solutions, and faster convergence from greedy unsupervised pretraining initial conditions than from random initial conditions. We provide an analytical description of these phenomena by finding new exact solutions to the nonlinear dynamics of deep learning. Our theoretical analysis also reveals the surprising finding that as the depth of a network approaches infinity, learning speed can nevertheless remain finite: for a special class of initial conditions on the weights, very deep networks incur only a finite, depth independent, delay in learning speed relative to shallow networks. We show that, under certain conditions on the training data, unsupervised pretraining can find this special class of initial conditions, while scaled random Gaussian initializations cannot. We further exhibit a new class of random orthogonal initial conditions on weights that, like unsupervised pre-training, enjoys depth independent learning times. We further show that these initial conditions also lead to faithful propagation of gradients even in deep nonlinear networks, as long as they operate in a special regime known as the edge of chaos.",
+      "standard_url": "http://arxiv.org/abs/1312.6120v3"
+    },
+    "38": {
+      "id": "1998-accelerated_gradient_descent_by_factor-centering_decomposition",
+      "enum": "38",
+      "authors": "N. N. Schraudolph",
+      "title": "Accelerated gradient descent by factor-centering decomposition",
+      "publication": "Technical report, 1998",
+      "year": "1998",
+      "summary": null,
+      "standard_url": null
+    },
+    "39": {
+      "id": "1998-centering_neural_network_gradient_factors",
+      "enum": "39",
+      "authors": "N. N. Schraudolph",
+      "title": "Centering neural network gradient factors",
+      "publication": "In Neural Networks: Tricks of the Trade, pages 207–226. Springer, 1998",
+      "year": "1998",
+      "summary": null,
+      "standard_url": null
+    },
+    "40": {
+      "id": "2014-overfeat:_integrated_recognition_localization_and_detection_using_convolutional_networks",
+      "enum": "40",
+      "authors": "Pierre Sermanet, David Eigen, Xiang Zhang, Michael Mathieu, Rob Fergus, Yann LeCun",
+      "title": "Overfeat: Integrated recognition, localization and detection using convolutional networks",
+      "publication": "In ICLR, 2014",
+      "year": "2014",
+      "summary": "We present an integrated framework for using Convolutional Networks for classification, localization and detection. We show how a multiscale and sliding window approach can be efficiently implemented within a ConvNet. We also introduce a novel deep learning approach to localization by learning to predict object boundaries. Bounding boxes are then accumulated rather than suppressed in order to increase detection confidence. We show that different tasks can be learned simultaneously using a single shared network. This integrated framework is the winner of the localization task of the ImageNet Large Scale Visual Recognition Challenge 2013 (ILSVRC2013) and obtained very competitive results for the detection and classifications tasks. In post-competition work, we establish a new state of the art for the detection task. Finally, we release a feature extractor from our best model called OverFeat.",
+      "standard_url": "http://arxiv.org/abs/1312.6229v4"
+    },
+    "41": {
+      "id": "2015-very_deep_convolutional_networks_for_large-scale_image_recognition",
+      "enum": "41",
+      "authors": "Karen Simonyan, Andrew Zisserman",
+      "title": "Very deep convolutional networks for large-scale image recognition",
+      "publication": "In ICLR, 2015",
+      "year": "2015",
+      "summary": "In this work we investigate the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting. Our main contribution is a thorough evaluation of networks of increasing depth using an architecture with very small (3x3) convolution filters, which shows that a significant improvement on the prior-art configurations can be achieved by pushing the depth to 16-19 weight layers. These findings were the basis of our ImageNet Challenge 2014 submission, where our team secured the first and the second places in the localisation and classification tracks respectively. We also show that our representations generalise well to other datasets, where they achieve state-of-the-art results. We have made our two best-performing ConvNet models publicly available to facilitate further research on the use of deep visual representations in computer vision.",
+      "standard_url": "http://arxiv.org/abs/1409.1556v6"
+    },
+    "42": {
+      "id": "2015-highway_networks",
+      "enum": "42",
+      "authors": "Rupesh Kumar Srivastava, Klaus Greff, Jürgen Schmidhuber",
+      "title": "Highway networks",
+      "publication": "arXiv:1505.00387, 2015",
+      "year": "2015",
+      "summary": "There is plenty of theoretical and empirical evidence that depth of neural networks is a crucial ingredient for their success. However, network training becomes more difficult with increasing depth and training of very deep networks remains an open problem. In this extended abstract, we introduce a new architecture designed to ease gradient-based training of very deep networks. We refer to networks with this architecture as highway networks, since they allow unimpeded information flow across several layers on \"information highways\". The architecture is characterized by the use of gating units which learn to regulate the flow of information through a network. Highway networks with hundreds of layers can be trained directly using stochastic gradient descent and with a variety of activation functions, opening up the possibility of studying extremely deep and efficient architectures.",
+      "standard_url": "http://arxiv.org/abs/1505.00387v2"
+    },
+    "43": {
+      "id": "2015-training_very_deep_networks",
+      "enum": "43",
+      "authors": "Rupesh Kumar Srivastava, Klaus Greff, Jürgen Schmidhuber",
+      "title": "Training very deep networks",
+      "publication": "1507.06228, 2015",
+      "year": "2015",
+      "summary": "Theoretical and empirical evidence indicates that the depth of neural networks is crucial for their success. However, training becomes more difficult as depth increases, and training of very deep networks remains an open problem. Here we introduce a new architecture designed to overcome this. Our so-called highway networks allow unimpeded information flow across many layers on information highways. They are inspired by Long Short-Term Memory recurrent networks and use adaptive gating units to regulate the information flow. Even with hundreds of layers, highway networks can be trained directly through simple gradient descent. This enables the study of extremely deep and efficient architectures.",
+      "standard_url": "http://arxiv.org/abs/1507.06228v2"
+    },
+    "44": {
+      "id": "2015-going_deeper_with_convolutions",
+      "enum": "44",
+      "authors": "Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich",
+      "title": "Going deeper with convolutions",
+      "publication": "In CVPR, 2015",
+      "year": "2015",
+      "summary": "We propose a deep convolutional neural network architecture codenamed \"Inception\", which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC 2014 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.",
+      "standard_url": "http://arxiv.org/abs/1409.4842v1"
+    },
+    "45": {
+      "id": "1990-fast_surface_interpolation_using_hierarchical_basis_functions",
+      "enum": "45",
+      "authors": "R. Szeliski",
+      "title": "Fast surface interpolation using hierarchical basis functions",
+      "publication": "TPAMI, 1990",
+      "year": "1990",
+      "summary": null,
+      "standard_url": null
+    },
+    "46": {
+      "id": "2006-locally_adapted_hierarchical_basis_preconditioning",
+      "enum": "46",
+      "authors": "R. Szeliski",
+      "title": "Locally adapted hierarchical basis preconditioning",
+      "publication": "In SIGGRAPH, 2006",
+      "year": "2006",
+      "summary": null,
+      "standard_url": null
+    },
+    "47": {
+      "id": "2013-pushing_stochastic_gradient_towards_second-order_methods–backpropagation_learning_with_transformations_in_nonlinearities",
+      "enum": "47",
+      "authors": "Tommi Vatanen, Tapani Raiko, Harri Valpola, Yann LeCun",
+      "title": "Pushing stochastic gradient towards second-order methods–backpropagation learning with transformations in nonlinearities",
+      "publication": "In Neural Information Processing, 2013",
+      "year": "2013",
+      "summary": "Recently, we proposed to transform the outputs of each hidden neuron in a multi-layer perceptron network to have zero output and zero slope on average, and use separate shortcut connections to model the linear dependencies instead. We continue the work by firstly introducing a third transformation to normalize the scale of the outputs of each hidden neuron, and secondly by analyzing the connections to second order optimization methods. We show that the transformations make a simple stochastic gradient behave closer to second-order optimization methods and thus speed up learning. This is shown both in theory and with experiments. The experiments on the third transformation show that while it further increases the speed of learning, it can also hurt performance by converging to a worse local optimum, where both the inputs and outputs of many hidden neurons are close to zero.",
+      "standard_url": "http://arxiv.org/abs/1301.3476v3"
+    },
+    "48": {
+      "id": "2008-vlfeat:_an_open_and_portable_library_of_computer_vision_algorithms_2008",
+      "enum": "48",
+      "authors": "A. Vedaldi and B. Fulkerson",
+      "title": "VLFeat: An open and portable library of computer vision algorithms, 2008",
+      "publication": null,
+      "year": "2008",
+      "summary": null,
+      "standard_url": null
+    },
+    "49": {
+      "id": "1999-modern_applied_statistics_with_s-plus",
+      "enum": "49",
+      "authors": "W. Venables and B. Ripley",
+      "title": "Modern applied statistics with s-plus",
+      "publication": "1999",
+      "year": "1999",
+      "summary": null,
+      "standard_url": null
+    },
+    "50": {
+      "id": "2014-visualizing_and_understanding_convolutional_neural_networks",
+      "enum": "50",
+      "authors": "M. D. Zeiler and R. Fergus",
+      "title": "Visualizing and understanding convolutional neural networks",
+      "publication": "In ECCV, 2014",
+      "year": "2014",
+      "summary": null,
+      "standard_url": null
+    }
+  },
+  "citations": [
+    {
+      "section_id": "id1",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers—8×\\timesdeeper than VGG nets[41]but still having lower complexity"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "22",
+      "cite_id": "bib.bib22",
+      "sentence": "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "50",
+      "cite_id": "bib.bib50",
+      "sentence": "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "40",
+      "cite_id": "bib.bib40",
+      "sentence": "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "50",
+      "cite_id": "bib.bib50",
+      "sentence": "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "44",
+      "cite_id": "bib.bib44",
+      "sentence": "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "44",
+      "cite_id": "bib.bib44",
+      "sentence": "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "13",
+      "cite_id": "bib.bib13",
+      "sentence": "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "36",
+      "cite_id": "bib.bib36",
+      "sentence": "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "12",
+      "cite_id": "bib.bib12",
+      "sentence": "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "27",
+      "cite_id": "bib.bib27",
+      "sentence": "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "Driven by the significance of depth, a question arises:Is learning better networks as easy as stacking more layers?An obstacle to answering this question was the notorious problem of vanishing/exploding gradients[1,9], which hamper convergence from the beginning"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "Driven by the significance of depth, a question arises:Is learning better networks as easy as stacking more layers?An obstacle to answering this question was the notorious problem of vanishing/exploding gradients[1,9], which hamper convergence from the beginning"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "23",
+      "cite_id": "bib.bib23",
+      "sentence": "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "Driven by the significance of depth, a question arises:Is learning better networks as easy as stacking more layers?An obstacle to answering this question was the notorious problem of vanishing/exploding gradients[1,9], which hamper convergence from the beginning"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "37",
+      "cite_id": "bib.bib37",
+      "sentence": "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "13",
+      "cite_id": "bib.bib13",
+      "sentence": "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "22",
+      "cite_id": "bib.bib22",
+      "sentence": "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "11",
+      "cite_id": "bib.bib11",
+      "sentence": "Unexpectedly, such degradation isnot caused by overfitting, and adding more layers to a suitably deep model leads tohigher training error, as reported in[11,42]and thoroughly verified by our experiments"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "42",
+      "cite_id": "bib.bib42",
+      "sentence": "Unexpectedly, such degradation isnot caused by overfitting, and adding more layers to a suitably deep model leads tohigher training error, as reported in[11,42]and thoroughly verified by our experiments"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "2)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "34",
+      "cite_id": "bib.bib34",
+      "sentence": "Shortcut connections[2,34,49]are those skipping one or more layers"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "49",
+      "cite_id": "bib.bib49",
+      "sentence": "Shortcut connections[2,34,49]are those skipping one or more layers"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "19",
+      "cite_id": "bib.bib19",
+      "sentence": ", Caffe[19]) without modifying the solvers"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "36",
+      "cite_id": "bib.bib36",
+      "sentence": "We present comprehensive experiments on ImageNet[36]to show the degradation problem and evaluate our method"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "20",
+      "cite_id": "bib.bib20",
+      "sentence": "Similar phenomena are also shown on the CIFAR-10 set[20], suggesting that the optimization difficulties and the effects of our method are not just akin to a particular dataset"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "36",
+      "cite_id": "bib.bib36",
+      "sentence": "On the ImageNet classification dataset[36], we obtain excellent results by extremely deep residual nets"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Our 152-layer residual net is the deepest network ever presented on ImageNet, while still having lower complexity than VGG nets[41]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "18",
+      "cite_id": "bib.bib18",
+      "sentence": "In image recognition, VLAD[18]is a representation that encodes by the residual vectors with respect to a dictionary, and Fisher Vector[30]can be formulated as a probabilistic version[18]of VLAD"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "30",
+      "cite_id": "bib.bib30",
+      "sentence": "In image recognition, VLAD[18]is a representation that encodes by the residual vectors with respect to a dictionary, and Fisher Vector[30]can be formulated as a probabilistic version[18]of VLAD"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "18",
+      "cite_id": "bib.bib18",
+      "sentence": "In image recognition, VLAD[18]is a representation that encodes by the residual vectors with respect to a dictionary, and Fisher Vector[30]can be formulated as a probabilistic version[18]of VLAD"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "4",
+      "cite_id": "bib.bib4",
+      "sentence": "Both of them are powerful shallow representations for image retrieval and classification[4,48]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "48",
+      "cite_id": "bib.bib48",
+      "sentence": "Both of them are powerful shallow representations for image retrieval and classification[4,48]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "17",
+      "cite_id": "bib.bib17",
+      "sentence": "For vector quantization, encoding residual vectors[17]is shown to be more effective than encoding original vectors"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "In low-level vision and computer graphics, for solving Partial Differential Equations (PDEs), the widely used Multigrid method[3]reformulates the system as subproblems at multiple scales, where each subproblem is responsible for the residual solution between a coarser and a finer scale"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "45",
+      "cite_id": "bib.bib45",
+      "sentence": "An alternative to Multigrid is hierarchical basis preconditioning[45,46], which relies on variables that represent residual vectors between two scales"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "46",
+      "cite_id": "bib.bib46",
+      "sentence": "An alternative to Multigrid is hierarchical basis preconditioning[45,46], which relies on variables that represent residual vectors between two scales"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "In low-level vision and computer graphics, for solving Partial Differential Equations (PDEs), the widely used Multigrid method[3]reformulates the system as subproblems at multiple scales, where each subproblem is responsible for the residual solution between a coarser and a finer scale"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "45",
+      "cite_id": "bib.bib45",
+      "sentence": "An alternative to Multigrid is hierarchical basis preconditioning[45,46], which relies on variables that represent residual vectors between two scales"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "46",
+      "cite_id": "bib.bib46",
+      "sentence": "An alternative to Multigrid is hierarchical basis preconditioning[45,46], which relies on variables that represent residual vectors between two scales"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "34",
+      "cite_id": "bib.bib34",
+      "sentence": "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "49",
+      "cite_id": "bib.bib49",
+      "sentence": "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "34",
+      "cite_id": "bib.bib34",
+      "sentence": "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "49",
+      "cite_id": "bib.bib49",
+      "sentence": "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "44",
+      "cite_id": "bib.bib44",
+      "sentence": "In[44,24], a few intermediate layers are directly connected to auxiliary classifiers for addressing vanishing/exploding gradients"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "24",
+      "cite_id": "bib.bib24",
+      "sentence": "In[44,24], a few intermediate layers are directly connected to auxiliary classifiers for addressing vanishing/exploding gradients"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "39",
+      "cite_id": "bib.bib39",
+      "sentence": "The papers of[39,38,31,47]propose methods for centering layer responses, gradients, and propagated errors, implemented by shortcut connections"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "38",
+      "cite_id": "bib.bib38",
+      "sentence": "The papers of[39,38,31,47]propose methods for centering layer responses, gradients, and propagated errors, implemented by shortcut connections"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "31",
+      "cite_id": "bib.bib31",
+      "sentence": "The papers of[39,38,31,47]propose methods for centering layer responses, gradients, and propagated errors, implemented by shortcut connections"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "47",
+      "cite_id": "bib.bib47",
+      "sentence": "The papers of[39,38,31,47]propose methods for centering layer responses, gradients, and propagated errors, implemented by shortcut connections"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "44",
+      "cite_id": "bib.bib44",
+      "sentence": "In[44,24], a few intermediate layers are directly connected to auxiliary classifiers for addressing vanishing/exploding gradients"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "42",
+      "cite_id": "bib.bib42",
+      "sentence": "Concurrent with our work, “highway networks”[42,43]present shortcut connections with gating functions[15]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "43",
+      "cite_id": "bib.bib43",
+      "sentence": "Concurrent with our work, “highway networks”[42,43]present shortcut connections with gating functions[15]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "15",
+      "cite_id": "bib.bib15",
+      "sentence": "Concurrent with our work, “highway networks”[42,43]present shortcut connections with gating functions[15]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "29",
+      "cite_id": "bib.bib29",
+      "sentence": "2that has two layers,ℱ=W2​σ​(W1​𝐱)ℱsubscript𝑊2𝜎subscript𝑊1𝐱\\mathcal{F}=W_{2}\\sigma(W_{1}\\mathbf{x})in whichσ𝜎\\sigmadenotes ReLU[29]and the biases are omitted for simplifying notations"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "3, middle) are mainly inspired by the philosophy of VGG nets[41](Fig"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "It is worth noticing that our model hasfewerfilters andlowercomplexity than VGG nets[41](Fig"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "Our implementation for ImageNet follows the practice in[21,41]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Our implementation for ImageNet follows the practice in[21,41]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Our implementation for ImageNet follows the practice in[21,41]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "Our implementation for ImageNet follows the practice in[21,41]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "Our implementation for ImageNet follows the practice in[21,41]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "We adopt batch normalization (BN)[16]right after each convolution and before activation, following[16]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "We adopt batch normalization (BN)[16]right after each convolution and before activation, following[16]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "13",
+      "cite_id": "bib.bib13",
+      "sentence": "We initialize the weights as in[13]and train all plain/residual nets from scratch"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "14",
+      "cite_id": "bib.bib14",
+      "sentence": "We do not use dropout[14], following the practice in[16]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "We adopt batch normalization (BN)[16]right after each convolution and before activation, following[16]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "In testing, for comparison studies we adopt the standard 10-crop testing[21]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "For best results, we adopt the fully-convolutional form as in[41,13], and average the scores at multiple scales (images are resized such that the shorter side is in{224,256,384,480,640}224256384480640\\{224,256,384,480,640\\})"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "13",
+      "cite_id": "bib.bib13",
+      "sentence": "For best results, we adopt the fully-convolutional form as in[41,13], and average the scores at multiple scales (images are resized such that the shorter side is in{224,256,384,480,640}224256384480640\\{224,256,384,480,640\\})"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "36",
+      "cite_id": "bib.bib36",
+      "sentence": "We evaluate our method on the ImageNet 2012 classification dataset[36]that consists of 1000 classes"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "These plain networks are trained with BN[16], which ensures forward propagated signals to have non-zero variances"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "VGG-16[41]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "44",
+      "cite_id": "bib.bib44",
+      "sentence": "GoogLeNet[44]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "13",
+      "cite_id": "bib.bib13",
+      "sentence": "PReLU-net[13]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "VGG[41](ILSVRC’14)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "44",
+      "cite_id": "bib.bib44",
+      "sentence": "GoogLeNet[44](ILSVRC’14)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "VGG[41](v5)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "13",
+      "cite_id": "bib.bib13",
+      "sentence": "PReLU-net[13]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "BN-inception[16]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "VGG[41](ILSVRC’14)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "44",
+      "cite_id": "bib.bib44",
+      "sentence": "GoogLeNet[44](ILSVRC’14)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "VGG[41](v5)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "13",
+      "cite_id": "bib.bib13",
+      "sentence": "PReLU-net[13]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "BN-inception[16]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "20",
+      "cite_id": "bib.bib20",
+      "sentence": "We conducted more studies on the CIFAR-10 dataset[20], which consists of 50k training images and 10k testing images in 10 classes"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "10",
+      "cite_id": "bib.bib10",
+      "sentence": "Maxout[10]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "25",
+      "cite_id": "bib.bib25",
+      "sentence": "NIN[25]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "24",
+      "cite_id": "bib.bib24",
+      "sentence": "DSN[24]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "35",
+      "cite_id": "bib.bib35",
+      "sentence": "FitNet[35]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "42",
+      "cite_id": "bib.bib42",
+      "sentence": "Highway[42,43]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "43",
+      "cite_id": "bib.bib43",
+      "sentence": "Highway[42,43]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "42",
+      "cite_id": "bib.bib42",
+      "sentence": "Highway[42,43]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "43",
+      "cite_id": "bib.bib43",
+      "sentence": "Highway[42,43]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "13",
+      "cite_id": "bib.bib13",
+      "sentence": "9, and adopt the weight initialization in[13]and BN[16]but with no dropout"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "9, and adopt the weight initialization in[13]and BN[16]but with no dropout"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "24",
+      "cite_id": "bib.bib24",
+      "sentence": "We follow the simple data augmentation in[24]for training: 4 pixels are padded on each side, and a 32×\\times32 crop is randomly sampled from the padded image or its horizontal flip"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "42",
+      "cite_id": "bib.bib42",
+      "sentence": "4, left) and on MNIST (see[42]), suggesting that such an optimization difficulty is a fundamental problem"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "35",
+      "cite_id": "bib.bib35",
+      "sentence": "It hasfewerparameters than other deep and thin networks such as FitNet[35]and Highway[42](Table6), yet is among the state-of-the-art results (6"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "42",
+      "cite_id": "bib.bib42",
+      "sentence": "It hasfewerparameters than other deep and thin networks such as FitNet[35]and Highway[42](Table6), yet is among the state-of-the-art results (6"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "10",
+      "cite_id": "bib.bib10",
+      "sentence": "The testing result of this 1202-layer network is worse than that of our 110-layer network, although both have similar training error"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "14",
+      "cite_id": "bib.bib14",
+      "sentence": "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "10",
+      "cite_id": "bib.bib10",
+      "sentence": "The testing result of this 1202-layer network is worse than that of our 110-layer network, although both have similar training error"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "25",
+      "cite_id": "bib.bib25",
+      "sentence": "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "24",
+      "cite_id": "bib.bib24",
+      "sentence": "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "35",
+      "cite_id": "bib.bib35",
+      "sentence": "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "5",
+      "cite_id": "bib.bib5",
+      "sentence": "Table8and8show the object detection baseline results on PASCAL VOC 2007 and 2012[5]and COCO[26]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "26",
+      "cite_id": "bib.bib26",
+      "sentence": "Table8and8show the object detection baseline results on PASCAL VOC 2007 and 2012[5]and COCO[26]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "We adoptFaster R-CNN[32]as the detection method"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Here we are interested in the improvements of replacing VGG-16[41]with ResNet-101"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "In this section we introduce our detection method based on the baseline Faster R-CNN[32]system"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Unlike VGG-16 used in[32], our ResNet has no hidden fc layers"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "33",
+      "cite_id": "bib.bib33",
+      "sentence": "We adopt the idea of “Networks on Conv feature maps” (NoC)[33]to address this issue"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Unlike VGG-16 used in[32], our ResNet has no hidden fc layers"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "These layers are shared by a region proposal network (RPN, generating 300 proposals)[32]and a Fast R-CNN detection network[7]"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "These layers are shared by a region proposal network (RPN, generating 300 proposals)[32]and a Fast R-CNN detection network[7]"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "These layers are shared by a region proposal network (RPN, generating 300 proposals)[32]and a Fast R-CNN detection network[7]"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "Following[7,32], for the PASCAL VOC 2007testset, we use the 5ktrainvalimages in VOC 2007 and 16ktrainvalimages in VOC 2012 for training (“07+12”)"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Following[7,32], for the PASCAL VOC 2007testset, we use the 5ktrainvalimages in VOC 2007 and 16ktrainvalimages in VOC 2012 for training (“07+12”)"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Following[7,32], for the PASCAL VOC 2007testset, we use the 5ktrainvalimages in VOC 2007 and 16ktrainvalimages in VOC 2012 for training (“07+12”)"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "26",
+      "cite_id": "bib.bib26",
+      "sentence": "The MS COCO dataset[26]involves 80 object categories"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "6",
+      "cite_id": "bib.bib6",
+      "sentence": "Our box refinement partially follows the iterative localization in[6]"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "3[8], followed by box voting[6]"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "6",
+      "cite_id": "bib.bib6",
+      "sentence": "Our box refinement partially follows the iterative localization in[6]"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "12",
+      "cite_id": "bib.bib12",
+      "sentence": "Given the full-image conv feature map, we pool a feature by global Spatial Pyramid Pooling[12](with a “single-level” pyramid) which can be implemented as “RoI” pooling using the entire image’s bounding box as the RoI"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "In the above, all results are obtained by single-scale training/testing as in[32], where the image’s shorter side iss=600𝑠600s=600pixels"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "12",
+      "cite_id": "bib.bib12",
+      "sentence": "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "33",
+      "cite_id": "bib.bib33",
+      "sentence": "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "33",
+      "cite_id": "bib.bib33",
+      "sentence": "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "33",
+      "cite_id": "bib.bib33",
+      "sentence": "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "33",
+      "cite_id": "bib.bib33",
+      "sentence": "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "33",
+      "cite_id": "bib.bib33",
+      "sentence": "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "6",
+      "cite_id": "bib.bib6",
+      "sentence": "6% mAP on PASCAL VOC 2007 (Table11) and 83"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "44",
+      "cite_id": "bib.bib44",
+      "sentence": "GoogLeNet[44](ILSVRC’14)"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "We split the validation set into two parts (val1/val2) following[8]"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "VGG’s[41]"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "1[41]"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "36",
+      "cite_id": "bib.bib36",
+      "sentence": "The ImageNet Localization (LOC) task[36]requires to classify and localize the objects"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "40",
+      "cite_id": "bib.bib40",
+      "sentence": "Following[40,41], we assume that the image-level classifiers are first adopted for predicting the class labels of an image, and the localization algorithm only accounts for predicting bounding boxes based on the predicted classes"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Following[40,41], we assume that the image-level classifiers are first adopted for predicting the class labels of an image, and the localization algorithm only accounts for predicting bounding boxes based on the predicted classes"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "40",
+      "cite_id": "bib.bib40",
+      "sentence": "Following[40,41], we assume that the image-level classifiers are first adopted for predicting the class labels of an image, and the localization algorithm only accounts for predicting bounding boxes based on the predicted classes"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Following[40,41], we assume that the image-level classifiers are first adopted for predicting the class labels of an image, and the localization algorithm only accounts for predicting bounding boxes based on the predicted classes"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Our localization algorithm is based on the RPN framework of[32]with a few modifications"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Our localization algorithm is based on the RPN framework of[32]with a few modifications"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Our localization algorithm is based on the RPN framework of[32]with a few modifications"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Our localization algorithm is based on the RPN framework of[32]with a few modifications"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Our localization algorithm is based on the RPN framework of[32]with a few modifications"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "To avoid negative samples being dominate, 8 anchors are randomly sampled for each image, where the sampled positive and negative anchors have a ratio of 1:1[32]"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "40",
+      "cite_id": "bib.bib40",
+      "sentence": "OverFeat[40](ILSVRC’13)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "44",
+      "cite_id": "bib.bib44",
+      "sentence": "GoogLeNet[44](ILSVRC’14)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "VGG[41](ILSVRC’14)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Following[41], we first perform “oracle” testing using the ground truth class as the classification prediction"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "Following[41], we first perform “oracle” testing using the ground truth class as the classification prediction"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "The above results are only based on theproposal network(RPN) in Faster R-CNN[32]"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "One may use thedetection network(Fast R-CNN[7]) in Faster R-CNN to improve the results"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "One may use thedetection network(Fast R-CNN[7]) in Faster R-CNN to improve the results"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "Motivated by this, in our current experiment we use the original R-CNN[8]that is RoI-centric, in place of Fast R-CNN"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "The image region is cropped from a proposal, warped to 224×\\times224 pixels, and fed into the classification network as in R-CNN[8]"
+    }
+  ],
+  "preview": "<div class=\"ltx_para\" id=\"S1.p1\">\n<p class=\"ltx_p\" id=\"S1.p1.1\">Deep convolutional neural networks  have led to a series of breakthroughs for image classification . Deep networks naturally integrate low/mid/high-level features  and classifiers in an end-to-end multi-layer fashion, and the “levels” of features can be enriched by the number of stacked layers (depth).\nRecent evidence  reveals that network depth is of crucial importance, and the leading results  on the challenging ImageNet dataset  all exploit “very deep”  models, with a depth of sixteen  to thirty . Many other nontrivial visual recognition tasks  have also greatly benefited from very deep models.</p>\n</div><div class=\"ltx_para\" id=\"S1.p2\">\n<p class=\"ltx_p\" id=\"S1.p2.1\">Driven by the significance of depth, a question arises: <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p2.1.1\">Is learning better networks as easy\nas stacking more layers?</em>\nAn obstacle to answering this question was the notorious problem of vanishing/exploding gradients , which hamper convergence from the beginning. This problem, however, has been largely addressed by normalized initialization  and intermediate normalization layers , which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation .</p>\n</div><div class=\"ltx_para\" id=\"S1.p3\">\n<p class=\"ltx_p\" id=\"S1.p3.1\">When deeper networks are able to start converging, a <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p3.1.1\">degradation</em> problem has been exposed: with the network depth increasing, accuracy gets saturated (which might be unsurprising) and then degrades rapidly. Unexpectedly, such degradation is <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p3.1.2\">not caused by overfitting</em>, and adding more layers to a suitably deep model leads to <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p3.1.3\">higher training error</em>, as reported in  and thoroughly verified by our experiments. Fig. <a class=\"ltx_ref\" href=\"#S1.F1\" title=\"Figure 1 ‣ 1 Introduction ‣ Deep Residual Learning for Image Recognition\"><span class=\"ltx_text ltx_ref_tag\">1</span></a> shows a typical example.</p>\n</div><div class=\"ltx_para\" id=\"S1.p4\">\n<p class=\"ltx_p\" id=\"S1.p4.1\">The degradation (of training accuracy) indicates that not all systems are similarly easy to optimize. Let us consider a shallower architecture and its deeper counterpart that adds more layers onto it. There exists a solution <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p4.1.1\">by construction</em> to the deeper model: the added layers are <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p4.1.2\">identity</em> mapping, and the other layers are copied from the learned shallower model. The existence of this constructed solution indicates that a deeper model should produce no higher training error than its shallower counterpart. But experiments show that our current solvers on hand are unable to find solutions that are comparably good or better than the constructed solution (or unable to do so in feasible time).</p>\n</div><div class=\"ltx_para\" id=\"S1.p5\">\n<p class=\"ltx_p\" id=\"S1.p5.3\">In this paper, we address the degradation problem by introducing a <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p5.3.1\">deep residual learning</em> framework.\nInstead of hoping each few stacked layers directly fit a desired underlying mapping, we explicitly let these layers fit a residual mapping. Formally, denoting the desired underlying mapping as <math alttext=\"\\mathcal{H}(\\mathbf{x})\" class=\"ltx_Math\" display=\"inline\" id=\"S1.p5.1.m1.1\"><semantics id=\"S1.p5.1.m1.1a\"><mrow id=\"S1.p5.1.m1.1.2\" xref=\"S1.p5.1.m1.1.2.cmml\"><mi class=\"ltx_font_mathcaligraphic\" id=\"S1.p5.1.m1.1.2.2\" xref=\"S1.p5.1.m1.1.2.2.cmml\">ℋ</mi><mo id=\"S1.p5.1.m1.1.2.1\" lspace=\"0em\" rspace=\"0em\" xref=\"S1.p5.1.m1.1.2.1.cmml\">​</mo><mrow id=\"S1.p5.1.m1.1.2.3.2\" xref=\"S1.p5.1.m1.1.2.cmml\"><mo id=\"S1.p5.1.m1.1.2.3.2.1\" stretchy=\"false\" xref=\"S1.p5.1.m1.1.2.cmml\">(</mo><mi id=\"S1.p5.1.m1.1.1\" xref=\"S1.p5.1.m1.1.1.cmml\">𝐱</mi><mo id=\"S1.p5.1.m1.1.2.3.2.2\" stretchy=\"false\" xref=\"S1.p5.1.m1.1.2.cmml\">)</mo></mrow></mrow><annotation-xml encoding=\"MathML-Content\" id=\"S1.p5.1.m1.1b\"><apply id=\"S1.p5.1.m1.1.2.cmml\" xref=\"S1.p5.1.m1.1.2\"><times id=\"S1.p5.1.m1.1.2.1.cmml\" xref=\"S1.p5.1.m1.1.2.1\"></times><ci id=\"S1.p5.1.m1.1.2.2.cmml\" xref=\"S1.p5.1.m1.1.2.2\">ℋ</ci><ci id=\"S1.p5.1.m1.1.1.cmml\" xref=\"S1.p5.1.m1.1.1\">𝐱</ci></apply></annotation-xml><annotation encoding=\"application/x-tex\" id=\"S1.p5.1.m1.1c\">\\mathcal{H}(\\mathbf{x})</annotation></semantics></math>, we let the stacked nonlinear layers fit another mapping of <math alttext=\"\\mathcal{F}(\\mathbf{x}):=\\mathcal{H}(\\mathbf{x})-\\mathbf{x}\" class=\"ltx_Math\" display=\"inline\" id=\"S1.p5.2.m2.2\"><semantics id=\"S1.p5.2.m2.2a\"><mrow id=\"S1.p5.2.m2.2.3\" xref=\"S1.p5.2.m2.2.3.cmml\"><mrow id=\"S1.p5.2.m2.2.3.2\" xref=\"S1.p5.2.m2.2.3.2.cmml\"><mi class=\"ltx_font_mathcaligraphic\" id=\"S1.p5.2.m2.2.3.2.2\" xref=\"S1.p5.2.m2.2.3.2.2.cmml\">ℱ</mi><mo id=\"S1.p5.2.m2.2.3.2.1\" lspace=\"0em\" rspace=\"0em\" xref=\"S1.p5.2.m2.2.3.2.1.cmml\">​</mo><mrow id=\"S1.p5.2.m2.2.3.2.3.2\" xref=\"S1.p5.2.m2.2.3.2.cmml\"><mo id=\"S1.p5.2.m2.2.3.2.3.2.1\" stretchy=\"false\" xref=\"S1.p5.2.m2.2.3.2.cmml\">(</mo><mi id=\"S1.p5.2.m2.1.1\" xref=\"S1.p5.2.m2.1.1.cmml\">𝐱</mi><mo id=\"S1.p5.2.m2.2.3.2.3.2.2\" rspace=\"0.278em\" stretchy=\"false\" xref=\"S1.p5.2.m2.2.3.2.cmml\">)</mo></mrow></mrow><mo id=\"S1.p5.2.m2.2.3.1\" rspace=\"0.278em\" xref=\"S1.p5.2.m2.2.3.1.cmml\">:=</mo><mrow id=\"S1.p5.2.m2.2.3.3\" xref=\"S1.p5.2.m2.2.3.3.cmml\"><mrow id=\"S1.p5.2.m2.2.3.3.2\" xref=\"S1.p5.2.m2.2.3.3.2.cmml\"><mi class=\"ltx_font_mathcaligraphic\" id=\"S1.p5.2.m2.2.3.3.2.2\" xref=\"S1.p5.2.m2.2.3.3.2.2.cmml\">ℋ</mi><mo id=\"S1.p5.2.m2.2.3.3.2.1\" lspace=\"0em\" rspace=\"0em\" xref=\"S1.p5.2.m2.2.3.3.2.1.cmml\">​</mo><mrow id=\"S1.p5.2.m2.2.3.3.2.3.2\" xref=\"S1.p5.2.m2.2.3.3.2.cmml\"><mo id=\"S1.p5.2.m2.2.3.3.2.3.2.1\" stretchy=\"false\" xref=\"S1.p5.2.m2.2.3.3.2.cmml\">(</mo><mi id=\"S1.p5.2.m2.2.2\" xref=\"S1.p5.2.m2.2.2.cmml\">𝐱</mi><mo id=\"S1.p5.2.m2.2.3.3.2.3.2.2\" stretchy=\"false\" xref=\"S1.p5.2.m2.2.3.3.2.cmml\">)</mo></mrow></mrow><mo id=\"S1.p5.2.m2.2.3.3.1\" xref=\"S1.p5.2.m2.2.3.3.1.cmml\">−</mo><mi id=\"S1.p5.2.m2.2.3.3.3\" xref=\"S1.p5.2.m2.2.3.3.3.cmml\">𝐱</mi></mrow></mrow><annotation-xml encoding=\"MathML-Content\" id=\"S1.p5.2.m2.2b\"><apply id=\"S1.p5.2.m2.2.3.cmml\" xref=\"S1.p5.2.m2.2.3\"><csymbol cd=\"latexml\" id=\"S1.p5.2.m2.2.3.1.cmml\" xref=\"S1.p5.2.m2.2.3.1\">assign</csymbol><apply id=\"S1.p5.2.m2.2.3.2.cmml\" xref=\"S1.p5.2.m2.2.3.2\"><times id=\"S1.p5.2.m2.2.3.2.1.cmml\" xref=\"S1.p5.2.m2.2.3.2.1\"></times><ci id=\"S1.p5.2.m2.2.3.2.2.cmml\" xref=\"S1.p5.2.m2.2.3.2.2\">ℱ</ci><ci id=\"S1.p5.2.m2.1.1.cmml\" xref=\"S1.p5.2.m2.1.1\">𝐱</ci></apply><apply id=\"S1.p5.2.m2.2.3.3.cmml\" xref=\"S1.p5.2.m2.2.3.3\"><minus id=\"S1.p5.2.m2.2.3.3.1.cmml\" xref=\"S1.p5.2.m2.2.3.3.1\"></minus><apply id=\"S1.p5.2.m2.2.3.3.2.cmml\" xref=\"S1.p5.2.m2.2.3.3.2\"><times id=\"S1.p5.2.m2.2.3.3.2.1.cmml\" xref=\"S1.p5.2.m2.2.3.3.2.1\"></times><ci id=\"S1.p5.2.m2.2.3.3.2.2.cmml\" xref=\"S1.p5.2.m2.2.3.3.2.2\">ℋ</ci><ci id=\"S1.p5.2.m2.2.2.cmml\" xref=\"S1.p5.2.m2.2.2\">𝐱</ci></apply><ci id=\"S1.p5.2.m2.2.3.3.3.cmml\" xref=\"S1.p5.2.m2.2.3.3.3\">𝐱</ci></apply></apply></annotation-xml><annotation encoding=\"application/x-tex\" id=\"S1.p5.2.m2.2c\">\\mathcal{F}(\\mathbf{x}):=\\mathcal{H}(\\mathbf{x})-\\mathbf{x}</annotation></semantics></math>. The original mapping is recast into <math alttext=\"\\mathcal{F}(\\mathbf{x})+\\mathbf{x}\" class=\"ltx_Math\" display=\"inline\" id=\"S1.p5.3.m3.1\"><semantics id=\"S1.p5.3.m3.1a\"><mrow id=\"S1.p5.3.m3.1.2\" xref=\"S1.p5.3.m3.1.2.cmml\"><mrow id=\"S1.p5.3.m3.1.2.2\" xref=\"S1.p5.3.m3.1.2.2.cmml\"><mi class=\"ltx_font_mathcaligraphic\" id=\"S1.p5.3.m3.1.2.2.2\" xref=\"S1.p5.3.m3.1.2.2.2.cmml\">ℱ</mi><mo id=\"S1.p5.3.m3.1.2.2.1\" lspace=\"0em\" rspace=\"0em\" xref=\"S1.p5.3.m3.1.2.2.1.cmml\">​</mo><mrow id=\"S1.p5.3.m3.1.2.2.3.2\" xref=\"S1.p5.3.m3.1.2.2.cmml\"><mo id=\"S1.p5.3.m3.1.2.2.3.2.1\" stretchy=\"false\" xref=\"S1.p5.3.m3.1.2.2.cmml\">(</mo><mi id=\"S1.p5.3.m3.1.1\" xref=\"S1.p5.3.m3.1.1.cmml\">𝐱</mi><mo id=\"S1.p5.3.m3.1.2.2.3.2.2\" stretchy=\"false\" xref=\"S1.p5.3.m3.1.2.2.cmml\">)</mo></mrow></mrow><mo id=\"S1.p5.3.m3.1.2.1\" xref=\"S1.p5.3.m3.1.2.1.cmml\">+</mo><mi id=\"S1.p5.3.m3.1.2.3\" xref=\"S1.p5.3.m3.1.2.3.cmml\">𝐱</mi></mrow><annotation-xml encoding=\"MathML-Content\" id=\"S1.p5.3.m3.1b\"><apply id=\"S1.p5.3.m3.1.2.cmml\" xref=\"S1.p5.3.m3.1.2\"><plus id=\"S1.p5.3.m3.1.2.1.cmml\" xref=\"S1.p5.3.m3.1.2.1\"></plus><apply id=\"S1.p5.3.m3.1.2.2.cmml\" xref=\"S1.p5.3.m3.1.2.2\"><times id=\"S1.p5.3.m3.1.2.2.1.cmml\" xref=\"S1.p5.3.m3.1.2.2.1\"></times><ci id=\"S1.p5.3.m3.1.2.2.2.cmml\" xref=\"S1.p5.3.m3.1.2.2.2\">ℱ</ci><ci id=\"S1.p5.3.m3.1.1.cmml\" xref=\"S1.p5.3.m3.1.1\">𝐱</ci></apply><ci id=\"S1.p5.3.m3.1.2.3.cmml\" xref=\"S1.p5.3.m3.1.2.3\">𝐱</ci></apply></annotation-xml><annotation encoding=\"application/x-tex\" id=\"S1.p5.3.m3.1c\">\\mathcal{F}(\\mathbf{x})+\\mathbf{x}</annotation></semantics></math>.\nWe hypothesize that it is easier to optimize the residual mapping than to optimize the original, unreferenced mapping. To the extreme, if an identity mapping were optimal, it would be easier to push the residual to zero than to fit an identity mapping by a stack of nonlinear layers.</p>\n</div><div class=\"ltx_para\" id=\"S1.p6\">\n<p class=\"ltx_p\" id=\"S1.p6.1\">The formulation of <math alttext=\"\\mathcal{F}(\\mathbf{x})+\\mathbf{x}\" class=\"ltx_Math\" display=\"inline\" id=\"S1.p6.1.m1.1\"><semantics id=\"S1.p6.1.m1.1a\"><mrow id=\"S1.p6.1.m1.1.2\" xref=\"S1.p6.1.m1.1.2.cmml\"><mrow id=\"S1.p6.1.m1.1.2.2\" xref=\"S1.p6.1.m1.1.2.2.cmml\"><mi class=\"ltx_font_mathcaligraphic\" id=\"S1.p6.1.m1.1.2.2.2\" xref=\"S1.p6.1.m1.1.2.2.2.cmml\">ℱ</mi><mo id=\"S1.p6.1.m1.1.2.2.1\" lspace=\"0em\" rspace=\"0em\" xref=\"S1.p6.1.m1.1.2.2.1.cmml\">​</mo><mrow id=\"S1.p6.1.m1.1.2.2.3.2\" xref=\"S1.p6.1.m1.1.2.2.cmml\"><mo id=\"S1.p6.1.m1.1.2.2.3.2.1\" stretchy=\"false\" xref=\"S1.p6.1.m1.1.2.2.cmml\">(</mo><mi id=\"S1.p6.1.m1.1.1\" xref=\"S1.p6.1.m1.1.1.cmml\">𝐱</mi><mo id=\"S1.p6.1.m1.1.2.2.3.2.2\" stretchy=\"false\" xref=\"S1.p6.1.m1.1.2.2.cmml\">)</mo></mrow></mrow><mo id=\"S1.p6.1.m1.1.2.1\" xref=\"S1.p6.1.m1.1.2.1.cmml\">+</mo><mi id=\"S1.p6.1.m1.1.2.3\" xref=\"S1.p6.1.m1.1.2.3.cmml\">𝐱</mi></mrow><annotation-xml encoding=\"MathML-Content\" id=\"S1.p6.1.m1.1b\"><apply id=\"S1.p6.1.m1.1.2.cmml\" xref=\"S1.p6.1.m1.1.2\"><plus id=\"S1.p6.1.m1.1.2.1.cmml\" xref=\"S1.p6.1.m1.1.2.1\"></plus><apply id=\"S1.p6.1.m1.1.2.2.cmml\" xref=\"S1.p6.1.m1.1.2.2\"><times id=\"S1.p6.1.m1.1.2.2.1.cmml\" xref=\"S1.p6.1.m1.1.2.2.1\"></times><ci id=\"S1.p6.1.m1.1.2.2.2.cmml\" xref=\"S1.p6.1.m1.1.2.2.2\">ℱ</ci><ci id=\"S1.p6.1.m1.1.1.cmml\" xref=\"S1.p6.1.m1.1.1\">𝐱</ci></apply><ci id=\"S1.p6.1.m1.1.2.3.cmml\" xref=\"S1.p6.1.m1.1.2.3\">𝐱</ci></apply></annotation-xml><annotation encoding=\"application/x-tex\" id=\"S1.p6.1.m1.1c\">\\mathcal{F}(\\mathbf{x})+\\mathbf{x}</annotation></semantics></math> can be realized by feedforward neural networks with “shortcut connections” (Fig. <a class=\"ltx_ref\" href=\"#S1.F2\" title=\"Figure 2 ‣ 1 Introduction ‣ Deep Residual Learning for Image Recognition\"><span class=\"ltx_text ltx_ref_tag\">2</span></a>). Shortcut connections  are those skipping one or more layers. In our case, the shortcut connections simply perform <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p6.1.1\">identity</em> mapping, and their outputs are added to the outputs of the stacked layers (Fig. <a class=\"ltx_ref\" href=\"#S1.F2\" title=\"Figure 2 ‣ 1 Introduction ‣ Deep Residual Learning for Image Recognition\"><span class=\"ltx_text ltx_ref_tag\">2</span></a>). Identity shortcut connections add neither extra parameter nor computational complexity. The entire network can still be trained end-to-end by SGD with backpropagation, and can be easily implemented using common libraries (<em class=\"ltx_emph ltx_font_italic\" id=\"S1.p6.1.2\">e.g</em>.<span class=\"ltx_text\" id=\"S1.p6.1.3\"></span>, Caffe ) without modifying the solvers.</p>\n</div><div class=\"ltx_para\" id=\"S1.p7\">\n<p class=\"ltx_p\" id=\"S1.p7.1\">We present comprehensive experiments on ImageNet  to show the degradation problem and evaluate our method.\nWe show that: 1) Our extremely deep residual nets are easy to optimize, but the counterpart “plain” nets (that simply stack layers) exhibit higher training error when the depth increases; 2) Our deep residual nets can easily enjoy accuracy gains from greatly increased depth, producing results substantially better than previous networks.</p>\n</div><div class=\"ltx_para\" id=\"S1.p8\">\n<p class=\"ltx_p\" id=\"S1.p8.1\">Similar phenomena are also shown on the CIFAR-10 set , suggesting that the optimization difficulties and the effects of our method are not just akin to a particular dataset. We present successfully trained models on this dataset with over 100 layers, and explore models with over 1000 layers.</p>\n</div><div class=\"ltx_para\" id=\"S1.p9\">\n<p class=\"ltx_p\" id=\"S1.p9.1\">On the ImageNet classification dataset , we obtain excellent results by extremely deep residual nets.\nOur 152-layer residual net is the deepest network ever presented on ImageNet, while still having lower complexity than VGG nets . Our ensemble has <span class=\"ltx_text ltx_font_bold\" id=\"S1.p9.1.1\">3.57%</span> top-5 error on the ImageNet <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p9.1.2\">test</em> set, and <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p9.1.3\">won the 1st place in the ILSVRC 2015 classification competition</em>. The extremely deep representations also have excellent generalization performance on other recognition tasks, and lead us to further <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p9.1.4\">win the 1st places on: ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation</em> in ILSVRC &amp; COCO 2015 competitions. This strong evidence shows that the residual learning principle is generic, and we expect that it is applicable in other vision and non-vision problems.</p>\n</div>",
+  "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun",
+  "summary": "Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers---8x deeper than VGG nets but still having lower complexity. An ensemble of these residual nets achieves 3.57% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers.\n  The depth of representations is of central importance for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28% relative improvement on the COCO object detection dataset. Deep residual nets are foundations of our submissions to ILSVRC & COCO 2015 competitions, where we also won the 1st places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.",
+  "standard_url": "http://arxiv.org/abs/1512.03385v1",
+  "id": "2016-deep_residual_learning_for_image_recognition"
+}

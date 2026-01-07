@@ -1,0 +1,51 @@
+body {
+    padding: 80px 80px 80px 80px;
+    font-family:'Open Sans', sans-serif;
+    background-image: linear-gradient(rgba(255, 255, 255, .97), rgba(255, 255, 255, .97)), url('./media/background.png');
+    background-position: center;
+}
+
+.title {
+    font-family: "Lucida Console";
+}
+
+.graph_border {
+	border-style: ridge;
+}
+
+#tangle-svg .node-group, 
+#tangle-svg .hitbox,
+#tangle-svg .selectable {
+    cursor: pointer !important;
+    pointer-events: all !important;
+}
+
+.label_text {
+	font-weight:bold;
+}
+.paper_summary .content {
+	font-family:"Noto Serif", "Noto Serif Fallback", serif;
+}
+.paper_citations .content {
+	border-style:ridge; 
+	border-width:.5px; 
+	padding:10px; 
+	max-height:400px; 
+	overflow-y:scroll;	
+}
+.paper_preview .content {
+	font-family:"Noto Serif", "Noto Serif Fallback", serif;
+	border-style:ridge; 
+	border-width:.5px; 
+	padding:10px; 
+	max-height:400px; 
+	overflow-y:scroll;
+}
+.cite_bullet {
+	color:darkgrey;
+}
+.cite_bullet:hover{
+	color:#428bca;
+	cursor:pointer;
+	text-decoration:underline;
+}

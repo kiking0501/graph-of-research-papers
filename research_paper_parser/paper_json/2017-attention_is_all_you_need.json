@@ -1,0 +1,881 @@
+{
+  "name": "Transformer",
+  "year": "2017",
+  "url": "https://arxiv.org/html/1706.03762v7",
+  "title": "Attention Is All You Need",
+  "sections": {
+    "S1": "1 Introduction",
+    "S2": "2 Background",
+    "S3": "3 Model Architecture",
+    "S4": "4 Why Self-Attention",
+    "S5": "5 Training",
+    "S6": "6 Results",
+    "S7": "7 Conclusion",
+    "Sx1": "Attention Visualizations"
+  },
+  "references": {
+    "1": {
+      "id": "2016-layer_normalization",
+      "enum": "1",
+      "authors": "Jimmy Lei Ba, Jamie Ryan Kiros, Geoffrey E. Hinton",
+      "title": "Layer normalization",
+      "publication": "arXiv preprint arXiv:1607.06450, 2016",
+      "year": "2016",
+      "summary": "Training state-of-the-art, deep neural networks is computationally expensive. One way to reduce the training time is to normalize the activities of the neurons. A recently introduced technique called batch normalization uses the distribution of the summed input to a neuron over a mini-batch of training cases to compute a mean and variance which are then used to normalize the summed input to that neuron on each training case. This significantly reduces the training time in feed-forward neural networks. However, the effect of batch normalization is dependent on the mini-batch size and it is not obvious how to apply it to recurrent neural networks. In this paper, we transpose batch normalization into layer normalization by computing the mean and variance used for normalization from all of the summed inputs to the neurons in a layer on a single training case. Like batch normalization, we also give each neuron its own adaptive bias and gain which are applied after the normalization but before the non-linearity. Unlike batch normalization, layer normalization performs exactly the same computation at training and test times. It is also straightforward to apply to recurrent neural networks by computing the normalization statistics separately at each time step. Layer normalization is very effective at stabilizing the hidden state dynamics in recurrent networks. Empirically, we show that layer normalization can substantially reduce the training time compared with previously published techniques.",
+      "standard_url": "http://arxiv.org/abs/1607.06450v1"
+    },
+    "2": {
+      "id": "2014-neural_machine_translation_by_jointly_learning_to_align_and_translate",
+      "enum": "2",
+      "authors": "Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio",
+      "title": "Neural machine translation by jointly learning to align and translate",
+      "publication": "CoRR, abs/1409.0473, 2014",
+      "year": "2014",
+      "summary": "Neural machine translation is a recently proposed approach to machine translation. Unlike the traditional statistical machine translation, the neural machine translation aims at building a single neural network that can be jointly tuned to maximize the translation performance. The models proposed recently for neural machine translation often belong to a family of encoder-decoders and consists of an encoder that encodes a source sentence into a fixed-length vector from which a decoder generates a translation. In this paper, we conjecture that the use of a fixed-length vector is a bottleneck in improving the performance of this basic encoder-decoder architecture, and propose to extend this by allowing a model to automatically (soft-)search for parts of a source sentence that are relevant to predicting a target word, without having to form these parts as a hard segment explicitly. With this new approach, we achieve a translation performance comparable to the existing state-of-the-art phrase-based system on the task of English-to-French translation. Furthermore, qualitative analysis reveals that the (soft-)alignments found by the model agree well with our intuition.",
+      "standard_url": "http://arxiv.org/abs/1409.0473v7"
+    },
+    "3": {
+      "id": "2017-massive_exploration_of_neural_machine_translation_architectures",
+      "enum": "3",
+      "authors": "Denny Britz, Anna Goldie, Minh-Thang Luong, Quoc Le",
+      "title": "Massive exploration of neural machine translation architectures",
+      "publication": "CoRR, abs/1703.03906, 2017",
+      "year": "2017",
+      "summary": "Neural Machine Translation (NMT) has shown remarkable progress over the past few years with production systems now being deployed to end-users. One major drawback of current architectures is that they are expensive to train, typically requiring days to weeks of GPU time to converge. This makes exhaustive hyperparameter search, as is commonly done with other neural network architectures, prohibitively expensive. In this work, we present the first large-scale analysis of NMT architecture hyperparameters. We report empirical results and variance numbers for several hundred experimental runs, corresponding to over 250,000 GPU hours on the standard WMT English to German translation task. Our experiments lead to novel insights and practical advice for building and extending NMT architectures. As part of this contribution, we release an open-source NMT framework that enables researchers to easily experiment with novel techniques and reproduce state of the art results.",
+      "standard_url": "http://arxiv.org/abs/1703.03906v2"
+    },
+    "4": {
+      "id": "2016-long_short-term_memory-networks_for_machine_reading",
+      "enum": "4",
+      "authors": "Jianpeng Cheng, Li Dong, Mirella Lapata",
+      "title": "Long short-term memory-networks for machine reading",
+      "publication": "arXiv preprint arXiv:1601.06733, 2016",
+      "year": "2016",
+      "summary": "In this paper we address the question of how to render sequence-level networks better at handling structured input. We propose a machine reading simulator which processes text incrementally from left to right and performs shallow reasoning with memory and attention. The reader extends the Long Short-Term Memory architecture with a memory network in place of a single memory cell. This enables adaptive memory usage during recurrence with neural attention, offering a way to weakly induce relations among tokens. The system is initially designed to process a single sequence but we also demonstrate how to integrate it with an encoder-decoder architecture. Experiments on language modeling, sentiment analysis, and natural language inference show that our model matches or outperforms the state of the art.",
+      "standard_url": "http://arxiv.org/abs/1601.06733v7"
+    },
+    "5": {
+      "id": "2014-learning_phrase_representations_using_rnn_encoder-decoder_for_statistical_machine_translation",
+      "enum": "5",
+      "authors": "Kyunghyun Cho, Bart van Merrienboer, Caglar Gulcehre, Dzmitry Bahdanau, Fethi Bougares, Holger Schwenk, Yoshua Bengio",
+      "title": "Learning phrase representations using rnn encoder-decoder for statistical machine translation",
+      "publication": "CoRR, abs/1406.1078, 2014",
+      "year": "2014",
+      "summary": "In this paper, we propose a novel neural network model called RNN Encoder-Decoder that consists of two recurrent neural networks (RNN). One RNN encodes a sequence of symbols into a fixed-length vector representation, and the other decodes the representation into another sequence of symbols. The encoder and decoder of the proposed model are jointly trained to maximize the conditional probability of a target sequence given a source sequence. The performance of a statistical machine translation system is empirically found to improve by using the conditional probabilities of phrase pairs computed by the RNN Encoder-Decoder as an additional feature in the existing log-linear model. Qualitatively, we show that the proposed model learns a semantically and syntactically meaningful representation of linguistic phrases.",
+      "standard_url": "http://arxiv.org/abs/1406.1078v3"
+    },
+    "6": {
+      "id": "2016-xception:_deep_learning_with_depthwise_separable_convolutions",
+      "enum": "6",
+      "authors": "François Chollet",
+      "title": "Xception: Deep learning with depthwise separable convolutions",
+      "publication": "arXiv preprint arXiv:1610.02357, 2016",
+      "year": "2016",
+      "summary": "We present an interpretation of Inception modules in convolutional neural networks as being an intermediate step in-between regular convolution and the depthwise separable convolution operation (a depthwise convolution followed by a pointwise convolution). In this light, a depthwise separable convolution can be understood as an Inception module with a maximally large number of towers. This observation leads us to propose a novel deep convolutional neural network architecture inspired by Inception, where Inception modules have been replaced with depthwise separable convolutions. We show that this architecture, dubbed Xception, slightly outperforms Inception V3 on the ImageNet dataset (which Inception V3 was designed for), and significantly outperforms Inception V3 on a larger image classification dataset comprising 350 million images and 17,000 classes. Since the Xception architecture has the same number of parameters as Inception V3, the performance gains are not due to increased capacity but rather to a more efficient use of model parameters.",
+      "standard_url": "http://arxiv.org/abs/1610.02357v3"
+    },
+    "7": {
+      "id": "2014-empirical_evaluation_of_gated_recurrent_neural_networks_on_sequence_modeling",
+      "enum": "7",
+      "authors": "Junyoung Chung, Caglar Gulcehre, KyungHyun Cho, Yoshua Bengio",
+      "title": "Empirical evaluation of gated recurrent neural networks on sequence modeling",
+      "publication": "CoRR, abs/1412.3555, 2014",
+      "year": "2014",
+      "summary": "In this paper we compare different types of recurrent units in recurrent neural networks (RNNs). Especially, we focus on more sophisticated units that implement a gating mechanism, such as a long short-term memory (LSTM) unit and a recently proposed gated recurrent unit (GRU). We evaluate these recurrent units on the tasks of polyphonic music modeling and speech signal modeling. Our experiments revealed that these advanced recurrent units are indeed better than more traditional recurrent units such as tanh units. Also, we found GRU to be comparable to LSTM.",
+      "standard_url": "http://arxiv.org/abs/1412.3555v1"
+    },
+    "8": {
+      "id": "2016-recurrent_neural_network_grammars",
+      "enum": "8",
+      "authors": "Chris Dyer, Adhiguna Kuncoro, Miguel Ballesteros, Noah A. Smith",
+      "title": "Recurrent neural network grammars",
+      "publication": "In Proc. of NAACL, 2016",
+      "year": "2016",
+      "summary": "We introduce recurrent neural network grammars, probabilistic models of sentences with explicit phrase structure. We explain efficient inference procedures that allow application to both parsing and language modeling. Experiments show that they provide better parsing in English than any single previously published supervised generative model and better language modeling than state-of-the-art sequential RNNs in English and Chinese.",
+      "standard_url": "http://arxiv.org/abs/1602.07776v4"
+    },
+    "9": {
+      "id": "2017-convolutional_sequence_to_sequence_learning",
+      "enum": "9",
+      "authors": "Jonas Gehring, Michael Auli, David Grangier, Denis Yarats, Yann N. Dauphin",
+      "title": "Convolutional sequence to sequence learning",
+      "publication": "arXiv preprint arXiv:1705.03122v2, 2017",
+      "year": "2017",
+      "summary": "The prevalent approach to sequence to sequence learning maps an input sequence to a variable length output sequence via recurrent neural networks. We introduce an architecture based entirely on convolutional neural networks. Compared to recurrent models, computations over all elements can be fully parallelized during training and optimization is easier since the number of non-linearities is fixed and independent of the input length. Our use of gated linear units eases gradient propagation and we equip each decoder layer with a separate attention module. We outperform the accuracy of the deep LSTM setup of Wu et al. (2016) on both WMT'14 English-German and WMT'14 English-French translation at an order of magnitude faster speed, both on GPU and CPU.",
+      "standard_url": "http://arxiv.org/abs/1705.03122v3"
+    },
+    "10": {
+      "id": "2013-generating_sequences_with_recurrent_neural_networks",
+      "enum": "10",
+      "authors": "Alex Graves",
+      "title": "Generating sequences with recurrent neural networks",
+      "publication": "arXiv preprint arXiv:1308.0850, 2013",
+      "year": "2013",
+      "summary": "This paper shows how Long Short-term Memory recurrent neural networks can be used to generate complex sequences with long-range structure, simply by predicting one data point at a time. The approach is demonstrated for text (where the data are discrete) and online handwriting (where the data are real-valued). It is then extended to handwriting synthesis by allowing the network to condition its predictions on a text sequence. The resulting system is able to generate highly realistic cursive handwriting in a wide variety of styles.",
+      "standard_url": "http://arxiv.org/abs/1308.0850v5"
+    },
+    "11": {
+      "id": "2016-deep_residual_learning_for_image_recognition",
+      "enum": "11",
+      "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun",
+      "title": "Deep residual learning for image recognition",
+      "publication": "In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 770–778, 2016",
+      "year": "2016",
+      "summary": "Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers---8x deeper than VGG nets but still having lower complexity. An ensemble of these residual nets achieves 3.57% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers.\n  The depth of representations is of central importance for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28% relative improvement on the COCO object detection dataset. Deep residual nets are foundations of our submissions to ILSVRC & COCO 2015 competitions, where we also won the 1st places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.",
+      "standard_url": "http://arxiv.org/abs/1512.03385v1"
+    },
+    "12": {
+      "id": "2001-gradient_flow_in_recurrent_nets:_the_difficulty_of_learning_long-term_dependencies_2001",
+      "enum": "12",
+      "authors": "Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, and Jürgen Schmidhuber",
+      "title": "Gradient flow in recurrent nets: the difficulty of learning long-term dependencies, 2001",
+      "publication": null,
+      "year": "2001",
+      "summary": null,
+      "standard_url": null
+    },
+    "13": {
+      "id": "1997-long_short-term_memory",
+      "enum": "13",
+      "authors": "Ivo Danihelka, Greg Wayne, Benigno Uria, Nal Kalchbrenner, Alex Graves",
+      "title": "Long short-term memory",
+      "publication": "Neural computation, 9(8):1735–1780, 1997",
+      "year": "1997",
+      "summary": "We investigate a new method to augment recurrent neural networks with extra memory without increasing the number of network parameters. The system has an associative memory based on complex-valued vectors and is closely related to Holographic Reduced Representations and Long Short-Term Memory networks. Holographic Reduced Representations have limited capacity: as they store more information, each retrieval becomes noisier due to interference. Our system in contrast creates redundant copies of stored information, which enables retrieval with reduced noise. Experiments demonstrate faster learning on multiple memorization tasks.",
+      "standard_url": "http://arxiv.org/abs/1602.03032v2"
+    },
+    "14": {
+      "id": "2009-self-training_pcfg_grammars_with_latent_annotations_across_languages",
+      "enum": "14",
+      "authors": "Zhongqiang Huang and Mary Harper",
+      "title": "Self-training PCFG grammars with latent annotations across languages",
+      "publication": "In Proceedings of the 2009 Conference on Empirical Methods in Natural Language Processing, pages 832–841. ACL, August 2009",
+      "year": "2009",
+      "summary": null,
+      "standard_url": null
+    },
+    "15": {
+      "id": "2016-exploring_the_limits_of_language_modeling",
+      "enum": "15",
+      "authors": "Rafal Jozefowicz, Oriol Vinyals, Mike Schuster, Noam Shazeer, Yonghui Wu",
+      "title": "Exploring the limits of language modeling",
+      "publication": "arXiv preprint arXiv:1602.02410, 2016",
+      "year": "2016",
+      "summary": "In this work we explore recent advances in Recurrent Neural Networks for large scale Language Modeling, a task central to language understanding. We extend current models to deal with two key challenges present in this task: corpora and vocabulary sizes, and complex, long term structure of language. We perform an exhaustive study on techniques such as character Convolutional Neural Networks or Long-Short Term Memory, on the One Billion Word Benchmark. Our best single model significantly improves state-of-the-art perplexity from 51.3 down to 30.0 (whilst reducing the number of parameters by a factor of 20), while an ensemble of models sets a new record by improving perplexity from 41.0 down to 23.7. We also release these models for the NLP and ML community to study and improve upon.",
+      "standard_url": "http://arxiv.org/abs/1602.02410v2"
+    },
+    "16": {
+      "id": "2016-can_active_memory_replace_attention?",
+      "enum": "16",
+      "authors": "Łukasz Kaiser, Samy Bengio",
+      "title": "Can active memory replace attention?",
+      "publication": "In Advances in Neural Information Processing Systems, (NIPS), 2016",
+      "year": "2016",
+      "summary": "Several mechanisms to focus attention of a neural network on selected parts of its input or memory have been used successfully in deep learning models in recent years. Attention has improved image classification, image captioning, speech recognition, generative models, and learning algorithmic tasks, but it had probably the largest impact on neural machine translation.\n  Recently, similar improvements have been obtained using alternative mechanisms that do not focus on a single part of a memory but operate on all of it in parallel, in a uniform way. Such mechanism, which we call active memory, improved over attention in algorithmic tasks, image processing, and in generative modelling.\n  So far, however, active memory has not improved over attention for most natural language processing tasks, in particular for machine translation. We analyze this shortcoming in this paper and propose an extended model of active memory that matches existing attention models on neural machine translation and generalizes better to longer sentences. We investigate this model and explain why previous active memory models did not succeed. Finally, we discuss when active memory brings most benefits and where attention can be a better choice.",
+      "standard_url": "http://arxiv.org/abs/1610.08613v2"
+    },
+    "17": {
+      "id": "2016-neural_gpus_learn_algorithms",
+      "enum": "17",
+      "authors": "Łukasz Kaiser, Ilya Sutskever",
+      "title": "Neural GPUs learn algorithms",
+      "publication": "In International Conference on Learning Representations (ICLR), 2016",
+      "year": "2016",
+      "summary": "Learning an algorithm from examples is a fundamental problem that has been widely studied. Recently it has been addressed using neural networks, in particular by Neural Turing Machines (NTMs). These are fully differentiable computers that use backpropagation to learn their own programming. Despite their appeal NTMs have a weakness that is caused by their sequential nature: they are not parallel and are are hard to train due to their large depth when unfolded.\n  We present a neural network architecture to address this problem: the Neural GPU. It is based on a type of convolutional gated recurrent unit and, like the NTM, is computationally universal. Unlike the NTM, the Neural GPU is highly parallel which makes it easier to train and efficient to run.\n  An essential property of algorithms is their ability to handle inputs of arbitrary size. We show that the Neural GPU can be trained on short instances of an algorithmic task and successfully generalize to long instances. We verified it on a number of tasks including long addition and long multiplication of numbers represented in binary. We train the Neural GPU on numbers with upto 20 bits and observe no errors whatsoever while testing it, even on much longer numbers.\n  To achieve these results we introduce a technique for training deep recurrent networks: parameter sharing relaxation. We also found a small amount of dropout and gradient noise to have a large positive effect on learning and generalization.",
+      "standard_url": "http://arxiv.org/abs/1511.08228v3"
+    },
+    "18": {
+      "id": "2017-neural_machine_translation_in_linear_time",
+      "enum": "18",
+      "authors": "Nal Kalchbrenner, Lasse Espeholt, Karen Simonyan, Aaron van den Oord, Alex Graves, Koray Kavukcuoglu",
+      "title": "Neural machine translation in linear time",
+      "publication": "arXiv preprint arXiv:1610.10099v2, 2017",
+      "year": "2017",
+      "summary": "We present a novel neural network for processing sequences. The ByteNet is a one-dimensional convolutional neural network that is composed of two parts, one to encode the source sequence and the other to decode the target sequence. The two network parts are connected by stacking the decoder on top of the encoder and preserving the temporal resolution of the sequences. To address the differing lengths of the source and the target, we introduce an efficient mechanism by which the decoder is dynamically unfolded over the representation of the encoder. The ByteNet uses dilation in the convolutional layers to increase its receptive field. The resulting network has two core properties: it runs in time that is linear in the length of the sequences and it sidesteps the need for excessive memorization. The ByteNet decoder attains state-of-the-art performance on character-level language modelling and outperforms the previous best results obtained with recurrent networks. The ByteNet also achieves state-of-the-art performance on character-to-character machine translation on the English-to-German WMT translation task, surpassing comparable neural translation models that are based on recurrent networks with attentional pooling and run in quadratic time. We find that the latent alignment structure contained in the representations reflects the expected alignment between the tokens.",
+      "standard_url": "http://arxiv.org/abs/1610.10099v2"
+    },
+    "19": {
+      "id": "2017-structured_attention_networks",
+      "enum": "19",
+      "authors": "Yoon Kim, Carl Denton, Luong Hoang, Alexander M. Rush",
+      "title": "Structured attention networks",
+      "publication": "In International Conference on Learning Representations, 2017",
+      "year": "2017",
+      "summary": "Attention networks have proven to be an effective approach for embedding categorical inference within a deep neural network. However, for many tasks we may want to model richer structural dependencies without abandoning end-to-end training. In this work, we experiment with incorporating richer structural distributions, encoded using graphical models, within deep networks. We show that these structured attention networks are simple extensions of the basic attention procedure, and that they allow for extending attention beyond the standard soft-selection approach, such as attending to partial segmentations or to subtrees. We experiment with two different classes of structured attention networks: a linear-chain conditional random field and a graph-based parsing model, and describe how these models can be practically implemented as neural network layers. Experiments show that this approach is effective for incorporating structural biases, and structured attention networks outperform baseline attention models on a variety of synthetic and real tasks: tree transduction, neural machine translation, question answering, and natural language inference. We further find that models trained in this way learn interesting unsupervised hidden representations that generalize simple attention.",
+      "standard_url": "http://arxiv.org/abs/1702.00887v3"
+    },
+    "20": {
+      "id": "2015-adam:_a_method_for_stochastic_optimization",
+      "enum": "20",
+      "authors": "Diederik P. Kingma, Jimmy Ba",
+      "title": "Adam: A method for stochastic optimization",
+      "publication": "In ICLR, 2015",
+      "year": "2015",
+      "summary": "We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments. The method is straightforward to implement, is computationally efficient, has little memory requirements, is invariant to diagonal rescaling of the gradients, and is well suited for problems that are large in terms of data and/or parameters. The method is also appropriate for non-stationary objectives and problems with very noisy and/or sparse gradients. The hyper-parameters have intuitive interpretations and typically require little tuning. Some connections to related algorithms, on which Adam was inspired, are discussed. We also analyze the theoretical convergence properties of the algorithm and provide a regret bound on the convergence rate that is comparable to the best known results under the online convex optimization framework. Empirical results demonstrate that Adam works well in practice and compares favorably to other stochastic optimization methods. Finally, we discuss AdaMax, a variant of Adam based on the infinity norm.",
+      "standard_url": "http://arxiv.org/abs/1412.6980v9"
+    },
+    "21": {
+      "id": "2017-factorization_tricks_for_lstm_networks",
+      "enum": "21",
+      "authors": "Oleksii Kuchaiev, Boris Ginsburg",
+      "title": "Factorization tricks for LSTM networks",
+      "publication": "arXiv preprint arXiv:1703.10722, 2017",
+      "year": "2017",
+      "summary": "We present two simple ways of reducing the number of parameters and accelerating the training of large Long Short-Term Memory (LSTM) networks: the first one is \"matrix factorization by design\" of LSTM matrix into the product of two smaller matrices, and the second one is partitioning of LSTM matrix, its inputs and states into the independent groups. Both approaches allow us to train large LSTM networks significantly faster to the near state-of the art perplexity while using significantly less RNN parameters.",
+      "standard_url": "http://arxiv.org/abs/1703.10722v3"
+    },
+    "22": {
+      "id": "2017-a_structured_self-attentive_sentence_embedding",
+      "enum": "22",
+      "authors": "Zhouhan Lin, Minwei Feng, Cicero Nogueira dos Santos, Mo Yu, Bing Xiang, Bowen Zhou, Yoshua Bengio",
+      "title": "A structured self-attentive sentence embedding",
+      "publication": "arXiv preprint arXiv:1703.03130, 2017",
+      "year": "2017",
+      "summary": "This paper proposes a new model for extracting an interpretable sentence embedding by introducing self-attention. Instead of using a vector, we use a 2-D matrix to represent the embedding, with each row of the matrix attending on a different part of the sentence. We also propose a self-attention mechanism and a special regularization term for the model. As a side effect, the embedding comes with an easy way of visualizing what specific parts of the sentence are encoded into the embedding. We evaluate our model on 3 different tasks: author profiling, sentiment classification, and textual entailment. Results show that our model yields a significant performance gain compared to other sentence embedding methods in all of the 3 tasks.",
+      "standard_url": "http://arxiv.org/abs/1703.03130v1"
+    },
+    "23": {
+      "id": "2015-multi-task_sequence_to_sequence_learning",
+      "enum": "23",
+      "authors": "Minh-Thang Luong, Quoc V. Le, Ilya Sutskever, Oriol Vinyals, Lukasz Kaiser",
+      "title": "Multi-task sequence to sequence learning",
+      "publication": "arXiv preprint arXiv:1511.06114, 2015",
+      "year": "2015",
+      "summary": "Sequence to sequence learning has recently emerged as a new paradigm in supervised learning. To date, most of its applications focused on only one task and not much work explored this framework for multiple tasks. This paper examines three multi-task learning (MTL) settings for sequence to sequence models: (a) the oneto-many setting - where the encoder is shared between several tasks such as machine translation and syntactic parsing, (b) the many-to-one setting - useful when only the decoder can be shared, as in the case of translation and image caption generation, and (c) the many-to-many setting - where multiple encoders and decoders are shared, which is the case with unsupervised objectives and translation. Our results show that training on a small amount of parsing and image caption data can improve the translation quality between English and German by up to 1.5 BLEU points over strong single-task baselines on the WMT benchmarks. Furthermore, we have established a new state-of-the-art result in constituent parsing with 93.0 F1. Lastly, we reveal interesting properties of the two unsupervised learning objectives, autoencoder and skip-thought, in the MTL context: autoencoder helps less in terms of perplexities but more on BLEU scores compared to skip-thought.",
+      "standard_url": "http://arxiv.org/abs/1511.06114v4"
+    },
+    "24": {
+      "id": "2015-effective_approaches_to_attention-based_neural_machine_translation",
+      "enum": "24",
+      "authors": "Minh-Thang Luong, Hieu Pham, Christopher D. Manning",
+      "title": "Effective approaches to attention-based neural machine translation",
+      "publication": "arXiv preprint arXiv:1508.04025, 2015",
+      "year": "2015",
+      "summary": "An attentional mechanism has lately been used to improve neural machine translation (NMT) by selectively focusing on parts of the source sentence during translation. However, there has been little work exploring useful architectures for attention-based NMT. This paper examines two simple and effective classes of attentional mechanism: a global approach which always attends to all source words and a local one that only looks at a subset of source words at a time. We demonstrate the effectiveness of both approaches over the WMT translation tasks between English and German in both directions. With local attention, we achieve a significant gain of 5.0 BLEU points over non-attentional systems which already incorporate known techniques such as dropout. Our ensemble model using different attention architectures has established a new state-of-the-art result in the WMT'15 English to German translation task with 25.9 BLEU points, an improvement of 1.0 BLEU points over the existing best system backed by NMT and an n-gram reranker.",
+      "standard_url": "http://arxiv.org/abs/1508.04025v5"
+    },
+    "25": {
+      "id": "1993-building_a_large_annotated_corpus_of_english:_the_penn_treebank",
+      "enum": "25",
+      "authors": "Mitchell P Marcus, Mary Ann Marcinkiewicz, and Beatrice Santorini",
+      "title": "Building a large annotated corpus of english: The penn treebank",
+      "publication": "Computational linguistics, 19(2):313–330, 1993",
+      "year": "1993",
+      "summary": null,
+      "standard_url": null
+    },
+    "26": {
+      "id": "2006-effective_self-training_for_parsing",
+      "enum": "26",
+      "authors": "David McClosky, Eugene Charniak, and Mark Johnson",
+      "title": "Effective self-training for parsing",
+      "publication": "In Proceedings of the Human Language Technology Conference of the NAACL, Main Conference, pages 152–159. ACL, June 2006",
+      "year": "2006",
+      "summary": null,
+      "standard_url": null
+    },
+    "27": {
+      "id": "2016-a_decomposable_attention_model",
+      "enum": "27",
+      "authors": "Ankur P. Parikh, Oscar Täckström, Dipanjan Das, Jakob Uszkoreit",
+      "title": "A decomposable attention model",
+      "publication": "In Empirical Methods in Natural Language Processing, 2016",
+      "year": "2016",
+      "summary": "We propose a simple neural architecture for natural language inference. Our approach uses attention to decompose the problem into subproblems that can be solved separately, thus making it trivially parallelizable. On the Stanford Natural Language Inference (SNLI) dataset, we obtain state-of-the-art results with almost an order of magnitude fewer parameters than previous work and without relying on any word-order information. Adding intra-sentence attention that takes a minimum amount of order into account yields further improvements.",
+      "standard_url": "http://arxiv.org/abs/1606.01933v2"
+    },
+    "28": {
+      "id": "2017-a_deep_reinforced_model_for_abstractive_summarization",
+      "enum": "28",
+      "authors": "Romain Paulus, Caiming Xiong, Richard Socher",
+      "title": "A deep reinforced model for abstractive summarization",
+      "publication": "arXiv preprint arXiv:1705.04304, 2017",
+      "year": "2017",
+      "summary": "Attentional, RNN-based encoder-decoder models for abstractive summarization have achieved good performance on short input and output sequences. For longer documents and summaries however these models often include repetitive and incoherent phrases. We introduce a neural network model with a novel intra-attention that attends over the input and continuously generated output separately, and a new training method that combines standard supervised word prediction and reinforcement learning (RL). Models trained only with supervised learning often exhibit \"exposure bias\" - they assume ground truth is provided at each step during training. However, when standard word prediction is combined with the global sequence prediction training of RL the resulting summaries become more readable. We evaluate this model on the CNN/Daily Mail and New York Times datasets. Our model obtains a 41.16 ROUGE-1 score on the CNN/Daily Mail dataset, an improvement over previous state-of-the-art models. Human evaluation also shows that our model produces higher quality summaries.",
+      "standard_url": "http://arxiv.org/abs/1705.04304v3"
+    },
+    "29": {
+      "id": "2006-learning_accurate_compact_and_interpretable_tree_annotation",
+      "enum": "29",
+      "authors": "Slav Petrov, Leon Barrett, Romain Thibaux, and Dan Klein",
+      "title": "Learning accurate, compact, and interpretable tree annotation",
+      "publication": "In Proceedings of the 21st International Conference on Computational Linguistics and 44th Annual Meeting of the ACL, pages 433–440. ACL, July 2006",
+      "year": "2006",
+      "summary": null,
+      "standard_url": null
+    },
+    "30": {
+      "id": "2016-using_the_output_embedding_to_improve_language_models",
+      "enum": "30",
+      "authors": "Ofir Press, Lior Wolf",
+      "title": "Using the output embedding to improve language models",
+      "publication": "arXiv preprint arXiv:1608.05859, 2016",
+      "year": "2016",
+      "summary": "We study the topmost weight matrix of neural network language models. We show that this matrix constitutes a valid word embedding. When training language models, we recommend tying the input embedding and this output embedding. We analyze the resulting update rules and show that the tied embedding evolves in a more similar way to the output embedding than to the input embedding in the untied model. We also offer a new method of regularizing the output embedding. Our methods lead to a significant reduction in perplexity, as we are able to show on a variety of neural network language models. Finally, we show that weight tying can reduce the size of neural translation models to less than half of their original size without harming their performance.",
+      "standard_url": "http://arxiv.org/abs/1608.05859v3"
+    },
+    "31": {
+      "id": "2015-neural_machine_translation_of_rare_words_with_subword_units",
+      "enum": "31",
+      "authors": "Rico Sennrich, Barry Haddow, Alexandra Birch",
+      "title": "Neural machine translation of rare words with subword units",
+      "publication": "arXiv preprint arXiv:1508.07909, 2015",
+      "year": "2015",
+      "summary": "Neural machine translation (NMT) models typically operate with a fixed vocabulary, but translation is an open-vocabulary problem. Previous work addresses the translation of out-of-vocabulary words by backing off to a dictionary. In this paper, we introduce a simpler and more effective approach, making the NMT model capable of open-vocabulary translation by encoding rare and unknown words as sequences of subword units. This is based on the intuition that various word classes are translatable via smaller units than words, for instance names (via character copying or transliteration), compounds (via compositional translation), and cognates and loanwords (via phonological and morphological transformations). We discuss the suitability of different word segmentation techniques, including simple character n-gram models and a segmentation based on the byte pair encoding compression algorithm, and empirically show that subword models improve over a back-off dictionary baseline for the WMT 15 translation tasks English-German and English-Russian by 1.1 and 1.3 BLEU, respectively.",
+      "standard_url": "http://arxiv.org/abs/1508.07909v5"
+    },
+    "32": {
+      "id": "2017-outrageously_large_neural_networks:_the_sparsely-gated_mixture-of-experts_layer",
+      "enum": "32",
+      "authors": "Noam Shazeer, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le, Geoffrey Hinton, Jeff Dean",
+      "title": "Outrageously large neural networks: The sparsely-gated mixture-of-experts layer",
+      "publication": "arXiv preprint arXiv:1701.06538, 2017",
+      "year": "2017",
+      "summary": "The capacity of a neural network to absorb information is limited by its number of parameters. Conditional computation, where parts of the network are active on a per-example basis, has been proposed in theory as a way of dramatically increasing model capacity without a proportional increase in computation. In practice, however, there are significant algorithmic and performance challenges. In this work, we address these challenges and finally realize the promise of conditional computation, achieving greater than 1000x improvements in model capacity with only minor losses in computational efficiency on modern GPU clusters. We introduce a Sparsely-Gated Mixture-of-Experts layer (MoE), consisting of up to thousands of feed-forward sub-networks. A trainable gating network determines a sparse combination of these experts to use for each example. We apply the MoE to the tasks of language modeling and machine translation, where model capacity is critical for absorbing the vast quantities of knowledge available in the training corpora. We present model architectures in which a MoE with up to 137 billion parameters is applied convolutionally between stacked LSTM layers. On large language modeling and machine translation benchmarks, these models achieve significantly better results than state-of-the-art at lower computational cost.",
+      "standard_url": "http://arxiv.org/abs/1701.06538v1"
+    },
+    "33": {
+      "id": "2014-dropout:_a_simple_way_to_prevent_neural_networks_from_overfitting",
+      "enum": "33",
+      "authors": "Nitish Srivastava, Geoffrey E Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov",
+      "title": "Dropout: a simple way to prevent neural networks from overfitting",
+      "publication": "Journal of Machine Learning Research, 15(1):1929–1958, 2014",
+      "year": "2014",
+      "summary": null,
+      "standard_url": null
+    },
+    "34": {
+      "id": "2015-end-to-end_memory_networks",
+      "enum": "34",
+      "authors": "Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, Rob Fergus",
+      "title": "End-to-end memory networks",
+      "publication": "In C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, editors, Advances in Neural Information Processing Systems 28, pages 2440–2448. Curran Associates, Inc., 2015",
+      "year": "2015",
+      "summary": "We introduce a neural network with a recurrent attention model over a possibly large external memory. The architecture is a form of Memory Network (Weston et al., 2015) but unlike the model in that work, it is trained end-to-end, and hence requires significantly less supervision during training, making it more generally applicable in realistic settings. It can also be seen as an extension of RNNsearch to the case where multiple computational steps (hops) are performed per output symbol. The flexibility of the model allows us to apply it to tasks as diverse as (synthetic) question answering and to language modeling. For the former our approach is competitive with Memory Networks, but with less supervision. For the latter, on the Penn TreeBank and Text8 datasets our approach demonstrates comparable performance to RNNs and LSTMs. In both cases we show that the key concept of multiple computational hops yields improved results.",
+      "standard_url": "http://arxiv.org/abs/1503.08895v5"
+    },
+    "35": {
+      "id": "2014-sequence_to_sequence_learning_with_neural_networks",
+      "enum": "35",
+      "authors": "Ilya Sutskever, Oriol Vinyals, Quoc V. Le",
+      "title": "Sequence to sequence learning with neural networks",
+      "publication": "In Advances in Neural Information Processing Systems, pages 3104–3112, 2014",
+      "year": "2014",
+      "summary": "Deep Neural Networks (DNNs) are powerful models that have achieved excellent performance on difficult learning tasks. Although DNNs work well whenever large labeled training sets are available, they cannot be used to map sequences to sequences. In this paper, we present a general end-to-end approach to sequence learning that makes minimal assumptions on the sequence structure. Our method uses a multilayered Long Short-Term Memory (LSTM) to map the input sequence to a vector of a fixed dimensionality, and then another deep LSTM to decode the target sequence from the vector. Our main result is that on an English to French translation task from the WMT'14 dataset, the translations produced by the LSTM achieve a BLEU score of 34.8 on the entire test set, where the LSTM's BLEU score was penalized on out-of-vocabulary words. Additionally, the LSTM did not have difficulty on long sentences. For comparison, a phrase-based SMT system achieves a BLEU score of 33.3 on the same dataset. When we used the LSTM to rerank the 1000 hypotheses produced by the aforementioned SMT system, its BLEU score increases to 36.5, which is close to the previous best result on this task. The LSTM also learned sensible phrase and sentence representations that are sensitive to word order and are relatively invariant to the active and the passive voice. Finally, we found that reversing the order of the words in all source sentences (but not target sentences) improved the LSTM's performance markedly, because doing so introduced many short term dependencies between the source and the target sentence which made the optimization problem easier.",
+      "standard_url": "http://arxiv.org/abs/1409.3215v3"
+    },
+    "36": {
+      "id": "2015-rethinking_the_inception_architecture_for_computer_vision",
+      "enum": "36",
+      "authors": "Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, Zbigniew Wojna",
+      "title": "Rethinking the inception architecture for computer vision",
+      "publication": "CoRR, abs/1512.00567, 2015",
+      "year": "2015",
+      "summary": "Convolutional networks are at the core of most state-of-the-art computer vision solutions for a wide variety of tasks. Since 2014 very deep convolutional networks started to become mainstream, yielding substantial gains in various benchmarks. Although increased model size and computational cost tend to translate to immediate quality gains for most tasks (as long as enough labeled data is provided for training), computational efficiency and low parameter count are still enabling factors for various use cases such as mobile vision and big-data scenarios. Here we explore ways to scale up networks in ways that aim at utilizing the added computation as efficiently as possible by suitably factorized convolutions and aggressive regularization. We benchmark our methods on the ILSVRC 2012 classification challenge validation set demonstrate substantial gains over the state of the art: 21.2% top-1 and 5.6% top-5 error for single frame evaluation using a network with a computational cost of 5 billion multiply-adds per inference and with using less than 25 million parameters. With an ensemble of 4 models and multi-crop evaluation, we report 3.5% top-5 error on the validation set (3.6% error on the test set) and 17.3% top-1 error on the validation set.",
+      "standard_url": "http://arxiv.org/abs/1512.00567v3"
+    },
+    "37": {
+      "id": "2015-grammar_as_a_foreign_language",
+      "enum": "37",
+      "authors": "Oriol Vinyals, Lukasz Kaiser, Terry Koo, Slav Petrov, Ilya Sutskever, Geoffrey Hinton",
+      "title": "Grammar as a foreign language",
+      "publication": "In Advances in Neural Information Processing Systems, 2015",
+      "year": "2015",
+      "summary": "Syntactic constituency parsing is a fundamental problem in natural language processing and has been the subject of intensive research and engineering for decades. As a result, the most accurate parsers are domain specific, complex, and inefficient. In this paper we show that the domain agnostic attention-enhanced sequence-to-sequence model achieves state-of-the-art results on the most widely used syntactic constituency parsing dataset, when trained on a large synthetic corpus that was annotated using existing parsers. It also matches the performance of standard parsers when trained only on a small human-annotated dataset, which shows that this model is highly data-efficient, in contrast to sequence-to-sequence models without the attention mechanism. Our parser is also fast, processing over a hundred sentences per second with an unoptimized CPU implementation.",
+      "standard_url": "http://arxiv.org/abs/1412.7449v3"
+    },
+    "38": {
+      "id": "2016-google’s_neural_machine_translation_system:_bridging_the_gap_between_human_and_machine_translation",
+      "enum": "38",
+      "authors": "Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V. Le, Mohammad Norouzi, Wolfgang Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, Jeff Klingner, Apurva Shah, Melvin Johnson, Xiaobing Liu, Łukasz Kaiser, Stephan Gouws, Yoshikiyo Kato, Taku Kudo, Hideto Kazawa, Keith Stevens, George Kurian, Nishant Patil, Wei Wang, Cliff Young, Jason Smith, Jason Riesa, Alex Rudnick, Oriol Vinyals, Greg Corrado, Macduff Hughes, Jeffrey Dean",
+      "title": "Google’s neural machine translation system: Bridging the gap between human and machine translation",
+      "publication": "arXiv preprint arXiv:1609.08144, 2016",
+      "year": "2016",
+      "summary": "Neural Machine Translation (NMT) is an end-to-end learning approach for automated translation, with the potential to overcome many of the weaknesses of conventional phrase-based translation systems. Unfortunately, NMT systems are known to be computationally expensive both in training and in translation inference. Also, most NMT systems have difficulty with rare words. These issues have hindered NMT's use in practical deployments and services, where both accuracy and speed are essential. In this work, we present GNMT, Google's Neural Machine Translation system, which attempts to address many of these issues. Our model consists of a deep LSTM network with 8 encoder and 8 decoder layers using attention and residual connections. To improve parallelism and therefore decrease training time, our attention mechanism connects the bottom layer of the decoder to the top layer of the encoder. To accelerate the final translation speed, we employ low-precision arithmetic during inference computations. To improve handling of rare words, we divide words into a limited set of common sub-word units (\"wordpieces\") for both input and output. This method provides a good balance between the flexibility of \"character\"-delimited models and the efficiency of \"word\"-delimited models, naturally handles translation of rare words, and ultimately improves the overall accuracy of the system. Our beam search technique employs a length-normalization procedure and uses a coverage penalty, which encourages generation of an output sentence that is most likely to cover all the words in the source sentence. On the WMT'14 English-to-French and English-to-German benchmarks, GNMT achieves competitive results to state-of-the-art. Using a human side-by-side evaluation on a set of isolated simple sentences, it reduces translation errors by an average of 60% compared to Google's phrase-based production system.",
+      "standard_url": "http://arxiv.org/abs/1609.08144v2"
+    },
+    "39": {
+      "id": "2016-deep_recurrent_models_with_fast-forward_connections_for_neural_machine_translation",
+      "enum": "39",
+      "authors": "Jie Zhou, Ying Cao, Xuguang Wang, Peng Li, Wei Xu",
+      "title": "Deep recurrent models with fast-forward connections for neural machine translation",
+      "publication": "CoRR, abs/1606.04199, 2016",
+      "year": "2016",
+      "summary": "Neural machine translation (NMT) aims at solving machine translation (MT) problems using neural networks and has exhibited promising results in recent years. However, most of the existing NMT models are shallow and there is still a performance gap between a single NMT model and the best conventional MT system. In this work, we introduce a new type of linear connections, named fast-forward connections, based on deep Long Short-Term Memory (LSTM) networks, and an interleaved bi-directional architecture for stacking the LSTM layers. Fast-forward connections play an essential role in propagating the gradients and building a deep topology of depth 16. On the WMT'14 English-to-French task, we achieve BLEU=37.7 with a single attention model, which outperforms the corresponding single shallow model by 6.2 BLEU points. This is the first time that a single NMT model achieves state-of-the-art performance and outperforms the best conventional model by 0.7 BLEU points. We can still achieve BLEU=36.3 even without using an attention mechanism. After special handling of unknown words and model ensembling, we obtain the best score reported to date on this task with BLEU=40.4. Our models are also validated on the more difficult WMT'14 English-to-German task.",
+      "standard_url": "http://arxiv.org/abs/1606.04199v3"
+    },
+    "40": {
+      "id": "2013-fast_and_accurate_shift-reduce_constituent_parsing",
+      "enum": "40",
+      "authors": "Muhua Zhu, Yue Zhang, Wenliang Chen, Min Zhang, and Jingbo Zhu",
+      "title": "Fast and accurate shift-reduce constituent parsing",
+      "publication": "In Proceedings of the 51st Annual Meeting of the ACL (Volume 1: Long Papers), pages 434–443. ACL, August 2013",
+      "year": "2013",
+      "summary": null,
+      "standard_url": null
+    }
+  },
+  "citations": [
+    {
+      "section_id": "S1",
+      "cite_enum": "13",
+      "cite_id": "bib.bib13",
+      "sentence": "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "35",
+      "cite_id": "bib.bib35",
+      "sentence": "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "5",
+      "cite_id": "bib.bib5",
+      "sentence": "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "38",
+      "cite_id": "bib.bib38",
+      "sentence": "Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures[38,24,15]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "24",
+      "cite_id": "bib.bib24",
+      "sentence": "Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures[38,24,15]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "15",
+      "cite_id": "bib.bib15",
+      "sentence": "Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures[38,24,15]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "Recent work has achieved significant improvements in computational efficiency through factorization tricks[21]and conditional computation[32], while also improving model performance in case of the latter"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Recent work has achieved significant improvements in computational efficiency through factorization tricks[21]and conditional computation[32], while also improving model performance in case of the latter"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "Attention mechanisms have become an integral part of compelling sequence modeling and transduction models in various tasks, allowing modeling of dependencies without regard to their distance in the input or output sequences[2,19]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "19",
+      "cite_id": "bib.bib19",
+      "sentence": "Attention mechanisms have become an integral part of compelling sequence modeling and transduction models in various tasks, allowing modeling of dependencies without regard to their distance in the input or output sequences[2,19]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "27",
+      "cite_id": "bib.bib27",
+      "sentence": "In all but a few cases[27], however, such attention mechanisms are used in conjunction with a recurrent network"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU[16], ByteNet[18]and ConvS2S[9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "18",
+      "cite_id": "bib.bib18",
+      "sentence": "The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU[16], ByteNet[18]and ConvS2S[9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU[16], ByteNet[18]and ConvS2S[9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "12",
+      "cite_id": "bib.bib12",
+      "sentence": "This makes it more difficult to learn dependencies between distant positions[12]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "4",
+      "cite_id": "bib.bib4",
+      "sentence": "Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations[4,27,28,22]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "27",
+      "cite_id": "bib.bib27",
+      "sentence": "Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations[4,27,28,22]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "28",
+      "cite_id": "bib.bib28",
+      "sentence": "Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations[4,27,28,22]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "22",
+      "cite_id": "bib.bib22",
+      "sentence": "Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations[4,27,28,22]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "34",
+      "cite_id": "bib.bib34",
+      "sentence": "End-to-end memory networks are based on a recurrent attention mechanism instead of sequence-aligned recurrence and have been shown to perform well on simple-language question answering and language modeling tasks[34]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "17",
+      "cite_id": "bib.bib17",
+      "sentence": "In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as[17,18]and[9]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "18",
+      "cite_id": "bib.bib18",
+      "sentence": "In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as[17,18]and[9]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as[17,18]and[9]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "5",
+      "cite_id": "bib.bib5",
+      "sentence": "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "35",
+      "cite_id": "bib.bib35",
+      "sentence": "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "10",
+      "cite_id": "bib.bib10",
+      "sentence": "At each step the model is auto-regressive[10], consuming the previously generated symbols as additional input when generating the next"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "11",
+      "cite_id": "bib.bib11",
+      "sentence": "We employ a residual connection[11]around each of the two sub-layers, followed by layer normalization[1]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "We employ a residual connection[11]around each of the two sub-layers, followed by layer normalization[1]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "The two most commonly used attention functions are additive attention[2], and dot-product (multiplicative) attention"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "While for small values ofdkd_{k}the two mechanisms perform similarly, additive attention outperforms dot product attention without scaling for larger values ofdkd_{k}[3]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "38",
+      "cite_id": "bib.bib38",
+      "sentence": "This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as[38,2,9]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as[38,2,9]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as[38,2,9]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "30",
+      "cite_id": "bib.bib30",
+      "sentence": "In our model, we share the same weight matrix between the two embedding layers and the pre-softmax linear transformation, similar to[30]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "There are many choices of positional encodings, learned and fixed[9]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "We also experimented with using learned positional embeddings[9]instead, and found that the two versions produced nearly identical results (see Table3row (E))"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "12",
+      "cite_id": "bib.bib12",
+      "sentence": "The shorter these paths between any combination of positions in the input and output sequences, the easier it is to learn long-range dependencies[12]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "38",
+      "cite_id": "bib.bib38",
+      "sentence": "In terms of computational complexity, self-attention layers are faster than recurrent layers when the sequence lengthnnis smaller than the representation dimensionalitydd, which is most often the case with sentence representations used by state-of-the-art models in machine translations, such as word-piece[38]and byte-pair[31]representations"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "31",
+      "cite_id": "bib.bib31",
+      "sentence": "In terms of computational complexity, self-attention layers are faster than recurrent layers when the sequence lengthnnis smaller than the representation dimensionalitydd, which is most often the case with sentence representations used by state-of-the-art models in machine translations, such as word-piece[38]and byte-pair[31]representations"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "18",
+      "cite_id": "bib.bib18",
+      "sentence": "Doing so requires a stack ofO​(n/k)O(n/k)convolutional layers in the case of contiguous kernels, orO​(l​o​gk​(n))O(log_{k}(n))in the case of dilated convolutions[18], increasing the length of the longest paths between any two positions in the network"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "6",
+      "cite_id": "bib.bib6",
+      "sentence": "Separable convolutions[6], however, decrease the complexity considerably, toO​(k⋅n⋅d+n⋅d2)O(k\\cdot n\\cdot d+n\\cdot d^{2})"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "Sentences were encoded using byte-pair encoding[3], which has a shared source-target vocabulary of about 37000 tokens"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "38",
+      "cite_id": "bib.bib38",
+      "sentence": "For English-French, we used the significantly larger WMT 2014 English-French dataset consisting of 36M sentences and split tokens into a 32000 word-piece vocabulary[38]"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "20",
+      "cite_id": "bib.bib20",
+      "sentence": "We used the Adam optimizer[20]withβ1=0"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "33",
+      "cite_id": "bib.bib33",
+      "sentence": "We apply dropout[33]to the output of each sub-layer, before it is added to the sub-layer input and normalized"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "36",
+      "cite_id": "bib.bib36",
+      "sentence": "1[36]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "18",
+      "cite_id": "bib.bib18",
+      "sentence": "ByteNet[18]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "39",
+      "cite_id": "bib.bib39",
+      "sentence": "Deep-Att + PosUnk[39]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "38",
+      "cite_id": "bib.bib38",
+      "sentence": "GNMT + RL[38]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "ConvS2S[9]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "MoE[32]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "39",
+      "cite_id": "bib.bib39",
+      "sentence": "Deep-Att + PosUnk Ensemble[39]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "38",
+      "cite_id": "bib.bib38",
+      "sentence": "GNMT + RL Ensemble[38]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "ConvS2S Ensemble[9]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "38",
+      "cite_id": "bib.bib38",
+      "sentence": "6[38]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "38",
+      "cite_id": "bib.bib38",
+      "sentence": "6[38]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "In row (E) we replace our sinusoidal positional encoding with learned positional embeddings[9], and observe nearly identical results to the base model"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "37",
+      "cite_id": "bib.bib37",
+      "sentence": "(2014)[37]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "29",
+      "cite_id": "bib.bib29",
+      "sentence": "(2006)[29]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "40",
+      "cite_id": "bib.bib40",
+      "sentence": "(2013)[40]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "(2016)[8]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "40",
+      "cite_id": "bib.bib40",
+      "sentence": "(2013)[40]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "14",
+      "cite_id": "bib.bib14",
+      "sentence": "Huang & Harper (2009)[14]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "26",
+      "cite_id": "bib.bib26",
+      "sentence": "(2006)[26]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "37",
+      "cite_id": "bib.bib37",
+      "sentence": "(2014)[37]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "23",
+      "cite_id": "bib.bib23",
+      "sentence": "(2015)[23]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "(2016)[8]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "37",
+      "cite_id": "bib.bib37",
+      "sentence": "Furthermore, RNN sequence-to-sequence models have not been able to attain state-of-the-art results in small-data regimes[37]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "25",
+      "cite_id": "bib.bib25",
+      "sentence": "We trained a 4-layer transformer withdm​o​d​e​l=1024d_{model}=1024on the Wall Street Journal (WSJ) portion of the Penn Treebank[25], about 40K training sentences"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "37",
+      "cite_id": "bib.bib37",
+      "sentence": "We also trained it in a semi-supervised setting, using the larger high-confidence and BerkleyParser corpora from with approximately 17M sentences[37]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "Our results in Table4show that despite the lack of task-specific tuning our model performs surprisingly well, yielding better results than all previously reported models with the exception of the Recurrent Neural Network Grammar[8]"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "37",
+      "cite_id": "bib.bib37",
+      "sentence": "In contrast to RNN sequence-to-sequence models[37], the Transformer outperforms the BerkeleyParser[29]even when training only on the WSJ training set of 40K sentences"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "29",
+      "cite_id": "bib.bib29",
+      "sentence": "In contrast to RNN sequence-to-sequence models[37], the Transformer outperforms the BerkeleyParser[29]even when training only on the WSJ training set of 40K sentences"
+    }
+  ],
+  "preview": "<div class=\"ltx_para ltx_noindent\" id=\"S1.p1\">\n<p class=\"ltx_p\" id=\"S1.p1.1\">Recurrent neural networks, long short-term memory  and gated recurrent  neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation . Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures .</p>\n</div><div class=\"ltx_para ltx_noindent\" id=\"S1.p2\">\n<p class=\"ltx_p\" id=\"S1.p2.3\">Recurrent models typically factor computation along the symbol positions of the input and output sequences. Aligning the positions to steps in computation time, they generate a sequence of hidden states <math alttext=\"h_{t}\" class=\"ltx_Math\" display=\"inline\" id=\"S1.p2.1.m1\" intent=\":literal\"><semantics><msub><mi>h</mi><mi>t</mi></msub><annotation encoding=\"application/x-tex\">h_{t}</annotation></semantics></math>, as a function of the previous hidden state <math alttext=\"h_{t-1}\" class=\"ltx_Math\" display=\"inline\" id=\"S1.p2.2.m2\" intent=\":literal\"><semantics><msub><mi>h</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding=\"application/x-tex\">h_{t-1}</annotation></semantics></math> and the input for position <math alttext=\"t\" class=\"ltx_Math\" display=\"inline\" id=\"S1.p2.3.m3\" intent=\":literal\"><semantics><mi>t</mi><annotation encoding=\"application/x-tex\">t</annotation></semantics></math>. This inherently sequential nature precludes parallelization within training examples, which becomes critical at longer sequence lengths, as memory constraints limit batching across examples.\nRecent work has achieved significant improvements in computational efficiency through factorization tricks  and conditional computation , while also improving model performance in case of the latter. The fundamental constraint of sequential computation, however, remains.</p>\n</div><div class=\"ltx_para ltx_noindent\" id=\"S1.p3\">\n<p class=\"ltx_p\" id=\"S1.p3.1\">Attention mechanisms have become an integral part of compelling sequence modeling and transduction models in various tasks, allowing modeling of dependencies without regard to their distance in the input or output sequences . In all but a few cases , however, such attention mechanisms are used in conjunction with a recurrent network.</p>\n</div><div class=\"ltx_para ltx_noindent\" id=\"S1.p4\">\n<p class=\"ltx_p\" id=\"S1.p4.1\">In this work we propose the Transformer, a model architecture eschewing recurrence and instead relying entirely on an attention mechanism to draw global dependencies between input and output. The Transformer allows for significantly more parallelization and can reach a new state of the art in translation quality after being trained for as little as twelve hours on eight P100 GPUs.</p>\n</div>",
+  "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin",
+  "summary": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+  "standard_url": "http://arxiv.org/abs/1706.03762v7",
+  "id": "2017-attention_is_all_you_need"
+}
