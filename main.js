@@ -56,23 +56,30 @@ function node_click(node_id, from_node_id) {
 
     var side_bar = $("#side_bar_template").clone().removeAttr("id");
 
+    // GO-BACK button
     if (from_node_id) {
       var back_link = side_bar.find(".back_link");
       back_link.attr("back_id", from_node_id);
+      back_link.find(".back_link_target").text(NODES_INDEX[from_node_id].title);
       back_link.show();
     }
     
+    // basic information
     const attrs = ["year", "title"];
     attrs.forEach(a => 
       side_bar.find(".paper_" + a + " .text").text(node[a]) 
     );
+    const referenced_by_html = get_referenced_by_html(node_id);
+    if (referenced_by_html)side_bar.find(".paper_referenced_by .content").html(get_referenced_by_html(node_id));
+    else side_bar.find(".paper_referenced_by").hide();
 
+    // Get details from individual json file
     const json_id = node.name? node.id:node.parents[0]["id"];
     $.getJSON("research_paper_parser/paper_json/" + json_id + ".json", function( data ) {
 
         var authors, standard_url, summary;
 
-        // Core Papers 
+        // the current node is a Core Paper 
         if (node.name) {
           side_bar.find(".paper_name").text(node["name"])
           side_bar.find(".paper_preview .content").html(data["preview"] || 'NOT AVAILABLE');
@@ -85,15 +92,15 @@ function node_click(node_id, from_node_id) {
           standard_url = data["standard_url"] || 'N/A';
           summary = data["summary"] || 'NOT AVAILABLE';
 
-        } else { // Reference Papers
+        } else { // the current node only appears as References
           $.each(data["references"], function(key, ref_obj) {
             if (ref_obj["id"] == node_id) {
 
               side_bar.find(".paper_publication .label_text").text("Publication: ");
               side_bar.find(".paper_publication .text").text(ref_obj["publication"] || 'N/A');
 
-              side_bar.find(".paper_preview .label_text").text("Preview - Introduction (N/A)");
-              side_bar.find(".paper_citations .label_text").text("Citations (N/A)");
+              side_bar.find(".paper_preview").hide();
+              side_bar.find(".paper_citations").hide();
 
 
               authors = ref_obj["authors"] || '';
@@ -103,13 +110,12 @@ function node_click(node_id, from_node_id) {
           });
         }
         
-
         side_bar.find(".paper_authors .text").text(authors) 
         side_bar.find(".paper_url .text").html(
           '<a href="' + standard_url + '" target="_blank">' + standard_url + '</a>'
         );
         side_bar.find(".paper_url .pdf").html(
-          '>>>> <a href="' + standard_url.replace("/abs/", "/pdf/") + '" target="_blank"> View PDF </a> <<<<' 
+          '[<a href="' + standard_url.replace("/abs/", "/pdf/") + '" target="_blank" style="font-weight:bold">View PDF</a>]' 
         )
         side_bar.find(".paper_summary .content").html(summary);
 
@@ -133,7 +139,6 @@ function get_citation_html(grouped, sections, references, node_id) {
           htmlString += `<li style='font-family:"Noto Serif", "Noto Serif Fallback", serif;'>${sentence}</li>`;
           htmlString += "<ul>";
 
-          // Add the cite_enums
           grouped[sectionId][sentence].forEach(enumVal => {
               htmlString += `<li class="cite_bullet" source_id="${node_id}" cite_id="${references[enumVal]['id']}">
                 ${enumVal}: [${references[enumVal]["year"]}] ${references[enumVal]["title"]}
@@ -163,6 +168,18 @@ function group_citations(citations) {
       }
   });
   return grouped;
+}
+
+function get_referenced_by_html(node_id) {
+  if (NODES_INDEX[node_id].parents.length == 0) return ''
+  let htmlString = "<ul>";
+  NODES_INDEX[node_id].parents.forEach(parent => {
+      htmlString += `<li class="cite_bullet" source_id="${node_id}" cite_id="${parent.id}">
+        [${NODES_INDEX[parent.id].year}] ${NODES_INDEX[parent.id].title}</strong>
+      </li>`;
+  });
+  htmlString += "</ul>";
+  return htmlString;
 }
 
 function toggle_side_bar(node_id) {
@@ -311,9 +328,12 @@ function constructD3TangleLayout(levels, options={}){
   var nodes_index = {};
   nodes.forEach(d => (nodes_index[d.id] = d));
   nodes.forEach(d => {
-    d.parents = (d.parents === undefined ? [] : d.parents).map(
-      p => nodes_index[p]
-    );
+
+  var parentIds = [];
+    if (d.parents !== undefined) {
+      parentIds = Array.isArray(d.parents) ? d.parents : Object.keys(d.parents);
+    }
+    d.parents = parentIds.map(p => nodes_index[p]);
   });
 
   // precompute bundles

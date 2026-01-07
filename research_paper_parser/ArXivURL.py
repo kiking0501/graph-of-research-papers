@@ -16,11 +16,12 @@ class ArXivURL:
         self.name = name
         self.year = year
         self.url = url
-        self.html_content = self.get_html_content(url)
-        self.parser = BeautifulSoup(self.html_content, 'html.parser', from_encoding='utf-8')
-        for k, v in self.parse_content(self.parser).items():
-            setattr(self, k, v)
-        self.id = get_id(title=self.title, year=self.year)
+        if url:
+            self.html_content = self.get_html_content(url)
+            self.parser = BeautifulSoup(self.html_content, 'html.parser', from_encoding='utf-8')
+            for k, v in self.parse_content(self.parser).items():
+                setattr(self, k, v)
+            self.id = get_id(title=self.title, year=self.year)
         
     def __repr__(self):
         return json.dumps({k: v for k, v in self.__dict__.items() if k not in ["html_content", "parser"]}, indent=2)
@@ -36,7 +37,7 @@ class ArXivURL:
         url_object = None
         with open(input_path) as f:
             data = json.load(f)
-            url_object = ArXivURL(data["name"], data["year"], data["url"])
+            url_object = ArXivURL(data["name"], data["year"], url=None) # passive load
             for k, v in data.items():
                 setattr(url_object, k, v)
         return url_object

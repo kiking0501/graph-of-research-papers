@@ -1,5 +1,5 @@
 # Graph of Research Papers
 
-Transform research-papers into a Graph view
+Map research papers to their references, to visualize the evolution of discovery.
 
 https://kiking0501.github.io/graph-of-research-papers

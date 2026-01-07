@@ -1,7 +1,7 @@
 body {
     padding: 80px 80px 80px 80px;
     font-family:'Open Sans', sans-serif;
-    background-image: linear-gradient(rgba(255, 255, 255, .97), rgba(255, 255, 255, .97)), url('./media/background.png');
+    background-image: linear-gradient(rgba(255, 255, 255, .95), rgba(255, 255, 255, .95)), url('./media/background.png');
     background-position: center;
 }
 
@@ -23,6 +23,13 @@ body {
 .label_text {
 	font-weight:bold;
 }
+
+.paper_referenced_by .content {
+	border-style:ridge; 
+	border-width:.5px; 
+	padding:10px; 
+}
+
 .paper_summary .content {
 	font-family:"Noto Serif", "Noto Serif Fallback", serif;
 }
@@ -42,7 +49,7 @@ body {
 	overflow-y:scroll;
 }
 .cite_bullet {
-	color:darkgrey;
+	color:grey;
 }
 .cite_bullet:hover{
 	color:#428bca;

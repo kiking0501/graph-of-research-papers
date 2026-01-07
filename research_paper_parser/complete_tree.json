@@ -23,176 +23,227 @@
       "type": "core",
       "title": "Structured attention networks",
       "year": "2017",
-      "authors": "Yoon Kim, Carl Denton, Luong Hoang, and Alexander M. Rush",
+      "authors": "Yoon Kim, Carl Denton, Luong Hoang, Alexander M. Rush",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Attention mechanisms have become an integral part of compelling sequence modeling and transduction models in various tasks, allowing modeling of dependencies without regard to their distance in the input or output sequences[2,19]"
+        ]
+      }
     },
     {
       "id": "2017-outrageously_large_neural_networks:_the_sparsely-gated_mixture-of-experts_layer",
       "type": "core",
       "title": "Outrageously large neural networks: The sparsely-gated mixture-of-experts layer",
       "year": "2017",
-      "authors": "Noam Shazeer, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le, Geoffrey Hinton, and Jeff Dean",
+      "authors": "Noam Shazeer, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le, Geoffrey Hinton, Jeff Dean",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Recent work has achieved significant improvements in computational efficiency through factorization tricks[21]and conditional computation[32], while also improving model performance in case of the latter",
+          "MoE[32]"
+        ]
+      }
     },
     {
       "id": "2017-neural_machine_translation_in_linear_time",
       "type": "core",
       "title": "Neural machine translation in linear time",
       "year": "2017",
-      "authors": "Nal Kalchbrenner, Lasse Espeholt, Karen Simonyan, Aaron van den Oord, Alex Graves, and Koray Kavukcuoglu",
+      "authors": "Nal Kalchbrenner, Lasse Espeholt, Karen Simonyan, Aaron van den Oord, Alex Graves, Koray Kavukcuoglu",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as[17,18]and[9]",
+          "Doing so requires a stack ofO​(n/k)O(n/k)convolutional layers in the case of contiguous kernels, orO​(l​o​gk​(n))O(log_{k}(n))in the case of dilated convolutions[18], increasing the length of the longest paths between any two positions in the network",
+          "ByteNet[18]",
+          "The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU[16], ByteNet[18]and ConvS2S[9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions"
+        ]
+      }
     },
     {
       "id": "2017-massive_exploration_of_neural_machine_translation_architectures",
       "type": "core",
       "title": "Massive exploration of neural machine translation architectures",
       "year": "2017",
-      "authors": "Denny Britz, Anna Goldie, Minh-Thang Luong, and Quoc V. Le",
+      "authors": "Denny Britz, Anna Goldie, Minh-Thang Luong, Quoc Le",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "While for small values ofdkd_{k}the two mechanisms perform similarly, additive attention outperforms dot product attention without scaling for larger values ofdkd_{k}[3]",
+          "Sentences were encoded using byte-pair encoding[3], which has a shared source-target vocabulary of about 37000 tokens"
+        ]
+      }
     },
     {
       "id": "2017-factorization_tricks_for_lstm_networks",
       "type": "core",
       "title": "Factorization tricks for LSTM networks",
       "year": "2017",
-      "authors": "Oleksii Kuchaiev and Boris Ginsburg",
+      "authors": "Oleksii Kuchaiev, Boris Ginsburg",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Recent work has achieved significant improvements in computational efficiency through factorization tricks[21]and conditional computation[32], while also improving model performance in case of the latter"
+        ]
+      }
     },
     {
       "id": "2017-convolutional_sequence_to_sequence_learning",
       "type": "core",
       "title": "Convolutional sequence to sequence learning",
       "year": "2017",
-      "authors": "Jonas Gehring, Michael Auli, David Grangier, Denis Yarats, and Yann N. Dauphin",
+      "authors": "Jonas Gehring, Michael Auli, David Grangier, Denis Yarats, Yann N. Dauphin",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as[38,2,9]",
+          "We also experimented with using learned positional embeddings[9]instead, and found that the two versions produced nearly identical results (see Table3row (E))",
+          "The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU[16], ByteNet[18]and ConvS2S[9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions",
+          "In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as[17,18]and[9]",
+          "There are many choices of positional encodings, learned and fixed[9]",
+          "In row (E) we replace our sinusoidal positional encoding with learned positional embeddings[9], and observe nearly identical results to the base model",
+          "ConvS2S[9]",
+          "ConvS2S Ensemble[9]"
+        ]
+      }
     },
     {
       "id": "2017-a_structured_self-attentive_sentence_embedding",
       "type": "core",
       "title": "A structured self-attentive sentence embedding",
       "year": "2017",
-      "authors": "Zhouhan Lin, Minwei Feng, Cicero Nogueira dos Santos, Mo Yu, Bing Xiang, Bowen Zhou, and Yoshua Bengio",
+      "authors": "Zhouhan Lin, Minwei Feng, Cicero Nogueira dos Santos, Mo Yu, Bing Xiang, Bowen Zhou, Yoshua Bengio",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations[4,27,28,22]"
+        ]
+      }
     },
     {
       "id": "2017-a_deep_reinforced_model_for_abstractive_summarization",
       "type": "core",
       "title": "A deep reinforced model for abstractive summarization",
       "year": "2017",
-      "authors": "Romain Paulus, Caiming Xiong, and Richard Socher",
+      "authors": "Romain Paulus, Caiming Xiong, Richard Socher",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations[4,27,28,22]"
+        ]
+      }
     },
     {
       "id": "2016-xception:_deep_learning_with_depthwise_separable_convolutions",
       "type": "core",
       "title": "Xception: Deep learning with depthwise separable convolutions",
       "year": "2016",
-      "authors": "Francois Chollet",
+      "authors": "François Chollet",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Separable convolutions[6], however, decrease the complexity considerably, toO​(k⋅n⋅d+n⋅d2)O(k\\cdot n\\cdot d+n\\cdot d^{2})"
+        ]
+      }
     },
     {
       "id": "2016-using_the_output_embedding_to_improve_language_models",
       "type": "core",
       "title": "Using the output embedding to improve language models",
       "year": "2016",
-      "authors": "Ofir Press and Lior Wolf",
+      "authors": "Ofir Press, Lior Wolf",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "In our model, we share the same weight matrix between the two embedding layers and the pre-softmax linear transformation, similar to[30]"
+        ]
+      }
     },
     {
       "id": "2016-recurrent_neural_network_grammars",
       "type": "core",
       "title": "Recurrent neural network grammars",
       "year": "2016",
-      "authors": "Chris Dyer, Adhiguna Kuncoro, Miguel Ballesteros, and Noah A. Smith",
+      "authors": "Chris Dyer, Adhiguna Kuncoro, Miguel Ballesteros, Noah A. Smith",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Our results in Table4show that despite the lack of task-specific tuning our model performs surprisingly well, yielding better results than all previously reported models with the exception of the Recurrent Neural Network Grammar[8]",
+          "(2016)[8]"
+        ]
+      }
     },
     {
       "id": "2016-neural_gpus_learn_algorithms",
       "type": "core",
       "title": "Neural GPUs learn algorithms",
       "year": "2016",
-      "authors": "Łukasz Kaiser and Ilya Sutskever",
+      "authors": "Łukasz Kaiser, Ilya Sutskever",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as[17,18]and[9]"
+        ]
+      }
     },
     {
       "id": "2016-long_short-term_memory-networks_for_machine_reading",
       "type": "core",
       "title": "Long short-term memory-networks for machine reading",
       "year": "2016",
-      "authors": "Jianpeng Cheng, Li Dong, and Mirella Lapata",
+      "authors": "Jianpeng Cheng, Li Dong, Mirella Lapata",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations[4,27,28,22]"
+        ]
+      }
     },
     {
       "id": "2016-layer_normalization",
       "type": "core",
       "title": "Layer normalization",
       "year": "2016",
-      "authors": "Jimmy Lei Ba, Jamie Ryan Kiros, and Geoffrey E Hinton",
+      "authors": "Jimmy Lei Ba, Jamie Ryan Kiros, Geoffrey E. Hinton",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "We employ a residual connection[11]around each of the two sub-layers, followed by layer normalization[1]"
+        ]
+      }
     },
     {
       "id": "2016-google’s_neural_machine_translation_system:_bridging_the_gap_between_human_and_machine_translation",
       "type": "core",
       "title": "Google’s neural machine translation system: Bridging the gap between human and machine translation",
       "year": "2016",
-      "authors": "Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V Le, Mohammad Norouzi, Wolfgang Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, et al",
+      "authors": "Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V. Le, Mohammad Norouzi, Wolfgang Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, Jeff Klingner, Apurva Shah, Melvin Johnson, Xiaobing Liu, Łukasz Kaiser, Stephan Gouws, Yoshikiyo Kato, Taku Kudo, Hideto Kazawa, Keith Stevens, George Kurian, Nishant Patil, Wei Wang, Cliff Young, Jason Smith, Jason Riesa, Alex Rudnick, Oriol Vinyals, Greg Corrado, Macduff Hughes, Jeffrey Dean",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as[38,2,9]",
+          "GNMT + RL[38]",
+          "GNMT + RL Ensemble[38]",
+          "6[38]",
+          "In terms of computational complexity, self-attention layers are faster than recurrent layers when the sequence lengthnnis smaller than the representation dimensionalitydd, which is most often the case with sentence representations used by state-of-the-art models in machine translations, such as word-piece[38]and byte-pair[31]representations",
+          "For English-French, we used the significantly larger WMT 2014 English-French dataset consisting of 36M sentences and split tokens into a 32000 word-piece vocabulary[38]",
+          "Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures[38,24,15]"
+        ]
+      }
     },
     {
       "id": "2016-exploring_the_limits_of_language_modeling",
       "type": "core",
       "title": "Exploring the limits of language modeling",
       "year": "2016",
-      "authors": "Rafal Jozefowicz, Oriol Vinyals, Mike Schuster, Noam Shazeer, and Yonghui Wu",
+      "authors": "Rafal Jozefowicz, Oriol Vinyals, Mike Schuster, Noam Shazeer, Yonghui Wu",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures[38,24,15]"
+        ]
+      }
     },
     {
       "id": "2016-deep_residual_learning_for_image_recognition",
@@ -201,175 +252,220 @@
       "year": "2016",
       "authors": null,
       "name": "Residual",
-      "parents": [
-        "2016-wide_&_deep_learning_for_recommender_systems",
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "In computer vision, deep residual learning[2]has been used to reduce the difficulty of training deeper models and improve accuracy with shortcut connections which skip one or more layers"
+        ],
+        "2017-attention_is_all_you_need": [
+          "We employ a residual connection[11]around each of the two sub-layers, followed by layer normalization[1]"
+        ]
+      }
     },
     {
       "id": "2016-deep_recurrent_models_with_fast-forward_connections_for_neural_machine_translation",
       "type": "core",
       "title": "Deep recurrent models with fast-forward connections for neural machine translation",
       "year": "2016",
-      "authors": "Jie Zhou, Ying Cao, Xuguang Wang, Peng Li, and Wei Xu",
+      "authors": "Jie Zhou, Ying Cao, Xuguang Wang, Peng Li, Wei Xu",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Deep-Att + PosUnk[39]",
+          "Deep-Att + PosUnk Ensemble[39]"
+        ]
+      }
     },
     {
       "id": "2016-can_active_memory_replace_attention?",
       "type": "core",
       "title": "Can active memory replace attention?",
       "year": "2016",
-      "authors": "Łukasz Kaiser and Samy Bengio",
+      "authors": "Łukasz Kaiser, Samy Bengio",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU[16], ByteNet[18]and ConvS2S[9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions"
+        ]
+      }
     },
     {
       "id": "2016-a_decomposable_attention_model",
       "type": "core",
       "title": "A decomposable attention model",
       "year": "2016",
-      "authors": "Ankur Parikh, Oscar Täckström, Dipanjan Das, and Jakob Uszkoreit",
+      "authors": "Ankur P. Parikh, Oscar Täckström, Dipanjan Das, Jakob Uszkoreit",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations[4,27,28,22]",
+          "In all but a few cases[27], however, such attention mechanisms are used in conjunction with a recurrent network"
+        ]
+      }
     },
     {
       "id": "2015-rethinking_the_inception_architecture_for_computer_vision",
       "type": "core",
       "title": "Rethinking the inception architecture for computer vision",
       "year": "2015",
-      "authors": "Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, and Zbigniew Wojna",
+      "authors": "Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, Zbigniew Wojna",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "1[36]"
+        ]
+      }
     },
     {
       "id": "2015-neural_machine_translation_of_rare_words_with_subword_units",
       "type": "core",
       "title": "Neural machine translation of rare words with subword units",
       "year": "2015",
-      "authors": "Rico Sennrich, Barry Haddow, and Alexandra Birch",
+      "authors": "Rico Sennrich, Barry Haddow, Alexandra Birch",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "In terms of computational complexity, self-attention layers are faster than recurrent layers when the sequence lengthnnis smaller than the representation dimensionalitydd, which is most often the case with sentence representations used by state-of-the-art models in machine translations, such as word-piece[38]and byte-pair[31]representations"
+        ]
+      }
     },
     {
       "id": "2015-multi-task_sequence_to_sequence_learning",
       "type": "core",
       "title": "Multi-task sequence to sequence learning",
       "year": "2015",
-      "authors": "Minh-Thang Luong, Quoc V. Le, Ilya Sutskever, Oriol Vinyals, and Lukasz Kaiser",
+      "authors": "Minh-Thang Luong, Quoc V. Le, Ilya Sutskever, Oriol Vinyals, Lukasz Kaiser",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "(2015)[23]"
+        ]
+      }
     },
     {
       "id": "2015-grammar_as_a_foreign_language",
       "type": "core",
       "title": "Grammar as a foreign language",
       "year": "2015",
-      "authors": "Vinyals & Kaiser, Koo, Petrov, Sutskever, and Hinton",
+      "authors": "Oriol Vinyals, Lukasz Kaiser, Terry Koo, Slav Petrov, Ilya Sutskever, Geoffrey Hinton",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "(2014)[37]",
+          "We also trained it in a semi-supervised setting, using the larger high-confidence and BerkleyParser corpora from with approximately 17M sentences[37]",
+          "In contrast to RNN sequence-to-sequence models[37], the Transformer outperforms the BerkeleyParser[29]even when training only on the WSJ training set of 40K sentences",
+          "Furthermore, RNN sequence-to-sequence models have not been able to attain state-of-the-art results in small-data regimes[37]"
+        ]
+      }
     },
     {
       "id": "2015-end-to-end_memory_networks",
       "type": "core",
       "title": "End-to-end memory networks",
       "year": "2015",
-      "authors": "Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, and Rob Fergus",
+      "authors": "Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, Rob Fergus",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "End-to-end memory networks are based on a recurrent attention mechanism instead of sequence-aligned recurrence and have been shown to perform well on simple-language question answering and language modeling tasks[34]"
+        ]
+      }
     },
     {
       "id": "2015-effective_approaches_to_attention-based_neural_machine_translation",
       "type": "core",
       "title": "Effective approaches to attention-based neural machine translation",
       "year": "2015",
-      "authors": "Minh-Thang Luong, Hieu Pham, and Christopher D Manning",
+      "authors": "Minh-Thang Luong, Hieu Pham, Christopher D. Manning",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures[38,24,15]"
+        ]
+      }
     },
     {
       "id": "2015-collaborative_deep_learning_for_recommender_systems",
       "type": "core",
       "title": "Collaborative deep learning for recommender systems",
       "year": "2015",
-      "authors": "H. Wang, N. Wang, and D.-Y. Yeung",
+      "authors": "Hao Wang, Naiyan Wang, Dit-Yan Yeung",
       "name": null,
-      "parents": [
-        "2016-wide_&_deep_learning_for_recommender_systems"
-      ]
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "In the recommender systems literature, collaborative deep learning has been explored by coupling deep learning for content information and collaborative filtering (CF) for the ratings matrix[7]"
+        ]
+      }
     },
     {
       "id": "2015-adam:_a_method_for_stochastic_optimization",
       "type": "core",
       "title": "Adam: A method for stochastic optimization",
       "year": "2015",
-      "authors": "Diederik Kingma and Jimmy Ba",
+      "authors": "Diederik P. Kingma, Jimmy Ba",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "We used the Adam optimizer[20]withβ1=0"
+        ]
+      }
     },
     {
       "id": "2014-sequence_to_sequence_learning_with_neural_networks",
       "type": "core",
       "title": "Sequence to sequence learning with neural networks",
       "year": "2014",
-      "authors": "Ilya Sutskever, Oriol Vinyals, and Quoc VV Le",
+      "authors": "Ilya Sutskever, Oriol Vinyals, Quoc V. Le",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]",
+          "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]"
+        ]
+      }
     },
     {
       "id": "2014-neural_machine_translation_by_jointly_learning_to_align_and_translate",
       "type": "core",
       "title": "Neural machine translation by jointly learning to align and translate",
       "year": "2014",
-      "authors": "Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio",
+      "authors": "Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "The two most commonly used attention functions are additive attention[2], and dot-product (multiplicative) attention",
+          "This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as[38,2,9]",
+          "Attention mechanisms have become an integral part of compelling sequence modeling and transduction models in various tasks, allowing modeling of dependencies without regard to their distance in the input or output sequences[2,19]",
+          "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]",
+          "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]"
+        ]
+      }
     },
     {
       "id": "2014-learning_phrase_representations_using_rnn_encoder-decoder_for_statistical_machine_translation",
       "type": "core",
       "title": "Learning phrase representations using rnn encoder-decoder for statistical machine translation",
       "year": "2014",
-      "authors": "Kyunghyun Cho, Bart van Merrienboer, Caglar Gulcehre, Fethi Bougares, Holger Schwenk, and Yoshua Bengio",
+      "authors": "Kyunghyun Cho, Bart van Merrienboer, Caglar Gulcehre, Dzmitry Bahdanau, Fethi Bougares, Holger Schwenk, Yoshua Bengio",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]",
+          "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]"
+        ]
+      }
     },
     {
       "id": "2014-empirical_evaluation_of_gated_recurrent_neural_networks_on_sequence_modeling",
       "type": "core",
       "title": "Empirical evaluation of gated recurrent neural networks on sequence modeling",
       "year": "2014",
-      "authors": "Junyoung Chung, Çaglar Gülçehre, Kyunghyun Cho, and Yoshua Bengio",
+      "authors": "Junyoung Chung, Caglar Gulcehre, KyungHyun Cho, Yoshua Bengio",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]"
+        ]
+      }
     },
     {
       "id": "2014-dropout:_a_simple_way_to_prevent_neural_networks_from_overfitting",
@@ -378,9 +474,11 @@
       "year": "2014",
       "authors": "Nitish Srivastava, Geoffrey E Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "We apply dropout[33]to the output of each sub-layer, before it is added to the sub-layer input and normalized"
+        ]
+      }
     },
     {
       "id": "2013-generating_sequences_with_recurrent_neural_networks",
@@ -389,9 +487,11 @@
       "year": "2013",
       "authors": "Alex Graves",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "At each step the model is auto-regressive[10], consuming the previously generated symbols as additional input when generating the next"
+        ]
+      }
     },
     {
       "id": "2013-fast_and_accurate_shift-reduce_constituent_parsing",
@@ -400,9 +500,11 @@
       "year": "2013",
       "authors": "Muhua Zhu, Yue Zhang, Wenliang Chen, Min Zhang, and Jingbo Zhu",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "(2013)[40]"
+        ]
+      }
     },
     {
       "id": "2012-factorization_machines_with_libfm",
@@ -411,9 +513,12 @@
       "year": "2012",
       "authors": "S. Rendle",
       "name": null,
-      "parents": [
-        "2016-wide_&_deep_learning_for_recommender_systems"
-      ]
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "The idea of combining wide linear models with cross-product feature transformations and deep neural networks with dense embeddings is inspired by previous work, such as factorization machines[5]which add generalization to linear models by factorizing the interactions between two variables as a dot product between two low-dimensional embedding vectors",
+          "Embedding-based models, such as factorization machines[5]or deep neural networks, can generalize to previously unseen query-item feature pairs by learning a low-dimensional dense embedding vector for each query and item feature, with less burden of feature engineering"
+        ]
+      }
     },
     {
       "id": "2011-strategies_for_training_large_scale_neural_network_language_models",
@@ -422,9 +527,11 @@
       "year": "2011",
       "authors": "T. Mikolov, A. Deoras, D. Povey, L. Burget, and J. H. Cernocky",
       "name": null,
-      "parents": [
-        "2016-wide_&_deep_learning_for_recommender_systems"
-      ]
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          ", hidden layer sizes) by learning direct weights between inputs and outputs[4]"
+        ]
+      }
     },
     {
       "id": "2011-follow-the-regularized-leader_and_mirror_descent:_equivalence_theorems_and_l1_regularization",
@@ -433,9 +540,11 @@
       "year": "2011",
       "authors": "H. B. McMahan",
       "name": null,
-      "parents": [
-        "2016-wide_&_deep_learning_for_recommender_systems"
-      ]
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "In the experiments, we used Follow-the-regularized-leader (FTRL) algorithm[3]withL1subscript𝐿1L_{1}regularization as the optimizer for the wide part of the model, and AdaGrad[1]for the deep part"
+        ]
+      }
     },
     {
       "id": "2011-appjoy:_personalized_mobile_application_discovery",
@@ -444,9 +553,11 @@
       "year": "2011",
       "authors": "B. Yan and G. Chen",
       "name": null,
-      "parents": [
-        "2016-wide_&_deep_learning_for_recommender_systems"
-      ]
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "There has also been previous work on mobile app recommender systems, such as AppJoy which used CF on users’ app usage records[8]"
+        ]
+      }
     },
     {
       "id": "2011-adaptive_subgradient_methods_for_online_learning_and_stochastic_optimization",
@@ -455,9 +566,11 @@
       "year": "2011",
       "authors": "J. Duchi, E. Hazan, and Y. Singer",
       "name": null,
-      "parents": [
-        "2016-wide_&_deep_learning_for_recommender_systems"
-      ]
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "In the experiments, we used Follow-the-regularized-leader (FTRL) algorithm[3]withL1subscript𝐿1L_{1}regularization as the optimizer for the wide part of the model, and AdaGrad[1]for the deep part"
+        ]
+      }
     },
     {
       "id": "2009-self-training_pcfg_grammars_with_latent_annotations_across_languages",
@@ -466,9 +579,11 @@
       "year": "2009",
       "authors": "Zhongqiang Huang and Mary Harper",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "Huang & Harper (2009)[14]"
+        ]
+      }
     },
     {
       "id": "2006-learning_accurate_compact_and_interpretable_tree_annotation",
@@ -477,9 +592,12 @@
       "year": "2006",
       "authors": "Slav Petrov, Leon Barrett, Romain Thibaux, and Dan Klein",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "In contrast to RNN sequence-to-sequence models[37], the Transformer outperforms the BerkeleyParser[29]even when training only on the WSJ training set of 40K sentences",
+          "(2006)[29]"
+        ]
+      }
     },
     {
       "id": "2006-effective_self-training_for_parsing",
@@ -488,9 +606,11 @@
       "year": "2006",
       "authors": "David McClosky, Eugene Charniak, and Mark Johnson",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "(2006)[26]"
+        ]
+      }
     },
     {
       "id": "2001-gradient_flow_in_recurrent_nets:_the_difficulty_of_learning_long-term_dependencies_2001",
@@ -499,9 +619,12 @@
       "year": "2001",
       "authors": "Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, and Jürgen Schmidhuber",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "The shorter these paths between any combination of positions in the input and output sequences, the easier it is to learn long-range dependencies[12]",
+          "This makes it more difficult to learn dependencies between distant positions[12]"
+        ]
+      }
     },
     {
       "id": "1993-building_a_large_annotated_corpus_of_english:_the_penn_treebank",
@@ -510,20 +633,24 @@
       "year": "1993",
       "authors": "Mitchell P Marcus, Mary Ann Marcinkiewicz, and Beatrice Santorini",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need"
-      ]
+      "parents": {
+        "2017-attention_is_all_you_need": [
+          "We trained a 4-layer transformer withdm​o​d​e​l=1024d_{model}=1024on the Wall Street Journal (WSJ) portion of the Penn Treebank[25], about 40K training sentences"
+        ]
+      }
     },
     {
       "id": "1799-joint_training_of_a_convolutional_network_and_a_graphical_model_for_human_pose_estimation",
       "type": "core",
       "title": "Joint training of a convolutional network and a graphical model for human pose estimation",
       "year": "1799",
-      "authors": "J. J. Tompson, A. Jain, Y. LeCun, and C. Bregler",
+      "authors": "Jonathan Tompson, Arjun Jain, Yann LeCun, Christoph Bregler",
       "name": null,
-      "parents": [
-        "2016-wide_&_deep_learning_for_recommender_systems"
-      ]
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "Joint training of neural networks with graphical models has also been applied to human pose estimation from images[6]"
+        ]
+      }
     }
   ],
   [
@@ -532,143 +659,217 @@
       "type": "core",
       "title": "Very deep convolutional networks for large-scale image recognition",
       "year": "2015",
-      "authors": "K. Simonyan and A. Zisserman",
+      "authors": "Karen Simonyan, Andrew Zisserman",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Following[40,41], we assume that the image-level classifiers are first adopted for predicting the class labels of an image, and the localization algorithm only accounts for predicting bounding boxes based on the predicted classes",
+          "VGG-16[41]",
+          "1[41]",
+          "On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers—8×\\timesdeeper than VGG nets[41]but still having lower complexity",
+          "Our implementation for ImageNet follows the practice in[21,41]",
+          "3, middle) are mainly inspired by the philosophy of VGG nets[41](Fig",
+          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]",
+          "VGG’s[41]",
+          "For best results, we adopt the fully-convolutional form as in[41,13], and average the scores at multiple scales (images are resized such that the shorter side is in{224,256,384,480,640}224256384480640\\{224,256,384,480,640\\})",
+          "VGG[41](v5)",
+          "Here we are interested in the improvements of replacing VGG-16[41]with ResNet-101",
+          "VGG[41](ILSVRC’14)",
+          "Following[41], we first perform “oracle” testing using the ground truth class as the classification prediction",
+          "Our 152-layer residual net is the deepest network ever presented on ImageNet, while still having lower complexity than VGG nets[41]",
+          "It is worth noticing that our model hasfewerfilters andlowercomplexity than VGG nets[41](Fig"
+        ]
+      }
     },
     {
       "id": "2015-training_very_deep_networks",
       "type": "core",
       "title": "Training very deep networks",
       "year": "2015",
-      "authors": "R. K. Srivastava, K. Greff, and J. Schmidhuber",
+      "authors": "Rupesh Kumar Srivastava, Klaus Greff, Jürgen Schmidhuber",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Highway[42,43]",
+          "Concurrent with our work, “highway networks”[42,43]present shortcut connections with gating functions[15]"
+        ]
+      }
     },
     {
       "id": "2015-object_detection_via_a_multi-region_&_semantic_segmentation-aware_cnn_model",
       "type": "core",
       "title": "Object detection via a multi-region & semantic segmentation-aware cnn model",
       "year": "2015",
-      "authors": "S. Gidaris and N. Komodakis",
+      "authors": "Spyros Gidaris, Nikos Komodakis",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Our box refinement partially follows the iterative localization in[6]",
+          "6% mAP on PASCAL VOC 2007 (Table11) and 83"
+        ]
+      }
     },
     {
       "id": "2015-object_detection_networks_on_convolutional_feature_maps",
       "type": "core",
       "title": "Object detection networks on convolutional feature maps",
       "year": "2015",
-      "authors": "S. Ren, K. He, R. Girshick, X. Zhang, and J. Sun",
+      "authors": "Shaoqing Ren, Kaiming He, Ross Girshick, Xiangyu Zhang, Jian Sun",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "We adopt the idea of “Networks on Conv feature maps” (NoC)[33]to address this issue",
+          "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
+        ]
+      }
     },
     {
       "id": "2015-highway_networks",
       "type": "core",
       "title": "Highway networks",
       "year": "2015",
-      "authors": "R. K. Srivastava, K. Greff, and J. Schmidhuber",
+      "authors": "Rupesh Kumar Srivastava, Klaus Greff, Jürgen Schmidhuber",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Highway[42,43]",
+          "Unexpectedly, such degradation isnot caused by overfitting, and adding more layers to a suitably deep model leads tohigher training error, as reported in[11,42]and thoroughly verified by our experiments",
+          "Concurrent with our work, “highway networks”[42,43]present shortcut connections with gating functions[15]",
+          "It hasfewerparameters than other deep and thin networks such as FitNet[35]and Highway[42](Table6), yet is among the state-of-the-art results (6",
+          "4, left) and on MNIST (see[42]), suggesting that such an optimization difficulty is a fundamental problem"
+        ]
+      }
     },
     {
       "id": "2015-going_deeper_with_convolutions",
       "type": "core",
       "title": "Going deeper with convolutions",
       "year": "2015",
-      "authors": "C. Szegedy, W. Liu, Y. Jia, P. Sermanet, S. Reed, D. Anguelov, D. Erhan, V. Vanhoucke, and A. Rabinovich",
+      "authors": "Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "GoogLeNet[44](ILSVRC’14)",
+          "In[44,24], a few intermediate layers are directly connected to auxiliary classifiers for addressing vanishing/exploding gradients",
+          "GoogLeNet[44]",
+          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+        ]
+      }
     },
     {
       "id": "2015-fully_convolutional_networks_for_semantic_segmentation",
       "type": "core",
       "title": "Fully convolutional networks for semantic segmentation",
       "year": "2015",
-      "authors": "J. Long, E. Shelhamer, and T. Darrell",
+      "authors": "Evan Shelhamer, Jonathan Long, Trevor Darrell",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models"
+        ]
+      }
     },
     {
       "id": "2015-fitnets:_hints_for_thin_deep_nets",
       "type": "core",
       "title": "Fitnets: Hints for thin deep nets",
       "year": "2015",
-      "authors": "A. Romero, N. Ballas, S. E. Kahou, A. Chassang, C. Gatta, and Y. Bengio",
+      "authors": "Adriana Romero, Nicolas Ballas, Samira Ebrahimi Kahou, Antoine Chassang, Carlo Gatta, Yoshua Bengio",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset",
+          "It hasfewerparameters than other deep and thin networks such as FitNet[35]and Highway[42](Table6), yet is among the state-of-the-art results (6",
+          "FitNet[35]"
+        ]
+      }
     },
     {
       "id": "2015-faster_r-cnn:_towards_real-time_object_detection_with_region_proposal_networks",
       "type": "core",
       "title": "Faster R-CNN: Towards real-time object detection with region proposal networks",
       "year": "2015",
-      "authors": "S. Ren, K. He, R. Girshick, and J. Sun",
+      "authors": "Shaoqing Ren, Kaiming He, Ross Girshick, Jian Sun",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Following[7,32], for the PASCAL VOC 2007testset, we use the 5ktrainvalimages in VOC 2007 and 16ktrainvalimages in VOC 2012 for training (“07+12”)",
+          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
+          "Unlike VGG-16 used in[32], our ResNet has no hidden fc layers",
+          "In this section we introduce our detection method based on the baseline Faster R-CNN[32]system",
+          "In the above, all results are obtained by single-scale training/testing as in[32], where the image’s shorter side iss=600𝑠600s=600pixels",
+          "We adoptFaster R-CNN[32]as the detection method",
+          "To avoid negative samples being dominate, 8 anchors are randomly sampled for each image, where the sampled positive and negative anchors have a ratio of 1:1[32]",
+          "Our localization algorithm is based on the RPN framework of[32]with a few modifications",
+          "The above results are only based on theproposal network(RPN) in Faster R-CNN[32]"
+        ]
+      }
     },
     {
       "id": "2015-fast_r-cnn",
       "type": "core",
       "title": "Fast R-CNN",
       "year": "2015",
-      "authors": "R. Girshick",
+      "authors": "Ross Girshick",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Following[7,32], for the PASCAL VOC 2007testset, we use the 5ktrainvalimages in VOC 2007 and 16ktrainvalimages in VOC 2012 for training (“07+12”)",
+          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
+          "These layers are shared by a region proposal network (RPN, generating 300 proposals)[32]and a Fast R-CNN detection network[7]",
+          "One may use thedetection network(Fast R-CNN[7]) in Faster R-CNN to improve the results",
+          "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
+        ]
+      }
     },
     {
       "id": "2015-delving_deep_into_rectifiers:_surpassing_human-level_performance_on_imagenet_classification",
       "type": "core",
       "title": "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification",
       "year": "2015",
-      "authors": "K. He, X. Zhang, S. Ren, and J. Sun",
+      "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "We initialize the weights as in[13]and train all plain/residual nets from scratch",
+          "9, and adopt the weight initialization in[13]and BN[16]but with no dropout",
+          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]",
+          "For best results, we adopt the fully-convolutional form as in[41,13], and average the scores at multiple scales (images are resized such that the shorter side is in{224,256,384,480,640}224256384480640\\{224,256,384,480,640\\})",
+          "PReLU-net[13]",
+          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+        ]
+      }
     },
     {
       "id": "2015-convolutional_neural_networks_at_constrained_time_cost",
       "type": "core",
       "title": "Convolutional neural networks at constrained time cost",
       "year": "2015",
-      "authors": "K. He and J. Sun",
+      "authors": "Kaiming He, Jian Sun",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Unexpectedly, such degradation isnot caused by overfitting, and adding more layers to a suitably deep model leads tohigher training error, as reported in[11,42]and thoroughly verified by our experiments"
+        ]
+      }
     },
     {
       "id": "2015-batch_normalization:_accelerating_deep_network_training_by_reducing_internal_covariate_shift",
       "type": "core",
       "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift",
       "year": "2015",
-      "authors": "S. Ioffe and C. Szegedy",
+      "authors": "Sergey Ioffe, Christian Szegedy",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "BN-inception[16]",
+          "9, and adopt the weight initialization in[13]and BN[16]but with no dropout",
+          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]",
+          "These plain networks are trained with BN[16], which ensures forward propagated signals to have non-zero variances",
+          "We adopt batch normalization (BN)[16]right after each convolution and before activation, following[16]",
+          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+        ]
+      }
     },
     {
       "id": "2014-visualizing_and_understanding_convolutional_neural_networks",
@@ -677,141 +878,186 @@
       "year": "2014",
       "authors": "M. D. Zeiler and R. Fergus",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]"
+        ]
+      }
     },
     {
       "id": "2014-spatial_pyramid_pooling_in_deep_convolutional_networks_for_visual_recognition",
       "type": "core",
       "title": "Spatial pyramid pooling in deep convolutional networks for visual recognition",
       "year": "2014",
-      "authors": "K. He, X. Zhang, S. Ren, and J. Sun",
+      "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
+          "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers",
+          "Given the full-image conv feature map, we pool a feature by global Spatial Pyramid Pooling[12](with a “single-level” pyramid) which can be implemented as “RoI” pooling using the entire image’s bounding box as the RoI"
+        ]
+      }
     },
     {
       "id": "2014-rich_feature_hierarchies_for_accurate_object_detection_and_semantic_segmentation",
       "type": "core",
       "title": "Rich feature hierarchies for accurate object detection and semantic segmentation",
       "year": "2014",
-      "authors": "R. Girshick, J. Donahue, T. Darrell, and J. Malik",
+      "authors": "Ross Girshick, Jeff Donahue, Trevor Darrell, Jitendra Malik",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
+          "3[8], followed by box voting[6]",
+          "The image region is cropped from a proposal, warped to 224×\\times224 pixels, and fed into the classification network as in R-CNN[8]",
+          "We split the validation set into two parts (val1/val2) following[8]",
+          "Motivated by this, in our current experiment we use the original R-CNN[8]that is RoI-centric, in place of Fast R-CNN"
+        ]
+      }
     },
     {
       "id": "2014-overfeat:_integrated_recognition_localization_and_detection_using_convolutional_networks",
       "type": "core",
       "title": "Overfeat: Integrated recognition, localization and detection using convolutional networks",
       "year": "2014",
-      "authors": "P. Sermanet, D. Eigen, X. Zhang, M. Mathieu, R. Fergus, and Y. LeCun",
+      "authors": "Pierre Sermanet, David Eigen, Xiang Zhang, Michael Mathieu, Rob Fergus, Yann LeCun",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "OverFeat[40](ILSVRC’13)",
+          "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]",
+          "Following[40,41], we assume that the image-level classifiers are first adopted for predicting the class labels of an image, and the localization algorithm only accounts for predicting bounding boxes based on the predicted classes"
+        ]
+      }
     },
     {
       "id": "2014-microsoft_coco:_common_objects_in_context",
       "type": "core",
       "title": "Microsoft COCO: Common objects in context",
       "year": "2014",
-      "authors": "T.-Y. Lin, M. Maire, S. Belongie, J. Hays, P. Perona, D. Ramanan, P. Dollár, and C. L. Zitnick",
+      "authors": "Tsung-Yi Lin, Michael Maire, Serge Belongie, Lubomir Bourdev, Ross Girshick, James Hays, Pietro Perona, Deva Ramanan, C. Lawrence Zitnick, Piotr Dollár",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Table8and8show the object detection baseline results on PASCAL VOC 2007 and 2012[5]and COCO[26]",
+          "The MS COCO dataset[26]involves 80 object categories"
+        ]
+      }
     },
     {
       "id": "2014-imagenet_large_scale_visual_recognition_challenge",
       "type": "core",
       "title": "Imagenet large scale visual recognition challenge",
       "year": "2014",
-      "authors": "O. Russakovsky, J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy, A. Khosla, M. Bernstein, et al",
+      "authors": "Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, Zhiheng Huang, Andrej Karpathy, Aditya Khosla, Michael Bernstein, Alexander C. Berg, Li Fei-Fei",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "We evaluate our method on the ImageNet 2012 classification dataset[36]that consists of 1000 classes",
+          "The ImageNet Localization (LOC) task[36]requires to classify and localize the objects",
+          "On the ImageNet classification dataset[36], we obtain excellent results by extremely deep residual nets",
+          "We present comprehensive experiments on ImageNet[36]to show the degradation problem and evaluate our method",
+          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+        ]
+      }
     },
     {
       "id": "2014-deeply-supervised_nets",
       "type": "core",
       "title": "Deeply-supervised nets",
       "year": "2014",
-      "authors": "C.-Y. Lee, S. Xie, P. Gallagher, Z. Zhang, and Z. Tu",
+      "authors": "Chen-Yu Lee, Saining Xie, Patrick Gallagher, Zhengyou Zhang, Zhuowen Tu",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "In[44,24], a few intermediate layers are directly connected to auxiliary classifiers for addressing vanishing/exploding gradients",
+          "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset",
+          "DSN[24]",
+          "We follow the simple data augmentation in[24]for training: 4 pixels are padded on each side, and a 32×\\times32 crop is randomly sampled from the padded image or its horizontal flip"
+        ]
+      }
     },
     {
       "id": "2014-caffe:_convolutional_architecture_for_fast_feature_embedding",
       "type": "core",
       "title": "Caffe: Convolutional architecture for fast feature embedding",
       "year": "2014",
-      "authors": "Y. Jia, E. Shelhamer, J. Donahue, S. Karayev, J. Long, R. Girshick, S. Guadarrama, and T. Darrell",
+      "authors": "Yangqing Jia, Evan Shelhamer, Jeff Donahue, Sergey Karayev, Jonathan Long, Ross Girshick, Sergio Guadarrama, Trevor Darrell",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          ", Caffe[19]) without modifying the solvers"
+        ]
+      }
     },
     {
       "id": "2013-pushing_stochastic_gradient_towards_second-order_methods–backpropagation_learning_with_transformations_in_nonlinearities",
       "type": "core",
       "title": "Pushing stochastic gradient towards second-order methods–backpropagation learning with transformations in nonlinearities",
       "year": "2013",
-      "authors": "T. Vatanen, T. Raiko, H. Valpola, and Y. LeCun",
+      "authors": "Tommi Vatanen, Tapani Raiko, Harri Valpola, Yann LeCun",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "The papers of[39,38,31,47]propose methods for centering layer responses, gradients, and propagated errors, implemented by shortcut connections"
+        ]
+      }
     },
     {
       "id": "2013-network_in_network",
       "type": "core",
       "title": "Network in network",
       "year": "2013",
-      "authors": "M. Lin, Q. Chen, and S. Yan",
+      "authors": "Min Lin, Qiang Chen, Shuicheng Yan",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "NIN[25]",
+          "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset"
+        ]
+      }
     },
     {
       "id": "2013-maxout_networks",
       "type": "core",
       "title": "Maxout networks",
       "year": "2013",
-      "authors": "I. J. Goodfellow, D. Warde-Farley, M. Mirza, A. Courville, and Y. Bengio",
+      "authors": "Ian J. Goodfellow, David Warde-Farley, Mehdi Mirza, Aaron Courville, Yoshua Bengio",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "The testing result of this 1202-layer network is worse than that of our 110-layer network, although both have similar training error",
+          "Maxout[10]"
+        ]
+      }
     },
     {
       "id": "2013-exact_solutions_to_the_nonlinear_dynamics_of_learning_in_deep_linear_neural_networks",
       "type": "core",
       "title": "Exact solutions to the nonlinear dynamics of learning in deep linear neural networks",
       "year": "2013",
-      "authors": "A. M. Saxe, J. L. McClelland, and S. Ganguli",
+      "authors": "Andrew M. Saxe, James L. McClelland, Surya Ganguli",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]"
+        ]
+      }
     },
     {
       "id": "2012-improving_neural_networks_by_preventing_co-adaptation_of_feature_detectors",
       "type": "core",
       "title": "Improving neural networks by preventing co-adaptation of feature detectors",
       "year": "2012",
-      "authors": "G. E. Hinton, N. Srivastava, A. Krizhevsky, I. Sutskever, and R. R. Salakhutdinov",
+      "authors": "Geoffrey E. Hinton, Nitish Srivastava, Alex Krizhevsky, Ilya Sutskever, Ruslan R. Salakhutdinov",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset",
+          "We do not use dropout[14], following the practice in[16]"
+        ]
+      }
     },
     {
       "id": "2012-imagenet_classification_with_deep_convolutional_neural_networks",
@@ -820,9 +1066,13 @@
       "year": "2012",
       "authors": "A. Krizhevsky, I. Sutskever, and G. Hinton",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Our implementation for ImageNet follows the practice in[21,41]",
+          "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]",
+          "In testing, for comparison studies we adopt the standard 10-crop testing[21]"
+        ]
+      }
     },
     {
       "id": "2012-deep_learning_made_easier_by_linear_transformations_in_perceptrons",
@@ -831,9 +1081,11 @@
       "year": "2012",
       "authors": "T. Raiko, H. Valpola, and Y. LeCun",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "The papers of[39,38,31,47]propose methods for centering layer responses, gradients, and propagated errors, implemented by shortcut connections"
+        ]
+      }
     },
     {
       "id": "2012-aggregating_local_image_descriptors_into_compact_codes",
@@ -842,9 +1094,11 @@
       "year": "2012",
       "authors": "H. Jegou, F. Perronnin, M. Douze, J. Sanchez, P. Perez, and C. Schmid",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "In image recognition, VLAD[18]is a representation that encodes by the residual vectors with respect to a dictionary, and Fisher Vector[30]can be formulated as a probabilistic version[18]of VLAD"
+        ]
+      }
     },
     {
       "id": "2011-the_devil_is_in_the_details:_an_evaluation_of_recent_feature_encoding_methods",
@@ -853,9 +1107,11 @@
       "year": "2011",
       "authors": "K. Chatfield, V. Lempitsky, A. Vedaldi, and A. Zisserman",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Both of them are powerful shallow representations for image retrieval and classification[4,48]"
+        ]
+      }
     },
     {
       "id": "2011-product_quantization_for_nearest_neighbor_search",
@@ -864,9 +1120,11 @@
       "year": "2011",
       "authors": "H. Jegou, M. Douze, and C. Schmid",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "For vector quantization, encoding residual vectors[17]is shown to be more effective than encoding original vectors"
+        ]
+      }
     },
     {
       "id": "2010-understanding_the_difficulty_of_training_deep_feedforward_neural_networks",
@@ -875,9 +1133,11 @@
       "year": "2010",
       "authors": "X. Glorot and Y. Bengio",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Driven by the significance of depth, a question arises:Is learning better networks as easy as stacking more layers?An obstacle to answering this question was the notorious problem of vanishing/exploding gradients[1,9], which hamper convergence from the beginning"
+        ]
+      }
     },
     {
       "id": "2010-the_pascal_visual_object_classes_(voc)_challenge",
@@ -886,9 +1146,11 @@
       "year": "2010",
       "authors": "M. Everingham, L. Van Gool, C. K. Williams, J. Winn, and A. Zisserman",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Table8and8show the object detection baseline results on PASCAL VOC 2007 and 2012[5]and COCO[26]"
+        ]
+      }
     },
     {
       "id": "2010-rectified_linear_units_improve_restricted_boltzmann_machines",
@@ -897,9 +1159,11 @@
       "year": "2010",
       "authors": "V. Nair and G. E. Hinton",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "2that has two layers,ℱ=W2​σ​(W1​𝐱)ℱsubscript𝑊2𝜎subscript𝑊1𝐱\\mathcal{F}=W_{2}\\sigma(W_{1}\\mathbf{x})in whichσ𝜎\\sigmadenotes ReLU[29]and the biases are omitted for simplifying notations"
+        ]
+      }
     },
     {
       "id": "2009-learning_multiple_layers_of_features_from_tiny_images",
@@ -908,9 +1172,12 @@
       "year": "2009",
       "authors": "A. Krizhevsky",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Similar phenomena are also shown on the CIFAR-10 set[20], suggesting that the optimization difficulties and the effects of our method are not just akin to a particular dataset",
+          "We conducted more studies on the CIFAR-10 dataset[20], which consists of 50k training images and 10k testing images in 10 classes"
+        ]
+      }
     },
     {
       "id": "2008-vlfeat:_an_open_and_portable_library_of_computer_vision_algorithms_2008",
@@ -919,9 +1186,11 @@
       "year": "2008",
       "authors": "A. Vedaldi and B. Fulkerson",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Both of them are powerful shallow representations for image retrieval and classification[4,48]"
+        ]
+      }
     },
     {
       "id": "2007-fisher_kernels_on_visual_vocabularies_for_image_categorization",
@@ -930,9 +1199,11 @@
       "year": "2007",
       "authors": "F. Perronnin and C. Dance",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "In image recognition, VLAD[18]is a representation that encodes by the residual vectors with respect to a dictionary, and Fisher Vector[30]can be formulated as a probabilistic version[18]of VLAD"
+        ]
+      }
     },
     {
       "id": "2006-locally_adapted_hierarchical_basis_preconditioning",
@@ -941,9 +1212,11 @@
       "year": "2006",
       "authors": "R. Szeliski",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "An alternative to Multigrid is hierarchical basis preconditioning[45,46], which relies on variables that represent residual vectors between two scales"
+        ]
+      }
     },
     {
       "id": "2000-a_multigrid_tutorial",
@@ -952,9 +1225,11 @@
       "year": "2000",
       "authors": "W. L. Briggs, S. F. McCormick, et al",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "In low-level vision and computer graphics, for solving Partial Differential Equations (PDEs), the widely used Multigrid method[3]reformulates the system as subproblems at multiple scales, where each subproblem is responsible for the residual solution between a coarser and a finer scale"
+        ]
+      }
     },
     {
       "id": "1999-modern_applied_statistics_with_s-plus",
@@ -963,9 +1238,12 @@
       "year": "1999",
       "authors": "W. Venables and B. Ripley",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time",
+          "Shortcut connections[2,34,49]are those skipping one or more layers"
+        ]
+      }
     },
     {
       "id": "1998-efficient_backprop",
@@ -974,9 +1252,11 @@
       "year": "1998",
       "authors": "Y. LeCun, L. Bottou, G. B. Orr, and K.-R. Müller",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]"
+        ]
+      }
     },
     {
       "id": "1998-centering_neural_network_gradient_factors",
@@ -985,9 +1265,11 @@
       "year": "1998",
       "authors": "N. N. Schraudolph",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "The papers of[39,38,31,47]propose methods for centering layer responses, gradients, and propagated errors, implemented by shortcut connections"
+        ]
+      }
     },
     {
       "id": "1998-accelerated_gradient_descent_by_factor-centering_decomposition",
@@ -996,21 +1278,27 @@
       "year": "1998",
       "authors": "N. N. Schraudolph",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "The papers of[39,38,31,47]propose methods for centering layer responses, gradients, and propagated errors, implemented by shortcut connections"
+        ]
+      }
     },
     {
       "id": "1997-long_short-term_memory",
       "type": "core",
       "title": "Long short-term memory",
       "year": "1997",
-      "authors": "S. Hochreiter and J. Schmidhuber",
+      "authors": "Ivo Danihelka, Greg Wayne, Benigno Uria, Nal Kalchbrenner, Alex Graves",
       "name": null,
-      "parents": [
-        "2017-attention_is_all_you_need",
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Concurrent with our work, “highway networks”[42,43]present shortcut connections with gating functions[15]"
+        ],
+        "2017-attention_is_all_you_need": [
+          "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]"
+        ]
+      }
     },
     {
       "id": "1996-pattern_recognition_and_neural_networks",
@@ -1019,20 +1307,26 @@
       "year": "1996",
       "authors": "B. D. Ripley",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time",
+          "Shortcut connections[2,34,49]are those skipping one or more layers"
+        ]
+      }
     },
     {
       "id": "1995-neural_networks_for_pattern_recognition",
       "type": "core",
       "title": "Neural networks for pattern recognition",
       "year": "1995",
-      "authors": "C. M. Bishop",
+      "authors": "Kyongsik Yun, Alexander Huyen, Thomas Lu",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time",
+          "2)"
+        ]
+      }
     },
     {
       "id": "1994-learning_long-term_dependencies_with_gradient_descent_is_difficult",
@@ -1041,9 +1335,11 @@
       "year": "1994",
       "authors": "Y. Bengio, P. Simard, and P. Frasconi",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "Driven by the significance of depth, a question arises:Is learning better networks as easy as stacking more layers?An obstacle to answering this question was the notorious problem of vanishing/exploding gradients[1,9], which hamper convergence from the beginning"
+        ]
+      }
     },
     {
       "id": "1990-fast_surface_interpolation_using_hierarchical_basis_functions",
@@ -1052,9 +1348,11 @@
       "year": "1990",
       "authors": "R. Szeliski",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "An alternative to Multigrid is hierarchical basis preconditioning[45,46], which relies on variables that represent residual vectors between two scales"
+        ]
+      }
     },
     {
       "id": "1989-backpropagation_applied_to_handwritten_zip_code_recognition",
@@ -1063,9 +1361,12 @@
       "year": "1989",
       "authors": "Y. LeCun, B. Boser, J. S. Denker, D. Henderson, R. E. Howard, W. Hubbard, and L. D. Jackel",
       "name": null,
-      "parents": [
-        "2016-deep_residual_learning_for_image_recognition"
-      ]
+      "parents": {
+        "2016-deep_residual_learning_for_image_recognition": [
+          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]",
+          "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]"
+        ]
+      }
     }
   ]
 ]

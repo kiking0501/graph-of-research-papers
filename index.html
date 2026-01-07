@@ -37,8 +37,13 @@
 
     <body>
             <h1 class="title"><a href="../" style="text-decoration: none; color:inherit">[ kiking ]</a> Graph of Research Papers</h1>
-            <hr>
+            <h4 style="color:grey">
 
+             <i>Map research papers to their references, to visualize the evolution of discovery over the years. </i>
+
+
+            </h4>
+            <hr>
 
             <div id="all_graph_container" class="row">
                 <div id="tree_container" class="graph_border tangle-svg col-xs-12" style="overflow: auto;">
@@ -48,7 +53,7 @@
             </div>
 
             <div id="side_bar_template" style="display:none;"> 
-                <span class="back_link" style="float:right; cursor: pointer; color:#428bca; display:none"> GO BACK </span>
+                <span class="back_link" style="float:right; cursor: pointer; color:#428bca; display:none"> GO BACK > <span class="back_link_target"></span></span>
                 <h2 class="title">
                     [<span class="paper_year"><span class="text"></span></span>]
                      <span class="paper_name paper_title"><span class="text"></span></span>
@@ -70,6 +75,17 @@
                         <span class="text" style="font-style:italic;"></span>
                     </div>
 
+                    <br>
+
+                    <div class="paper_referenced_by">
+                        <span  id="toggle_content_icon" style="cursor:pointer" onclick="toggle_content(this);">
+                                <i class="fa fa-chevron-down"> </i>
+                                <span class="label_text">Referenced by</span>
+                        </span>
+                        <div class="content" style=""> 
+                            <div align="center">N/A</div>
+                        </div>
+                    </div>
 
                     <div class="paper_summary">
                         <span class="label_text">Summary</span>
@@ -80,10 +96,10 @@
 
                     <div class="paper_citations">
                         <span  id="toggle_content_icon" style="cursor:pointer" onclick="toggle_content(this);">
-                                <i class="fa fa-chevron-right"> </i>
+                                <i class="fa fa-chevron-down"> </i>
                                 <span class="label_text">Citations</span>
                         </span>
-                        <div class="content" style="display: none;"> 
+                        <div class="content" style=""> 
                             <div align="center">NOT AVAILABLE</div>
                         </div>
                     </div>

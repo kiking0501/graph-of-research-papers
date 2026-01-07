@@ -19,9 +19,9 @@ class TangledTreeBuilder:
                     return levels[node_id]
     
                 level = 0
-                parents = parents_map.get(node_id, set())
+                parents = parents_map.get(node_id, defaultdict(set))
                 if parents:
-                    level = max(get_node_level(p) for p in parents) + 1
+                    level = max(get_node_level(p) for p in parents.keys()) + 1
                 levels[node_id] = level
                 return level
         
@@ -29,15 +29,15 @@ class TangledTreeBuilder:
             for node in nodes:
                 level = get_node_level(node["id"])
                 if parents_map[node["id"]]:
-                    node["parents"] = list(parents_map[node["id"]])
+                    node["parents"] = {k: list(v) for k, v in parents_map[node["id"]].items()}
                 nodes_by_level[level].append(node)            
             return nodes_by_level
         
         nodes, edges = self.build_nodes_edges(self.url_list)
         
-        parents_map = defaultdict(set)
+        parents_map = defaultdict(lambda: defaultdict(set))
         for e in edges:
-            parents_map[e["target"]].add(e["source"])
+            parents_map[e["target"]][e["source"]].add(e["cite_sentence"])
             
         nodes_by_level = order_topologically(nodes, parents_map)            
         max_level = max(nodes_by_level.keys()) if nodes_by_level else -1
@@ -79,6 +79,7 @@ class TangledTreeBuilder:
                     "source": url_object.id,
                     "target": url_object.references[cite["cite_enum"]]["id"],
                     "type": "related",
+                    "cite_sentence": cite["sentence"],
                 }
             )
         return links
