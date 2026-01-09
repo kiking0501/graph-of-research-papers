@@ -1,12 +1,20 @@
 [
   [
     {
-      "id": "2017-attention_is_all_you_need",
+      "id": "2019-temporal_collaborative_ranking_via_personalized_transformer",
       "type": "core",
-      "title": "Attention Is All You Need",
-      "year": "2017",
+      "title": "Temporal Collaborative Ranking  Via Personalized Transformer",
+      "year": "2019",
       "authors": null,
-      "name": "Transformer"
+      "name": "SSE-PT"
+    },
+    {
+      "id": "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations",
+      "type": "core",
+      "title": "ALBERT: A Lite BERT for Self-supervised Learning of Language Representations",
+      "year": 2019,
+      "authors": null,
+      "name": "ALBERT"
     },
     {
       "id": "2016-wide_&_deep_learning_for_recommender_systems",
@@ -15,6 +23,2251 @@
       "year": "2016",
       "authors": null,
       "name": "Wide & Deep"
+    }
+  ],
+  [
+    {
+      "id": "2019-xlnet:_generalized_autoregressive_pretraining_for_language_understanding",
+      "type": "core",
+      "title": "XLNet: Generalized autoregressive pretraining for language understanding",
+      "year": 2019,
+      "authors": "Zhilin Yang, Zihang Dai, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-well-read_students_learn_better:_the_impact_of_student_initialization_on_knowledge_distillation",
+      "type": "core",
+      "title": "Well-read students learn better: The impact of student initialization on knowledge distillation",
+      "year": "2019",
+      "authors": "Iulia Turc, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-transformer-xl:_attentive_language_models_beyond_a_fixed-length_context",
+      "type": "core",
+      "title": "Transformer-xl: Attentive language models beyond a fixed-length context",
+      "year": 2019,
+      "authors": "Zihang Dai, Zhilin Yang, Yiming Yang, Jaime Carbonell, Quoc V. Le, Ruslan Salakhutdinov",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-structbert:_incorporating_language_structures_into_pre-training_for_deep_language_understanding",
+      "type": "core",
+      "title": "StructBERT: Incorporating language structures into pre-training for deep language understanding",
+      "year": 2019,
+      "authors": "Wei Wang, Bin Bi, Ming Yan, Chen Wu, Zuyi Bao, Jiangnan Xia, Liwei Peng, Luo Si",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-stochastic_shared_embeddings:_data-driven_regularization_of_embedding_layers",
+      "type": "core",
+      "title": "Stochastic shared embeddings: Data-driven regularization of embedding layers",
+      "year": "2019",
+      "authors": "Liwei Wu, Shuqing Li, Cho-Jui Hsieh, James Sharpnack",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "SASRec paper[16]also does not utilize SSE[41]for further regularization: only dropout and weight decay are used",
+          "Although introducing user embeddings into the model is indeed difficult with existing regularization techniques for embeddings, we show that personalization can greatly improve ranking performances with recent regularization technique called Stochastic Shared Embeddings (SSE)[41]",
+          "Unlike previous SASRec model[16], we use one more regularization technique in our SSE-PT model specifically for embedding layer in addition to the ones listed earlier: the Stochastic Shared Embeddings (SSE)[41]",
+          "Very recently, a new regularization technique called Stochastic Shared Embeddings (SSE)[41]is proposed as a new means of regularizing embedding layers",
+          "Specifically, SSE-SE replaces one embedding with another embedding stochastically with probabilityp𝑝p, which is called SSE probability in[41]"
+        ]
+      }
+    },
+    {
+      "id": "2019-spanbert:_improving_pre-training_by_representing_and_predicting_spans",
+      "type": "core",
+      "title": "SpanBERT: Improving pre-training by representing and predicting spans",
+      "year": 2019,
+      "authors": "Mandar Joshi, Danqi Chen, Yinhan Liu, Daniel S. Weld, Luke Zettlemoyer, Omer Levy",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-roberta:_a_robustly_optimized_bert_pretraining_approach",
+      "type": "core",
+      "title": "RoBERTa: A robustly optimized BERT pretraining approach",
+      "year": 2019,
+      "authors": "Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, Veselin Stoyanov",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-reducing_bert_pre-training_time_from_3_days_to_76_minutes",
+      "type": "core",
+      "title": "Reducing BERT pre-training time from 3 days to 76 minutes",
+      "year": "2019",
+      "authors": "Yang You, Jing Li, Jonathan Hseu, Xiaodan Song, James Demmel, and Cho-Jui Hsieh",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-patient_knowledge_distillation_for_bert_model_compression",
+      "type": "core",
+      "title": "Patient knowledge distillation for BERT model compression",
+      "year": 2019,
+      "authors": "Siqi Sun, Yu Cheng, Zhe Gan, Jingjing Liu",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-modeling_recurrence_for_transformer",
+      "type": "core",
+      "title": "Modeling recurrence for transformer",
+      "year": 2019,
+      "authors": "Jie Hao, Xing Wang, Baosong Yang, Longyue Wang, Jinfeng Zhang, Zhaopeng Tu",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-megatron-lm:_training_multi-billion_parameter_language_models_using_model_parallelism_2019",
+      "type": "core",
+      "title": "Megatron-LM: Training multi-billion parameter language models using model parallelism, 2019",
+      "year": "2019",
+      "authors": "Mohammad Shoeybi, Mostofa Patwary, Raul Puri, Patrick LeGresley, Jared Casper, and Bryan Catanzaro",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-language_models_are_unsupervised_multitask_learners",
+      "type": "core",
+      "title": "Language models are unsupervised multitask learners",
+      "year": "2019",
+      "authors": "Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya Sutskever",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-graph_dna:_deep_neighborhood_aware_graph_encoding_for_collaborative_filtering",
+      "type": "core",
+      "title": "Graph dna: Deep neighborhood aware graph encoding for collaborative filtering",
+      "year": "2019",
+      "authors": "Liwei Wu, Hsiang-Fu Yu, Nikhil Rao, James Sharpnack, Cho-Jui Hsieh",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "These relationships can also be viewed as graphs[42]"
+        ]
+      }
+    },
+    {
+      "id": "2019-generating_long_sequences_with_sparse_transformers",
+      "type": "core",
+      "title": "Generating long sequences with sparse transformers",
+      "year": 2019,
+      "authors": "Rewon Child, Scott Gray, Alec Radford, Ilya Sutskever",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-exploring_the_limits_of_transfer_learning_with_a_unified_text-to-text_transformer",
+      "type": "core",
+      "title": "Exploring the limits of transfer learning with a unified text-to-text transformer",
+      "year": 2019,
+      "authors": "Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-efficient_training_of_bert_by_progressively_stacking",
+      "type": "core",
+      "title": "Efficient training of bert by progressively stacking",
+      "year": "2019",
+      "authors": "Linyuan Gong, Di He, Zhuohan Li, Tao Qin, Liwei Wang, and Tieyan Liu",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-dissent:_learning_sentence_representations_from_explicit_discourse_relations",
+      "type": "core",
+      "title": "DisSent: Learning sentence representations from explicit discourse relations",
+      "year": "2019",
+      "authors": "Allen Nie, Erin Bennett, and Noah Goodman",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-deep_learning_based_recommender_system:_a_survey_and_new_perspectives",
+      "type": "core",
+      "title": "Deep learning based recommender system: A survey and new perspectives",
+      "year": "2019",
+      "authors": "Shuai Zhang, Lina Yao, Aixin Sun, Yi Tay",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Although personalization is not needed for the original Transformer model[36]in natural languages understandings or translations, personalization plays a crucial role throughout recommender system literature[43]ever since the matrix factorization approach to the Netflix prize[19]"
+        ]
+      }
+    },
+    {
+      "id": "2019-deep_equilibrium_models",
+      "type": "core",
+      "title": "Deep equilibrium models",
+      "year": 2019,
+      "authors": "Shaojie Bai, J. Zico Kolter, Vladlen Koltun",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-dcmn+:_dual_co-matching_network_for_multi-choice_reading_comprehension",
+      "type": "core",
+      "title": "DCMN+: Dual co-matching network for multi-choice reading comprehension",
+      "year": 2019,
+      "authors": "Shuailiang Zhang, Hai Zhao, Yuwei Wu, Zhuosheng Zhang, Xi Zhou, Xiang Zhou",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2019-bam!_born-again_multi-task_networks_for_natural_language_understanding",
+      "type": "core",
+      "title": "Bam! born-again multi-task networks for natural language understanding",
+      "year": 2019,
+      "authors": "Kevin Clark, Minh-Thang Luong, Urvashi Khandelwal, Christopher D. Manning, Quoc V. Le",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-universal_transformers",
+      "type": "core",
+      "title": "Universal transformers",
+      "year": 2018,
+      "authors": "Mostafa Dehghani, Stephan Gouws, Oriol Vinyals, Jakob Uszkoreit, Łukasz Kaiser",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-understanding_the_disharmony_between_dropout_and_batch_normalization_by_variance_shift",
+      "type": "core",
+      "title": "Understanding the disharmony between dropout and batch normalization by variance shift",
+      "year": 2018,
+      "authors": "Xiang Li, Shuo Chen, Xiaolin Hu, Jian Yang",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-stamp:_short-term_attention/memory_priority_model_for_session-based_recommendation",
+      "type": "core",
+      "title": "Stamp: short-term attention/memory priority model for session-based recommendation",
+      "year": "2018",
+      "authors": "Qiao Liu, Yifu Zeng, Refuoe Mokhosi, and Haibin Zhang",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Later on, attention models are getting more and more attention in both NLP,[36,4], and recommender systems,[23,16]",
+          "STAMP: a session-based recommendation algorithm[23]using attention mechanism"
+        ]
+      }
+    },
+    {
+      "id": "2018-sql-rank:_a_listwise_approach_to_collaborative_ranking",
+      "type": "core",
+      "title": "Sql-rank: A listwise approach to collaborative ranking",
+      "year": "2018",
+      "authors": "Liwei Wu, Cho-Jui Hsieh, James Sharpnack",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "SQL-Rank[40]and item-based recommendations[28]are omitted because the former is similar to BPR[26]except using the listwise loss function instead of the pairwise loss function and the latter has been shown inferior to TransRec[8]",
+          "Listwise methods[40], on the other hand, consider a user’s entire engagement history as independent observations"
+        ]
+      }
+    },
+    {
+      "id": "2018-sentencepiece:_a_simple_and_language_independent_subword_tokenizer_and_detokenizer_for_neural_text_processing",
+      "type": "core",
+      "title": "SentencePiece: A simple and language independent subword tokenizer and detokenizer for neural text processing",
+      "year": 2018,
+      "authors": "Taku Kudo, John Richardson",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-self-attentive_sequential_recommendation",
+      "type": "core",
+      "title": "Self-Attentive Sequential Recommendation",
+      "year": "2018",
+      "authors": null,
+      "name": "SASRec",
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Later on, attention models are getting more and more attention in both NLP,[36,4], and recommender systems,[23,16]",
+          "[16]found that adding additional personalized embeddings did not improve the performance of their Transformer model, and postulate that this is due to the fact that they already use the user history and the embeddings only contribute to overfitting",
+          "On most datasets, our SSE-PT improves NDCG by more than 4% when compared with SASRec[16]and more than 20% when compared to non-deep-learning methods",
+          "SASRec: a self-attentive sequential recommendation method[16]motivated by Transformer in NLP[36]",
+          "Unlike previous SASRec model[16], we use one more regularization technique in our SSE-PT model specifically for embedding layer in addition to the ones listed earlier: the Stochastic Shared Embeddings (SSE)[41]",
+          "The main difference between session-based recommendations[10]and sequential recommendations[16]is that the former assumes that the user ids are not recorded and therefore the length of engagement sequences are relatively short",
+          "Our model is motivated by the Transformer model in[36]and[16]",
+          "We use the same datasets as in[16]and follow the same procedure in the paper: use last items for each user as test data, second-to-last as validation data and the rest as training data",
+          "Note that the main difference between our model and[16]is that we introduce the user embeddingsuisubscript𝑢𝑖u_{i}, making our model personalized",
+          "This may prevent us from adding user embeddings as additional parameters into complicated models like the Transformer model[16], which can easily have 20 layers with 6 self-attention blocks and millions of parameters for a medium-sized dataset like Movielens10M[6]",
+          "We use the latter, which is the same setting as[16]",
+          "In particular, the SASRec model[16], inspired by the popular Transformer model in natural languages processing, has achieved state-of-art results in the temporal collaborative ranking problem and enjoyed more than 10x speed-up compared to earlier RNN[10]/ CNN[34]-based methods",
+          "In[16], it has been shown that SASRec is about 11 times faster than Caser and 17 times faster than GRU4Rec+and achieves much better NDCG@10 results so we did not include Caser and GRU4Rec+in our comparisons",
+          "We use 5 datasets, the first 4 of them have exactly the same train/dev/test splits as in[16]:",
+          "Steam dataset introduced in[16]"
+        ]
+      }
+    },
+    {
+      "id": "2018-recurrent_neural_networks_with_top-k_gains_for_session-based_recommendations",
+      "type": "core",
+      "title": "Recurrent neural networks with top-k gains for session-based recommendations",
+      "year": "2018",
+      "authors": "Balázs Hidasi, Alexandros Karatzoglou",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "There are multiple ways to define the loss of our model, previously a popular loss is the BPR loss[26,9]:",
+          "Like sentences in NLP, sequence data in recommendations can be similarly modelled by recurrent neural networks (RNN)[10,9]and convolutional neural network (CNN)[34]models",
+          "GRU4Rec+: follow-up work of GRU4Rec by the same authors: the model has a very similar architecture to GRU4Rec but has a more complicated loss function[9]"
+        ]
+      }
+    },
+    {
+      "id": "2018-mesh-tensorflow:_deep_learning_for_supercomputers",
+      "type": "core",
+      "title": "Mesh-tensorflow: Deep learning for supercomputers",
+      "year": 2018,
+      "authors": "Noam Shazeer, Youlong Cheng, Niki Parmar, Dustin Tran, Ashish Vaswani, Penporn Koanantakool, Peter Hawkins, HyoukJoong Lee, Mingsheng Hong, Cliff Young, Ryan Sepassi, Blake Hechtman",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-know_what_you_don’t_know:_unanswerable_questions_for_squad",
+      "type": "core",
+      "title": "Know what you don’t know: Unanswerable questions for SQuAD",
+      "year": "2018",
+      "authors": "Pranav Rajpurkar, Robin Jia, and Percy Liang",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-improving_language_understanding_by_generative_pre-training",
+      "type": "core",
+      "title": "Improving language understanding by generative pre-training",
+      "year": "2018",
+      "authors": "Alec Radford, Karthik Narasimhan, Tim Salimans, and Ilya Sutskever",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-bi-directional_block_self-attention_for_fast_and_memory-efficient_sequence_modeling",
+      "type": "core",
+      "title": "Bi-directional block self-attention for fast and memory-efficient sequence modeling",
+      "year": 2018,
+      "authors": "Tao Shen, Tianyi Zhou, Guodong Long, Jing Jiang, Chengqi Zhang",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding",
+      "type": "core",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for  Language Understanding",
+      "year": 2018,
+      "authors": null,
+      "name": "BERT",
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Like sentences in NLP, sequence data in recommendations can be similarly modelled by recurrent neural networks (RNN)[10,9]and convolutional neural network (CNN)[34]models",
+          "Recent advances in deep learning, especially the discovery of various attention mechanisms[2,33]and newer architectures[36,4]in addition to classical RNN and CNN architecture in natural language processing, have allowed us to make better use of the temporal ordering of items that each user has engaged with"
+        ],
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-adaptive_input_representations_for_neural_language_modeling",
+      "type": "core",
+      "title": "Adaptive input representations for neural language modeling",
+      "year": 2018,
+      "authors": "Alexei Baevski, Michael Auli",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-the_reversible_residual_network:_backpropagation_without_storing_activations",
+      "type": "core",
+      "title": "The reversible residual network: Backpropagation without storing activations",
+      "year": 2017,
+      "authors": "Aidan N. Gomez, Mengye Ren, Raquel Urtasun, Roger B. Grosse",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-semeval-2017_task_1:_semantic_textual_similarity_multilingual_and_crosslingual_focused_evaluation",
+      "type": "core",
+      "title": "SemEval-2017 task 1: Semantic textual similarity multilingual and crosslingual focused evaluation",
+      "year": "2017",
+      "authors": "Daniel Cer, Mona Diab, Eneko Agirre, Iñigo Lopez-Gazpio, and Lucia Specia",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-race:_large-scale_reading_comprehension_dataset_from_examinations",
+      "type": "core",
+      "title": "RACE: Large-scale ReAding comprehension dataset from examinations",
+      "year": 2017,
+      "authors": "Guokun Lai, Qizhe Xie, Hanxiao Liu, Yiming Yang, Eduard Hovy",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-large-scale_collaborative_ranking_in_near-linear_time",
+      "type": "core",
+      "title": "Large-scale collaborative ranking in near-linear time",
+      "year": "2017",
+      "authors": "Liwei Wu, Cho-Jui Hsieh, and James Sharpnack",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Pairwise methods[26,39]consider each pairwise comparison for a user as a label, which implicitly models the pairwise comparisons as independent observations"
+        ]
+      }
+    },
+    {
+      "id": "2016-training_deep_nets_with_sublinear_memory_cost",
+      "type": "core",
+      "title": "Training deep nets with sublinear memory cost",
+      "year": 2016,
+      "authors": "Tianqi Chen, Bing Xu, Chiyuan Zhang, Carlos Guestrin",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2016-the_movielens_datasets:_history_and_context",
+      "type": "core",
+      "title": "The movielens datasets: History and context",
+      "year": "2016",
+      "authors": "F Maxwell Harper and Joseph A Konstan",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Movielens1M dataset[6], a widely used benchmark datasets containing one million user movie ratings",
+          "This may prevent us from adding user embeddings as additional parameters into complicated models like the Transformer model[16], which can easily have 20 layers with 6 self-attention blocks and millions of parameters for a medium-sized dataset like Movielens10M[6]"
+        ]
+      }
+    },
+    {
+      "id": "2016-learning_generic_sentence_representations_using_convolutional_neural_networks",
+      "type": "core",
+      "title": "Learning generic sentence representations using convolutional neural networks",
+      "year": 2016,
+      "authors": "Zhe Gan, Yunchen Pu, Ricardo Henao, Chunyuan Li, Xiaodong He, Lawrence Carin",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2016-inception-v4_inception-resnet_and_the_impact_of_residual_connections_on_learning",
+      "type": "core",
+      "title": "Inception-v4, inception-resnet and the impact of residual connections on learning",
+      "year": 2016,
+      "authors": "Christian Szegedy, Sergey Ioffe, Vincent Vanhoucke, Alex Alemi",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2016-gaussian_error_linear_units_(gelus)",
+      "type": "core",
+      "title": "Gaussian Error Linear Units (GELUs)",
+      "year": 2016,
+      "authors": "Dan Hendrycks, Kevin Gimpel",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2016-efficient_softmax_approximation_for_gpus",
+      "type": "core",
+      "title": "Efficient softmax approximation for gpus",
+      "year": 2016,
+      "authors": "Edouard Grave, Armand Joulin, Moustapha Cissé, David Grangier, Hervé Jégou",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2016-deep_learning_volume_1",
+      "type": "core",
+      "title": "Deep learning, volume 1",
+      "year": "2016",
+      "authors": "Ian Goodfellow, Yoshua Bengio, Aaron Courville, and Yoshua Bengio",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "ℓ2subscriptℓ2\\ell_{2}regularization[13]is the most widely used approach and has been used in many matrix factorization models in recommender systems;ℓ1subscriptℓ1\\ell_{1}regularization[35]is used when a sparse model is preferred"
+        ]
+      }
+    },
+    {
+      "id": "2015-session-based_recommendations_with_recurrent_neural_networks",
+      "type": "core",
+      "title": "Session-based recommendations with recurrent neural networks",
+      "year": "2015",
+      "authors": "Balázs Hidasi, Alexandros Karatzoglou, Linas Baltrunas, Domonkos Tikk",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "GRU4Rec: the first RNN-based method proposed for the session-based recommendation problem[10]",
+          "In particular, the SASRec model[16], inspired by the popular Transformer model in natural languages processing, has achieved state-of-art results in the temporal collaborative ranking problem and enjoyed more than 10x speed-up compared to earlier RNN[10]/ CNN[34]-based methods",
+          "The main difference between session-based recommendations[10]and sequential recommendations[16]is that the former assumes that the user ids are not recorded and therefore the length of engagement sequences are relatively short",
+          "Like sentences in NLP, sequence data in recommendations can be similarly modelled by recurrent neural networks (RNN)[10,9]and convolutional neural network (CNN)[34]models"
+        ]
+      }
+    },
+    {
+      "id": "2014-glove:_global_vectors_for_word_representation",
+      "type": "core",
+      "title": "Glove: Global vectors for word representation",
+      "year": "2014",
+      "authors": "Jeffrey Pennington, Richard Socher, and Christopher Manning",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2014-adam:_a_method_for_stochastic_optimization",
+      "type": "core",
+      "title": "Adam: A method for stochastic optimization",
+      "year": "2014",
+      "authors": "Diederik P. Kingma, Jimmy Ba",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "We implemented our method in Tensorflow and solve it with Adam Optimizer[17]with a learning rate of0"
+        ]
+      }
+    },
+    {
+      "id": "2013-recursive_deep_models_for_semantic_compositionality_over_a_sentiment_treebank",
+      "type": "core",
+      "title": "Recursive deep models for semantic compositionality over a sentiment treebank",
+      "year": "2013",
+      "authors": "Richard Socher, Alex Perelygin, Jean Wu, Jason Chuang, Christopher D. Manning, Andrew Ng, and Christopher Potts",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2013-on_the_difficulty_of_training_recurrent_neural_networks",
+      "type": "core",
+      "title": "On the difficulty of training recurrent neural networks",
+      "year": "2013",
+      "authors": "Razvan Pascanu, Tomas Mikolov, Yoshua Bengio",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "There are many other regularization techniques, including parameter sharing[5], max-norm regularization[31], gradient clipping[25], etc"
+        ]
+      }
+    },
+    {
+      "id": "2012-factorization_machines_with_libfm",
+      "type": "core",
+      "title": "Factorization machines with libFM",
+      "year": "2012",
+      "authors": "S. Rendle",
+      "name": null,
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "Embedding-based models, such as factorization machines[5]or deep neural networks, can generalize to previously unseen query-item feature pairs by learning a low-dimensional dense embedding vector for each query and item feature, with less burden of feature engineering",
+          "The idea of combining wide linear models with cross-product feature transformations and deep neural networks with dense embeddings is inspired by previous work, such as factorization machines[5]which add generalization to linear models by factorizing the interactions between two variables as a dot product between two low-dimensional embedding vectors"
+        ]
+      }
+    },
+    {
+      "id": "2011-strategies_for_training_large_scale_neural_network_language_models",
+      "type": "core",
+      "title": "Strategies for training large scale neural network language models",
+      "year": "2011",
+      "authors": "T. Mikolov, A. Deoras, D. Povey, L. Burget, and J. H. Cernocky",
+      "name": null,
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          ", hidden layer sizes) by learning direct weights between inputs and outputs[4]"
+        ]
+      }
+    },
+    {
+      "id": "2011-follow-the-regularized-leader_and_mirror_descent:_equivalence_theorems_and_l1_regularization",
+      "type": "core",
+      "title": "Follow-the-regularized-leader and mirror descent: Equivalence theorems and l1 regularization",
+      "year": "2011",
+      "authors": "H. B. McMahan",
+      "name": null,
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "In the experiments, we used Follow-the-regularized-leader (FTRL) algorithm[3]withL1subscript𝐿1L_{1}regularization as the optimizer for the wide part of the model, and AdaGrad[1]for the deep part"
+        ]
+      }
+    },
+    {
+      "id": "2011-appjoy:_personalized_mobile_application_discovery",
+      "type": "core",
+      "title": "AppJoy: Personalized mobile application discovery",
+      "year": "2011",
+      "authors": "B. Yan and G. Chen",
+      "name": null,
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "There has also been previous work on mobile app recommender systems, such as AppJoy which used CF on users’ app usage records[8]"
+        ]
+      }
+    },
+    {
+      "id": "2011-adaptive_subgradient_methods_for_online_learning_and_stochastic_optimization",
+      "type": "core",
+      "title": "Adaptive subgradient methods for online learning and stochastic optimization",
+      "year": "2011",
+      "authors": "J. Duchi, E. Hazan, and Y. Singer",
+      "name": null,
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "In the experiments, we used Follow-the-regularized-leader (FTRL) algorithm[3]withL1subscript𝐿1L_{1}regularization as the optimizer for the wide part of the model, and AdaGrad[1]for the deep part"
+        ]
+      }
+    },
+    {
+      "id": "2009-the_fifth_pascal_recognizing_textual_entailment_challenge",
+      "type": "core",
+      "title": "The fifth PASCAL recognizing textual entailment challenge",
+      "year": "2009",
+      "authors": "Luisa Bentivogli, Peter Clark, Ido Dagan, and Danilo Giampiccolo",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2009-the_bellkor_solution_to_the_netflix_grand_prize",
+      "type": "core",
+      "title": "The bellkor solution to the netflix grand prize",
+      "year": "2009",
+      "authors": "Yehuda Koren",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Although personalization is not needed for the original Transformer model[36]in natural languages understandings or translations, personalization plays a crucial role throughout recommender system literature[43]ever since the matrix factorization approach to the Netflix prize[19]"
+        ]
+      }
+    },
+    {
+      "id": "2009-collaborative_filtering_with_temporal_dynamics",
+      "type": "core",
+      "title": "Collaborative filtering with temporal dynamics",
+      "year": "2009",
+      "authors": "Yehuda Koren",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Both settings, do not explicitly require time-stamps: only the relative temporal orderings are assumed known (in contrast to, for example, timeSVD++[20])"
+        ]
+      }
+    },
+    {
+      "id": "2008-probabilistic_matrix_factorization",
+      "type": "core",
+      "title": "Probabilistic matrix factorization",
+      "year": "2008",
+      "authors": "Tom Vander Aa, Imen Chakroun, Tom Haber",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Collaborative filtering algorithms including matrix factorization,[11,29,18,24,14], which predict the feedback in a pointwise fashion as if it were a supervised learning problem, fall into the first category"
+        ]
+      }
+    },
+    {
+      "id": "2008-mining_recommendations_from_the_web",
+      "type": "core",
+      "title": "Mining recommendations from the web",
+      "year": "2008",
+      "authors": "Guy Shani, Max Chickering, and Christopher Meek",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Recommendation systems are increasingly prevalent due to content delivery platforms, e-commerce websites, and mobile apps[30]"
+        ]
+      }
+    },
+    {
+      "id": "2008-cofi_rank-maximum_margin_matrix_factorization_for_collaborative_ranking",
+      "type": "core",
+      "title": "Cofi rank-maximum margin matrix factorization for collaborative ranking",
+      "year": "2008",
+      "authors": "Markus Weimer, Alexandros Karatzoglou, Quoc V Le, and Alex J Smola",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "In literature, this is formulated as the collaborative ranking problem[38]"
+        ]
+      }
+    },
+    {
+      "id": "2007-the_third_pascal_recognizing_textual_entailment_challenge",
+      "type": "core",
+      "title": "The third PASCAL recognizing textual entailment challenge",
+      "year": "2007",
+      "authors": "Danilo Giampiccolo, Bernardo Magnini, Ido Dagan, and Bill Dolan",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2007-collaborative_filtering_recommender_systems",
+      "type": "core",
+      "title": "Collaborative filtering recommender systems",
+      "year": "2007",
+      "authors": "Zhihai Yang",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Collaborative filtering algorithms including matrix factorization,[11,29,18,24,14], which predict the feedback in a pointwise fashion as if it were a supervised learning problem, fall into the first category"
+        ]
+      }
+    },
+    {
+      "id": "2006-unifying_user-based_and_item-based_collaborative_filtering_approaches_by_similarity_fusion",
+      "type": "core",
+      "title": "Unifying user-based and item-based collaborative filtering approaches by similarity fusion",
+      "year": "2006",
+      "authors": "Jun Wang, Arjen P De Vries, and Marcel JT Reinders",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Item-to-item[28], user-to-user[37], user-to-item[21]are 3 different angles of utilizing user engagement data"
+        ]
+      }
+    },
+    {
+      "id": "2006-the_second_pascal_recognising_textual_entailment_challenge",
+      "type": "core",
+      "title": "The second PASCAL recognising textual entailment challenge",
+      "year": "2006",
+      "authors": "Roy Bar-Haim, Ido Dagan, Bill Dolan, Lisa Ferro, Danilo Giampiccolo, Bernardo Magnini, and Idan Szpektor",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2005-the_pascal_recognising_textual_entailment_challenge",
+      "type": "core",
+      "title": "The PASCAL recognising textual entailment challenge",
+      "year": "2005",
+      "authors": "Ido Dagan, Oren Glickman, and Bernardo Magnini",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2005-maximum-margin_matrix_factorization",
+      "type": "core",
+      "title": "Maximum-margin matrix factorization",
+      "year": "2005",
+      "authors": "Shamal Shaikh, Venkateswara Rao Kagita, Vikas Kumar, Arun K Pujari",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "There are many other regularization techniques, including parameter sharing[5], max-norm regularization[31], gradient clipping[25], etc"
+        ]
+      }
+    },
+    {
+      "id": "2005-automatically_constructing_a_corpus_of_sentential_paraphrases",
+      "type": "core",
+      "title": "Automatically constructing a corpus of sentential paraphrases",
+      "year": "2005",
+      "authors": "William B. Dolan and Chris Brockett",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2001-item-based_collaborative_filtering_recommendation_algorithms",
+      "type": "core",
+      "title": "Item-based collaborative filtering recommendation algorithms",
+      "year": "2001",
+      "authors": "Badrul Munir Sarwar, George Karypis, Joseph A Konstan, John Riedl, et al",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Item-to-item[28], user-to-user[37], user-to-item[21]are 3 different angles of utilizing user engagement data",
+          "SQL-Rank[40]and item-based recommendations[28]are omitted because the former is similar to BPR[26]except using the listwise loss function instead of the pairwise loss function and the latter has been shown inferior to TransRec[8]"
+        ]
+      }
+    },
+    {
+      "id": "1996-regression_shrinkage_and_selection_via_the_lasso",
+      "type": "core",
+      "title": "Regression shrinkage and selection via the lasso",
+      "year": "1996",
+      "authors": "Robert Tibshirani",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "ℓ2subscriptℓ2\\ell_{2}regularization[13]is the most widely used approach and has been used in many matrix factorization models in recommender systems;ℓ1subscriptℓ1\\ell_{1}regularization[35]is used when a sparse model is preferred"
+        ]
+      }
+    },
+    {
+      "id": "1995-recommending_and_evaluating_choices_in_a_virtual_community_of_use",
+      "type": "core",
+      "title": "Recommending and evaluating choices in a virtual community of use",
+      "year": "1995",
+      "authors": "Will Hill, Larry Stead, Mark Rosenstein, and George Furnas",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Collaborative filtering algorithms including matrix factorization,[11,29,18,24,14], which predict the feedback in a pointwise fashion as if it were a supervised learning problem, fall into the first category"
+        ]
+      }
+    },
+    {
+      "id": "1995-centering:_a_framework_for_modeling_the_local_coherence_of_discourse",
+      "type": "core",
+      "title": "Centering: A framework for modeling the local coherence of discourse",
+      "year": "1995",
+      "authors": "Barbara J. Grosz, Aravind K. Joshi, and Scott Weinstein",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "1992-a_simple_weight_decay_can_improve_generalization",
+      "type": "core",
+      "title": "A simple weight decay can improve generalization",
+      "year": "1992",
+      "authors": "Anders Krogh and John A Hertz",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Weight decay[22], also known asl2subscript𝑙2l_{2}regularization[13], is applied to all embeddings, including both user and item embeddings"
+        ]
+      }
+    },
+    {
+      "id": "1979-coherence_and_coreference",
+      "type": "core",
+      "title": "Coherence and coreference",
+      "year": "1979",
+      "authors": "Jerry R. Hobbs",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "1976-cohesion_in_english",
+      "type": "core",
+      "title": "Cohesion in English",
+      "year": "1976",
+      "authors": "M.A.K. Halliday and Ruqaiya Hasan",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "1970-ridge_regression:_biased_estimation_for_nonorthogonal_problems",
+      "type": "core",
+      "title": "Ridge regression: Biased estimation for nonorthogonal problems",
+      "year": "1970",
+      "authors": "Arthur E Hoerl and Robert W Kennard",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Weight decay[22], also known asl2subscript𝑙2l_{2}regularization[13], is applied to all embeddings, including both user and item embeddings",
+          "ℓ2subscriptℓ2\\ell_{2}regularization[13]is the most widely used approach and has been used in many matrix factorization models in recommender systems;ℓ1subscriptℓ1\\ell_{1}regularization[35]is used when a sparse model is preferred"
+        ]
+      }
+    },
+    {
+      "id": "1799-joint_training_of_a_convolutional_network_and_a_graphical_model_for_human_pose_estimation",
+      "type": "core",
+      "title": "Joint training of a convolutional network and a graphical model for human pose estimation",
+      "year": "1799",
+      "authors": "Jonathan Tompson, Arjun Jain, Yann LeCun, Christoph Bregler",
+      "name": null,
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "Joint training of neural networks with graphical models has also been applied to human pose estimation from images[6]"
+        ]
+      }
+    }
+  ],
+  [
+    {
+      "id": "2022-the_winograd_schema_challenge",
+      "type": "core",
+      "title": "The Winograd schema challenge",
+      "year": 2022,
+      "authors": "Vid Kocijan, Ernest Davis, Thomas Lukasiewicz, Gary Marcus, Leora Morgenstern",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2020-quora_question_pairs",
+      "type": "core",
+      "title": "Quora question pairs",
+      "year": 2020,
+      "authors": "Andreas Chandra, Ruben Stefanus",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2020-cloze_procedure",
+      "type": "core",
+      "title": "Cloze procedure",
+      "year": 2020,
+      "authors": "Dezhao Luo, Chang Liu, Yu Zhou, Dongbao Yang, Can Ma, Qixiang Ye, Weiping Wang",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          "BERT alleviates the previously mentioned unidirectionality constraint by using a “masked language model” (MLM) pre-training objective, inspired by the Cloze taskTaylor (1953)",
+          "We refer to this procedure as a “masked LM” (MLM), although it is often referred to as aClozetask in the literatureTaylor (1953)"
+        ]
+      }
+    },
+    {
+      "id": "2018-universal_language_model_fine-tuning_for_text_classification",
+      "type": "core",
+      "title": "Universal language model fine-tuning for text classification",
+      "year": 2018,
+      "authors": "Jeremy Howard, Sebastian Ruder",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-u-net:_machine_reading_comprehension_with_unanswerable_questions",
+      "type": "core",
+      "title": "U-net: Machine reading comprehension with unanswerable questions",
+      "year": 2018,
+      "authors": "Fu Sun, Linyang Li, Xipeng Qiu, Yang Liu",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-swag:_a_large-scale_adversarial_dataset_for_grounded_commonsense_inference",
+      "type": "core",
+      "title": "Swag: A large-scale adversarial dataset for grounded commonsense inference",
+      "year": 2018,
+      "authors": "Rowan Zellers, Yonatan Bisk, Roy Schwartz, Yejin Choi",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-semi-supervised_sequence_modeling_with_cross-view_training",
+      "type": "core",
+      "title": "Semi-supervised sequence modeling with cross-view training",
+      "year": 2018,
+      "authors": "Kevin Clark, Minh-Thang Luong, Christopher D. Manning, Quoc V. Le",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-personalized_top-n_sequential_recommendation_via_convolutional_sequence_embedding",
+      "type": "core",
+      "title": "Personalized top-n sequential recommendation via convolutional sequence embedding",
+      "year": "2018",
+      "authors": "Jiaxi Tang, Ke Wang",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "In particular, the SASRec model[16], inspired by the popular Transformer model in natural languages processing, has achieved state-of-art results in the temporal collaborative ranking problem and enjoyed more than 10x speed-up compared to earlier RNN[10]/ CNN[34]-based methods",
+          "Like sentences in NLP, sequence data in recommendations can be similarly modelled by recurrent neural networks (RNN)[10,9]and convolutional neural network (CNN)[34]models",
+          "Caser: a CNN-based method[34]which embeds a sequence of recent items in both time and latent spaces forming an ‘image’ before learning local features through horizontal and vertical convolutional filters"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "In particular, Convolutional Sequence Embedding (Caser), a CNN-based method, views the embedding matrix ofL𝐿Lprevious items as an ‘image’ and applies convolutional operations to extract transitions[22]",
+          "A few options are promising to investigate in the future: 1) using restricted self-attention[42]which only attends on recent actions rather than all actions, and distant actions can be considered in higher layers; 2) splitting long sequences into short segments as in[22]",
+          "Convolutional Sequence Embeddings (Caser)[22]",
+          "MF[40], FPMC[1]and Caser[22]); 2) consider the user’s previous actions, and induce animplicituser embedding from embeddings of visited items (e",
+          "Fossil[21], Vista[20], Caser[22])"
+        ]
+      }
+    },
+    {
+      "id": "2018-neural_network_acceptability_judgments",
+      "type": "core",
+      "title": "Neural network acceptability judgments",
+      "year": 2018,
+      "authors": "Alex Warstadt, Amanpreet Singh, Samuel R. Bowman",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-multi-granularity_hierarchical_attention_fusion_networks_for_reading_comprehension_and_question_answering",
+      "type": "core",
+      "title": "Multi-granularity hierarchical attention fusion networks for reading comprehension and question answering",
+      "year": 2018,
+      "authors": "Wei Wang, Ming Yan, Chen Wu",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-latent_cross:_making_use_of_context_in_recurrent_recommender_systems",
+      "type": "core",
+      "title": "Latent cross: Making use of context in recurrent recommender systems,",
+      "year": "2018",
+      "authors": "[25]  A. Beutel, P. Covington, S. Jain, C. Xu, J. Li, V. Gatto, and E. H. Chi,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Other than MC-based methods, another line of work adopts RNNs to model user sequences[23,2,24,25]"
+        ]
+      }
+    },
+    {
+      "id": "2018-glue:_a_multi-task_benchmark_and_analysis_platform_for_natural_language_understanding",
+      "type": "core",
+      "title": "GLUE: A multi-task benchmark and analysis platform for natural language understanding",
+      "year": 2018,
+      "authors": "Alex Wang, Amanpreet Singh, Julian Michael, Felix Hill, Omer Levy, Samuel R. Bowman",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-dissecting_contextual_word_embeddings:_architecture_and_representation",
+      "type": "core",
+      "title": "Dissecting contextual word embeddings: Architecture and representation",
+      "year": 2018,
+      "authors": "Matthew E. Peters, Mark Neumann, Luke Zettlemoyer, Wen-tau Yih",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-deep_contextualized_word_representations",
+      "type": "core",
+      "title": "Deep contextualized word representations",
+      "year": 2018,
+      "authors": "Matthew E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, Luke Zettlemoyer",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-character-level_language_modeling_with_deeper_self-attention",
+      "type": "core",
+      "title": "Character-level language modeling with deeper self-attention",
+      "year": 2018,
+      "authors": "Rami Al-Rfou, Dokook Choe, Noah Constant, Mandy Guo, Llion Jones",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-attention-based_transactional_context_embedding_for_next-item_recommendation",
+      "type": "core",
+      "title": "Attention-based transactional context embedding for next-item recommendation,",
+      "year": "2018",
+      "authors": "[31]  S. Wang, L. Hu, L. Cao, X. Huang, D. Lian, and W. Liu,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Recently, attention mechanisms have been incorporated into recommender systems[29,30,31]"
+        ]
+      }
+    },
+    {
+      "id": "2018-an_empirical_evaluation_of_generic_convolutional_and_recurrent_networks_for_sequence_modeling",
+      "type": "core",
+      "title": "An empirical evaluation of generic convolutional and recurrent networks for sequence modeling,",
+      "year": "2018",
+      "authors": "Shaojie Bai, J. Zico Kolter, Vladlen Koltun",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "RNNs are generally suitable for modeling sequences, though recent studies show CNNs and self-attention can be stronger in some sequential settings[3,44]"
+        ]
+      }
+    },
+    {
+      "id": "2018-an_efficient_framework_for_learning_sentence_representations",
+      "type": "core",
+      "title": "An efficient framework for learning sentence representations",
+      "year": 2018,
+      "authors": "Lajanugen Logeswaran, Honglak Lee",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          "(2017)andLogeswaran and Lee (2018)",
+          null
+        ]
+      }
+    },
+    {
+      "id": "2018-a_time-restricted_self-attention_layer_for_asr",
+      "type": "core",
+      "title": "A time-restricted self-attention layer for asr,",
+      "year": "2018",
+      "authors": "[42]  D. Povey, H. Hadian, P. Ghahremani, K. Li, and S. Khudanpur,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "A few options are promising to investigate in the future: 1) using restricted self-attention[42]which only attends on recent actions rather than all actions, and distant actions can be considered in higher layers; 2) splitting long sequences into short segments as in[22]"
+        ]
+      }
+    },
+    {
+      "id": "2017-what_your_images_reveal:_exploiting_visual_contents_for_point-of-interest_recommendation",
+      "type": "core",
+      "title": "What your images reveal: Exploiting visual contents for point-of-interest recommendation,",
+      "year": "2017",
+      "authors": "[10]  S. Wang, Y. Wang, J. Tang, K. Shu, S. Ranganath, and H. Liu,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "images[10,11], text[12,13], etc"
+        ]
+      }
+    },
+    {
+      "id": "2017-visually-aware_fashion_recommendation_and_design_with_generative_image_models",
+      "type": "core",
+      "title": "Visually-aware fashion recommendation and design with generative image models,",
+      "year": "2017",
+      "authors": "Wang-Cheng Kang, Chen Fang, Zhaowen Wang, Julian McAuley",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "images[10,11], text[12,13], etc"
+        ]
+      }
+    },
+    {
+      "id": "2017-triviaqa:_a_large_scale_distantly_supervised_challenge_dataset_for_reading_comprehension",
+      "type": "core",
+      "title": "Triviaqa: A large scale distantly supervised challenge dataset for reading comprehension",
+      "year": 2017,
+      "authors": "Mandar Joshi, Eunsol Choi, Daniel S. Weld, Luke Zettlemoyer",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-translation-based_recommendation",
+      "type": "core",
+      "title": "Translation-based recommendation",
+      "year": "2017",
+      "authors": "Ruining He, Wang-Cheng Kang, Julian McAuley",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "TransRec: a first-order sequential recommendation method[8]in which items are embedded into a transition space and users are modelled as translation vectors operating on item sequences",
+          "SQL-Rank[40]and item-based recommendations[28]are omitted because the former is similar to BPR[26]except using the listwise loss function instead of the pairwise loss function and the latter has been shown inferior to TransRec[8]"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "We adopt two common Top-N metrics, Hit Rate@10 and NDCG@10, to evaluate recommendation performance[14,19]",
+          "We followed the same preprocessing procedure from[19,21,1]",
+          "Translation-based Recommendation (TransRec)[19]",
+          "Since the last visited item is often the key factor affecting the user’s next action (essentially providing ‘context’), first-order MC based methods show strong performance, especially on sparse datasets[19]",
+          "FPMC[1], HRM[43], TransRec[19]) or high-order MCs (e",
+          "For example, existing sequential recommendation methods have shown that the last visited item plays a key role on predicting the next item[1,21,19]"
+        ]
+      }
+    },
+    {
+      "id": "2017-supervised_learning_of_universal_sentence_representations_from_natural_language_inference_data",
+      "type": "core",
+      "title": "Supervised learning of universal sentence representations from natural language inference data",
+      "year": 2017,
+      "authors": "Alexis Conneau, Douwe Kiela, Holger Schwenk, Loic Barrault, Antoine Bordes",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-simple_and_effective_multi-paragraph_reading_comprehension",
+      "type": "core",
+      "title": "Simple and effective multi-paragraph reading comprehension",
+      "year": 2017,
+      "authors": "Christopher Clark, Matt Gardner",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-semi-supervised_sequence_tagging_with_bidirectional_language_models",
+      "type": "core",
+      "title": "Semi-supervised sequence tagging with bidirectional language models",
+      "year": 2017,
+      "authors": "Matthew E. Peters, Waleed Ammar, Chandra Bhagavatula, Russell Power",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-reinforced_mnemonic_reader_for_machine_reading_comprehension",
+      "type": "core",
+      "title": "Reinforced mnemonic reader for machine reading comprehension",
+      "year": 2017,
+      "authors": "Minghao Hu, Yuxing Peng, Zhen Huang, Xipeng Qiu, Furu Wei, Ming Zhou",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-recurrent_recommender_networks",
+      "type": "core",
+      "title": "Recurrent recommender networks,",
+      "year": "2017",
+      "authors": "[17]  C. Wu, A. Ahmed, A. Beutel, A. J. Smola, and H. Jing,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          ")[17,18,16]",
+          "Another line of work seeks to use RNNs to model user action sequences[2,26,17]",
+          "We also don’t include temporal recommendation methods like TimeSVD++[16]and RRN[17], which differ in setting from what we consider here"
+        ]
+      }
+    },
+    {
+      "id": "2017-recurrent_neural_networks_with_top-k_gains_for_session-based_recommendations",
+      "type": "core",
+      "title": "Recurrent neural networks with top-k gains for session-based recommendations,",
+      "year": "2017",
+      "authors": "Balázs Hidasi, Alexandros Karatzoglou",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "For example, GRU4Rec uses Gated Recurrent Units (GRU) to model click sequences for session-based recommendation[2], and an improved version further boosts its Top-N recommendation performance[26]",
+          "Another line of work seeks to use RNNs to model user action sequences[2,26,17]",
+          "GRU4Rec++{}^{\\text{+}}[26]"
+        ]
+      }
+    },
+    {
+      "id": "2017-neural_survival_recommender",
+      "type": "core",
+      "title": "Neural survival recommender,",
+      "year": "2017",
+      "authors": "[23]  H. Jing and A. J. Smola,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Other than MC-based methods, another line of work adopts RNNs to model user sequences[23,2,24,25]"
+        ]
+      }
+    },
+    {
+      "id": "2017-neural_collaborative_filtering",
+      "type": "core",
+      "title": "Neural collaborative filtering,",
+      "year": "2017",
+      "authors": "Xiangnan He, Lizi Liao, Hanwang Zhang, Liqiang Nie, Xia Hu, Tat-Seng Chua",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "For example, NeuMF[14]estimates user preferences via Multi-Layer Perceptions (MLP), and AutoRec[15]predicts ratings using autoencoders",
+          "We adopt two common Top-N metrics, Hit Rate@10 and NDCG@10, to evaluate recommendation performance[14,19]",
+          "To avoid heavy computation on all user-item pairs, we followed the strategy in[48,14]"
+        ]
+      }
+    },
+    {
+      "id": "2017-learned_in_translation:_contextualized_word_vectors",
+      "type": "core",
+      "title": "Learned in translation: Contextualized word vectors",
+      "year": 2017,
+      "authors": "Bryan McCann, James Bradbury, Caiming Xiong, Richard Socher",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-discourse-based_objectives_for_fast_unsupervised_sentence_representation_learning",
+      "type": "core",
+      "title": "Discourse-based objectives for fast unsupervised sentence representation learning",
+      "year": 2017,
+      "authors": "Yacine Jernite, Samuel R. Bowman, David Sontag",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-deep_learning_based_recommender_system:_a_survey_and_new_perspectives",
+      "type": "core",
+      "title": "Deep learning based recommender system: A survey and new perspectives,",
+      "year": "2017",
+      "authors": "Shuai Zhang, Lina Yao, Aixin Sun, Yi Tay",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Recently, due to their success in related problems, various deep learning techniques have been introduced for recommendation[9]"
+        ]
+      }
+    },
+    {
+      "id": "2017-attentive_collaborative_filtering:_multimedia_recommendation_with_item-_and_component-level_attention",
+      "type": "core",
+      "title": "Attentive collaborative filtering: Multimedia recommendation with item- and component-level attention,",
+      "year": "2017",
+      "authors": "[29]  J. Chen, H. Zhang, X. He, L. Nie, W. Liu, and T. Chua,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Recently, attention mechanisms have been incorporated into recommender systems[29,30,31]"
+        ]
+      }
+    },
+    {
+      "id": "2017-attentional_factorization_machines:_learning_the_weight_of_feature_interactions_via_attention_networks",
+      "type": "core",
+      "title": "Attentional factorization machines: Learning the weight of feature interactions via attention networks,",
+      "year": "2017",
+      "authors": "Jun Xiao, Hao Ye, Xiangnan He, Hanwang Zhang, Fei Wu, Tat-Seng Chua",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Recently, attention mechanisms have been incorporated into recommender systems[29,30,31]"
+        ]
+      }
+    },
+    {
+      "id": "2017-attention_is_all_you_need",
+      "type": "core",
+      "title": "Attention Is All You Need",
+      "year": "2017",
+      "authors": null,
+      "name": "Transformer",
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Later on, attention models are getting more and more attention in both NLP,[36,4], and recommender systems,[23,16]",
+          "SASRec: a self-attentive sequential recommendation method[16]motivated by Transformer in NLP[36]",
+          "Our model is motivated by the Transformer model in[36]and[16]",
+          "Recent research finds that residual connections can help training very deep neural networks even if they are not convolutional neural networks[36]",
+          "Recent advances in deep learning, especially the discovery of various attention mechanisms[2,33]and newer architectures[36,4]in addition to classical RNN and CNN architecture in natural language processing, have allowed us to make better use of the temporal ordering of items that each user has engaged with"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "); and 3) models with more parameters often require more training time",
+          "(8)Multi-head: The authors of Transformer[3]found that it is useful to use ‘multi-head’ attention, which applies attention inhℎhsubspaces (each ad/h𝑑ℎd/h-dimensional space)",
+          "We also tried the fixed position embedding as used in[3], but found that this led to worse performance in our case",
+          "We empirically find our method is over ten times faster than RNN and CNN-based methods with GPUs (the result is similar to that in[3]for machine translation tasks), and the maximum lengthn𝑛ncan easily scale to a few hundred which is generally sufficient for existing benchmark datasets",
+          "Recently, a new sequential modelTransfomerachieved state-of-the-art performance and efficiency for machine translation tasks[3]",
+          "Recently, a self-attention method was proposed which uses the same objects as queries, keys, and values[3]",
+          "Recently, a purely attention-based sequence-to-sequence method, Transfomer[3], achieved state-of-the-art performance and efficiency on machine translation tasks which had previously been dominated by RNN/CNN-based approaches[32,33]",
+          "RNNs are generally suitable for modeling sequences, though recent studies show CNNs and self-attention can be stronger in some sequential settings[3,44]",
+          "The scaled dot-product attention[3]is defined as:"
+        ],
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2017-a_broad-coverage_challenge_corpus_for_sentence_understanding_through_inference",
+      "type": "core",
+      "title": "A broad-coverage challenge corpus for sentence understanding through inference",
+      "year": 2017,
+      "authors": "Adina Williams, Nikita Nangia, Samuel R. Bowman",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2016-vista:_a_visually_socially_and_temporally-aware_model_for_artistic_recommendation",
+      "type": "core",
+      "title": "Vista: A visually, socially, and temporally-aware model for artistic recommendation,",
+      "year": "2016",
+      "authors": "Ruining He, Chen Fang, Zhaowen Wang, Julian McAuley",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "There are also methods adopting high-order MCs that consider more previous items[20,21]",
+          "Fossil[21], Vista[20], Caser[22])"
+        ]
+      }
+    },
+    {
+      "id": "2016-squad:_100000+_questions_for_machine_comprehension_of_text",
+      "type": "core",
+      "title": "SQuAD: 100,000+ questions for machine comprehension of text",
+      "year": 2016,
+      "authors": "Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, Percy Liang",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2016-session-based_recommendations_with_recurrent_neural_networks",
+      "type": "core",
+      "title": "Session-based recommendations with recurrent neural networks,",
+      "year": "2016",
+      "authors": "Balázs Hidasi, Alexandros Karatzoglou, Linas Baltrunas, Domonkos Tikk",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Other than MC-based methods, another line of work adopts RNNs to model user sequences[23,2,24,25]",
+          "GRU4Rec[2]",
+          "Another line of work seeks to use RNNs to model user action sequences[2,26,17]",
+          "Another line of work uses Recurrent Neural Networks (RNNs) to summarize all previous actions via a hidden state, which is used to predict the next action[2]",
+          "The computational complexity of our model is mainly due to the self-attention layer and the feed-forward network, which isO​(n2​d+n​d2)𝑂superscript𝑛2𝑑𝑛superscript𝑑2O(n^{2}d+nd^{2})",
+          "MF[40], FPMC[1]and Caser[22]); 2) consider the user’s previous actions, and induce animplicituser embedding from embeddings of visited items (e"
+        ]
+      }
+    },
+    {
+      "id": "2016-learning_distributed_representations_of_sentences_from_unlabelled_data",
+      "type": "core",
+      "title": "Learning distributed representations of sentences from unlabelled data",
+      "year": 2016,
+      "authors": "Felix Hill, Kyunghyun Cho, Anna Korhonen",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2016-fusing_similarity_models_with_markov_chains_for_sparse_sequential_recommendation",
+      "type": "core",
+      "title": "Fusing similarity models with markov chains for sparse sequential recommendation,",
+      "year": "2016",
+      "authors": "Ruining He, Julian McAuley",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "PRME[47], HRM[43], Fossil[21]) have been outperformed on similar datasets by baselines among those above, we omit comparison against them",
+          "FSIM[8], Fossil[21], GRU4Rec[2])",
+          "We followed the same preprocessing procedure from[19,21,1]",
+          "There are also methods adopting high-order MCs that consider more previous items[20,21]",
+          "Fossil[21], Vista[20], Caser[22])",
+          "For example, existing sequential recommendation methods have shown that the last visited item plays a key role on predicting the next item[1,21,19]"
+        ]
+      }
+    },
+    {
+      "id": "2016-convolutional_matrix_factorization_for_document_context-aware_recommendation",
+      "type": "core",
+      "title": "Convolutional matrix factorization for document context-aware recommendation,",
+      "year": "2016",
+      "authors": "[13]  D. H. Kim, C. Park, J. Oh, S. Lee, and H. Yu,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "images[10,11], text[12,13], etc"
+        ]
+      }
+    },
+    {
+      "id": "2016-context-aware_sequential_recommendation",
+      "type": "core",
+      "title": "Context-aware sequential recommendation,",
+      "year": "2016",
+      "authors": "Qiang Liu, Shu Wu, Diyi Wang, Zhaokang Li, Liang Wang",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Other than MC-based methods, another line of work adopts RNNs to model user sequences[23,2,24,25]"
+        ]
+      }
+    },
+    {
+      "id": "2016-bidirectional_attention_flow_for_machine_comprehension",
+      "type": "core",
+      "title": "Bidirectional attention flow for machine comprehension",
+      "year": 2016,
+      "authors": "Minjoon Seo, Aniruddha Kembhavi, Ali Farhadi, Hannaneh Hajishirzi",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2016-a_decomposable_attention_model_for_natural_language_inference",
+      "type": "core",
+      "title": "A decomposable attention model for natural language inference",
+      "year": 2016,
+      "authors": "Ankur P. Parikh, Oscar Täckström, Dipanjan Das, Jakob Uszkoreit",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2015-skip-thought_vectors",
+      "type": "core",
+      "title": "Skip-thought vectors",
+      "year": 2015,
+      "authors": "Ryan Kiros, Yukun Zhu, Ruslan Salakhutdinov, Richard S. Zemel, Antonio Torralba, Raquel Urtasun, Sanja Fidler",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2015-show_attend_and_tell:_neural_image_caption_generation_with_visual_attention",
+      "type": "core",
+      "title": "Show, attend and tell: Neural image caption generation with visual attention,",
+      "year": "2015",
+      "authors": "Kelvin Xu, Jimmy Ba, Ryan Kiros, Kyunghyun Cho, Aaron Courville, Ruslan Salakhutdinov, Richard Zemel, Yoshua Bengio",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Attention mechanisms have been shown to be effective in various tasks such as image captioning[27]and machine translation[28], among others"
+        ]
+      }
+    },
+    {
+      "id": "2015-semi-supervised_sequence_learning",
+      "type": "core",
+      "title": "Semi-supervised sequence learning",
+      "year": 2015,
+      "authors": "Andrew M. Dai, Quoc V. Le",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2015-personalized_ranking_metric_embedding_for_next_new_poi_recommendation",
+      "type": "core",
+      "title": "Personalized ranking metric embedding for next new poi recommendation,",
+      "year": "2015",
+      "authors": "[47]  S. Feng, X. Li, Y. Zeng, G. Cong, Y. M. Chee, and Q. Yuan,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "PRME[47], HRM[43], Fossil[21]) have been outperformed on similar datasets by baselines among those above, we omit comparison against them"
+        ]
+      }
+    },
+    {
+      "id": "2015-neural_machine_translation_by_jointly_learning_to_align_and_translate",
+      "type": "core",
+      "title": "Neural machine translation by jointly learning to align and translate,",
+      "year": "2015",
+      "authors": "Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Attention mechanisms have been shown to be effective in various tasks such as image captioning[27]and machine translation[28], among others",
+          "using an RNN encoder-decoder for translation: the encoder’s hidden states are keys and values, and the decoder’s hidden states are queries)[28]"
+        ]
+      }
+    },
+    {
+      "id": "2015-learning_hierarchical_representation_model_for_next_basket_recommendation",
+      "type": "core",
+      "title": "Learning hierarchical representation model for next basket recommendation,",
+      "year": "2015",
+      "authors": "[43]  P. Wang, J. Guo, Y. Lan, J. Xu, S. Wan, and X. Cheng,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "FPMC[1], HRM[43], TransRec[19]) or high-order MCs (e",
+          "PRME[47], HRM[43], Fossil[21]) have been outperformed on similar datasets by baselines among those above, we omit comparison against them"
+        ]
+      }
+    },
+    {
+      "id": "2015-image-based_recommendations_on_styles_and_substitutes",
+      "type": "core",
+      "title": "Image-based recommendations on styles and substitutes,",
+      "year": "2015",
+      "authors": "Julian McAuley, Christopher Targett, Qinfeng Shi, Anton van den Hengel",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Amazon:A series of datasets introduced in[46], comprising large corpora of product reviews crawled fromAmazon"
+        ]
+      }
+    },
+    {
+      "id": "2015-collaborative_deep_learning_for_recommender_systems",
+      "type": "core",
+      "title": "Collaborative deep learning for recommender systems",
+      "year": "2015",
+      "authors": "Hao Wang, Naiyan Wang, Dit-Yan Yeung",
+      "name": null,
+      "parents": {
+        "2016-wide_&_deep_learning_for_recommender_systems": [
+          "In the recommender systems literature, collaborative deep learning has been explored by coupling deep learning for content information and collaborative filtering (CF) for the ratings matrix[7]"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "images[10,11], text[12,13], etc"
+        ]
+      }
+    },
+    {
+      "id": "2015-autorec:_autoencoders_meet_collaborative_filtering",
+      "type": "core",
+      "title": "Autorec: Autoencoders meet collaborative filtering,",
+      "year": "2015",
+      "authors": "[15]  S. Sedhain, A. K. Menon, S. Sanner, and L. Xie,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "For example, NeuMF[14]estimates user preferences via Multi-Layer Perceptions (MLP), and AutoRec[15]predicts ratings using autoencoders"
+        ]
+      }
+    },
+    {
+      "id": "2015-aligning_books_and_movies:_towards_story-like_visual_explanations_by_watching_movies_and_reading_books",
+      "type": "core",
+      "title": "Aligning books and movies: Towards story-like visual explanations by watching movies and reading books",
+      "year": 2015,
+      "authors": "Yukun Zhu, Ryan Kiros, Richard Zemel, Ruslan Salakhutdinov, Raquel Urtasun, Antonio Torralba, Sanja Fidler",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2015-a_large_annotated_corpus_for_learning_natural_language_inference",
+      "type": "core",
+      "title": "A large annotated corpus for learning natural language inference",
+      "year": 2015,
+      "authors": "Samuel R. Bowman, Gabor Angeli, Christopher Potts, Christopher D. Manning",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2014-visualizing_and_understanding_convolutional_networks",
+      "type": "core",
+      "title": "Visualizing and understanding convolutional networks,",
+      "year": "2014",
+      "authors": "Matthew D Zeiler, Rob Fergus",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "In some cases, multi-layer neural networks have demonstrated the ability to learn meaningful features hierarchically[34]"
+        ]
+      }
+    },
+    {
+      "id": "2014-how_transferable_are_features_in_deep_neural_networks?",
+      "type": "core",
+      "title": "How transferable are features in deep neural networks?",
+      "year": 2014,
+      "authors": "Jason Yosinski, Jeff Clune, Yoshua Bengio, Hod Lipson",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2014-distributed_representations_of_sentences_and_documents",
+      "type": "core",
+      "title": "Distributed representations of sentences and documents",
+      "year": 2014,
+      "authors": "Quoc V. Le, Tomas Mikolov",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          "(2015); Logeswaran and Lee (2018)or paragraph embeddingsLe and Mikolov (2014)"
+        ]
+      }
+    },
+    {
+      "id": "2013-one_billion_word_benchmark_for_measuring_progress_in_statistical_language_modeling",
+      "type": "core",
+      "title": "One billion word benchmark for measuring progress in statistical language modeling",
+      "year": 2013,
+      "authors": "Ciprian Chelba, Tomas Mikolov, Mike Schuster, Qi Ge, Thorsten Brants, Phillipp Koehn, Tony Robinson",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2013-fism:_factored_item_similarity_models_for_top-n_recommender_systems",
+      "type": "core",
+      "title": "Fism: factored item similarity models for top-n recommender systems,",
+      "year": "2013",
+      "authors": "[8]  S. Kabbur, X. Ning, and G. Karypis,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Factorized Item Similarity Models[8]",
+          "FSIM[8], Fossil[21], GRU4Rec[2])",
+          "FISM[8])"
+        ]
+      }
+    },
+    {
+      "id": "2013-distributed_representations_of_words_and_phrases_and_their_compositionality",
+      "type": "core",
+      "title": "Distributed representations of words and phrases and their compositionality",
+      "year": 2013,
+      "authors": "Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, Jeffrey Dean",
+      "name": null,
+      "parents": {
+        "2019-albert:_a_lite_bert_for_self-supervised_learning_of_language_representations": [
+          null
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "2013-an_empirical_analysis_of_dropout_in_piecewise_linear_networks",
+      "type": "core",
+      "title": "An empirical analysis of dropout in piecewise linear networks,",
+      "year": "2013",
+      "authors": "David Warde-Farley, Ian J. Goodfellow, Aaron Courville, Yoshua Bengio",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Further analysis points out that dropout can be viewed as a form of ensemble learning which considers an enormous number of models (exponential in the number of neurons and input features) that share parameters[39]"
+        ]
+      }
+    },
+    {
+      "id": "2011-advances_in_collaborative_filtering",
+      "type": "core",
+      "title": "Advances in collaborative filtering,",
+      "year": "2011",
+      "authors": "Liwei Wu",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "Matrix Factorization (MF) methods seek to uncover latent dimensions to represent users’ preferences and items’ properties, and estimate interactions through the inner product between the user and item embeddings[6,7]"
+        ]
+      }
+    },
+    {
+      "id": "2010-temporal_collaborative_filtering_with_bayesian_probabilistic_tensor_factorization",
+      "type": "core",
+      "title": "Temporal collaborative filtering with bayesian probabilistic tensor factorization,",
+      "year": "2010",
+      "authors": "[18]  L. Xiong, X. Chen, T.-K. Huang, J. Schneider, and J. G. Carbonell,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          ")[17,18,16]"
+        ]
+      }
+    },
+    {
+      "id": "2010-factorizing_personalized_markov_chains_for_next-basket_recommendation",
+      "type": "core",
+      "title": "Factorizing personalized markov chains for next-basket recommendation",
+      "year": "2010",
+      "authors": "Steffen Rendle, Christoph Freudenthaler, and Lars Schmidt-Thieme",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "PFMC: a personalized Markov chain model[27]that combines matrix factorization and first-order Markov Chain to take advantage of both users’ latent long-term preferences as well as short-term item transitions",
+          "Initially, sequence data in temporal order are usually modelled with Markov models, in which future observation is conditioned on last few observed items[27]"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "We followed the same preprocessing procedure from[19,21,1]",
+          "To provide personalized recommendations, existing methods often take one of two approaches: 1) learn anexplicituser embedding representing user preferences (e",
+          "Markov Chains (MCs) are a classic example, which assume that the next action is conditioned on only the previous action (or previous few), and have been successfully adopted to characterize short-range item transitions for recommendation[1]",
+          "Factorized Personalized Markov Chains (FPMC)[1]",
+          "For instance, FPMC fuses an MF term and an item-item transition term to capture long-term preferences and short-term transitions respectively[1]",
+          "FPMC[1], HRM[43], TransRec[19]) or high-order MCs (e",
+          "Furthermore, SASRec is also closely related to Factorized Personalized Markov Chains (FPMC)[1], which fuse MF with FMC to capture user preferences and short-term dynamics respectively:",
+          "For example, existing sequential recommendation methods have shown that the last visited item plays a key role on predicting the next item[1,21,19]"
+        ]
+      }
+    },
+    {
+      "id": "2010-collaborative_filtering_with_temporal_dynamics",
+      "type": "core",
+      "title": "Collaborative filtering with temporal dynamics,",
+      "year": "2010",
+      "authors": "[16]  Y. Koren,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "TimeSVD++[16]achieved strong results by splitting time into several segments and modeling users and items separately in each",
+          "We also don’t include temporal recommendation methods like TimeSVD++[16]and RRN[17], which differ in setting from what we consider here"
+        ]
+      }
+    },
+    {
+      "id": "2009-matrix_factorization_techniques_for_recommender_systems",
+      "type": "core",
+      "title": "Matrix factorization techniques for recommender systems",
+      "year": "2009",
+      "authors": "Jennifer Nguyen, Mu Zhu",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Recommender systems can be divided into those designed for explicit feedback, such as ratings[21], and those for implicit feedback, based on user engagement[14]"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "MF[40], FPMC[1]and Caser[22]); 2) consider the user’s previous actions, and induce animplicituser embedding from embeddings of visited items (e"
+        ]
+      }
+    },
+    {
+      "id": "2009-bpr:_bayesian_personalized_ranking_from_implicit_feedback",
+      "type": "core",
+      "title": "Bpr: Bayesian personalized ranking from implicit feedback",
+      "year": "2009",
+      "authors": "Steffen Rendle, Christoph Freudenthaler, Zeno Gantner, Lars Schmidt-Thieme",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "There are multiple ways to define the loss of our model, previously a popular loss is the BPR loss[26,9]:",
+          "BPR: Bayesian personalized ranking for implicit feedback setting[26]",
+          "Pairwise methods[26,39]consider each pairwise comparison for a user as a label, which implicitly models the pairwise comparisons as independent observations",
+          "SQL-Rank[40]and item-based recommendations[28]are omitted because the former is similar to BPR[26]except using the listwise loss function instead of the pairwise loss function and the latter has been shown inferior to TransRec[8]"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "Bayesian Personalized Ranking (BPR)[5]",
+          "clicks, purchases, comments)[4,5]"
+        ]
+      }
+    },
+    {
+      "id": "2008-factorization_meets_the_neighborhood:_a_multifaceted_collaborative_filtering_model",
+      "type": "core",
+      "title": "Factorization meets the neighborhood: a multifaceted collaborative filtering model",
+      "year": "2008",
+      "authors": "Yehuda Koren",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Collaborative filtering algorithms including matrix factorization,[11,29,18,24,14], which predict the feedback in a pointwise fashion as if it were a supervised learning problem, fall into the first category"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "To avoid heavy computation on all user-item pairs, we followed the strategy in[48,14]"
+        ]
+      }
+    },
+    {
+      "id": "2008-collaborative_filtering_for_implicit_feedback_datasets",
+      "type": "core",
+      "title": "Collaborative filtering for implicit feedback datasets",
+      "year": "2008",
+      "authors": "Yifan Hu, Yehuda Koren, and Chris Volinsky",
+      "name": null,
+      "parents": {
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Recommender systems can be divided into those designed for explicit feedback, such as ratings[21], and those for implicit feedback, based on user engagement[14]",
+          "Collaborative filtering algorithms including matrix factorization,[11,29,18,24,14], which predict the feedback in a pointwise fashion as if it were a supervised learning problem, fall into the first category"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "clicks, purchases, comments)[4,5]"
+        ]
+      }
+    },
+    {
+      "id": "2003-introduction_to_the_conll-2003_shared_task:_language-independent_named_entity_recognition",
+      "type": "core",
+      "title": "Introduction to the conll-2003 shared task: Language-independent named entity recognition",
+      "year": 2003,
+      "authors": "Erik F. Tjong Kim Sang, Fien De Meulder",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          "(2013), and named entity recognitionTjong Kim Sang and De Meulder (2003)",
+          "In this section, we compare the two approaches by applying BERT to the CoNLL-2003 Named Entity Recognition (NER) taskTjong Kim Sang and De Meulder (2003)",
+          null
+        ]
+      }
+    },
+    {
+      "id": "2001-gradient_flow_in_recurrent_nets:_the_difficulty_of_learning_long-term_dependencies",
+      "type": "core",
+      "title": "Gradient flow in recurrent nets: the difficulty of learning long-term dependencies,",
+      "year": "2001",
+      "authors": "[45]  S. Hochreiter, Y. Bengio, P. Frasconi, J. Schmidhuber et al.,",
+      "name": null,
+      "parents": {
+        "2018-self-attentive_sequential_recommendation": [
+          "In contrast, our model hasO​(1)𝑂1O(1)maximum path length, which can be beneficial for learning long-range dependencies[45]"
+        ]
+      }
+    },
+    {
+      "id": "1817-a_framework_for_learning_predictive_structures_from_multiple_tasks_and_unlabeled_data",
+      "type": "core",
+      "title": "A framework for learning predictive structures from multiple tasks and unlabeled data",
+      "year": "1817",
+      "authors": "Rie Kubota Ando and Tong Zhang. 2005",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "1801-maskgan:_better_text_generation_via_filling_in_the_",
+      "type": "core",
+      "title": "Maskgan: Better text generation via filling in the_",
+      "year": "1801",
+      "authors": "William Fedus, Ian Goodfellow, and Andrew M Dai. 2018",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "1638-contextual_string_embeddings_for_sequence_labeling",
+      "type": "core",
+      "title": "Contextual string embeddings for sequence labeling",
+      "year": "1638",
+      "authors": "Alan Akbik, Duncan Blythe, and Roland Vollgraf. 2018",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "1631-recursive_deep_models_for_semantic_compositionality_over_a_sentiment_treebank",
+      "type": "core",
+      "title": "Recursive deep models for semantic compositionality over a sentiment treebank",
+      "year": "1631",
+      "authors": "Richard Socher, Alex Perelygin, Jean Wu, Jason Chuang, Christopher D Manning, Andrew Ng, and Christopher Potts. 2013",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "1606-bridging_nonlinearities_and_stochastic_regularizers_with_gaussian_error_linear_units",
+      "type": "core",
+      "title": "Bridging nonlinearities and stochastic regularizers with gaussian error linear units",
+      "year": "1606",
+      "authors": "Dan Hendrycks and Kevin Gimpel. 2016",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          "We use ageluactivationHendrycks and Gimpel (2016)rather than the standardrelu, following OpenAI GPT"
+        ]
+      }
+    },
+    {
+      "id": "1532-glove:_global_vectors_for_word_representation",
+      "type": "core",
+      "title": "Glove: Global vectors for word representation",
+      "year": "1532",
+      "authors": "Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "1096-extracting_and_composing_robust_features_with_denoising_autoencoders",
+      "type": "core",
+      "title": "Extracting and composing robust features with denoising autoencoders",
+      "year": "1096",
+      "authors": "Pascal Vincent, Hugo Larochelle, Yoshua Bengio, and Pierre-Antoine Manzagol. 2008",
+      "name": null,
+      "parents": {
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
+        ]
+      }
     }
   ],
   [
@@ -54,10 +2307,10 @@
       "name": null,
       "parents": {
         "2017-attention_is_all_you_need": [
-          "In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as[17,18]and[9]",
-          "Doing so requires a stack ofO​(n/k)O(n/k)convolutional layers in the case of contiguous kernels, orO​(l​o​gk​(n))O(log_{k}(n))in the case of dilated convolutions[18], increasing the length of the longest paths between any two positions in the network",
+          "The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU[16], ByteNet[18]and ConvS2S[9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions",
           "ByteNet[18]",
-          "The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU[16], ByteNet[18]and ConvS2S[9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions"
+          "In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as[17,18]and[9]",
+          "Doing so requires a stack ofO​(n/k)O(n/k)convolutional layers in the case of contiguous kernels, orO​(l​o​gk​(n))O(log_{k}(n))in the case of dilated convolutions[18], increasing the length of the longest paths between any two positions in the network"
         ]
       }
     },
@@ -97,14 +2350,14 @@
       "name": null,
       "parents": {
         "2017-attention_is_all_you_need": [
+          "The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU[16], ByteNet[18]and ConvS2S[9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions",
+          "There are many choices of positional encodings, learned and fixed[9]",
+          "ConvS2S Ensemble[9]",
+          "In row (E) we replace our sinusoidal positional encoding with learned positional embeddings[9], and observe nearly identical results to the base model",
+          "In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as[17,18]and[9]",
           "This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as[38,2,9]",
           "We also experimented with using learned positional embeddings[9]instead, and found that the two versions produced nearly identical results (see Table3row (E))",
-          "The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU[16], ByteNet[18]and ConvS2S[9], all of which use convolutional neural networks as basic building block, computing hidden representations in parallel for all input and output positions",
-          "In the following sections, we will describe the Transformer, motivate self-attention and discuss its advantages over models such as[17,18]and[9]",
-          "There are many choices of positional encodings, learned and fixed[9]",
-          "In row (E) we replace our sinusoidal positional encoding with learned positional embeddings[9], and observe nearly identical results to the base model",
-          "ConvS2S[9]",
-          "ConvS2S Ensemble[9]"
+          "ConvS2S[9]"
         ]
       }
     },
@@ -169,8 +2422,8 @@
       "name": null,
       "parents": {
         "2017-attention_is_all_you_need": [
-          "Our results in Table4show that despite the lack of task-specific tuning our model performs surprisingly well, yielding better results than all previously reported models with the exception of the Recurrent Neural Network Grammar[8]",
-          "(2016)[8]"
+          "(2016)[8]",
+          "Our results in Table4show that despite the lack of task-specific tuning our model performs surprisingly well, yielding better results than all previously reported models with the exception of the Recurrent Neural Network Grammar[8]"
         ]
       }
     },
@@ -210,6 +2463,12 @@
       "parents": {
         "2017-attention_is_all_you_need": [
           "We employ a residual connection[11]around each of the two sub-layers, followed by layer normalization[1]"
+        ],
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Layer normalization[1]normalizes neurons within a layer"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          ", zero-mean and unit-variance), which is beneficial for stabilizing and accelerating neural network training[36]"
         ]
       }
     },
@@ -222,13 +2481,19 @@
       "name": null,
       "parents": {
         "2017-attention_is_all_you_need": [
+          "Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures[38,24,15]",
+          "For English-French, we used the significantly larger WMT 2014 English-French dataset consisting of 36M sentences and split tokens into a 32000 word-piece vocabulary[38]",
           "This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as[38,2,9]",
           "GNMT + RL[38]",
-          "GNMT + RL Ensemble[38]",
-          "6[38]",
           "In terms of computational complexity, self-attention layers are faster than recurrent layers when the sequence lengthnnis smaller than the representation dimensionalitydd, which is most often the case with sentence representations used by state-of-the-art models in machine translations, such as word-piece[38]and byte-pair[31]representations",
-          "For English-French, we used the significantly larger WMT 2014 English-French dataset consisting of 36M sentences and split tokens into a 32000 word-piece vocabulary[38]",
-          "Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures[38,24,15]"
+          "6[38]",
+          "GNMT + RL Ensemble[38]"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "Recently, a purely attention-based sequence-to-sequence method, Transfomer[3], achieved state-of-the-art performance and efficiency on machine translation tasks which had previously been dominated by RNN/CNN-based approaches[32,33]"
+        ],
+        "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding": [
+          null
         ]
       }
     },
@@ -258,6 +2523,12 @@
         ],
         "2017-attention_is_all_you_need": [
           "We employ a residual connection[11]around each of the two sub-layers, followed by layer normalization[1]"
+        ],
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Residual connections are firstly proposed in ResNet for image classification problems[7]"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "However, simply adding more layers did not easily correspond to better performance until residual networks were proposed[35]"
         ]
       }
     },
@@ -272,6 +2543,9 @@
         "2017-attention_is_all_you_need": [
           "Deep-Att + PosUnk[39]",
           "Deep-Att + PosUnk Ensemble[39]"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "Recently, a purely attention-based sequence-to-sequence method, Transfomer[3], achieved state-of-the-art performance and efficiency on machine translation tasks which had previously been dominated by RNN/CNN-based approaches[32,33]"
         ]
       }
     },
@@ -297,8 +2571,8 @@
       "name": null,
       "parents": {
         "2017-attention_is_all_you_need": [
-          "Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations[4,27,28,22]",
-          "In all but a few cases[27], however, such attention mechanisms are used in conjunction with a recurrent network"
+          "In all but a few cases[27], however, such attention mechanisms are used in conjunction with a recurrent network",
+          "Self-attention has been used successfully in a variety of tasks including reading comprehension, abstractive summarization, textual entailment and learning task-independent sentence representations[4,27,28,22]"
         ]
       }
     },
@@ -350,10 +2624,10 @@
       "name": null,
       "parents": {
         "2017-attention_is_all_you_need": [
-          "(2014)[37]",
-          "We also trained it in a semi-supervised setting, using the larger high-confidence and BerkleyParser corpora from with approximately 17M sentences[37]",
           "In contrast to RNN sequence-to-sequence models[37], the Transformer outperforms the BerkeleyParser[29]even when training only on the WSJ training set of 40K sentences",
-          "Furthermore, RNN sequence-to-sequence models have not been able to attain state-of-the-art results in small-data regimes[37]"
+          "(2014)[37]",
+          "Furthermore, RNN sequence-to-sequence models have not been able to attain state-of-the-art results in small-data regimes[37]",
+          "We also trained it in a semi-supervised setting, using the larger high-confidence and BerkleyParser corpora from with approximately 17M sentences[37]"
         ]
       }
     },
@@ -384,19 +2658,6 @@
       }
     },
     {
-      "id": "2015-collaborative_deep_learning_for_recommender_systems",
-      "type": "core",
-      "title": "Collaborative deep learning for recommender systems",
-      "year": "2015",
-      "authors": "Hao Wang, Naiyan Wang, Dit-Yan Yeung",
-      "name": null,
-      "parents": {
-        "2016-wide_&_deep_learning_for_recommender_systems": [
-          "In the recommender systems literature, collaborative deep learning has been explored by coupling deep learning for content information and collaborative filtering (CF) for the ratings matrix[7]"
-        ]
-      }
-    },
-    {
       "id": "2015-adam:_a_method_for_stochastic_optimization",
       "type": "core",
       "title": "Adam: A method for stochastic optimization",
@@ -406,6 +2667,11 @@
       "parents": {
         "2017-attention_is_all_you_need": [
           "We used the Adam optimizer[20]withβ1=0"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "For fair comparison, we implement BPR, FMC, FPMC, and TransRec usingTemsorFlowwith the Adam[41]optimizer",
+          "The optimizer is theAdamoptimizer[41], the learning rate is set to0",
+          "The network is optimized by theAdamoptimizer[41], which is a variant of Stochastic Gradient Descent (SGD) with adaptive moment estimation"
         ]
       }
     },
@@ -418,8 +2684,11 @@
       "name": null,
       "parents": {
         "2017-attention_is_all_you_need": [
-          "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]",
-          "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]"
+          "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]",
+          "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]"
+        ],
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Recent advances in deep learning, especially the discovery of various attention mechanisms[2,33]and newer architectures[36,4]in addition to classical RNN and CNN architecture in natural language processing, have allowed us to make better use of the temporal ordering of items that each user has engaged with"
         ]
       }
     },
@@ -432,11 +2701,14 @@
       "name": null,
       "parents": {
         "2017-attention_is_all_you_need": [
-          "The two most commonly used attention functions are additive attention[2], and dot-product (multiplicative) attention",
-          "This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as[38,2,9]",
+          "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]",
           "Attention mechanisms have become an integral part of compelling sequence modeling and transduction models in various tasks, allowing modeling of dependencies without regard to their distance in the input or output sequences[2,19]",
           "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]",
-          "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]"
+          "This mimics the typical encoder-decoder attention mechanisms in sequence-to-sequence models such as[38,2,9]",
+          "The two most commonly used attention functions are additive attention[2], and dot-product (multiplicative) attention"
+        ],
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Recent advances in deep learning, especially the discovery of various attention mechanisms[2,33]and newer architectures[36,4]in addition to classical RNN and CNN architecture in natural language processing, have allowed us to make better use of the temporal ordering of items that each user has engaged with"
         ]
       }
     },
@@ -449,8 +2721,8 @@
       "name": null,
       "parents": {
         "2017-attention_is_all_you_need": [
-          "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]",
-          "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]"
+          "Most competitive neural sequence transduction models have an encoder-decoder structure[5,2,35]",
+          "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]"
         ]
       }
     },
@@ -464,6 +2736,9 @@
       "parents": {
         "2017-attention_is_all_you_need": [
           "Recurrent neural networks, long short-term memory[13]and gated recurrent[7]neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation[35,2,5]"
+        ],
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "It utilizes the GRU structures[3]initially proposed for speech modelling"
         ]
       }
     },
@@ -477,6 +2752,13 @@
       "parents": {
         "2017-attention_is_all_you_need": [
           "We apply dropout[33]to the output of each sub-layer, before it is added to the sub-layer input and normalized"
+        ],
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "Dropout[32]is applied to the embedding layerE𝐸E, self-attention layer and pointwise feed-forward layer by stochastically dropping some percentage of hidden units to prevent co-adaption of neurons",
+          "For deep neural networks, it has been shown thatℓpsubscriptℓ𝑝\\ell_{p}regularizations are often too weak, while dropout[12,32]is more effective in practice"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "To alleviate overfitting problems in deep neural networks, ‘Dropout’ regularization techniques have been shown to be effective in various neural network architectures[38]"
         ]
       }
     },
@@ -503,72 +2785,6 @@
       "parents": {
         "2017-attention_is_all_you_need": [
           "(2013)[40]"
-        ]
-      }
-    },
-    {
-      "id": "2012-factorization_machines_with_libfm",
-      "type": "core",
-      "title": "Factorization machines with libFM",
-      "year": "2012",
-      "authors": "S. Rendle",
-      "name": null,
-      "parents": {
-        "2016-wide_&_deep_learning_for_recommender_systems": [
-          "The idea of combining wide linear models with cross-product feature transformations and deep neural networks with dense embeddings is inspired by previous work, such as factorization machines[5]which add generalization to linear models by factorizing the interactions between two variables as a dot product between two low-dimensional embedding vectors",
-          "Embedding-based models, such as factorization machines[5]or deep neural networks, can generalize to previously unseen query-item feature pairs by learning a low-dimensional dense embedding vector for each query and item feature, with less burden of feature engineering"
-        ]
-      }
-    },
-    {
-      "id": "2011-strategies_for_training_large_scale_neural_network_language_models",
-      "type": "core",
-      "title": "Strategies for training large scale neural network language models",
-      "year": "2011",
-      "authors": "T. Mikolov, A. Deoras, D. Povey, L. Burget, and J. H. Cernocky",
-      "name": null,
-      "parents": {
-        "2016-wide_&_deep_learning_for_recommender_systems": [
-          ", hidden layer sizes) by learning direct weights between inputs and outputs[4]"
-        ]
-      }
-    },
-    {
-      "id": "2011-follow-the-regularized-leader_and_mirror_descent:_equivalence_theorems_and_l1_regularization",
-      "type": "core",
-      "title": "Follow-the-regularized-leader and mirror descent: Equivalence theorems and l1 regularization",
-      "year": "2011",
-      "authors": "H. B. McMahan",
-      "name": null,
-      "parents": {
-        "2016-wide_&_deep_learning_for_recommender_systems": [
-          "In the experiments, we used Follow-the-regularized-leader (FTRL) algorithm[3]withL1subscript𝐿1L_{1}regularization as the optimizer for the wide part of the model, and AdaGrad[1]for the deep part"
-        ]
-      }
-    },
-    {
-      "id": "2011-appjoy:_personalized_mobile_application_discovery",
-      "type": "core",
-      "title": "AppJoy: Personalized mobile application discovery",
-      "year": "2011",
-      "authors": "B. Yan and G. Chen",
-      "name": null,
-      "parents": {
-        "2016-wide_&_deep_learning_for_recommender_systems": [
-          "There has also been previous work on mobile app recommender systems, such as AppJoy which used CF on users’ app usage records[8]"
-        ]
-      }
-    },
-    {
-      "id": "2011-adaptive_subgradient_methods_for_online_learning_and_stochastic_optimization",
-      "type": "core",
-      "title": "Adaptive subgradient methods for online learning and stochastic optimization",
-      "year": "2011",
-      "authors": "J. Duchi, E. Hazan, and Y. Singer",
-      "name": null,
-      "parents": {
-        "2016-wide_&_deep_learning_for_recommender_systems": [
-          "In the experiments, we used Follow-the-regularized-leader (FTRL) algorithm[3]withL1subscript𝐿1L_{1}regularization as the optimizer for the wide part of the model, and AdaGrad[1]for the deep part"
         ]
       }
     },
@@ -621,8 +2837,8 @@
       "name": null,
       "parents": {
         "2017-attention_is_all_you_need": [
-          "The shorter these paths between any combination of positions in the input and output sequences, the easier it is to learn long-range dependencies[12]",
-          "This makes it more difficult to learn dependencies between distant positions[12]"
+          "This makes it more difficult to learn dependencies between distant positions[12]",
+          "The shorter these paths between any combination of positions in the input and output sequences, the easier it is to learn long-range dependencies[12]"
         ]
       }
     },
@@ -638,19 +2854,6 @@
           "We trained a 4-layer transformer withdm​o​d​e​l=1024d_{model}=1024on the Wall Street Journal (WSJ) portion of the Penn Treebank[25], about 40K training sentences"
         ]
       }
-    },
-    {
-      "id": "1799-joint_training_of_a_convolutional_network_and_a_graphical_model_for_human_pose_estimation",
-      "type": "core",
-      "title": "Joint training of a convolutional network and a graphical model for human pose estimation",
-      "year": "1799",
-      "authors": "Jonathan Tompson, Arjun Jain, Yann LeCun, Christoph Bregler",
-      "name": null,
-      "parents": {
-        "2016-wide_&_deep_learning_for_recommender_systems": [
-          "Joint training of neural networks with graphical models has also been applied to human pose estimation from images[6]"
-        ]
-      }
     }
   ],
   [
@@ -663,21 +2866,21 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "Following[40,41], we assume that the image-level classifiers are first adopted for predicting the class labels of an image, and the localization algorithm only accounts for predicting bounding boxes based on the predicted classes",
-          "VGG-16[41]",
-          "1[41]",
-          "On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers—8×\\timesdeeper than VGG nets[41]but still having lower complexity",
-          "Our implementation for ImageNet follows the practice in[21,41]",
-          "3, middle) are mainly inspired by the philosophy of VGG nets[41](Fig",
-          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]",
-          "VGG’s[41]",
-          "For best results, we adopt the fully-convolutional form as in[41,13], and average the scores at multiple scales (images are resized such that the shorter side is in{224,256,384,480,640}224256384480640\\{224,256,384,480,640\\})",
-          "VGG[41](v5)",
-          "Here we are interested in the improvements of replacing VGG-16[41]with ResNet-101",
-          "VGG[41](ILSVRC’14)",
           "Following[41], we first perform “oracle” testing using the ground truth class as the classification prediction",
+          "Following[40,41], we assume that the image-level classifiers are first adopted for predicting the class labels of an image, and the localization algorithm only accounts for predicting bounding boxes based on the predicted classes",
+          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]",
+          "On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers—8×\\timesdeeper than VGG nets[41]but still having lower complexity",
+          "3, middle) are mainly inspired by the philosophy of VGG nets[41](Fig",
+          "VGG-16[41]",
+          "VGG[41](ILSVRC’14)",
+          "It is worth noticing that our model hasfewerfilters andlowercomplexity than VGG nets[41](Fig",
+          "1[41]",
+          "Here we are interested in the improvements of replacing VGG-16[41]with ResNet-101",
+          "VGG[41](v5)",
+          "VGG’s[41]",
           "Our 152-layer residual net is the deepest network ever presented on ImageNet, while still having lower complexity than VGG nets[41]",
-          "It is worth noticing that our model hasfewerfilters andlowercomplexity than VGG nets[41](Fig"
+          "Our implementation for ImageNet follows the practice in[21,41]",
+          "For best results, we adopt the fully-convolutional form as in[41,13], and average the scores at multiple scales (images are resized such that the shorter side is in{224,256,384,480,640}224256384480640\\{224,256,384,480,640\\})"
         ]
       }
     },
@@ -718,8 +2921,8 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "We adopt the idea of “Networks on Conv feature maps” (NoC)[33]to address this issue",
-          "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
+          "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers",
+          "We adopt the idea of “Networks on Conv feature maps” (NoC)[33]to address this issue"
         ]
       }
     },
@@ -733,10 +2936,10 @@
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
           "Highway[42,43]",
-          "Unexpectedly, such degradation isnot caused by overfitting, and adding more layers to a suitably deep model leads tohigher training error, as reported in[11,42]and thoroughly verified by our experiments",
           "Concurrent with our work, “highway networks”[42,43]present shortcut connections with gating functions[15]",
-          "It hasfewerparameters than other deep and thin networks such as FitNet[35]and Highway[42](Table6), yet is among the state-of-the-art results (6",
-          "4, left) and on MNIST (see[42]), suggesting that such an optimization difficulty is a fundamental problem"
+          "Unexpectedly, such degradation isnot caused by overfitting, and adding more layers to a suitably deep model leads tohigher training error, as reported in[11,42]and thoroughly verified by our experiments",
+          "4, left) and on MNIST (see[42]), suggesting that such an optimization difficulty is a fundamental problem",
+          "It hasfewerparameters than other deep and thin networks such as FitNet[35]and Highway[42](Table6), yet is among the state-of-the-art results (6"
         ]
       }
     },
@@ -749,10 +2952,10 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "GoogLeNet[44](ILSVRC’14)",
-          "In[44,24], a few intermediate layers are directly connected to auxiliary classifiers for addressing vanishing/exploding gradients",
           "GoogLeNet[44]",
-          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+          "GoogLeNet[44](ILSVRC’14)",
+          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]",
+          "In[44,24], a few intermediate layers are directly connected to auxiliary classifiers for addressing vanishing/exploding gradients"
         ]
       }
     },
@@ -793,15 +2996,15 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "Following[7,32], for the PASCAL VOC 2007testset, we use the 5ktrainvalimages in VOC 2007 and 16ktrainvalimages in VOC 2012 for training (“07+12”)",
-          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
-          "Unlike VGG-16 used in[32], our ResNet has no hidden fc layers",
-          "In this section we introduce our detection method based on the baseline Faster R-CNN[32]system",
           "In the above, all results are obtained by single-scale training/testing as in[32], where the image’s shorter side iss=600𝑠600s=600pixels",
+          "Following[7,32], for the PASCAL VOC 2007testset, we use the 5ktrainvalimages in VOC 2007 and 16ktrainvalimages in VOC 2012 for training (“07+12”)",
+          "The above results are only based on theproposal network(RPN) in Faster R-CNN[32]",
           "We adoptFaster R-CNN[32]as the detection method",
-          "To avoid negative samples being dominate, 8 anchors are randomly sampled for each image, where the sampled positive and negative anchors have a ratio of 1:1[32]",
+          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
           "Our localization algorithm is based on the RPN framework of[32]with a few modifications",
-          "The above results are only based on theproposal network(RPN) in Faster R-CNN[32]"
+          "In this section we introduce our detection method based on the baseline Faster R-CNN[32]system",
+          "To avoid negative samples being dominate, 8 anchors are randomly sampled for each image, where the sampled positive and negative anchors have a ratio of 1:1[32]",
+          "Unlike VGG-16 used in[32], our ResNet has no hidden fc layers"
         ]
       }
     },
@@ -814,10 +3017,10 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "Following[7,32], for the PASCAL VOC 2007testset, we use the 5ktrainvalimages in VOC 2007 and 16ktrainvalimages in VOC 2012 for training (“07+12”)",
-          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
           "These layers are shared by a region proposal network (RPN, generating 300 proposals)[32]and a Fast R-CNN detection network[7]",
+          "Following[7,32], for the PASCAL VOC 2007testset, we use the 5ktrainvalimages in VOC 2007 and 16ktrainvalimages in VOC 2012 for training (“07+12”)",
           "One may use thedetection network(Fast R-CNN[7]) in Faster R-CNN to improve the results",
+          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
           "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers"
         ]
       }
@@ -831,12 +3034,12 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
+          "PReLU-net[13]",
+          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]",
+          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]",
           "We initialize the weights as in[13]and train all plain/residual nets from scratch",
           "9, and adopt the weight initialization in[13]and BN[16]but with no dropout",
-          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]",
-          "For best results, we adopt the fully-convolutional form as in[41,13], and average the scores at multiple scales (images are resized such that the shorter side is in{224,256,384,480,640}224256384480640\\{224,256,384,480,640\\})",
-          "PReLU-net[13]",
-          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+          "For best results, we adopt the fully-convolutional form as in[41,13], and average the scores at multiple scales (images are resized such that the shorter side is in{224,256,384,480,640}224256384480640\\{224,256,384,480,640\\})"
         ]
       }
     },
@@ -863,11 +3066,17 @@
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
           "BN-inception[16]",
-          "9, and adopt the weight initialization in[13]and BN[16]but with no dropout",
-          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]",
           "These plain networks are trained with BN[16], which ensures forward propagated signals to have non-zero variances",
-          "We adopt batch normalization (BN)[16]right after each convolution and before activation, following[16]",
-          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]",
+          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]",
+          "9, and adopt the weight initialization in[13]and BN[16]but with no dropout",
+          "We adopt batch normalization (BN)[16]right after each convolution and before activation, following[16]"
+        ],
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "One alternative is the batch normalization[15]but we find it does not work as well as the layer normalization in practice even for a reasonable large batch size of 128"
+        ],
+        "2018-self-attentive_sequential_recommendation": [
+          "Unlike batch normalization[37], the statistics used in layer normalization are independent of other samples in the same batch"
         ]
       }
     },
@@ -893,8 +3102,8 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
           "Multi-scale training/testing has been developed in[12,7]by selecting a scale from a feature pyramid, and in[33]by using maxout layers",
+          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
           "Given the full-image conv feature map, we pool a feature by global Spatial Pyramid Pooling[12](with a “single-level” pyramid) which can be implemented as “RoI” pooling using the entire image’s bounding box as the RoI"
         ]
       }
@@ -908,10 +3117,10 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
-          "3[8], followed by box voting[6]",
-          "The image region is cropped from a proposal, warped to 224×\\times224 pixels, and fed into the classification network as in R-CNN[8]",
           "We split the validation set into two parts (val1/val2) following[8]",
+          "3[8], followed by box voting[6]",
+          "Many other nontrivial visual recognition tasks[8,12,7,32,27]have also greatly benefited from very deep models",
+          "The image region is cropped from a proposal, warped to 224×\\times224 pixels, and fed into the classification network as in R-CNN[8]",
           "Motivated by this, in our current experiment we use the original R-CNN[8]that is RoI-centric, in place of Fast R-CNN"
         ]
       }
@@ -940,8 +3149,8 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "Table8and8show the object detection baseline results on PASCAL VOC 2007 and 2012[5]and COCO[26]",
-          "The MS COCO dataset[26]involves 80 object categories"
+          "The MS COCO dataset[26]involves 80 object categories",
+          "Table8and8show the object detection baseline results on PASCAL VOC 2007 and 2012[5]and COCO[26]"
         ]
       }
     },
@@ -954,11 +3163,11 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "We evaluate our method on the ImageNet 2012 classification dataset[36]that consists of 1000 classes",
           "The ImageNet Localization (LOC) task[36]requires to classify and localize the objects",
+          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]",
           "On the ImageNet classification dataset[36], we obtain excellent results by extremely deep residual nets",
-          "We present comprehensive experiments on ImageNet[36]to show the degradation problem and evaluate our method",
-          "Recent evidence[41,44]reveals that network depth is of crucial importance, and the leading results[41,44,13,16]on the challenging ImageNet dataset[36]all exploit “very deep”[41]models, with a depth of sixteen[41]to thirty[16]"
+          "We evaluate our method on the ImageNet 2012 classification dataset[36]that consists of 1000 classes",
+          "We present comprehensive experiments on ImageNet[36]to show the degradation problem and evaluate our method"
         ]
       }
     },
@@ -971,10 +3180,10 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "In[44,24], a few intermediate layers are directly connected to auxiliary classifiers for addressing vanishing/exploding gradients",
-          "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset",
+          "We follow the simple data augmentation in[24]for training: 4 pixels are padded on each side, and a 32×\\times32 crop is randomly sampled from the padded image or its horizontal flip",
           "DSN[24]",
-          "We follow the simple data augmentation in[24]for training: 4 pixels are padded on each side, and a 32×\\times32 crop is randomly sampled from the padded image or its horizontal flip"
+          "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset",
+          "In[44,24], a few intermediate layers are directly connected to auxiliary classifiers for addressing vanishing/exploding gradients"
         ]
       }
     },
@@ -1054,8 +3263,11 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset",
-          "We do not use dropout[14], following the practice in[16]"
+          "We do not use dropout[14], following the practice in[16]",
+          "Strong regularization such as maxout[10]or dropout[14]is applied to obtain the best results ([10,25,24,35]) on this dataset"
+        ],
+        "2019-temporal_collaborative_ranking_via_personalized_transformer": [
+          "For deep neural networks, it has been shown thatℓpsubscriptℓ𝑝\\ell_{p}regularizations are often too weak, while dropout[12,32]is more effective in practice"
         ]
       }
     },
@@ -1068,8 +3280,8 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "Our implementation for ImageNet follows the practice in[21,41]",
           "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]",
+          "Our implementation for ImageNet follows the practice in[21,41]",
           "In testing, for comparison studies we adopt the standard 10-crop testing[21]"
         ]
       }
@@ -1240,8 +3452,8 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time",
-          "Shortcut connections[2,34,49]are those skipping one or more layers"
+          "Shortcut connections[2,34,49]are those skipping one or more layers",
+          "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time"
         ]
       }
     },
@@ -1309,8 +3521,8 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time",
-          "Shortcut connections[2,34,49]are those skipping one or more layers"
+          "Shortcut connections[2,34,49]are those skipping one or more layers",
+          "Practices and theories that lead to shortcut connections[2,34,49]have been studied for a long time"
         ]
       }
     },
@@ -1363,8 +3575,8 @@
       "name": null,
       "parents": {
         "2016-deep_residual_learning_for_image_recognition": [
-          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]",
-          "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]"
+          "Deep convolutional neural networks[22,21]have led to a series of breakthroughs for image classification[21,50,40]",
+          "This problem, however, has been largely addressed by normalized initialization[23,9,37,13]and intermediate normalization layers[16], which enable networks with tens of layers to start converging for stochastic gradient descent (SGD) with backpropagation[22]"
         ]
       }
     }

@@ -70,7 +70,7 @@ function node_click(node_id, from_node_id) {
       side_bar.find(".paper_" + a + " .text").text(node[a]) 
     );
     const referenced_by_html = get_referenced_by_html(node_id);
-    if (referenced_by_html)side_bar.find(".paper_referenced_by .content").html(get_referenced_by_html(node_id));
+    if (referenced_by_html)side_bar.find(".paper_referenced_by .content").html(referenced_by_html);
     else side_bar.find(".paper_referenced_by").hide();
 
     // Get details from individual json file
@@ -136,7 +136,9 @@ function get_citation_html(grouped, sections, references, node_id) {
       htmlString += "<ul>";
 
       for (let sentence in grouped[sectionId]) {
-          htmlString += `<li style='font-family:"Noto Serif", "Noto Serif Fallback", serif;'>${sentence}</li>`;
+          if (sentence == 'null') continue;
+          console.log(sentence);
+          htmlString += `<li style='font-family:"Noto Serif", "Noto Serif Fallback", serif;'>“... ${sentence} ...”</li>`;
           htmlString += "<ul>";
 
           grouped[sectionId][sentence].forEach(enumVal => {
@@ -173,10 +175,19 @@ function group_citations(citations) {
 function get_referenced_by_html(node_id) {
   if (NODES_INDEX[node_id].parents.length == 0) return ''
   let htmlString = "<ul>";
-  NODES_INDEX[node_id].parents.forEach(parent => {
+  var sentences; 
+  NODES_INDEX[node_id].parents.forEach((parent, idx) => {
       htmlString += `<li class="cite_bullet" source_id="${node_id}" cite_id="${parent.id}">
         [${NODES_INDEX[parent.id].year}] ${NODES_INDEX[parent.id].title}</strong>
       </li>`;
+      sentences = NODES_INDEX[node_id].sentences[idx];
+      if (sentences.length > 0) {
+        htmlString += `<ul>`
+        sentences.forEach( s => {
+          if (s) htmlString += `<li class="cite_sentence">“... ${s} ...”</li>`;
+        });
+        htmlString += `</ul>`
+      }
   });
   htmlString += "</ul>";
   return htmlString;
@@ -330,10 +341,13 @@ function constructD3TangleLayout(levels, options={}){
   nodes.forEach(d => {
 
   var parentIds = [];
+  var sentences = [];
     if (d.parents !== undefined) {
       parentIds = Array.isArray(d.parents) ? d.parents : Object.keys(d.parents);
+      sentences = Object.values(d.parents)
     }
     d.parents = parentIds.map(p => nodes_index[p]);
+    d.sentences = sentences;
   });
 
   // precompute bundles
@@ -402,7 +416,7 @@ function constructD3TangleLayout(levels, options={}){
   const node_width = 70;     // Horizontal space.
   const node_height = 45;     // Vertical space between nodes.
   const padding = 50;        // Margin around the graph so text isn't cut at the edges
-  const bundle_width = 15
+  const bundle_width = 50; //15
   const level_y_padding = 16;
   const metro_d = 4;
   const min_family_height = 22;

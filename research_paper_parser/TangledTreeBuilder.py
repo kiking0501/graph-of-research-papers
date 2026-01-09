@@ -2,7 +2,7 @@ from collections import defaultdict
 import json
 
 def get_id(title, year):
-    clean_title = '_'.join([x.lower() for x in title.replace(",", "").split(' ')])
+    clean_title = '_'.join([x.lower() for x in title.replace(",", "").split(' ')]).replace("__", "_")
     return f"{year}-{clean_title}"
 
 class TangledTreeBuilder:
@@ -74,6 +74,7 @@ class TangledTreeBuilder:
     def build_citation_edges(cls, url_object):
         links = []
         for cite in url_object.citations:
+            if url_object.references[cite["cite_enum"]]["year"] is None: continue
             links.append(
                 {
                     "source": url_object.id,

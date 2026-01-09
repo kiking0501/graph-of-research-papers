@@ -49,10 +49,15 @@ body {
 	overflow-y:scroll;
 }
 .cite_bullet {
-	color:grey;
+	/*color:grey;*/
 }
 .cite_bullet:hover{
 	color:#428bca;
 	cursor:pointer;
 	text-decoration:underline;
+}
+.cite_sentence {
+	color:grey;
+	font-style:italic;
+	font-family:"Noto Serif", "Noto Serif Fallback", serif;
 }

@@ -1,0 +1,1120 @@
+{
+  "name": "SASRec",
+  "year": "2018",
+  "url": "https://ar5iv.labs.arxiv.org/html/1808.09781",
+  "title": "Self-Attentive Sequential Recommendation",
+  "sections": {
+    "S1": "I Introduction",
+    "S2": "II Related Work",
+    "S3": "III Methodology",
+    "S4": "IV Experiments",
+    "S5": "V Conclusion"
+  },
+  "references": {
+    "1": {
+      "id": "2010-factorizing_personalized_markov_chains_for_next-basket_recommendation",
+      "enum": "1",
+      "authors": "[1]  S. Rendle, C. Freudenthaler, and L. Schmidt-Thieme,",
+      "title": "Factorizing personalized markov chains for next-basket recommendation,",
+      "publication": "in WWW",
+      "year": "2010",
+      "summary": null,
+      "standard_url": null
+    },
+    "2": {
+      "id": "2016-session-based_recommendations_with_recurrent_neural_networks",
+      "enum": "2",
+      "authors": "Balázs Hidasi, Alexandros Karatzoglou, Linas Baltrunas, Domonkos Tikk",
+      "title": "Session-based recommendations with recurrent neural networks,",
+      "publication": "in ICLR",
+      "year": "2016",
+      "summary": "We apply recurrent neural networks (RNN) on a new domain, namely recommender systems. Real-life recommender systems often face the problem of having to base recommendations only on short session-based data (e.g. a small sportsware website) instead of long user histories (as in the case of Netflix). In this situation the frequently praised matrix factorization approaches are not accurate. This problem is usually overcome in practice by resorting to item-to-item recommendations, i.e. recommending similar items. We argue that by modeling the whole session, more accurate recommendations can be provided. We therefore propose an RNN-based approach for session-based recommendations. Our approach also considers practical aspects of the task and introduces several modifications to classic RNNs such as a ranking loss function that make it more viable for this specific problem. Experimental results on two data-sets show marked improvements over widely used approaches.",
+      "standard_url": "http://arxiv.org/abs/1511.06939v4"
+    },
+    "3": {
+      "id": "2017-attention_is_all_you_need",
+      "enum": "3",
+      "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin",
+      "title": "Attention is all you need,",
+      "publication": "in NIPS",
+      "year": "2017",
+      "summary": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+      "standard_url": "http://arxiv.org/abs/1706.03762v7"
+    },
+    "4": {
+      "id": "2008-collaborative_filtering_for_implicit_feedback_datasets",
+      "enum": "4",
+      "authors": "[4]  Y. Hu, Y. Koren, and C. Volinsky,",
+      "title": "Collaborative filtering for implicit feedback datasets,",
+      "publication": "in ICDM",
+      "year": "2008",
+      "summary": null,
+      "standard_url": null
+    },
+    "5": {
+      "id": "2009-bpr:_bayesian_personalized_ranking_from_implicit_feedback",
+      "enum": "5",
+      "authors": "Steffen Rendle, Christoph Freudenthaler, Zeno Gantner, Lars Schmidt-Thieme",
+      "title": "BPR: bayesian personalized ranking from implicit feedback,",
+      "publication": "in UAI",
+      "year": "2009",
+      "summary": "Item recommendation is the task of predicting a personalized ranking on a set of items (e.g. websites, movies, products). In this paper, we investigate the most common scenario with implicit feedback (e.g. clicks, purchases). There are many methods for item recommendation from implicit feedback like matrix factorization (MF) or adaptive knearest-neighbor (kNN). Even though these methods are designed for the item prediction task of personalized ranking, none of them is directly optimized for ranking. In this paper we present a generic optimization criterion BPR-Opt for personalized ranking that is the maximum posterior estimator derived from a Bayesian analysis of the problem. We also provide a generic learning algorithm for optimizing models with respect to BPR-Opt. The learning method is based on stochastic gradient descent with bootstrap sampling. We show how to apply our method to two state-of-the-art recommender models: matrix factorization and adaptive kNN. Our experiments indicate that for the task of personalized ranking our optimization method outperforms the standard learning techniques for MF and kNN. The results show the importance of optimizing models for the right criterion.",
+      "standard_url": "http://arxiv.org/abs/1205.2618v1"
+    },
+    "6": {
+      "id": "2011-[6]__f._ricci_l._rokach_b._shapira_and_p._kantor_recommender_systems_handbook.___springer_us",
+      "enum": "6",
+      "authors": null,
+      "title": "[6]  F. Ricci, L. Rokach, B. Shapira, and P. Kantor, Recommender systems handbook.   Springer US",
+      "publication": null,
+      "year": "2011",
+      "summary": null,
+      "standard_url": null
+    },
+    "7": {
+      "id": "2011-advances_in_collaborative_filtering",
+      "enum": "7",
+      "authors": "Liwei Wu",
+      "title": "Advances in collaborative filtering,",
+      "publication": "in Recommender Systems Handbook.   Springer",
+      "year": "2011",
+      "summary": "In this dissertation, we cover some recent advances in collaborative filtering and ranking. In chapter 1, we give a brief introduction of the history and the current landscape of collaborative filtering and ranking; chapter 2 we first talk about pointwise collaborative filtering problem with graph information, and how our proposed new method can encode very deep graph information which helps four existing graph collaborative filtering algorithms; chapter 3 is on the pairwise approach for collaborative ranking and how we speed up the algorithm to near-linear time complexity; chapter 4 is on the new listwise approach for collaborative ranking and how the listwise approach is a better choice of loss for both explicit and implicit feedback over pointwise and pairwise loss; chapter 5 is about the new regularization technique Stochastic Shared Embeddings (SSE) we proposed for embedding layers and how it is both theoretically sound and empirically effectively for 6 different tasks across recommendation and natural language processing; chapter 6 is how we introduce personalization for the state-of-the-art sequential recommendation model with the help of SSE, which plays an important role in preventing our personalized model from overfitting to the training data; chapter 7, we summarize what we have achieved so far and predict what the future directions can be; chapter 8 is the appendix to all the chapters.",
+      "standard_url": "http://arxiv.org/abs/2002.12312v1"
+    },
+    "8": {
+      "id": "2013-fism:_factored_item_similarity_models_for_top-n_recommender_systems",
+      "enum": "8",
+      "authors": "[8]  S. Kabbur, X. Ning, and G. Karypis,",
+      "title": "Fism: factored item similarity models for top-n recommender systems,",
+      "publication": "in SIGKDD",
+      "year": "2013",
+      "summary": null,
+      "standard_url": null
+    },
+    "9": {
+      "id": "2017-deep_learning_based_recommender_system:_a_survey_and_new_perspectives",
+      "enum": "9",
+      "authors": "Shuai Zhang, Lina Yao, Aixin Sun, Yi Tay",
+      "title": "Deep learning based recommender system: A survey and new perspectives,",
+      "publication": "arXiv, vol. abs/1707.07435",
+      "year": "2017",
+      "summary": "With the ever-growing volume of online information, recommender systems have been an effective strategy to overcome such information overload. The utility of recommender systems cannot be overstated, given its widespread adoption in many web applications, along with its potential impact to ameliorate many problems related to over-choice. In recent years, deep learning has garnered considerable interest in many research fields such as computer vision and natural language processing, owing not only to stellar performance but also the attractive property of learning feature representations from scratch. The influence of deep learning is also pervasive, recently demonstrating its effectiveness when applied to information retrieval and recommender systems research. Evidently, the field of deep learning in recommender system is flourishing. This article aims to provide a comprehensive review of recent research efforts on deep learning based recommender systems. More concretely, we provide and devise a taxonomy of deep learning based recommendation models, along with providing a comprehensive summary of the state-of-the-art. Finally, we expand on current trends and provide new perspectives pertaining to this new exciting development of the field.",
+      "standard_url": "http://arxiv.org/abs/1707.07435v7"
+    },
+    "10": {
+      "id": "2017-what_your_images_reveal:_exploiting_visual_contents_for_point-of-interest_recommendation",
+      "enum": "10",
+      "authors": "[10]  S. Wang, Y. Wang, J. Tang, K. Shu, S. Ranganath, and H. Liu,",
+      "title": "What your images reveal: Exploiting visual contents for point-of-interest recommendation,",
+      "publication": "in WWW",
+      "year": "2017",
+      "summary": null,
+      "standard_url": null
+    },
+    "11": {
+      "id": "2017-visually-aware_fashion_recommendation_and_design_with_generative_image_models",
+      "enum": "11",
+      "authors": "Wang-Cheng Kang, Chen Fang, Zhaowen Wang, Julian McAuley",
+      "title": "Visually-aware fashion recommendation and design with generative image models,",
+      "publication": "in ICDM",
+      "year": "2017",
+      "summary": "Building effective recommender systems for domains like fashion is challenging due to the high level of subjectivity and the semantic complexity of the features involved (i.e., fashion styles). Recent work has shown that approaches to `visual' recommendation (e.g.~clothing, art, etc.) can be made more accurate by incorporating visual signals directly into the recommendation objective, using `off-the-shelf' feature representations derived from deep networks. Here, we seek to extend this contribution by showing that recommendation performance can be significantly improved by learning `fashion aware' image representations directly, i.e., by training the image representation (from the pixel level) and the recommender system jointly; this contribution is related to recent work using Siamese CNNs, though we are able to show improvements over state-of-the-art recommendation techniques such as BPR and variants that make use of pre-trained visual features. Furthermore, we show that our model can be used \\emph{generatively}, i.e., given a user and a product category, we can generate new images (i.e., clothing items) that are most consistent with their personal taste. This represents a first step towards building systems that go beyond recommending existing items from a product corpus, but which can be used to suggest styles and aid the design of new products.",
+      "standard_url": "http://arxiv.org/abs/1711.02231v1"
+    },
+    "12": {
+      "id": "2015-collaborative_deep_learning_for_recommender_systems",
+      "enum": "12",
+      "authors": "Hao Wang, Naiyan Wang, Dit-Yan Yeung",
+      "title": "Collaborative deep learning for recommender systems,",
+      "publication": "in SIGKDD",
+      "year": "2015",
+      "summary": "Collaborative filtering (CF) is a successful approach commonly used by many recommender systems. Conventional CF-based methods use the ratings given to items by users as the sole source of information for learning to make recommendation. However, the ratings are often very sparse in many applications, causing CF-based methods to degrade significantly in their recommendation performance. To address this sparsity problem, auxiliary information such as item content information may be utilized. Collaborative topic regression (CTR) is an appealing recent method taking this approach which tightly couples the two components that learn from two different sources of information. Nevertheless, the latent representation learned by CTR may not be very effective when the auxiliary information is very sparse. To address this problem, we generalize recent advances in deep learning from i.i.d. input to non-i.i.d. (CF-based) input and propose in this paper a hierarchical Bayesian model called collaborative deep learning (CDL), which jointly performs deep representation learning for the content information and collaborative filtering for the ratings (feedback) matrix. Extensive experiments on three real-world datasets from different domains show that CDL can significantly advance the state of the art.",
+      "standard_url": "http://arxiv.org/abs/1409.2944v2"
+    },
+    "13": {
+      "id": "2016-convolutional_matrix_factorization_for_document_context-aware_recommendation",
+      "enum": "13",
+      "authors": "[13]  D. H. Kim, C. Park, J. Oh, S. Lee, and H. Yu,",
+      "title": "Convolutional matrix factorization for document context-aware recommendation,",
+      "publication": "in RecSys",
+      "year": "2016",
+      "summary": null,
+      "standard_url": null
+    },
+    "14": {
+      "id": "2017-neural_collaborative_filtering",
+      "enum": "14",
+      "authors": "Xiangnan He, Lizi Liao, Hanwang Zhang, Liqiang Nie, Xia Hu, Tat-Seng Chua",
+      "title": "Neural collaborative filtering,",
+      "publication": "in WWW",
+      "year": "2017",
+      "summary": "In recent years, deep neural networks have yielded immense success on speech recognition, computer vision and natural language processing. However, the exploration of deep neural networks on recommender systems has received relatively less scrutiny. In this work, we strive to develop techniques based on neural networks to tackle the key problem in recommendation -- collaborative filtering -- on the basis of implicit feedback. Although some recent work has employed deep learning for recommendation, they primarily used it to model auxiliary information, such as textual descriptions of items and acoustic features of musics. When it comes to model the key factor in collaborative filtering -- the interaction between user and item features, they still resorted to matrix factorization and applied an inner product on the latent features of users and items. By replacing the inner product with a neural architecture that can learn an arbitrary function from data, we present a general framework named NCF, short for Neural network-based Collaborative Filtering. NCF is generic and can express and generalize matrix factorization under its framework. To supercharge NCF modelling with non-linearities, we propose to leverage a multi-layer perceptron to learn the user-item interaction function. Extensive experiments on two real-world datasets show significant improvements of our proposed NCF framework over the state-of-the-art methods. Empirical evidence shows that using deeper layers of neural networks offers better recommendation performance.",
+      "standard_url": "http://arxiv.org/abs/1708.05031v2"
+    },
+    "15": {
+      "id": "2015-autorec:_autoencoders_meet_collaborative_filtering",
+      "enum": "15",
+      "authors": "[15]  S. Sedhain, A. K. Menon, S. Sanner, and L. Xie,",
+      "title": "Autorec: Autoencoders meet collaborative filtering,",
+      "publication": "in WWW",
+      "year": "2015",
+      "summary": null,
+      "standard_url": null
+    },
+    "16": {
+      "id": "2010-collaborative_filtering_with_temporal_dynamics",
+      "enum": "16",
+      "authors": "[16]  Y. Koren,",
+      "title": "Collaborative filtering with temporal dynamics,",
+      "publication": "Communications of the ACM",
+      "year": "2010",
+      "summary": null,
+      "standard_url": null
+    },
+    "17": {
+      "id": "2017-recurrent_recommender_networks",
+      "enum": "17",
+      "authors": "[17]  C. Wu, A. Ahmed, A. Beutel, A. J. Smola, and H. Jing,",
+      "title": "Recurrent recommender networks,",
+      "publication": "in WSDM",
+      "year": "2017",
+      "summary": null,
+      "standard_url": null
+    },
+    "18": {
+      "id": "2010-temporal_collaborative_filtering_with_bayesian_probabilistic_tensor_factorization",
+      "enum": "18",
+      "authors": "[18]  L. Xiong, X. Chen, T.-K. Huang, J. Schneider, and J. G. Carbonell,",
+      "title": "Temporal collaborative filtering with bayesian probabilistic tensor factorization,",
+      "publication": "in SDM",
+      "year": "2010",
+      "summary": null,
+      "standard_url": null
+    },
+    "19": {
+      "id": "2017-translation-based_recommendation",
+      "enum": "19",
+      "authors": "Ruining He, Wang-Cheng Kang, Julian McAuley",
+      "title": "Translation-based recommendation,",
+      "publication": "in RecSys",
+      "year": "2017",
+      "summary": "Modeling the complex interactions between users and items as well as amongst items themselves is at the core of designing successful recommender systems. One classical setting is predicting users' personalized sequential behavior (or `next-item' recommendation), where the challenges mainly lie in modeling `third-order' interactions between a user, her previously visited item(s), and the next item to consume. Existing methods typically decompose these higher-order interactions into a combination of pairwise relationships, by way of which user preferences (user-item interactions) and sequential patterns (item-item interactions) are captured by separate components. In this paper, we propose a unified method, TransRec, to model such third-order relationships for large-scale sequential prediction. Methodologically, we embed items into a `transition space' where users are modeled as translation vectors operating on item sequences. Empirically, this approach outperforms the state-of-the-art on a wide spectrum of real-world datasets. Data and code are available at https://sites.google.com/a/eng.ucsd.edu/ruining-he/.",
+      "standard_url": "http://arxiv.org/abs/1707.02410v1"
+    },
+    "20": {
+      "id": "2016-vista:_a_visually_socially_and_temporally-aware_model_for_artistic_recommendation",
+      "enum": "20",
+      "authors": "Ruining He, Chen Fang, Zhaowen Wang, Julian McAuley",
+      "title": "Vista: A visually, socially, and temporally-aware model for artistic recommendation,",
+      "publication": "in RecSys",
+      "year": "2016",
+      "summary": "Understanding users' interactions with highly subjective content---like artistic images---is challenging due to the complex semantics that guide our preferences. On the one hand one has to overcome `standard' recommender systems challenges, such as dealing with large, sparse, and long-tailed datasets. On the other, several new challenges present themselves, such as the need to model content in terms of its visual appearance, or even social dynamics, such as a preference toward a particular artist that is independent of the art they create.\n  In this paper we build large-scale recommender systems to model the dynamics of a vibrant digital art community, Behance, consisting of tens of millions of interactions (clicks and `appreciates') of users toward digital art. Methodologically, our main contributions are to model (a) rich content, especially in terms of its visual appearance; (b) temporal dynamics, in terms of how users prefer `visually consistent' content within and across sessions; and (c) social dynamics, in terms of how users exhibit preferences both towards certain art styles, as well as the artists themselves.",
+      "standard_url": "http://arxiv.org/abs/1607.04373v1"
+    },
+    "21": {
+      "id": "2016-fusing_similarity_models_with_markov_chains_for_sparse_sequential_recommendation",
+      "enum": "21",
+      "authors": "Ruining He, Julian McAuley",
+      "title": "Fusing similarity models with markov chains for sparse sequential recommendation,",
+      "publication": "in ICDM",
+      "year": "2016",
+      "summary": "Predicting personalized sequential behavior is a key task for recommender systems. In order to predict user actions such as the next product to purchase, movie to watch, or place to visit, it is essential to take into account both long-term user preferences and sequential patterns (i.e., short-term dynamics). Matrix Factorization and Markov Chain methods have emerged as two separate but powerful paradigms for modeling the two respectively. Combining these ideas has led to unified methods that accommodate long- and short-term dynamics simultaneously by modeling pairwise user-item and item-item interactions.\n  In spite of the success of such methods for tackling dense data, they are challenged by sparsity issues, which are prevalent in real-world datasets. In recent years, similarity-based methods have been proposed for (sequentially-unaware) item recommendation with promising results on sparse datasets. In this paper, we propose to fuse such methods with Markov Chains to make personalized sequential recommendations. We evaluate our method, Fossil, on a variety of large, real-world datasets. We show quantitatively that Fossil outperforms alternative algorithms, especially on sparse datasets, and qualitatively that it captures personalized dynamics and is able to make meaningful recommendations.",
+      "standard_url": "http://arxiv.org/abs/1609.09152v1"
+    },
+    "22": {
+      "id": "2018-personalized_top-n_sequential_recommendation_via_convolutional_sequence_embedding",
+      "enum": "22",
+      "authors": "Jiaxi Tang, Ke Wang",
+      "title": "Personalized top-n sequential recommendation via convolutional sequence embedding,",
+      "publication": "in WSDM",
+      "year": "2018",
+      "summary": "Top-$N$ sequential recommendation models each user as a sequence of items interacted in the past and aims to predict top-$N$ ranked items that a user will likely interact in a `near future'. The order of interaction implies that sequential patterns play an important role where more recent items in a sequence have a larger impact on the next item. In this paper, we propose a Convolutional Sequence Embedding Recommendation Model (\\emph{Caser}) as a solution to address this requirement. The idea is to embed a sequence of recent items into an `image' in the time and latent spaces and learn sequential patterns as local features of the image using convolutional filters. This approach provides a unified and flexible network structure for capturing both general preferences and sequential patterns. The experiments on public datasets demonstrated that Caser consistently outperforms state-of-the-art sequential recommendation methods on a variety of common evaluation metrics.",
+      "standard_url": "http://arxiv.org/abs/1809.07426v1"
+    },
+    "23": {
+      "id": "2017-neural_survival_recommender",
+      "enum": "23",
+      "authors": "[23]  H. Jing and A. J. Smola,",
+      "title": "Neural survival recommender,",
+      "publication": "in WSDM",
+      "year": "2017",
+      "summary": null,
+      "standard_url": null
+    },
+    "24": {
+      "id": "2016-context-aware_sequential_recommendation",
+      "enum": "24",
+      "authors": "Qiang Liu, Shu Wu, Diyi Wang, Zhaokang Li, Liang Wang",
+      "title": "Context-aware sequential recommendation,",
+      "publication": "in ICDM",
+      "year": "2016",
+      "summary": "Since sequential information plays an important role in modeling user behaviors, various sequential recommendation methods have been proposed. Methods based on Markov assumption are widely-used, but independently combine several most recent components. Recently, Recurrent Neural Networks (RNN) based methods have been successfully applied in several sequential modeling tasks. However, for real-world applications, these methods have difficulty in modeling the contextual information, which has been proved to be very important for behavior modeling. In this paper, we propose a novel model, named Context-Aware Recurrent Neural Networks (CA-RNN). Instead of using the constant input matrix and transition matrix in conventional RNN models, CA-RNN employs adaptive context-specific input matrices and adaptive context-specific transition matrices. The adaptive context-specific input matrices capture external situations where user behaviors happen, such as time, location, weather and so on. And the adaptive context-specific transition matrices capture how lengths of time intervals between adjacent behaviors in historical sequences affect the transition of global sequential features. Experimental results show that the proposed CA-RNN model yields significant improvements over state-of-the-art sequential recommendation methods and context-aware recommendation methods on two public datasets, i.e., the Taobao dataset and the Movielens-1M dataset.",
+      "standard_url": "http://arxiv.org/abs/1609.05787v1"
+    },
+    "25": {
+      "id": "2018-latent_cross:_making_use_of_context_in_recurrent_recommender_systems",
+      "enum": "25",
+      "authors": "[25]  A. Beutel, P. Covington, S. Jain, C. Xu, J. Li, V. Gatto, and E. H. Chi,",
+      "title": "Latent cross: Making use of context in recurrent recommender systems,",
+      "publication": "in WSDM",
+      "year": "2018",
+      "summary": null,
+      "standard_url": null
+    },
+    "26": {
+      "id": "2017-recurrent_neural_networks_with_top-k_gains_for_session-based_recommendations",
+      "enum": "26",
+      "authors": "Balázs Hidasi, Alexandros Karatzoglou",
+      "title": "Recurrent neural networks with top-k gains for session-based recommendations,",
+      "publication": "CoRR, vol. abs/1706.03847",
+      "year": "2017",
+      "summary": "RNNs have been shown to be excellent models for sequential data and in particular for data that is generated by users in an session-based manner. The use of RNNs provides impressive performance benefits over classical methods in session-based recommendations. In this work we introduce novel ranking loss functions tailored to RNNs in the recommendation setting. The improved performance of these losses over alternatives, along with further tricks and refinements described in this work, allow for an overall improvement of up to 35% in terms of MRR and Recall@20 over previous session-based RNN solutions and up to 53% over classical collaborative filtering approaches. Unlike data augmentation-based improvements, our method does not increase training times significantly. We further demonstrate the performance gain of the RNN over baselines in an online A/B test.",
+      "standard_url": "http://arxiv.org/abs/1706.03847v3"
+    },
+    "27": {
+      "id": "2015-show_attend_and_tell:_neural_image_caption_generation_with_visual_attention",
+      "enum": "27",
+      "authors": "Kelvin Xu, Jimmy Ba, Ryan Kiros, Kyunghyun Cho, Aaron Courville, Ruslan Salakhutdinov, Richard Zemel, Yoshua Bengio",
+      "title": "Show, attend and tell: Neural image caption generation with visual attention,",
+      "publication": "in ICML",
+      "year": "2015",
+      "summary": "Inspired by recent work in machine translation and object detection, we introduce an attention based model that automatically learns to describe the content of images. We describe how we can train this model in a deterministic manner using standard backpropagation techniques and stochastically by maximizing a variational lower bound. We also show through visualization how the model is able to automatically learn to fix its gaze on salient objects while generating the corresponding words in the output sequence. We validate the use of attention with state-of-the-art performance on three benchmark datasets: Flickr8k, Flickr30k and MS COCO.",
+      "standard_url": "http://arxiv.org/abs/1502.03044v3"
+    },
+    "28": {
+      "id": "2015-neural_machine_translation_by_jointly_learning_to_align_and_translate",
+      "enum": "28",
+      "authors": "Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio",
+      "title": "Neural machine translation by jointly learning to align and translate,",
+      "publication": "in ICLR",
+      "year": "2015",
+      "summary": "Neural machine translation is a recently proposed approach to machine translation. Unlike the traditional statistical machine translation, the neural machine translation aims at building a single neural network that can be jointly tuned to maximize the translation performance. The models proposed recently for neural machine translation often belong to a family of encoder-decoders and consists of an encoder that encodes a source sentence into a fixed-length vector from which a decoder generates a translation. In this paper, we conjecture that the use of a fixed-length vector is a bottleneck in improving the performance of this basic encoder-decoder architecture, and propose to extend this by allowing a model to automatically (soft-)search for parts of a source sentence that are relevant to predicting a target word, without having to form these parts as a hard segment explicitly. With this new approach, we achieve a translation performance comparable to the existing state-of-the-art phrase-based system on the task of English-to-French translation. Furthermore, qualitative analysis reveals that the (soft-)alignments found by the model agree well with our intuition.",
+      "standard_url": "http://arxiv.org/abs/1409.0473v7"
+    },
+    "29": {
+      "id": "2017-attentive_collaborative_filtering:_multimedia_recommendation_with_item-_and_component-level_attention",
+      "enum": "29",
+      "authors": "[29]  J. Chen, H. Zhang, X. He, L. Nie, W. Liu, and T. Chua,",
+      "title": "Attentive collaborative filtering: Multimedia recommendation with item- and component-level attention,",
+      "publication": "in SIGIR",
+      "year": "2017",
+      "summary": null,
+      "standard_url": null
+    },
+    "30": {
+      "id": "2017-attentional_factorization_machines:_learning_the_weight_of_feature_interactions_via_attention_networks",
+      "enum": "30",
+      "authors": "Jun Xiao, Hao Ye, Xiangnan He, Hanwang Zhang, Fei Wu, Tat-Seng Chua",
+      "title": "Attentional factorization machines: Learning the weight of feature interactions via attention networks,",
+      "publication": "in IJCAI",
+      "year": "2017",
+      "summary": "Factorization Machines (FMs) are a supervised learning approach that enhances the linear regression model by incorporating the second-order feature interactions. Despite effectiveness, FM can be hindered by its modelling of all feature interactions with the same weight, as not all feature interactions are equally useful and predictive. For example, the interactions with useless features may even introduce noises and adversely degrade the performance. In this work, we improve FM by discriminating the importance of different feature interactions. We propose a novel model named Attentional Factorization Machine (AFM), which learns the importance of each feature interaction from data via a neural attention network. Extensive experiments on two real-world datasets demonstrate the effectiveness of AFM. Empirically, it is shown on regression task AFM betters FM with a $8.6\\%$ relative improvement, and consistently outperforms the state-of-the-art deep learning methods Wide&Deep and DeepCross with a much simpler structure and fewer model parameters. Our implementation of AFM is publicly available at: https://github.com/hexiangnan/attentional_factorization_machine",
+      "standard_url": "http://arxiv.org/abs/1708.04617v1"
+    },
+    "31": {
+      "id": "2018-attention-based_transactional_context_embedding_for_next-item_recommendation",
+      "enum": "31",
+      "authors": "[31]  S. Wang, L. Hu, L. Cao, X. Huang, D. Lian, and W. Liu,",
+      "title": "Attention-based transactional context embedding for next-item recommendation,",
+      "publication": "in AAAI",
+      "year": "2018",
+      "summary": null,
+      "standard_url": null
+    },
+    "32": {
+      "id": "2016-google’s_neural_machine_translation_system:_bridging_the_gap_between_human_and_machine_translation",
+      "enum": "32",
+      "authors": "Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V. Le, Mohammad Norouzi, Wolfgang Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, Jeff Klingner, Apurva Shah, Melvin Johnson, Xiaobing Liu, Łukasz Kaiser, Stephan Gouws, Yoshikiyo Kato, Taku Kudo, Hideto Kazawa, Keith Stevens, George Kurian, Nishant Patil, Wei Wang, Cliff Young, Jason Smith, Jason Riesa, Alex Rudnick, Oriol Vinyals, Greg Corrado, Macduff Hughes, Jeffrey Dean",
+      "title": "Google’s neural machine translation system: Bridging the gap between human and machine translation,",
+      "publication": "arXiv preprint arXiv:1609.08144",
+      "year": "2016",
+      "summary": "Neural Machine Translation (NMT) is an end-to-end learning approach for automated translation, with the potential to overcome many of the weaknesses of conventional phrase-based translation systems. Unfortunately, NMT systems are known to be computationally expensive both in training and in translation inference. Also, most NMT systems have difficulty with rare words. These issues have hindered NMT's use in practical deployments and services, where both accuracy and speed are essential. In this work, we present GNMT, Google's Neural Machine Translation system, which attempts to address many of these issues. Our model consists of a deep LSTM network with 8 encoder and 8 decoder layers using attention and residual connections. To improve parallelism and therefore decrease training time, our attention mechanism connects the bottom layer of the decoder to the top layer of the encoder. To accelerate the final translation speed, we employ low-precision arithmetic during inference computations. To improve handling of rare words, we divide words into a limited set of common sub-word units (\"wordpieces\") for both input and output. This method provides a good balance between the flexibility of \"character\"-delimited models and the efficiency of \"word\"-delimited models, naturally handles translation of rare words, and ultimately improves the overall accuracy of the system. Our beam search technique employs a length-normalization procedure and uses a coverage penalty, which encourages generation of an output sentence that is most likely to cover all the words in the source sentence. On the WMT'14 English-to-French and English-to-German benchmarks, GNMT achieves competitive results to state-of-the-art. Using a human side-by-side evaluation on a set of isolated simple sentences, it reduces translation errors by an average of 60% compared to Google's phrase-based production system.",
+      "standard_url": "http://arxiv.org/abs/1609.08144v2"
+    },
+    "33": {
+      "id": "2016-deep_recurrent_models_with_fast-forward_connections_for_neural_machine_translation",
+      "enum": "33",
+      "authors": "Jie Zhou, Ying Cao, Xuguang Wang, Peng Li, Wei Xu",
+      "title": "Deep recurrent models with fast-forward connections for neural machine translation,",
+      "publication": "TACL",
+      "year": "2016",
+      "summary": "Neural machine translation (NMT) aims at solving machine translation (MT) problems using neural networks and has exhibited promising results in recent years. However, most of the existing NMT models are shallow and there is still a performance gap between a single NMT model and the best conventional MT system. In this work, we introduce a new type of linear connections, named fast-forward connections, based on deep Long Short-Term Memory (LSTM) networks, and an interleaved bi-directional architecture for stacking the LSTM layers. Fast-forward connections play an essential role in propagating the gradients and building a deep topology of depth 16. On the WMT'14 English-to-French task, we achieve BLEU=37.7 with a single attention model, which outperforms the corresponding single shallow model by 6.2 BLEU points. This is the first time that a single NMT model achieves state-of-the-art performance and outperforms the best conventional model by 0.7 BLEU points. We can still achieve BLEU=36.3 even without using an attention mechanism. After special handling of unknown words and model ensembling, we obtain the best score reported to date on this task with BLEU=40.4. Our models are also validated on the more difficult WMT'14 English-to-German task.",
+      "standard_url": "http://arxiv.org/abs/1606.04199v3"
+    },
+    "34": {
+      "id": "2014-visualizing_and_understanding_convolutional_networks",
+      "enum": "34",
+      "authors": "Matthew D Zeiler, Rob Fergus",
+      "title": "Visualizing and understanding convolutional networks,",
+      "publication": "in ECCV",
+      "year": "2014",
+      "summary": "Large Convolutional Network models have recently demonstrated impressive classification performance on the ImageNet benchmark. However there is no clear understanding of why they perform so well, or how they might be improved. In this paper we address both issues. We introduce a novel visualization technique that gives insight into the function of intermediate feature layers and the operation of the classifier. We also perform an ablation study to discover the performance contribution from different model layers. This enables us to find model architectures that outperform Krizhevsky \\etal on the ImageNet classification benchmark. We show our ImageNet model generalizes well to other datasets: when the softmax classifier is retrained, it convincingly beats the current state-of-the-art results on Caltech-101 and Caltech-256 datasets.",
+      "standard_url": "http://arxiv.org/abs/1311.2901v3"
+    },
+    "35": {
+      "id": "2016-deep_residual_learning_for_image_recognition",
+      "enum": "35",
+      "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun",
+      "title": "Deep residual learning for image recognition,",
+      "publication": "in CVPR",
+      "year": "2016",
+      "summary": "Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers---8x deeper than VGG nets but still having lower complexity. An ensemble of these residual nets achieves 3.57% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers.\n  The depth of representations is of central importance for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28% relative improvement on the COCO object detection dataset. Deep residual nets are foundations of our submissions to ILSVRC & COCO 2015 competitions, where we also won the 1st places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.",
+      "standard_url": "http://arxiv.org/abs/1512.03385v1"
+    },
+    "36": {
+      "id": "2016-layer_normalization",
+      "enum": "36",
+      "authors": "Jimmy Lei Ba, Jamie Ryan Kiros, Geoffrey E. Hinton",
+      "title": "Layer normalization,",
+      "publication": "CoRR, vol. abs/1607.06450",
+      "year": "2016",
+      "summary": "Training state-of-the-art, deep neural networks is computationally expensive. One way to reduce the training time is to normalize the activities of the neurons. A recently introduced technique called batch normalization uses the distribution of the summed input to a neuron over a mini-batch of training cases to compute a mean and variance which are then used to normalize the summed input to that neuron on each training case. This significantly reduces the training time in feed-forward neural networks. However, the effect of batch normalization is dependent on the mini-batch size and it is not obvious how to apply it to recurrent neural networks. In this paper, we transpose batch normalization into layer normalization by computing the mean and variance used for normalization from all of the summed inputs to the neurons in a layer on a single training case. Like batch normalization, we also give each neuron its own adaptive bias and gain which are applied after the normalization but before the non-linearity. Unlike batch normalization, layer normalization performs exactly the same computation at training and test times. It is also straightforward to apply to recurrent neural networks by computing the normalization statistics separately at each time step. Layer normalization is very effective at stabilizing the hidden state dynamics in recurrent networks. Empirically, we show that layer normalization can substantially reduce the training time compared with previously published techniques.",
+      "standard_url": "http://arxiv.org/abs/1607.06450v1"
+    },
+    "37": {
+      "id": "2015-batch_normalization:_accelerating_deep_network_training_by_reducing_internal_covariate_shift",
+      "enum": "37",
+      "authors": "Sergey Ioffe, Christian Szegedy",
+      "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift,",
+      "publication": "in ICML",
+      "year": "2015",
+      "summary": "Training Deep Neural Networks is complicated by the fact that the distribution of each layer's inputs changes during training, as the parameters of the previous layers change. This slows down the training by requiring lower learning rates and careful parameter initialization, and makes it notoriously hard to train models with saturating nonlinearities. We refer to this phenomenon as internal covariate shift, and address the problem by normalizing layer inputs. Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch Normalization allows us to use much higher learning rates and be less careful about initialization. It also acts as a regularizer, in some cases eliminating the need for Dropout. Applied to a state-of-the-art image classification model, Batch Normalization achieves the same accuracy with 14 times fewer training steps, and beats the original model by a significant margin. Using an ensemble of batch-normalized networks, we improve upon the best published result on ImageNet classification: reaching 4.9% top-5 validation error (and 4.8% test error), exceeding the accuracy of human raters.",
+      "standard_url": "http://arxiv.org/abs/1502.03167v3"
+    },
+    "38": {
+      "id": "2014-dropout:_a_simple_way_to_prevent_neural_networks_from_overfitting",
+      "enum": "38",
+      "authors": "[38]  N. Srivastava, G. E. Hinton, A. Krizhevsky, I. Sutskever, and R. Salakhutdinov,",
+      "title": "Dropout: a simple way to prevent neural networks from overfitting,",
+      "publication": "JMLR",
+      "year": "2014",
+      "summary": null,
+      "standard_url": null
+    },
+    "39": {
+      "id": "2013-an_empirical_analysis_of_dropout_in_piecewise_linear_networks",
+      "enum": "39",
+      "authors": "David Warde-Farley, Ian J. Goodfellow, Aaron Courville, Yoshua Bengio",
+      "title": "An empirical analysis of dropout in piecewise linear networks,",
+      "publication": "CoRR, vol. abs/1312.6197",
+      "year": "2013",
+      "summary": "The recently introduced dropout training criterion for neural networks has been the subject of much attention due to its simplicity and remarkable effectiveness as a regularizer, as well as its interpretation as a training procedure for an exponentially large ensemble of networks that share parameters. In this work we empirically investigate several questions related to the efficacy of dropout, specifically as it concerns networks employing the popular rectified linear activation function. We investigate the quality of the test time weight-scaling inference procedure by evaluating the geometric average exactly in small models, as well as compare the performance of the geometric mean to the arithmetic mean more commonly employed by ensemble techniques. We explore the effect of tied weights on the ensemble interpretation by training ensembles of masked networks without tied weights. Finally, we investigate an alternative criterion based on a biased estimator of the maximum likelihood ensemble gradient.",
+      "standard_url": "http://arxiv.org/abs/1312.6197v2"
+    },
+    "40": {
+      "id": "2009-matrix_factorization_techniques_for_recommender_systems",
+      "enum": "40",
+      "authors": "Jennifer Nguyen, Mu Zhu",
+      "title": "Matrix factorization techniques for recommender systems,",
+      "publication": "Computer",
+      "year": "2009",
+      "summary": "Many businesses are using recommender systems for marketing outreach. Recommendation algorithms can be either based on content or driven by collaborative filtering. We study different ways to incorporate content information directly into the matrix factorization approach of collaborative filtering. These content-boosted matrix factorization algorithms not only improve recommendation accuracy, but also provide useful insights about the contents, as well as make recommendations more easily interpretable.",
+      "standard_url": "http://arxiv.org/abs/1210.5631v2"
+    },
+    "41": {
+      "id": "2015-adam:_a_method_for_stochastic_optimization",
+      "enum": "41",
+      "authors": "Diederik P. Kingma, Jimmy Ba",
+      "title": "Adam: A method for stochastic optimization,",
+      "publication": "in ICLR",
+      "year": "2015",
+      "summary": "We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments. The method is straightforward to implement, is computationally efficient, has little memory requirements, is invariant to diagonal rescaling of the gradients, and is well suited for problems that are large in terms of data and/or parameters. The method is also appropriate for non-stationary objectives and problems with very noisy and/or sparse gradients. The hyper-parameters have intuitive interpretations and typically require little tuning. Some connections to related algorithms, on which Adam was inspired, are discussed. We also analyze the theoretical convergence properties of the algorithm and provide a regret bound on the convergence rate that is comparable to the best known results under the online convex optimization framework. Empirical results demonstrate that Adam works well in practice and compares favorably to other stochastic optimization methods. Finally, we discuss AdaMax, a variant of Adam based on the infinity norm.",
+      "standard_url": "http://arxiv.org/abs/1412.6980v9"
+    },
+    "42": {
+      "id": "2018-a_time-restricted_self-attention_layer_for_asr",
+      "enum": "42",
+      "authors": "[42]  D. Povey, H. Hadian, P. Ghahremani, K. Li, and S. Khudanpur,",
+      "title": "A time-restricted self-attention layer for asr,",
+      "publication": "in ICASSP",
+      "year": "2018",
+      "summary": null,
+      "standard_url": null
+    },
+    "43": {
+      "id": "2015-learning_hierarchical_representation_model_for_next_basket_recommendation",
+      "enum": "43",
+      "authors": "[43]  P. Wang, J. Guo, Y. Lan, J. Xu, S. Wan, and X. Cheng,",
+      "title": "Learning hierarchical representation model for next basket recommendation,",
+      "publication": "in SIGIR",
+      "year": "2015",
+      "summary": null,
+      "standard_url": null
+    },
+    "44": {
+      "id": "2018-an_empirical_evaluation_of_generic_convolutional_and_recurrent_networks_for_sequence_modeling",
+      "enum": "44",
+      "authors": "Shaojie Bai, J. Zico Kolter, Vladlen Koltun",
+      "title": "An empirical evaluation of generic convolutional and recurrent networks for sequence modeling,",
+      "publication": "CoRR, vol. abs/1803.01271",
+      "year": "2018",
+      "summary": "For most deep learning practitioners, sequence modeling is synonymous with recurrent networks. Yet recent results indicate that convolutional architectures can outperform recurrent networks on tasks such as audio synthesis and machine translation. Given a new sequence modeling task or dataset, which architecture should one use? We conduct a systematic evaluation of generic convolutional and recurrent architectures for sequence modeling. The models are evaluated across a broad range of standard tasks that are commonly used to benchmark recurrent networks. Our results indicate that a simple convolutional architecture outperforms canonical recurrent networks such as LSTMs across a diverse range of tasks and datasets, while demonstrating longer effective memory. We conclude that the common association between sequence modeling and recurrent networks should be reconsidered, and convolutional networks should be regarded as a natural starting point for sequence modeling tasks. To assist related work, we have made code available at http://github.com/locuslab/TCN .",
+      "standard_url": "http://arxiv.org/abs/1803.01271v2"
+    },
+    "45": {
+      "id": "2001-gradient_flow_in_recurrent_nets:_the_difficulty_of_learning_long-term_dependencies",
+      "enum": "45",
+      "authors": "[45]  S. Hochreiter, Y. Bengio, P. Frasconi, J. Schmidhuber et al.,",
+      "title": "Gradient flow in recurrent nets: the difficulty of learning long-term dependencies,",
+      "publication": "",
+      "year": "2001",
+      "summary": null,
+      "standard_url": null
+    },
+    "46": {
+      "id": "2015-image-based_recommendations_on_styles_and_substitutes",
+      "enum": "46",
+      "authors": "Julian McAuley, Christopher Targett, Qinfeng Shi, Anton van den Hengel",
+      "title": "Image-based recommendations on styles and substitutes,",
+      "publication": "in SIGIR",
+      "year": "2015",
+      "summary": "Humans inevitably develop a sense of the relationships between objects, some of which are based on their appearance. Some pairs of objects might be seen as being alternatives to each other (such as two pairs of jeans), while others may be seen as being complementary (such as a pair of jeans and a matching shirt). This information guides many of the choices that people make, from buying clothes to their interactions with each other. We seek here to model this human sense of the relationships between objects based on their appearance. Our approach is not based on fine-grained modeling of user annotations but rather on capturing the largest dataset possible and developing a scalable method for uncovering human notions of the visual relationships within. We cast this as a network inference problem defined on graphs of related images, and provide a large-scale dataset for the training and evaluation of the same. The system we develop is capable of recommending which clothes and accessories will go well together (and which will not), amongst a host of other applications.",
+      "standard_url": "http://arxiv.org/abs/1506.04757v1"
+    },
+    "47": {
+      "id": "2015-personalized_ranking_metric_embedding_for_next_new_poi_recommendation",
+      "enum": "47",
+      "authors": "[47]  S. Feng, X. Li, Y. Zeng, G. Cong, Y. M. Chee, and Q. Yuan,",
+      "title": "Personalized ranking metric embedding for next new poi recommendation,",
+      "publication": "in IJCAI",
+      "year": "2015",
+      "summary": null,
+      "standard_url": null
+    },
+    "48": {
+      "id": "2008-factorization_meets_the_neighborhood:_a_multifaceted_collaborative_filtering_model",
+      "enum": "48",
+      "authors": "[48]  Y. Koren,",
+      "title": "Factorization meets the neighborhood: a multifaceted collaborative filtering model,",
+      "publication": "in SIGKDD",
+      "year": "2008",
+      "summary": null,
+      "standard_url": null
+    }
+  },
+  "citations": [
+    {
+      "section_id": "S1",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "Markov Chains (MCs) are a classic example, which assume that the next action is conditioned on only the previous action (or previous few), and have been successfully adopted to characterize short-range item transitions for recommendation[1]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "Another line of work uses Recurrent Neural Networks (RNNs) to summarize all previous actions via a hidden state, which is used to predict the next action[2]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "Recently, a new sequential modelTransfomerachieved state-of-the-art performance and efficiency for machine translation tasks[3]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "4",
+      "cite_id": "bib.bib4",
+      "sentence": "clicks, purchases, comments)[4,5]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "5",
+      "cite_id": "bib.bib5",
+      "sentence": "clicks, purchases, comments)[4,5]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "4",
+      "cite_id": "bib.bib4",
+      "sentence": "clicks, purchases, comments)[4,5]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "5",
+      "cite_id": "bib.bib5",
+      "sentence": "clicks, purchases, comments)[4,5]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "6",
+      "cite_id": "bib.bib6",
+      "sentence": "Matrix Factorization (MF) methods seek to uncover latent dimensions to represent users’ preferences and items’ properties, and estimate interactions through the inner product between the user and item embeddings[6,7]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "7",
+      "cite_id": "bib.bib7",
+      "sentence": "Matrix Factorization (MF) methods seek to uncover latent dimensions to represent users’ preferences and items’ properties, and estimate interactions through the inner product between the user and item embeddings[6,7]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "FISM[8])"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "9",
+      "cite_id": "bib.bib9",
+      "sentence": "Recently, due to their success in related problems, various deep learning techniques have been introduced for recommendation[9]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "10",
+      "cite_id": "bib.bib10",
+      "sentence": "images[10,11], text[12,13], etc"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "11",
+      "cite_id": "bib.bib11",
+      "sentence": "images[10,11], text[12,13], etc"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "12",
+      "cite_id": "bib.bib12",
+      "sentence": "images[10,11], text[12,13], etc"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "13",
+      "cite_id": "bib.bib13",
+      "sentence": "images[10,11], text[12,13], etc"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "14",
+      "cite_id": "bib.bib14",
+      "sentence": "For example, NeuMF[14]estimates user preferences via Multi-Layer Perceptions (MLP), and AutoRec[15]predicts ratings using autoencoders"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "15",
+      "cite_id": "bib.bib15",
+      "sentence": "For example, NeuMF[14]estimates user preferences via Multi-Layer Perceptions (MLP), and AutoRec[15]predicts ratings using autoencoders"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "TimeSVD++[16]achieved strong results by splitting time into several segments and modeling users and items separately in each"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "17",
+      "cite_id": "bib.bib17",
+      "sentence": ")[17,18,16]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "18",
+      "cite_id": "bib.bib18",
+      "sentence": ")[17,18,16]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "TimeSVD++[16]achieved strong results by splitting time into several segments and modeling users and items separately in each"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "For instance, FPMC fuses an MF term and an item-item transition term to capture long-term preferences and short-term transitions respectively[1]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "19",
+      "cite_id": "bib.bib19",
+      "sentence": "Since the last visited item is often the key factor affecting the user’s next action (essentially providing ‘context’), first-order MC based methods show strong performance, especially on sparse datasets[19]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "20",
+      "cite_id": "bib.bib20",
+      "sentence": "There are also methods adopting high-order MCs that consider more previous items[20,21]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "There are also methods adopting high-order MCs that consider more previous items[20,21]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "22",
+      "cite_id": "bib.bib22",
+      "sentence": "In particular, Convolutional Sequence Embedding (Caser), a CNN-based method, views the embedding matrix ofL𝐿Lprevious items as an ‘image’ and applies convolutional operations to extract transitions[22]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "23",
+      "cite_id": "bib.bib23",
+      "sentence": "Other than MC-based methods, another line of work adopts RNNs to model user sequences[23,2,24,25]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "Other than MC-based methods, another line of work adopts RNNs to model user sequences[23,2,24,25]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "24",
+      "cite_id": "bib.bib24",
+      "sentence": "Other than MC-based methods, another line of work adopts RNNs to model user sequences[23,2,24,25]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "25",
+      "cite_id": "bib.bib25",
+      "sentence": "Other than MC-based methods, another line of work adopts RNNs to model user sequences[23,2,24,25]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "Other than MC-based methods, another line of work adopts RNNs to model user sequences[23,2,24,25]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "26",
+      "cite_id": "bib.bib26",
+      "sentence": "For example, GRU4Rec uses Gated Recurrent Units (GRU) to model click sequences for session-based recommendation[2], and an improved version further boosts its Top-N recommendation performance[26]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "Other than MC-based methods, another line of work adopts RNNs to model user sequences[23,2,24,25]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "27",
+      "cite_id": "bib.bib27",
+      "sentence": "Attention mechanisms have been shown to be effective in various tasks such as image captioning[27]and machine translation[28], among others"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "28",
+      "cite_id": "bib.bib28",
+      "sentence": "Attention mechanisms have been shown to be effective in various tasks such as image captioning[27]and machine translation[28], among others"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "29",
+      "cite_id": "bib.bib29",
+      "sentence": "Recently, attention mechanisms have been incorporated into recommender systems[29,30,31]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "30",
+      "cite_id": "bib.bib30",
+      "sentence": "Recently, attention mechanisms have been incorporated into recommender systems[29,30,31]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "31",
+      "cite_id": "bib.bib31",
+      "sentence": "Recently, attention mechanisms have been incorporated into recommender systems[29,30,31]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "30",
+      "cite_id": "bib.bib30",
+      "sentence": "Recently, attention mechanisms have been incorporated into recommender systems[29,30,31]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "Recently, a purely attention-based sequence-to-sequence method, Transfomer[3], achieved state-of-the-art performance and efficiency on machine translation tasks which had previously been dominated by RNN/CNN-based approaches[32,33]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "32",
+      "cite_id": "bib.bib32",
+      "sentence": "Recently, a purely attention-based sequence-to-sequence method, Transfomer[3], achieved state-of-the-art performance and efficiency on machine translation tasks which had previously been dominated by RNN/CNN-based approaches[32,33]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "33",
+      "cite_id": "bib.bib33",
+      "sentence": "Recently, a purely attention-based sequence-to-sequence method, Transfomer[3], achieved state-of-the-art performance and efficiency on machine translation tasks which had previously been dominated by RNN/CNN-based approaches[32,33]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "We also tried the fixed position embedding as used in[3], but found that this led to worse performance in our case"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "The scaled dot-product attention[3]is defined as:"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "28",
+      "cite_id": "bib.bib28",
+      "sentence": "using an RNN encoder-decoder for translation: the encoder’s hidden states are keys and values, and the decoder’s hidden states are queries)[28]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "Recently, a self-attention method was proposed which uses the same objects as queries, keys, and values[3]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "); and 3) models with more parameters often require more training time"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "34",
+      "cite_id": "bib.bib34",
+      "sentence": "In some cases, multi-layer neural networks have demonstrated the ability to learn meaningful features hierarchically[34]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "35",
+      "cite_id": "bib.bib35",
+      "sentence": "However, simply adding more layers did not easily correspond to better performance until residual networks were proposed[35]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "For example, existing sequential recommendation methods have shown that the last visited item plays a key role on predicting the next item[1,21,19]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "For example, existing sequential recommendation methods have shown that the last visited item plays a key role on predicting the next item[1,21,19]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "19",
+      "cite_id": "bib.bib19",
+      "sentence": "For example, existing sequential recommendation methods have shown that the last visited item plays a key role on predicting the next item[1,21,19]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "36",
+      "cite_id": "bib.bib36",
+      "sentence": ", zero-mean and unit-variance), which is beneficial for stabilizing and accelerating neural network training[36]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "37",
+      "cite_id": "bib.bib37",
+      "sentence": "Unlike batch normalization[37], the statistics used in layer normalization are independent of other samples in the same batch"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "38",
+      "cite_id": "bib.bib38",
+      "sentence": "To alleviate overfitting problems in deep neural networks, ‘Dropout’ regularization techniques have been shown to be effective in various neural network architectures[38]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "39",
+      "cite_id": "bib.bib39",
+      "sentence": "Further analysis points out that dropout can be viewed as a form of ensemble learning which considers an enormous number of models (exponential in the number of neurons and input features) that share parameters[39]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "40",
+      "cite_id": "bib.bib40",
+      "sentence": "MF[40], FPMC[1]and Caser[22]); 2) consider the user’s previous actions, and induce animplicituser embedding from embeddings of visited items (e"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "To provide personalized recommendations, existing methods often take one of two approaches: 1) learn anexplicituser embedding representing user preferences (e"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "22",
+      "cite_id": "bib.bib22",
+      "sentence": "MF[40], FPMC[1]and Caser[22]); 2) consider the user’s previous actions, and induce animplicituser embedding from embeddings of visited items (e"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "FSIM[8], Fossil[21], GRU4Rec[2])"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "FSIM[8], Fossil[21], GRU4Rec[2])"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "MF[40], FPMC[1]and Caser[22]); 2) consider the user’s previous actions, and induce animplicituser embedding from embeddings of visited items (e"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "The network is optimized by theAdamoptimizer[41], which is a variant of Stochastic Gradient Descent (SGD) with adaptive moment estimation"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "The computational complexity of our model is mainly due to the self-attention layer and the feed-forward network, which isO​(n2​d+n​d2)𝑂superscript𝑛2𝑑𝑛superscript𝑑2O(n^{2}d+nd^{2})"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "We empirically find our method is over ten times faster than RNN and CNN-based methods with GPUs (the result is similar to that in[3]for machine translation tasks), and the maximum lengthn𝑛ncan easily scale to a few hundred which is generally sufficient for existing benchmark datasets"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "42",
+      "cite_id": "bib.bib42",
+      "sentence": "A few options are promising to investigate in the future: 1) using restricted self-attention[42]which only attends on recent actions rather than all actions, and distant actions can be considered in higher layers; 2) splitting long sequences into short segments as in[22]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "22",
+      "cite_id": "bib.bib22",
+      "sentence": "A few options are promising to investigate in the future: 1) using restricted self-attention[42]which only attends on recent actions rather than all actions, and distant actions can be considered in higher layers; 2) splitting long sequences into short segments as in[22]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "Furthermore, SASRec is also closely related to Factorized Personalized Markov Chains (FPMC)[1], which fuse MF with FMC to capture user preferences and short-term dynamics respectively:"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "8",
+      "cite_id": "bib.bib8",
+      "sentence": "Factorized Item Similarity Models[8]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "FPMC[1], HRM[43], TransRec[19]) or high-order MCs (e"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "43",
+      "cite_id": "bib.bib43",
+      "sentence": "FPMC[1], HRM[43], TransRec[19]) or high-order MCs (e"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "19",
+      "cite_id": "bib.bib19",
+      "sentence": "FPMC[1], HRM[43], TransRec[19]) or high-order MCs (e"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "Fossil[21], Vista[20], Caser[22])"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "20",
+      "cite_id": "bib.bib20",
+      "sentence": "Fossil[21], Vista[20], Caser[22])"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "22",
+      "cite_id": "bib.bib22",
+      "sentence": "Fossil[21], Vista[20], Caser[22])"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "Another line of work seeks to use RNNs to model user action sequences[2,26,17]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "26",
+      "cite_id": "bib.bib26",
+      "sentence": "Another line of work seeks to use RNNs to model user action sequences[2,26,17]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "17",
+      "cite_id": "bib.bib17",
+      "sentence": "Another line of work seeks to use RNNs to model user action sequences[2,26,17]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "RNNs are generally suitable for modeling sequences, though recent studies show CNNs and self-attention can be stronger in some sequential settings[3,44]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "44",
+      "cite_id": "bib.bib44",
+      "sentence": "RNNs are generally suitable for modeling sequences, though recent studies show CNNs and self-attention can be stronger in some sequential settings[3,44]"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "45",
+      "cite_id": "bib.bib45",
+      "sentence": "In contrast, our model hasO​(1)𝑂1O(1)maximum path length, which can be beneficial for learning long-range dependencies[45]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "46",
+      "cite_id": "bib.bib46",
+      "sentence": "Amazon:A series of datasets introduced in[46], comprising large corpora of product reviews crawled fromAmazon"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "19",
+      "cite_id": "bib.bib19",
+      "sentence": "We followed the same preprocessing procedure from[19,21,1]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "We followed the same preprocessing procedure from[19,21,1]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "We followed the same preprocessing procedure from[19,21,1]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "5",
+      "cite_id": "bib.bib5",
+      "sentence": "Bayesian Personalized Ranking (BPR)[5]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "1",
+      "cite_id": "bib.bib1",
+      "sentence": "Factorized Personalized Markov Chains (FPMC)[1]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "19",
+      "cite_id": "bib.bib19",
+      "sentence": "Translation-based Recommendation (TransRec)[19]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "2",
+      "cite_id": "bib.bib2",
+      "sentence": "GRU4Rec[2]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "26",
+      "cite_id": "bib.bib26",
+      "sentence": "GRU4Rec++{}^{\\text{+}}[26]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "22",
+      "cite_id": "bib.bib22",
+      "sentence": "Convolutional Sequence Embeddings (Caser)[22]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "47",
+      "cite_id": "bib.bib47",
+      "sentence": "PRME[47], HRM[43], Fossil[21]) have been outperformed on similar datasets by baselines among those above, we omit comparison against them"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "43",
+      "cite_id": "bib.bib43",
+      "sentence": "PRME[47], HRM[43], Fossil[21]) have been outperformed on similar datasets by baselines among those above, we omit comparison against them"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "21",
+      "cite_id": "bib.bib21",
+      "sentence": "PRME[47], HRM[43], Fossil[21]) have been outperformed on similar datasets by baselines among those above, we omit comparison against them"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "16",
+      "cite_id": "bib.bib16",
+      "sentence": "We also don’t include temporal recommendation methods like TimeSVD++[16]and RRN[17], which differ in setting from what we consider here"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "17",
+      "cite_id": "bib.bib17",
+      "sentence": "We also don’t include temporal recommendation methods like TimeSVD++[16]and RRN[17], which differ in setting from what we consider here"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "For fair comparison, we implement BPR, FMC, FPMC, and TransRec usingTemsorFlowwith the Adam[41]optimizer"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "41",
+      "cite_id": "bib.bib41",
+      "sentence": "The optimizer is theAdamoptimizer[41], the learning rate is set to0"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "14",
+      "cite_id": "bib.bib14",
+      "sentence": "We adopt two common Top-N metrics, Hit Rate@10 and NDCG@10, to evaluate recommendation performance[14,19]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "19",
+      "cite_id": "bib.bib19",
+      "sentence": "We adopt two common Top-N metrics, Hit Rate@10 and NDCG@10, to evaluate recommendation performance[14,19]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "48",
+      "cite_id": "bib.bib48",
+      "sentence": "To avoid heavy computation on all user-item pairs, we followed the strategy in[48,14]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "14",
+      "cite_id": "bib.bib14",
+      "sentence": "To avoid heavy computation on all user-item pairs, we followed the strategy in[48,14]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "3",
+      "cite_id": "bib.bib3",
+      "sentence": "(8)Multi-head: The authors of Transformer[3]found that it is useful to use ‘multi-head’ attention, which applies attention inhℎhsubspaces (each ad/h𝑑ℎd/h-dimensional space)"
+    }
+  ],
+  "preview": "<div class=\"ltx_para\" id=\"S1.p1\">\n<p class=\"ltx_p\" id=\"S1.p1.1\">The goal of sequential recommender systems is to combine personalized models of user behavior (based on historical activities) with some notion of ‘context’ on the basis of users’ recent actions. Capturing useful patterns from sequential dynamics is challenging, primarily because the dimension of the input space grows exponentially with the number of past actions used as context. Research in sequential recommendation is therefore largely concerned with how to capture these high-order dynamics succinctly.</p>\n</div><div class=\"ltx_para\" id=\"S1.p2\">\n<p class=\"ltx_p\" id=\"S1.p2.1\">Markov Chains (MCs) are a classic example,\nwhich assume that the next action is conditioned on only the previous action (or previous few),\nand have been successfully adopted to\ncharacterize short-range item transitions for recommendation . Another line of work uses Recurrent Neural Networks (RNNs) to summarize all previous\nactions via\na hidden state,\nwhich is used to\npredict the next action .</p>\n</div><div class=\"ltx_para\" id=\"S1.p3\">\n<p class=\"ltx_p\" id=\"S1.p3.1\">Both approaches, while strong in specific cases, are somewhat limited to certain types of data. MC-based methods, by making strong simplifying assumptions, perform well in high-sparsity settings, but may fail to capture the intricate dynamics of more complex scenarios. Conversely RNNs, while expressive, require large amounts of data (an in particular <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p3.1.1\">dense</em> data) before they can outperform simpler baselines.</p>\n</div><div class=\"ltx_para\" id=\"S1.p4\">\n<p class=\"ltx_p\" id=\"S1.p4.1\">Recently, a new sequential model <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p4.1.1\">Transfomer</em> achieved state-of-the-art performance and efficiency for machine translation tasks . Unlike existing sequential models that use convolutional or recurrent modules, Transformer is purely based on a proposed attention mechanism called ‘self-attention,’ which is highly efficient and capable of uncovering\nsyntactic and semantic patterns between words in a sentence.</p>\n</div><div class=\"ltx_para\" id=\"S1.p5\">\n<p class=\"ltx_p\" id=\"S1.p5.1\">Inspired by this method, we seek to apply self-attention mechanisms to sequential recommendation problems.\nOur hope is that this idea can address both of the problems outlined above, being on the one hand able to draw context from all actions\nin the past (like RNNs) but on the other hand being able to frame predictions in terms of just a small number of actions (like MCs).\nSpecifically,\nwe build a Self-Attention based Sequential Recommendation model (<em class=\"ltx_emph ltx_font_italic\" id=\"S1.p5.1.1\">SASRec</em>), which adaptively assigns weights to previous items at each time step (Figure <a class=\"ltx_ref\" href=\"#S1.F1\" title=\"Figure 1 ‣ I Introduction ‣ Self-Attentive Sequential Recommendation\"><span class=\"ltx_text ltx_ref_tag\">1</span></a>).</p>\n</div><div class=\"ltx_para\" id=\"S1.p6\">\n<p class=\"ltx_p\" id=\"S1.p6.1\">The proposed model significantly outperforms state-of-the-art MC/CNN/RNN-based sequential recommendation methods on several benchmark datasets. In particular, we examine performance as a function of dataset sparsity, where model performance aligns closely with the patterns described above.\nDue to the self-attention mechanism, SASRec tends to consider long-range dependencies on dense datasets, while focusing on more recent activities on sparse datasets. This proves crucial for adaptively handling datasets with varying density.\n</p>\n</div><div class=\"ltx_para\" id=\"S1.p7\">\n<p class=\"ltx_p\" id=\"S1.p7.1\">Furthermore, the core component (i.e., the self-attention block) of SASRec is suitable for parallel acceleration,\nresulting in a model that is an order of magnitude faster\nthan CNN/RNN-based alternatives.\nIn addition, we analyze the complexity and scalability of SASRec, conduct a comprehensive ablation study to show the effect of key components, and visualize the attention weights to qualitatively reveal the model’s behavior.\n</p>\n</div>",
+  "authors": "Wang-Cheng Kang, Julian McAuley",
+  "summary": "Sequential dynamics are a key feature of many modern recommender systems, which seek to capture the `context' of users' activities on the basis of actions they have performed recently. To capture such patterns, two approaches have proliferated: Markov Chains (MCs) and Recurrent Neural Networks (RNNs). Markov Chains assume that a user's next action can be predicted on the basis of just their last (or last few) actions, while RNNs in principle allow for longer-term semantics to be uncovered. Generally speaking, MC-based methods perform best in extremely sparse datasets, where model parsimony is critical, while RNNs perform better in denser datasets where higher model complexity is affordable. The goal of our work is to balance these two goals, by proposing a self-attention based sequential model (SASRec) that allows us to capture long-term semantics (like an RNN), but, using an attention mechanism, makes its predictions based on relatively few actions (like an MC). At each time step, SASRec seeks to identify which items are `relevant' from a user's action history, and use them to predict the next item. Extensive empirical studies show that our method outperforms various state-of-the-art sequential models (including MC/CNN/RNN-based approaches) on both sparse and dense datasets. Moreover, the model is an order of magnitude more efficient than comparable CNN/RNN-based models. Visualizations on attention weights also show how our model adaptively handles datasets with various density, and uncovers meaningful patterns in activity sequences.",
+  "standard_url": "http://arxiv.org/abs/1808.09781v1",
+  "id": "2018-self-attentive_sequential_recommendation"
+}

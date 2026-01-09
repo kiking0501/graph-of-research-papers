@@ -6,7 +6,7 @@ from copy import copy
 import arxiv
 
 def get_id(title, year):
-    clean_title = '_'.join([x.lower() for x in title.replace(",", "").split(' ')])
+    clean_title = '_'.join([x.lower() for x in title.replace(",", "").split(' ')]).replace("__", "_")
     return f"{year}-{clean_title}"
 
 ARXIV_CLIENT = arxiv.Client()
@@ -63,6 +63,7 @@ class ArXivURL:
                 "url": results[0].entry_id,
                 "summary": results[0].summary,
                 "authors": ", ".join([x["name"] for x in results[0]._raw["authors"]]),
+                "year": results[0].published.year,
             }
         return {}
 
@@ -81,45 +82,68 @@ class ArXivURL:
             return None
         
         def _parse_section(parser):
+            print("Parsing Section...")
             for section in parser.body.find_all("section"):
                 title_section = section.find(attrs={'class': 'ltx_title_section'})
                 if title_section:
                     yield (section["id"], _clean(title_section.text))
 
         def _parse_reference(parser):
+            print("Parsing References...")
             for item in parser.body.find_all(attrs={'class': 'ltx_bibitem'}):
                 blocks = item.find_all(attrs={'class': 'ltx_bibblock'})
-                if len(blocks) < 3:
-                    publication, year = None, _get_year(blocks[1].text.rpartition(",")[2])
+                if "“" in item.text and "”" in item.text: # authors, “title”, publication, year
+                    authors = _clean(item.text.partition("“")[0])
+                    title = _clean(item.text.partition("“")[2].partition("”")[0])
+                    publication = _clean(item.text.partition("”")[2].rpartition(",")[0])
+                    year = _get_year(item.text.partition("”")[2].rpartition(",")[2])
                 else:
-                    publication, year = _clean(blocks[2].text), _get_year(blocks[2].text.rpartition(",")[2])
-                title = _clean(blocks[1].text)
+                    if len(blocks) == 1: # title, year
+                        title = _clean(item.text.rpartition(",")[0])
+                        year = _get_year(item.text.rpartition(",")[2])
+                        authors, publication = None, None
+                    else: # authors, title, (publication), year
+                        if len(blocks) < 3: 
+                            publication, year = None, _get_year(blocks[1].text.rpartition(",")[2])
+                        else:
+                            publication = _clean(blocks[2].text)
+                            year = _get_year(
+                                blocks[2].text.rpartition(",")[2]
+                            )
+                        title = _clean(blocks[1].text)
+                        authors = _clean(blocks[0].text)
+
                 content = {
-                    "id": get_id(title=title, year=year),
                     "enum": item["id"].partition("bib.bib")[2],
-                    "authors":_clean(blocks[0].text),
+                    "authors":authors,
                     "title": title,
                     "publication": publication,
                     "year": year,
                 }
                 _add_addl_info(content)
+                content["id"] = get_id(title=content["title"], year=content["year"])
                 yield content
 
         def _parse_citation(parser):
+            print("Parsing Citations...")
             cites = []
             for cite in parser.body.find_all("cite"):
                 try:
                     for a in cite.find_all("a"):
-                        section_id = cite.parent["id"].partition(".")[0]
-                        cite_enum = a.text.strip()
-                        cite_id = a["href"].rpartition("#")[2]
-                        
-                        for s in cite.parent.get_text(strip=True).split("."):
-                            if str(cite_enum) in s:
+                        parent = cite.parent
+                        while (not parent.get("id")) and hasattr(parent, "parent"):
+                            parent = parent.parent
+                        section_id = parent["id"].partition(".")[0]
+                        cite_id = a["href"].replace("bib.bib", "").rpartition("#")[2]
+                        # cite_enum = a.text.strip()
+                        cite_enum = cite_id
+
+                        for s in parent.get_text(strip=True).replace("al.", "al").split("."):
+                            if a.text in s:
                                 sentence = _clean(s)
                                 break
                         else:
-                            sentence, word = None, None
+                            sentence, word = cite.text, None
                         cites.append(
                             {
                                 "section_id": section_id,
@@ -128,11 +152,13 @@ class ArXivURL:
                                 "sentence": sentence,
                             }                
                         )
-                except Exception:
+                except Exception as e:
+                    print("[ERROR parsing citation]", e)
                     continue
             return cites
 
         def _parse_preview(parser):
+            print("Parsing Preview...")
             html = ""
             for para in parser.body.find("section").find_all(attrs={'class': 'ltx_para'}):
                 copy_para = copy(para)
@@ -146,9 +172,9 @@ class ArXivURL:
             try:
                 addl_info = cls.lookup_arXiv(source_dict["title"])
                 source_dict.update({
-                    "authors": addl_info.get("authors", source_dict.get("authors")),
-                    "summary": addl_info.get("summary", source_dict.get("summary")),
-                    "standard_url": addl_info.get("url", source_dict.get("standard_url")),
+                    attr if attr != "url" else "standard_url": 
+                        addl_info.get(attr, source_dict.get(attr))
+                    for attr in ["authors", "summary", "url", "year"]
                 })
             except Exception as e:
                 print(e)
@@ -160,12 +186,12 @@ class ArXivURL:
                 _id: text
                 for _id, text in _parse_section(parser)
             },
+            "citations": _parse_citation(parser),
+            "preview": _parse_preview(parser),
             "references": {
                 block["enum"]: block
                 for block in _parse_reference(parser)
             },
-            "citations": _parse_citation(parser),
-            "preview": _parse_preview(parser),
         }
 
         _add_addl_info(content)
