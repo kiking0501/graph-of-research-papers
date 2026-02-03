@@ -24,10 +24,15 @@ $( document ).ready(function() {
                 container.attr("transform", event.transform);
             });
         svg.call(zoom)
-           .on("dblclick.zoom", null);
+            .on("dblclick.zoom", null);
+        svg.call(
+          zoom.transform,
+          d3.zoomIdentity.scale(2)
+        );
         svg.on("contextmenu", (event) => {
             event.preventDefault();
         });
+
 
         d3.selectAll(".node-group")
           .on("click", function(event) {
@@ -35,6 +40,8 @@ $( document ).ready(function() {
               const node_id = d3.select(this).attr("data-id")
               node_click(node_id);
           });
+
+        node_click("2025-a_tutorial_on_llm_reasoning:_relevant_methods_behind_chatgpt_o1");    
     });
 
     $("#side_bar").on("click", "li.cite_bullet", function() {
@@ -43,6 +50,8 @@ $( document ).ready(function() {
     $("#side_bar").on("click", ".back_link", function() {
         node_click($(this).attr("back_id"));
     });
+
+    
 });
 
 
@@ -50,6 +59,8 @@ const background_color = "#ffffff";
 const color = d3.scaleOrdinal(d3.schemeDark2);
 
 function node_click(node_id, from_node_id) {
+    console.log("You are on: " + node_id);
+
     toggle_side_bar(node_id);
 
     const node = NODES_INDEX[node_id];
@@ -137,7 +148,6 @@ function get_citation_html(grouped, sections, references, node_id) {
 
       for (let sentence in grouped[sectionId]) {
           if (sentence == 'null') continue;
-          console.log(sentence);
           htmlString += `<li style='font-family:"Noto Serif", "Noto Serif Fallback", serif;'>“... ${sentence} ...”</li>`;
           htmlString += "<ul>";
 
@@ -260,11 +270,12 @@ function renderD3Chart(data, options={}) {
           filter: brightness(1.5);    /* Make the color "pop" */
       }
     </style>
-    
-    <text x=20 y=30 style="fill:grey;font-weight:500;pointer-events:none;">
-      [Right-click] to move; [Mouse-wheel] to zoom
-    </text>
+
     <g class="view-container">
+    
+      <text x=20 y=30 style="fill:grey;font-weight:500;pointer-events:none;">
+        [Right-click] to move; [Mouse-wheel] to zoom
+      </text>
 
       ${tangleLayout.bundles.map((b, i) => {
         let d = b.links

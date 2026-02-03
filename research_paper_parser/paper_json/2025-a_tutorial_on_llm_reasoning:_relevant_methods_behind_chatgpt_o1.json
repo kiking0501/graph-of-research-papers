@@ -1,0 +1,744 @@
+{
+  "name": "LLM Reasoning",
+  "year": 2025,
+  "url": "https://arxiv.org/html/2502.10867v1",
+  "title": "A Tutorial on LLM Reasoning: Relevant Methods behind ChatGPT o1",
+  "sections": {
+    "S1": "1 Background",
+    "S2": "2 The Challenges with Autoregressive LLMs",
+    "S3": "3 LLM Reasoning as a Markov Decision Process",
+    "S4": "4 Practical Implementation",
+    "S5": "5 Bibliographic Remarks"
+  },
+  "citations": [
+    {
+      "section_id": "S1",
+      "cite_enum": "17",
+      "cite_id": "17",
+      "sentence": "OpenAI has recently unveiled ChatGPT o1[17], a groundbreaking Large Language Model (LLM) that represents a giant leap forward in strong AI"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Interestingly, in human cognition, two correlated yet distinct modes of cognitive processing are presented to guide human decision-making and behaviours[8], each of which has partially distinction brain circuits and neural pathways ( Fig"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "28",
+      "cite_id": "28",
+      "sentence": "2and also see[28])"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "28",
+      "cite_id": "28",
+      "sentence": "(b) while voluntary control engages a broader network, activating many regions within the parietal and prefrontal lobes[28]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "32",
+      "cite_id": "32",
+      "sentence": "1) and subsequently improve problem-solving, especially in tasks like math and coding[32,16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "1) and subsequently improve problem-solving, especially in tasks like math and coding[32,16]"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "18",
+      "cite_id": "18",
+      "sentence": "Proposed methods range from collecting specialised training data to building reward models[18,11,15]and increasing the computational complexity of decoding[24,33], but none have yet achieved significant performance breakthroughs at scale"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "11",
+      "cite_id": "11",
+      "sentence": "Proposed methods range from collecting specialised training data to building reward models[18,11,15]and increasing the computational complexity of decoding[24,33], but none have yet achieved significant performance breakthroughs at scale"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "15",
+      "cite_id": "15",
+      "sentence": "Proposed methods range from collecting specialised training data to building reward models[18,11,15]and increasing the computational complexity of decoding[24,33], but none have yet achieved significant performance breakthroughs at scale"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "24",
+      "cite_id": "24",
+      "sentence": "Proposed methods range from collecting specialised training data to building reward models[18,11,15]and increasing the computational complexity of decoding[24,33], but none have yet achieved significant performance breakthroughs at scale"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "33",
+      "cite_id": "33",
+      "sentence": "Proposed methods range from collecting specialised training data to building reward models[18,11,15]and increasing the computational complexity of decoding[24,33], but none have yet achieved significant performance breakthroughs at scale"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "9",
+      "cite_id": "9",
+      "sentence": "Building on substantial performance gains, OpenAI o1 has shown that the scaling principles traditionally applied during training[9,24]are now relevant to the inference phase"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "24",
+      "cite_id": "24",
+      "sentence": "Building on substantial performance gains, OpenAI o1 has shown that the scaling principles traditionally applied during training[9,24]are now relevant to the inference phase"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "This direction, which we refer to as LLM-Native Chain-of-Thought (NativeCoT), should be able to inherently mirror the deliberate, analytical process possessed by human’s System 2 thinking[8]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "29",
+      "cite_id": "29",
+      "sentence": ", word) in the sequence given the previous tokens[29]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "29",
+      "cite_id": "29",
+      "sentence": "Typically, this is achieved using neural networks like transformers[29], which are trained to minimise the negative log-likelihood of the training data"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "5",
+      "cite_id": "5",
+      "sentence": "Suppose we have access to an extensive dataset of chess games, but all from players with Elo ratings below 2000 (a standardised measure of player skill)[5]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "10",
+      "cite_id": "10",
+      "sentence": "This phenomenon can be characterised as what we called an ”intelligence upper bound,” a concept that can be rigorously derived from recent research in offline reinforcement learning and imitation learning[10]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "23",
+      "cite_id": "23",
+      "sentence": "Model-based strategies like Monte Carlo Tree Search (MCTS) serve as classic illustrations of this approach[23]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "The second challenge, from a computational complexity perspective, is that Large Language Models (LLMs) inherently operate within the constraints of quadratic computational complexity[13]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "32",
+      "cite_id": "32",
+      "sentence": "However, the ”chain of thoughts” concept offers a potential mitigation to this constraint[32]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "Indeed, there is a need to implement sophisticated model-based strategies akin to Monte Carlo Tree Search (MCTS) witnin the inference and decoding stage[6]"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "3",
+      "cite_id": "3",
+      "sentence": "This approach[3]aligns with the concept of working memory in cognitive science, which is crucial for complex problem-solving and deliberative thinking"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "We can define the reasoning process as a Markov Decision Process (MDP)[1]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "27",
+      "cite_id": "27",
+      "sentence": "A straightforward approach would be to label the reasoning steps manually by humans[27,12]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "A straightforward approach would be to label the reasoning steps manually by humans[27,12]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "34",
+      "cite_id": "34",
+      "sentence": "However, a particularly effective method for collecting data and improving LLM reasoning without requiring human supervision is the Self-Taught Reasoner (STaR) technique[34], among others"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "For longer reasoning sequences, techniques such as Monte Carlo Tree Search (MCTS)[6,15]are employed to guide the LLM policy to find correct reasoning steps efficiently in a more fine-grained manner"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "15",
+      "cite_id": "15",
+      "sentence": "For longer reasoning sequences, techniques such as Monte Carlo Tree Search (MCTS)[6,15]are employed to guide the LLM policy to find correct reasoning steps efficiently in a more fine-grained manner"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "15",
+      "cite_id": "15",
+      "sentence": "The training typically involves optimising a classification loss function based on the correctness of the reasoning steps[15]:"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "However, an alternative approach involves viewing the PRM as a value function that can be trained via a value iteration method, enabling it to predict cumulative rewards and guide the reasoning process through optimal action selection[6]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "The Bellman equation[1]for the PRM is:"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "18",
+      "cite_id": "18",
+      "sentence": "PRM plays an essential role in this process by incorporating online reinforcement learning to optimise reasoning tasks[18]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "18",
+      "cite_id": "18",
+      "sentence": "PRM plays an essential role in this process by incorporating online reinforcement learning to optimise reasoning tasks[18]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "22",
+      "cite_id": "22",
+      "sentence": "Let us look at Group Relative Policy Optimisation (GRPO)[22]"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "21",
+      "cite_id": "21",
+      "sentence": "ϵitalic-ϵ\\epsilonitalic_ϵis the clipping parameter that prevents excessive updates (as in PPO[21]),"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "35",
+      "cite_id": "35",
+      "sentence": "One can explore more efficient offline methods such as token-level DPO[35]without PRM but with sequential reasoning data"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "24",
+      "cite_id": "24",
+      "sentence": "To strike a balance between efficiency and effectiveness, the work[24,33]found that reasoning tasks benefit from more flexible approaches like beam search"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "33",
+      "cite_id": "33",
+      "sentence": "To strike a balance between efficiency and effectiveness, the work[24,33]found that reasoning tasks benefit from more flexible approaches like beam search"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "MCTS[6]simulates multiple reasoning paths and evaluates them based on a reward system, selecting the one with the highest expected reward"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "For instance, the paper[6]introduces a method that integrates Monte Carlo Tree Search (MCTS) with LLM decoding, a combination that has proven highly effective in guiding reasoning, particularly for complex, multi-step tasks"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "24",
+      "cite_id": "24",
+      "sentence": "Similarly, the paper[24]emphasises the importance of optimising test-time computation, empirically showing that inference-time reasoning enhancements can often yield more substantial improvements than simply scaling model parameters"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "Another approach is presented in[7], which suggests using pause tokens to force models to pause and “think” during reasoning"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "4",
+      "cite_id": "4",
+      "sentence": "Papers like[4]introduced the earliest formal attempt (outcome reward only) at using verifiers in mathematical reasoning tasks, laying the groundwork for subsequent research"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "27",
+      "cite_id": "27",
+      "sentence": "The follow-up work[27]expands on the concept of verifiers, integrating process-based reasoning mechanisms, and was followed by OpenAI’s work on Process Reward Models (PRMs)[12]"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "The follow-up work[27]expands on the concept of verifiers, integrating process-based reasoning mechanisms, and was followed by OpenAI’s work on Process Reward Models (PRMs)[12]"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "11",
+      "cite_id": "11",
+      "sentence": "A more recent addition to this line of research is[11], which combines verifier models with majority voting to produce more reliable outputs in reasoning tasks"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "34",
+      "cite_id": "34",
+      "sentence": "The acquisition of reasoning data has been another area of focus, particularly in papers like[34], which explores methods for automatically obtaining data related to reasoning steps"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "30",
+      "cite_id": "30",
+      "sentence": "The paper[30]takes this approach further, showing how LLMs can be trained step-by-step without the need for costly human annotations, providing a more scalable solution to the reasoning data problem"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "The work in[31]highlights the importance of practical data acquisition for reasoning tasks, particularly in coding problems"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "MCTS has been used for acquiring data in[6], whereas it has been extended with linear search for efficiency in[15]"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "15",
+      "cite_id": "15",
+      "sentence": "MCTS has been used for acquiring data in[6], whereas it has been extended with linear search for efficiency in[15]"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "26",
+      "cite_id": "26",
+      "sentence": "Finally, there is a growing body of research aimed at understanding the mechanisms behind step-by-step reasoning in LLMs[26,19]"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "19",
+      "cite_id": "19",
+      "sentence": "Finally, there is a growing body of research aimed at understanding the mechanisms behind step-by-step reasoning in LLMs[26,19]"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "25",
+      "cite_id": "25",
+      "sentence": "The work in[25]focused its analysis from graphical models for the chain of thought mechanism"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "19",
+      "cite_id": "19",
+      "sentence": "Finally, there is a growing body of research aimed at understanding the mechanisms behind step-by-step reasoning in LLMs[26,19]"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "14",
+      "cite_id": "14",
+      "sentence": "The paper[14]provides an empirical evaluation of LLMs’ ability to critique their own reasoning, showing that self-critique is often limited, and this capability often emerges only when models are sufficiently large"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "3",
+      "cite_id": "3",
+      "sentence": "From a system perspective, the pangu-agent paper[3]introduces structured reasoning mechanisms beyond traditional models like OpenAI’s o1 model"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "2",
+      "cite_id": "2",
+      "sentence": "wherextsubscript𝑥𝑡x_{t}italic_x start_POSTSUBSCRIPT italic_t end_POSTSUBSCRIPTis thet𝑡titalic_t-th token,x<tsubscript𝑥absent𝑡x_{<t}italic_x start_POSTSUBSCRIPT < italic_t end_POSTSUBSCRIPTrepresents all tokens beforet𝑡titalic_t,θ𝜃\\thetaitalic_θare the model parameters, andP𝑃Pitalic_Pis the probability distribution over the vocabulary[2]"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "20",
+      "cite_id": "20",
+      "sentence": "whereQisubscript𝑄𝑖Q_{i}italic_Q start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPTandAisubscript𝐴𝑖A_{i}italic_A start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPTare thei𝑖iitalic_i-th question and answer pair, respectively[20]"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "18",
+      "cite_id": "18",
+      "sentence": "Next, Reinforcement Learning from Human Feedback (RLHF)[18]is then applied to further improve the model’s instruction-following ability"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "21",
+      "cite_id": "21",
+      "sentence": "The policy (language model) is then optimised using methods like Proximal Policy Optimisation (PPO)[21]:"
+    }
+  ],
+  "preview": "<div class=\"ltx_para\" id=\"S1.p1\">\n<p class=\"ltx_p\" id=\"S1.p1.1\">OpenAI has recently unveiled ChatGPT o1 , a groundbreaking Large Language Model (LLM) that represents a giant leap forward in strong AI.\nTrained using reinforcement learning techniques, o1 excels in complex reasoning tasks by explicitly embedding a <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p1.1.1\">native</em> “Chain-of-Thought” (NCoT) process, which allows it to “deep think” through step-by-step reasoning before generating responses. The model is reported to be five times more proficient in math and coding compared to the previous ChatGPT 4o, specifically displaying exceptional performance across various domains: it ranks in the 89th percentile for competitive programming, places among the top 500 students in a prestigious US math olympiad qualifier, and surpasses human PhD-level accuracy in physics, biology, and chemistry benchmarks. A key innovation of o1 is that it allows spending more time reasoning during the inference process, marking a shift from fast, direct responses to slow, deliberate, multi-step inference-time computation (Fig. <a class=\"ltx_ref\" href=\"https://arxiv.org/html/2502.10867v1#S0.F1\" title=\"Figure 1 ‣ A Tutorial on LLM Reasoning: Relevant Methods behind ChatGPT o1\"><span class=\"ltx_text ltx_ref_tag\">1</span></a>).</p>\n</div><div class=\"ltx_para\" id=\"S1.p2\">\n<p class=\"ltx_p\" id=\"S1.p2.1\">Interestingly, in human cognition, two correlated yet distinct modes of cognitive processing are presented to guide human decision-making and behaviours , each of which has partially distinction brain circuits and neural pathways ( Fig. <a class=\"ltx_ref\" href=\"https://arxiv.org/html/2502.10867v1#S1.F2\" title=\"Figure 2 ‣ 1 Background ‣ A Tutorial on LLM Reasoning: Relevant Methods behind ChatGPT o1\"><span class=\"ltx_text ltx_ref_tag\">2</span></a> and also see ). System 1 thinking is fast, automatic, and intuitive, operating effortlessly and often unconsciously. It relies on neural pathways that enable rapid processing, especially in situations needing quick reactions or when cognitive resources are constrained. System 2 thinking is deliberate, effortful, and conscious, involving focused attention and analytical reasoning. It processes information more slowly and is used for complex problem-solving, logical reasoning, and decision-making tasks.\no1 is an exciting development for AI, as LLMs can now not only generate rapid responses using learned patterns but, more significantly, simulate complex reasoning processes through mechanisms like chain of thought or other forms of search, similar to how humans engage in deeper, step-by-step thinking<span class=\"ltx_note ltx_role_footnote\" id=\"footnote1\"><sup class=\"ltx_note_mark\">1</sup><span class=\"ltx_note_outer\"><span class=\"ltx_note_content\"><sup class=\"ltx_note_mark\">1</sup><span class=\"ltx_tag ltx_tag_note\">1</span>It is important to note that incorporating chain-of-thought processes in AI does not imply human-like consciousness. Instead, these mechanisms enhance reasoning and problem-solving by breaking tasks into manageable steps without suggesting any form of self-awareness or subjective experience.</span></span></span>.</p>\n</div><div class=\"ltx_para\" id=\"S1.p3\">\n<p class=\"ltx_p\" id=\"S1.p3.1\">ChatGPT o1’s improved reasoning skills have many implications for multiple fields, including science, coding, and mathematics. In coding competitions, a specialised version of o1 achieved impressive results, scoring in the 49th percentile in the 2024 International Olympiad in Informatics and outperforming 93% of human competitors in simulated Codeforces contests. Beyond its technical capabilities, o1 also represents progress in AI safety and alignment. The model’s chain of thought reasoning provides new opportunities for integrating human values and principles, resulting in improved performance on safety evaluations and jailbreak tests.</p>\n</div><div class=\"ltx_para\" id=\"S1.p4\">\n<p class=\"ltx_p\" id=\"S1.p4.1\">The idea of chain of thought reasoning and step-by-step thinking in Large Language Models (LLMs) is not new. Previous research has shown that simply adding instructions like “describe your reasoning in steps” or “explain your answer step by step” to the input questions or providing few shot examples can trigger LLMs to generate intermediate reasoning steps (as illustrated in Fig. <a class=\"ltx_ref\" href=\"https://arxiv.org/html/2502.10867v1#S0.F1\" title=\"Figure 1 ‣ A Tutorial on LLM Reasoning: Relevant Methods behind ChatGPT o1\"><span class=\"ltx_text ltx_ref_tag\">1</span></a>) and subsequently improve problem-solving, especially in tasks like math and coding . However, these approaches build on existing LLMs without truly embedding the chain of thought ability within the models themselves. As a result, LLMs cannot inherently learn this reasoning capability, leading to active research on how to integrate it directly into model training. Proposed methods range from collecting specialised training data to building reward models  and increasing the computational complexity of decoding , but none have yet achieved significant performance breakthroughs at scale.</p>\n</div><div class=\"ltx_para\" id=\"S1.p5\">\n<p class=\"ltx_p\" id=\"S1.p5.1\">It remains unclear whether OpenAI’s o1 innovation is rooted in the model itself, rather than relying on external prompting systems. If it indeed involves explicitly embedding step-by-step reasoning natively within the architecture, this would represent a significant breakthrough. Building on substantial performance gains, OpenAI o1 has shown that the scaling principles traditionally applied during training  are now relevant to the inference phase. We should reallocate our computational focus, balancing pre-training efforts with efficient use of inference-time computation. Allowing LLMs to enhance their outputs with increased test-time computing is an essential step towards creating generally self-improving agents capable of managing open-ended strong reasoning and decision-making tasks. This direction, which we refer to as LLM-Native Chain-of-Thought (NativeCoT), should be able to inherently mirror the deliberate, analytical process possessed by human’s System 2 thinking .</p>\n</div><div class=\"ltx_para\" id=\"S1.p6\">\n<p class=\"ltx_p\" id=\"S1.p6.1\">Given that o1 is a closed-source system, the precise techniques used to achieve such strong reasoning capabilities remain largely a mystery. In this article, we will provide a comprehensive overview of the relevant literature and offer insights into what we believe are the core techniques and methods underpinning this breakthrough. Additionally, we will propose our ideas for implementing an open-source counterpart, which could accelerate research in this area. Our proposals will draw inspiration from recent work, including ours on data acquisition, reinforcement learning based training, and search and MCTS-based decoding for improving reasoning capabilities in existing models.</p>\n</div><div class=\"ltx_para\" id=\"S1.p7\">\n<p class=\"ltx_p\" id=\"S1.p7.1\">In the next section, we will discuss two challenges commonly encountered by typical autoregressive LLMs, highlighting the need for a world model and a chain-of-thought mechanism. We will then present an MDP formulation for incorporating native CoT within LLMs (resulting in o1-like reasoning models) and explore its implementation details. Finally, we conclude with bibliographic remarks and suggest future research directions.</p>\n</div>",
+  "references": {
+    "1": {
+      "enum": "1",
+      "authors": "R. Bellman",
+      "title": "Dynamic programming and stochastic control processes",
+      "publication": "Information and control, 1(3):228–239, 1958",
+      "year": "1958",
+      "summary": null,
+      "standard_url": null,
+      "id": "1958-dynamic_programming_and_stochastic_control_processes"
+    },
+    "2": {
+      "enum": "2",
+      "authors": "Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, Dario Amodei",
+      "title": "Language models are few-shot learners",
+      "publication": "Advances in neural information processing systems, 33:1877–1901, 2020",
+      "year": 2020,
+      "summary": "Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to do. Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same time, we also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally, we find that GPT-3 can generate samples of news articles which human evaluators have difficulty distinguishing from articles written by humans. We discuss broader societal impacts of this finding and of GPT-3 in general.",
+      "standard_url": "http://arxiv.org/abs/2005.14165v4",
+      "id": "2020-language_models_are_few-shot_learners"
+    },
+    "3": {
+      "enum": "3",
+      "authors": "Filippos Christianos, Georgios Papoudakis, Matthieu Zimmer, Thomas Coste, Zhihao Wu, Jingxuan Chen, Khyati Khandelwal, James Doran, Xidong Feng, Jiacheng Liu, Zheng Xiong, Yicheng Luo, Jianye Hao, Kun Shao, Haitham Bou-Ammar, Jun Wang",
+      "title": "Pangu-agent: A fine-tunable generalist agent with structured reasoning",
+      "publication": "arXiv e-prints, pages arXiv–2312, 2023",
+      "year": 2023,
+      "summary": "A key method for creating Artificial Intelligence (AI) agents is Reinforcement Learning (RL). However, constructing a standalone RL policy that maps perception to action directly encounters severe problems, chief among them being its lack of generality across multiple tasks and the need for a large amount of training data. The leading cause is that it cannot effectively integrate prior information into the perception-action cycle when devising the policy. Large language models (LLMs) emerged as a fundamental way to incorporate cross-domain knowledge into AI agents but lack crucial learning and adaptation toward specific decision problems. This paper presents a general framework model for integrating and learning structured reasoning into AI agents' policies. Our methodology is motivated by the modularity found in the human brain. The framework utilises the construction of intrinsic and extrinsic functions to add previous understandings of reasoning structures. It also provides the adaptive ability to learn models inside every module or function, consistent with the modular structure of cognitive processes. We describe the framework in-depth and compare it with other AI pipelines and existing frameworks. The paper explores practical applications, covering experiments that show the effectiveness of our method. Our results indicate that AI agents perform and adapt far better when organised reasoning and prior knowledge are embedded. This opens the door to more resilient and general AI agent systems.",
+      "standard_url": "http://arxiv.org/abs/2312.14878v1",
+      "id": "2023-pangu-agent:_a_fine-tunable_generalist_agent_with_structured_reasoning"
+    },
+    "4": {
+      "enum": "4",
+      "authors": "Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, John Schulman",
+      "title": "Training verifiers to solve math word problems",
+      "publication": "arXiv preprint arXiv:2110.14168, 2021",
+      "year": 2021,
+      "summary": "State-of-the-art language models can match human performance on many tasks, but they still struggle to robustly perform multi-step mathematical reasoning. To diagnose the failures of current models and support research, we introduce GSM8K, a dataset of 8.5K high quality linguistically diverse grade school math word problems. We find that even the largest transformer models fail to achieve high test performance, despite the conceptual simplicity of this problem distribution. To increase performance, we propose training verifiers to judge the correctness of model completions. At test time, we generate many candidate solutions and select the one ranked highest by the verifier. We demonstrate that verification significantly improves performance on GSM8K, and we provide strong empirical evidence that verification scales more effectively with increased data than a finetuning baseline.",
+      "standard_url": "http://arxiv.org/abs/2110.14168v2",
+      "id": "2021-training_verifiers_to_solve_math_word_problems"
+    },
+    "5": {
+      "enum": "5",
+      "authors": "A. E. Elo",
+      "title": "The rating of chessplayers, past and present",
+      "publication": "Arco Pub., 1978",
+      "year": "1978",
+      "summary": null,
+      "standard_url": null,
+      "id": "1978-the_rating_of_chessplayers_past_and_present"
+    },
+    "6": {
+      "enum": "6",
+      "authors": "Xidong Feng, Ziyu Wan, Muning Wen, Stephen Marcus McAleer, Ying Wen, Weinan Zhang, Jun Wang",
+      "title": "Alphazero-like tree-search can guide large language model decoding and training",
+      "publication": "In ICML 2024, 2024",
+      "year": 2023,
+      "summary": "Recent works like Tree-of-Thought (ToT) and Reasoning via Planning (RAP) aim to augment the reasoning capabilities of LLMs by using tree-search algorithms to guide multi-step reasoning. These methods rely on prompting a pre-trained model to serve as a value function and focus on problems with low search depth. As a result, these methods will not work in domains where the pre-trained LLM does not have enough knowledge to serve as an effective value function or in domains that require long-horizon planning. To address these limitations, we present an AlphaZero-like tree-search learning framework for LLMs (termed TS-LLM), systematically illustrating how tree-search with a learned value function can guide LLM decoding. TS-LLM distinguishes itself in two key ways. (1) Leveraging a learned value function and AlphaZero-like algorithms, our approach can be generally adaptable to a wide range of tasks, language models of any size, and tasks of varying search depths. (2) Our approach can guide LLMs during both inference and training, iteratively improving the LLM. Empirical results across reasoning, planning, alignment, and decision-making tasks show that TS-LLM outperforms existing approaches and can handle trees with a depth of 64.",
+      "standard_url": "http://arxiv.org/abs/2309.17179v2",
+      "id": "2023-alphazero-like_tree-search_can_guide_large_language_model_decoding_and_training"
+    },
+    "7": {
+      "enum": "7",
+      "authors": "Sachin Goyal, Ziwei Ji, Ankit Singh Rawat, Aditya Krishna Menon, Sanjiv Kumar, Vaishnavh Nagarajan",
+      "title": "Think before you speak: Training language models with pause tokens",
+      "publication": "arXiv preprint arXiv:2310.02226, 2023",
+      "year": 2023,
+      "summary": "Language models generate responses by producing a series of tokens in immediate succession: the $(K+1)^{th}$ token is an outcome of manipulating $K$ hidden vectors per layer, one vector per preceding token. What if instead we were to let the model manipulate say, $K+10$ hidden vectors, before it outputs the $(K+1)^{th}$ token? We operationalize this idea by performing training and inference on language models with a (learnable) $\\textit{pause}$ token, a sequence of which is appended to the input prefix. We then delay extracting the model's outputs until the last pause token is seen, thereby allowing the model to process extra computation before committing to an answer. We empirically evaluate $\\textit{pause-training}$ on decoder-only models of 1B and 130M parameters with causal pretraining on C4, and on downstream tasks covering reasoning, question-answering, general understanding and fact recall. Our main finding is that inference-time delays show gains when the model is both pre-trained and finetuned with delays. For the 1B model, we witness gains on 8 of 9 tasks, most prominently, a gain of $18\\%$ EM score on the QA task of SQuAD, $8\\%$ on CommonSenseQA and $1\\%$ accuracy on the reasoning task of GSM8k. Our work raises a range of conceptual and practical future research questions on making delayed next-token prediction a widely applicable new paradigm.",
+      "standard_url": "http://arxiv.org/abs/2310.02226v3",
+      "id": "2023-think_before_you_speak:_training_language_models_with_pause_tokens"
+    },
+    "8": {
+      "enum": "8",
+      "authors": "Grady Booch, Francesco Fabiano, Lior Horesh, Kiran Kate, Jon Lenchner, Nick Linck, Andrea Loreggia, Keerthiram Murugesan, Nicholas Mattei, Francesca Rossi, Biplav Srivastava",
+      "title": "Thinking, Fast and Slow",
+      "publication": "Farrar, Straus and Giroux, New York, 2011",
+      "year": 2020,
+      "summary": "This paper proposes a research direction to advance AI which draws inspiration from cognitive theories of human decision making. The premise is that if we gain insights about the causes of some human capabilities that are still lacking in AI (for instance, adaptability, generalizability, common sense, and causal reasoning), we may obtain similar capabilities in an AI system by embedding these causal components. We hope that the high-level description of our vision included in this paper, as well as the several research questions that we propose to consider, can stimulate the AI research community to define, try and evaluate new methodologies, frameworks, and evaluation metrics, in the spirit of achieving a better understanding of both human and machine intelligence.",
+      "standard_url": "http://arxiv.org/abs/2010.06002v2",
+      "id": "2020-thinking_fast_and_slow"
+    },
+    "9": {
+      "enum": "9",
+      "authors": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, Dario Amodei",
+      "title": "Scaling laws for neural language models",
+      "publication": "arXiv preprint arXiv:2001.08361, 2020",
+      "year": 2020,
+      "summary": "We study empirical scaling laws for language model performance on the cross-entropy loss. The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude. Other architectural details such as network width or depth have minimal effects within a wide range. Simple equations govern the dependence of overfitting on model/dataset size and the dependence of training speed on model size. These relationships allow us to determine the optimal allocation of a fixed compute budget. Larger models are significantly more sample-efficient, such that optimally compute-efficient training involves training very large models on a relatively modest amount of data and stopping significantly before convergence.",
+      "standard_url": "http://arxiv.org/abs/2001.08361v1",
+      "id": "2020-scaling_laws_for_neural_language_models"
+    },
+    "10": {
+      "enum": "10",
+      "authors": "Sergey Levine, Aviral Kumar, George Tucker, Justin Fu",
+      "title": "Offline reinforcement learning: Tutorial, review, and perspectives on open problems",
+      "publication": "arXiv preprint arXiv:2005.01643, 2020",
+      "year": 2020,
+      "summary": "In this tutorial article, we aim to provide the reader with the conceptual tools needed to get started on research on offline reinforcement learning algorithms: reinforcement learning algorithms that utilize previously collected data, without additional online data collection. Offline reinforcement learning algorithms hold tremendous promise for making it possible to turn large datasets into powerful decision making engines. Effective offline reinforcement learning methods would be able to extract policies with the maximum possible utility out of the available data, thereby allowing automation of a wide range of decision-making domains, from healthcare and education to robotics. However, the limitations of current algorithms make this difficult. We will aim to provide the reader with an understanding of these challenges, particularly in the context of modern deep reinforcement learning methods, and describe some potential solutions that have been explored in recent work to mitigate these challenges, along with recent applications, and a discussion of perspectives on open problems in the field.",
+      "standard_url": "http://arxiv.org/abs/2005.01643v3",
+      "id": "2020-offline_reinforcement_learning:_tutorial_review_and_perspectives_on_open_problems"
+    },
+    "11": {
+      "enum": "11",
+      "authors": "Yifei Li, Zeqi Lin, Shizhuo Zhang, Qiang Fu, Bei Chen, Jian-Guang Lou, Weizhu Chen",
+      "title": "Making large language models better reasoners with step-aware verifier",
+      "publication": "arXiv preprint arXiv:2206.02336, 2022",
+      "year": 2022,
+      "summary": "Few-shot learning is a challenging task that requires language models to generalize from limited examples. Large language models like GPT-3 and PaLM have made impressive progress in this area, but they still face difficulties in reasoning tasks such as GSM8K, a benchmark for arithmetic problems. To improve their reasoning skills, previous work has proposed to guide the language model with prompts that elicit a series of reasoning steps before giving the final answer, achieving a significant improvement on GSM8K from 17.9% to 58.1% in problem-solving rate. In this paper, we present DIVERSE (Diverse Verifier on Reasoning Step), a novel approach that further enhances the reasoning capability of language models. DIVERSE has three main components: first, it generates diverse prompts to explore different reasoning paths for the same question; second, it uses a verifier to filter out incorrect answers based on a weighted voting scheme; and third, it verifies each reasoning step individually instead of the whole chain. We evaluate DIVERSE on the latest language model code-davinci-002 and show that it achieves new state-of-the-art results on six of eight reasoning benchmarks (e.g., GSM8K 74.4% to 83.2%).",
+      "standard_url": "http://arxiv.org/abs/2206.02336v3",
+      "id": "2022-making_large_language_models_better_reasoners_with_step-aware_verifier"
+    },
+    "12": {
+      "enum": "12",
+      "authors": "Hunter Lightman, Vineet Kosaraju, Yura Burda, Harri Edwards, Bowen Baker, Teddy Lee, Jan Leike, John Schulman, Ilya Sutskever, Karl Cobbe",
+      "title": "Let’s verify step by step",
+      "publication": "arXiv preprint arXiv:2305.20050, 2023",
+      "year": 2023,
+      "summary": "In recent years, large language models have greatly improved in their ability to perform complex multi-step reasoning. However, even state-of-the-art models still regularly produce logical mistakes. To train more reliable models, we can turn either to outcome supervision, which provides feedback for a final result, or process supervision, which provides feedback for each intermediate reasoning step. Given the importance of training reliable models, and given the high cost of human feedback, it is important to carefully compare the both methods. Recent work has already begun this comparison, but many questions still remain. We conduct our own investigation, finding that process supervision significantly outperforms outcome supervision for training models to solve problems from the challenging MATH dataset. Our process-supervised model solves 78% of problems from a representative subset of the MATH test set. Additionally, we show that active learning significantly improves the efficacy of process supervision. To support related research, we also release PRM800K, the complete dataset of 800,000 step-level human feedback labels used to train our best reward model.",
+      "standard_url": "http://arxiv.org/abs/2305.20050v1",
+      "id": "2023-let’s_verify_step_by_step"
+    },
+    "13": {
+      "enum": "13",
+      "authors": "Chu-Cheng Lin, Aaron Jaech, Xin Li, Matthew R. Gormley, Jason Eisner",
+      "title": "Limitations of autoregressive models and their alternatives",
+      "publication": "arXiv preprint arXiv:2010.11939, 2020",
+      "year": 2020,
+      "summary": "Standard autoregressive language models perform only polynomial-time computation to compute the probability of the next symbol. While this is attractive, it means they cannot model distributions whose next-symbol probability is hard to compute. Indeed, they cannot even model them well enough to solve associated easy decision problems for which an engineer might want to consult a language model. These limitations apply no matter how much computation and data are used to train the model, unless the model is given access to oracle parameters that grow superpolynomially in sequence length.\n  Thus, simply training larger autoregressive language models is not a panacea for NLP. Alternatives include energy-based models (which give up efficient sampling) and latent-variable autoregressive models (which give up efficient scoring of a given string). Both are powerful enough to escape the above limitations.",
+      "standard_url": "http://arxiv.org/abs/2010.11939v3",
+      "id": "2020-limitations_of_autoregressive_models_and_their_alternatives"
+    },
+    "14": {
+      "enum": "14",
+      "authors": "Liangchen Luo, Zi Lin, Yinxiao Liu, Lei Shu, Yun Zhu, Jingbo Shang, Lei Meng",
+      "title": "Critique ability of large language models",
+      "publication": "arXiv preprint arXiv:2310.04815, 2023",
+      "year": 2023,
+      "summary": "Critical thinking is essential for rational decision-making and problem-solving. This skill hinges on the ability to provide precise and reasoned critiques and is a hallmark of human intelligence. In the era of large language models (LLMs), this study explores the ability of LLMs to deliver accurate critiques across various tasks. We are interested in this topic as a capable critic model could not only serve as a reliable evaluator, but also as a source of supervised signals for model tuning. Particularly, if a model can self-critique, it has the potential for autonomous self-improvement. To examine this, we introduce a unified evaluation framework for assessing the critique abilities of LLMs. We develop a benchmark called CriticBench, which comprises 3K high-quality natural language queries and corresponding model responses; and annotate the correctness of these responses. The benchmark cover tasks such as math problem-solving, code completion, and question answering. We evaluate multiple LLMs on the collected dataset and our analysis reveals several noteworthy insights: (1) Critique is generally challenging for most LLMs, and this capability often emerges only when models are sufficiently large. (2) In particular, self-critique is especially difficult. Even top-performing LLMs struggle to achieve satisfactory performance. (3) Models tend to have lower critique accuracy on problems where they are most uncertain. To this end, we introduce a simple yet effective baseline named self-check, which leverages self-critique to improve task performance for various models. We hope this study serves as an initial exploration into understanding the critique abilities of LLMs, and aims to inform future research, including the development of more proficient critic models and the application of critiques across diverse tasks.",
+      "standard_url": "http://arxiv.org/abs/2310.04815v1",
+      "id": "2023-critique_ability_of_large_language_models"
+    },
+    "15": {
+      "enum": "15",
+      "authors": "Liangchen Luo, Yinxiao Liu, Rosanne Liu, Samrat Phatale, Meiqi Guo, Harsh Lara, Yunxuan Li, Lei Shu, Yun Zhu, Lei Meng, Jiao Sun, Abhinav Rastogi",
+      "title": "Improve mathematical reasoning in language models by automated process supervision",
+      "publication": "arXiv preprint arXiv:2406.06592, 2024",
+      "year": 2024,
+      "summary": "Complex multi-step reasoning tasks, such as solving mathematical problems or generating code, remain a significant hurdle for even the most advanced large language models (LLMs). Verifying LLM outputs with an Outcome Reward Model (ORM) is a standard inference-time technique aimed at enhancing the reasoning performance of LLMs. However, this still proves insufficient for reasoning tasks with a lengthy or multi-hop reasoning chain, where the intermediate outcomes are neither properly rewarded nor penalized. Process supervision addresses this limitation by assigning intermediate rewards during the reasoning process. To date, the methods used to collect process supervision data have relied on either human annotation or per-step Monte Carlo estimation, both prohibitively expensive to scale, thus hindering the broad application of this technique. In response to this challenge, we propose a novel divide-and-conquer style Monte Carlo Tree Search (MCTS) algorithm named \\textit{OmegaPRM} for the efficient collection of high-quality process supervision data. This algorithm swiftly identifies the first error in the Chain of Thought (CoT) with binary search and balances the positive and negative examples, thereby ensuring both efficiency and quality. As a result, we are able to collect over 1.5 million process supervision annotations to train Process Reward Models (PRMs). This fully automated process supervision alongside the weighted self-consistency algorithm is able to enhance LLMs' math reasoning performances. We improved the success rates of the instruction-tuned Gemini Pro model from 51\\% to 69.4\\% on MATH500 and from 86.4\\% to 93.6\\% on GSM8K. Similarly, we boosted the success rates of Gemma2 27B from 42.3\\% to 58.2\\% on MATH500 and from 74.0\\% to 92.2\\% on GSM8K. The entire process operates without any human intervention or supervision, making our method both financially and ...",
+      "standard_url": "http://arxiv.org/abs/2406.06592v2",
+      "id": "2024-improve_mathematical_reasoning_in_language_models_by_automated_process_supervision"
+    },
+    "16": {
+      "enum": "16",
+      "authors": "Maxwell Nye, Anders Johan Andreassen, Guy Gur-Ari, Henryk Michalewski, Jacob Austin, David Bieber, David Dohan, Aitor Lewkowycz, Maarten Bosma, David Luan, Charles Sutton, Augustus Odena",
+      "title": "Show your work: Scratchpads for intermediate computation with language models",
+      "publication": "arXiv preprint arXiv:2112.00114, 2021",
+      "year": 2021,
+      "summary": "Large pre-trained language models perform remarkably well on tasks that can be done \"in one pass\", such as generating realistic text or synthesizing computer programs. However, they struggle with tasks that require unbounded multi-step computation, such as adding integers or executing programs. Surprisingly, we find that these same models are able to perform complex multi-step computations -- even in the few-shot regime -- when asked to perform the operation \"step by step\", showing the results of intermediate computations. In particular, we train transformers to perform multi-step computations by asking them to emit intermediate computation steps into a \"scratchpad\". On a series of increasingly complex tasks ranging from long addition to the execution of arbitrary programs, we show that scratchpads dramatically improve the ability of language models to perform multi-step computations.",
+      "standard_url": "http://arxiv.org/abs/2112.00114v1",
+      "id": "2021-show_your_work:_scratchpads_for_intermediate_computation_with_language_models"
+    },
+    "17": {
+      "enum": "17",
+      "authors": "Junghyun Lee, Branislav Kveton, Anup Rao, Subhojyoti Mukherjee, Ryan A. Rossi, Sunav Choudhary, Alexa Siu",
+      "title": "Learning to reason with llms",
+      "publication": "https://openai.com/index/learning-to-reason-with-llms/, 2014,0912",
+      "year": 2025,
+      "summary": "Large language models (LLMs) solve reasoning problems by first generating a rationale and then answering. We formalize reasoning as a latent variable model and derive a reward-based filtered expectation-maximization (FEM) objective for learning to reason. This view connects EM and modern reward-based optimization, and shows that the main challenge lies in designing a sampling distribution of rationales that justify correct answers. We instantiate and compare three sampling schemes: rejection sampling with a budget, self-taught reasoner (STaR), and prompt posterior sampling (PPS), which only keeps the rationalization stage of STaR that conditions on the correct answer in the prompt. We experiment with LLM-as-a-judge calibration and summarization from feedback tasks, where conditioning on the correct answer provides a strong guidance for generating rationales. Our experiments show the efficacy of PPS over other sampling schemes, and that the sampling scheme can have a significant impact on performance.",
+      "standard_url": "http://arxiv.org/abs/2512.20169v2",
+      "id": "2025-learning_to_reason_with_llms"
+    },
+    "18": {
+      "enum": "18",
+      "authors": "Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul Christiano, Jan Leike, Ryan Lowe",
+      "title": "Training language models to follow instructions with human feedback",
+      "publication": "Advances in Neural Information Processing Systems, 35:27730–27744, 2022",
+      "year": 2022,
+      "summary": "Making language models bigger does not inherently make them better at following a user's intent. For example, large language models can generate outputs that are untruthful, toxic, or simply not helpful to the user. In other words, these models are not aligned with their users. In this paper, we show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback. Starting with a set of labeler-written prompts and prompts submitted through the OpenAI API, we collect a dataset of labeler demonstrations of the desired model behavior, which we use to fine-tune GPT-3 using supervised learning. We then collect a dataset of rankings of model outputs, which we use to further fine-tune this supervised model using reinforcement learning from human feedback. We call the resulting models InstructGPT. In human evaluations on our prompt distribution, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters. Moreover, InstructGPT models show improvements in truthfulness and reductions in toxic output generation while having minimal performance regressions on public NLP datasets. Even though InstructGPT still makes simple mistakes, our results show that fine-tuning with human feedback is a promising direction for aligning language models with human intent.",
+      "standard_url": "http://arxiv.org/abs/2203.02155v1",
+      "id": "2022-training_language_models_to_follow_instructions_with_human_feedback"
+    },
+    "19": {
+      "enum": "19",
+      "authors": "Ben Prystawski, Michael Y. Li, Noah D. Goodman",
+      "title": "Why think step by step? reasoning emerges from the locality of experience",
+      "publication": "Advances in Neural Information Processing Systems, 36, 2024",
+      "year": 2023,
+      "summary": "Humans have a powerful and mysterious capacity to reason. Working through a set of mental steps enables us to make inferences we would not be capable of making directly even though we get no additional data from the world. Similarly, when large language models generate intermediate steps (a chain of thought) before answering a question, they often produce better answers than they would directly. We investigate why and how chain-of-thought reasoning is useful in language models, testing the hypothesis that reasoning is effective when training data consists of overlapping local clusters of variables that influence each other strongly. These training conditions enable the chaining of accurate local inferences to estimate relationships between variables that were not seen together in training. We prove that there will exist a \"reasoning gap\", where reasoning through intermediate variables reduces bias, for the simple case of an autoregressive density estimator trained on local samples from a chain-structured probabilistic model. We then test our hypothesis experimentally in more complex models, training an autoregressive language model on samples from Bayes nets but only including a subset of variables in each sample. We test language models' ability to match conditional probabilities with and without intermediate reasoning steps, finding that intermediate steps are only helpful when the training data is locally structured with respect to dependencies between variables. The combination of locally structured observations and reasoning is much more data-efficient than training on all variables. Our results illustrate how the effectiveness of reasoning step by step is rooted in the local statistical structure of the training data.",
+      "standard_url": "http://arxiv.org/abs/2304.03843v3",
+      "id": "2023-why_think_step_by_step?_reasoning_emerges_from_the_locality_of_experience"
+    },
+    "20": {
+      "enum": "20",
+      "authors": "Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu",
+      "title": "Exploring the limits of transfer learning with a unified text-to-text transformer",
+      "publication": "Journal of Machine Learning Research, 21:1–67, 2020",
+      "year": 2019,
+      "summary": "Transfer learning, where a model is first pre-trained on a data-rich task before being fine-tuned on a downstream task, has emerged as a powerful technique in natural language processing (NLP). The effectiveness of transfer learning has given rise to a diversity of approaches, methodology, and practice. In this paper, we explore the landscape of transfer learning techniques for NLP by introducing a unified framework that converts all text-based language problems into a text-to-text format. Our systematic study compares pre-training objectives, architectures, unlabeled data sets, transfer approaches, and other factors on dozens of language understanding tasks. By combining the insights from our exploration with scale and our new ``Colossal Clean Crawled Corpus'', we achieve state-of-the-art results on many benchmarks covering summarization, question answering, text classification, and more. To facilitate future work on transfer learning for NLP, we release our data set, pre-trained models, and code.",
+      "standard_url": "http://arxiv.org/abs/1910.10683v4",
+      "id": "2019-exploring_the_limits_of_transfer_learning_with_a_unified_text-to-text_transformer"
+    },
+    "21": {
+      "enum": "21",
+      "authors": "John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, Oleg Klimov",
+      "title": "Proximal policy optimization algorithms",
+      "publication": "arXiv preprint arXiv:1707.06347, 2017",
+      "year": 2017,
+      "summary": "We propose a new family of policy gradient methods for reinforcement learning, which alternate between sampling data through interaction with the environment, and optimizing a \"surrogate\" objective function using stochastic gradient ascent. Whereas standard policy gradient methods perform one gradient update per data sample, we propose a novel objective function that enables multiple epochs of minibatch updates. The new methods, which we call proximal policy optimization (PPO), have some of the benefits of trust region policy optimization (TRPO), but they are much simpler to implement, more general, and have better sample complexity (empirically). Our experiments test PPO on a collection of benchmark tasks, including simulated robotic locomotion and Atari game playing, and we show that PPO outperforms other online policy gradient methods, and overall strikes a favorable balance between sample complexity, simplicity, and wall-time.",
+      "standard_url": "http://arxiv.org/abs/1707.06347v2",
+      "id": "2017-proximal_policy_optimization_algorithms"
+    },
+    "22": {
+      "enum": "22",
+      "authors": "Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y. K. Li, Y. Wu, Daya Guo",
+      "title": "Deepseekmath: Pushing the limits of mathematical reasoning in open language models",
+      "publication": "arXiv preprint arXiv:2402.03300, 2024",
+      "year": 2024,
+      "summary": "Mathematical reasoning poses a significant challenge for language models due to its complex and structured nature. In this paper, we introduce DeepSeekMath 7B, which continues pre-training DeepSeek-Coder-Base-v1.5 7B with 120B math-related tokens sourced from Common Crawl, together with natural language and code data. DeepSeekMath 7B has achieved an impressive score of 51.7% on the competition-level MATH benchmark without relying on external toolkits and voting techniques, approaching the performance level of Gemini-Ultra and GPT-4. Self-consistency over 64 samples from DeepSeekMath 7B achieves 60.9% on MATH. The mathematical reasoning capability of DeepSeekMath is attributed to two key factors: First, we harness the significant potential of publicly available web data through a meticulously engineered data selection pipeline. Second, we introduce Group Relative Policy Optimization (GRPO), a variant of Proximal Policy Optimization (PPO), that enhances mathematical reasoning abilities while concurrently optimizing the memory usage of PPO.",
+      "standard_url": "http://arxiv.org/abs/2402.03300v3",
+      "id": "2024-deepseekmath:_pushing_the_limits_of_mathematical_reasoning_in_open_language_models"
+    },
+    "23": {
+      "enum": "23",
+      "authors": "David Silver, Thomas Hubert, Julian Schrittwieser, Ioannis Antonoglou, Matthew Lai, Arthur Guez, Marc Lanctot, Laurent Sifre, Dharshan Kumaran, Thore Graepel, Timothy Lillicrap, Karen Simonyan, Demis Hassabis",
+      "title": "Mastering chess and shogi by self-play with a general reinforcement learning algorithm",
+      "publication": "arXiv preprint arXiv:1712.01815, 2017",
+      "year": 2017,
+      "summary": "The game of chess is the most widely-studied domain in the history of artificial intelligence. The strongest programs are based on a combination of sophisticated search techniques, domain-specific adaptations, and handcrafted evaluation functions that have been refined by human experts over several decades. In contrast, the AlphaGo Zero program recently achieved superhuman performance in the game of Go, by tabula rasa reinforcement learning from games of self-play. In this paper, we generalise this approach into a single AlphaZero algorithm that can achieve, tabula rasa, superhuman performance in many challenging domains. Starting from random play, and given no domain knowledge except the game rules, AlphaZero achieved within 24 hours a superhuman level of play in the games of chess and shogi (Japanese chess) as well as Go, and convincingly defeated a world-champion program in each case.",
+      "standard_url": "http://arxiv.org/abs/1712.01815v1",
+      "id": "2017-mastering_chess_and_shogi_by_self-play_with_a_general_reinforcement_learning_algorithm"
+    },
+    "24": {
+      "enum": "24",
+      "authors": "Charlie Snell, Jaehoon Lee, Kelvin Xu, Aviral Kumar",
+      "title": "Scaling llm test-time compute optimally can be more effective than scaling model parameters",
+      "publication": "arXiv preprint arXiv:2408.03314, 2024",
+      "year": 2024,
+      "summary": "Enabling LLMs to improve their outputs by using more test-time computation is a critical step towards building generally self-improving agents that can operate on open-ended natural language. In this paper, we study the scaling of inference-time computation in LLMs, with a focus on answering the question: if an LLM is allowed to use a fixed but non-trivial amount of inference-time compute, how much can it improve its performance on a challenging prompt? Answering this question has implications not only on the achievable performance of LLMs, but also on the future of LLM pretraining and how one should tradeoff inference-time and pre-training compute. Despite its importance, little research attempted to understand the scaling behaviors of various test-time inference methods. Moreover, current work largely provides negative results for a number of these strategies. In this work, we analyze two primary mechanisms to scale test-time computation: (1) searching against dense, process-based verifier reward models; and (2) updating the model's distribution over a response adaptively, given the prompt at test time. We find that in both cases, the effectiveness of different approaches to scaling test-time compute critically varies depending on the difficulty of the prompt. This observation motivates applying a \"compute-optimal\" scaling strategy, which acts to most effectively allocate test-time compute adaptively per prompt. Using this compute-optimal strategy, we can improve the efficiency of test-time compute scaling by more than 4x compared to a best-of-N baseline. Additionally, in a FLOPs-matched evaluation, we find that on problems where a smaller base model attains somewhat non-trivial success rates, test-time compute can be used to outperform a 14x larger model.",
+      "standard_url": "http://arxiv.org/abs/2408.03314v1",
+      "id": "2024-scaling_llm_test-time_compute_optimally_can_be_more_effective_than_scaling_model_parameters"
+    },
+    "25": {
+      "enum": "25",
+      "authors": "Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, Guillaume Lample",
+      "title": "Llama: Open and efficient foundation language models",
+      "publication": "arXiv preprint arXiv:2302.13971, 2023",
+      "year": 2023,
+      "summary": "We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters. We train our models on trillions of tokens, and show that it is possible to train state-of-the-art models using publicly available datasets exclusively, without resorting to proprietary and inaccessible datasets. In particular, LLaMA-13B outperforms GPT-3 (175B) on most benchmarks, and LLaMA-65B is competitive with the best models, Chinchilla-70B and PaLM-540B. We release all our models to the research community.",
+      "standard_url": "http://arxiv.org/abs/2302.13971v1",
+      "id": "2023-llama:_open_and_efficient_foundation_language_models"
+    },
+    "26": {
+      "enum": "26",
+      "authors": "Rasul Tutunov, Antoine Grosnit, Juliusz Ziomek, Jun Wang, Haitham Bou-Ammar",
+      "title": "Why can large language models generate correct chain-of-thoughts?",
+      "publication": "arXiv preprint arXiv:2310.13571, 2023",
+      "year": 2023,
+      "summary": "This paper delves into the capabilities of large language models (LLMs), specifically focusing on advancing the theoretical comprehension of chain-of-thought prompting. We investigate how LLMs can be effectively induced to generate a coherent chain of thoughts. To achieve this, we introduce a two-level hierarchical graphical model tailored for natural language generation. Within this framework, we establish a compelling geometrical convergence rate that gauges the likelihood of an LLM-generated chain of thoughts compared to those originating from the true language. Our findings provide a theoretical justification for the ability of LLMs to produce the correct sequence of thoughts (potentially) explaining performance gains in tasks demanding reasoning skills.",
+      "standard_url": "http://arxiv.org/abs/2310.13571v4",
+      "id": "2023-why_can_large_language_models_generate_correct_chain-of-thoughts?"
+    },
+    "27": {
+      "enum": "27",
+      "authors": "Jonathan Uesato, Nate Kushman, Ramana Kumar, Francis Song, Noah Siegel, Lisa Wang, Antonia Creswell, Geoffrey Irving, Irina Higgins",
+      "title": "Solving math word problems with process-and outcome-based feedback",
+      "publication": "arXiv preprint arXiv:2211.14275, 2022",
+      "year": 2022,
+      "summary": "Recent work has shown that asking language models to generate reasoning steps improves performance on many reasoning tasks. When moving beyond prompting, this raises the question of how we should supervise such models: outcome-based approaches which supervise the final result, or process-based approaches which supervise the reasoning process itself? Differences between these approaches might naturally be expected not just in final-answer errors but also in reasoning errors, which can be difficult to detect and are problematic in many real-world domains such as education. We run the first comprehensive comparison between process- and outcome-based approaches trained on a natural language task, GSM8K. We find that pure outcome-based supervision produces similar final-answer error rates with less label supervision. However, for correct reasoning steps we find it necessary to use process-based supervision or supervision from learned reward models that emulate process-based feedback. In total, we improve the previous best results from 16.8% $\\to$ 12.7% final-answer error and 14.0% $\\to$ 3.4% reasoning error among final-answer-correct solutions.",
+      "standard_url": "http://arxiv.org/abs/2211.14275v1",
+      "id": "2022-solving_math_word_problems_with_process-and_outcome-based_feedback"
+    },
+    "28": {
+      "enum": "28",
+      "authors": "S. Van Gaal, K. R. Ridderinkhof, H. S. Scholte, and V. A. Lamme",
+      "title": "Unconscious activation of the prefrontal no-go network",
+      "publication": "Journal of neuroscience, 30(11):4143–4150, 2010",
+      "year": "2010",
+      "summary": null,
+      "standard_url": null,
+      "id": "2010-unconscious_activation_of_the_prefrontal_no-go_network"
+    },
+    "29": {
+      "enum": "29",
+      "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin",
+      "title": "Attention is all you need",
+      "publication": "In Advances in neural information processing systems, pages 5998–6008, 2017",
+      "year": 2017,
+      "summary": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+      "standard_url": "http://arxiv.org/abs/1706.03762v7",
+      "id": "2017-attention_is_all_you_need"
+    },
+    "30": {
+      "enum": "30",
+      "authors": "Peiyi Wang, Lei Li, Zhihong Shao, R. X. Xu, Damai Dai, Yifei Li, Deli Chen, Y. Wu, Zhifang Sui",
+      "title": "Math-shepherd: Verify and reinforce llms step-by-step without human annotations",
+      "publication": "In Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 9426–9439, 2024",
+      "year": 2023,
+      "summary": "In this paper, we present an innovative process-oriented math process reward model called \\textbf{Math-Shepherd}, which assigns a reward score to each step of math problem solutions. The training of Math-Shepherd is achieved using automatically constructed process-wise supervision data, breaking the bottleneck of heavy reliance on manual annotation in existing work. We explore the effectiveness of Math-Shepherd in two scenarios: 1) \\textit{Verification}: Math-Shepherd is utilized for reranking multiple outputs generated by Large Language Models (LLMs); 2) \\textit{Reinforcement Learning}: Math-Shepherd is employed to reinforce LLMs with step-by-step Proximal Policy Optimization (PPO). With Math-Shepherd, a series of open-source LLMs demonstrates exceptional performance. For instance, the step-by-step PPO with Math-Shepherd significantly improves the accuracy of Mistral-7B (77.9\\%$\\to$84.1\\% on GSM8K and 28.6\\%$\\to$33.0\\% on MATH). The accuracy can be further enhanced to 89.1\\% and 43.5\\% on GSM8K and MATH with the verification of Math-Shepherd, respectively. We believe that automatic process supervision holds significant potential for the future evolution of LLMs.",
+      "standard_url": "http://arxiv.org/abs/2312.08935v3",
+      "id": "2023-math-shepherd:_verify_and_reinforce_llms_step-by-step_without_human_annotations"
+    },
+    "31": {
+      "enum": "31",
+      "authors": "Zihan Wang, Yunxuan Li, Yuexin Wu, Liangchen Luo, Le Hou, Hongkun Yu, Jingbo Shang",
+      "title": "Multi-step problem solving through a verifier: An empirical analysis on model-induced process supervision",
+      "publication": "arXiv preprint arXiv:2402.02658, 2024",
+      "year": 2024,
+      "summary": "Process supervision, using a trained verifier to evaluate the intermediate steps generated by a reasoner, has demonstrated significant improvements in multi-step problem solving. In this paper, to avoid the expensive effort of human annotation on the verifier training data, we introduce Model-induced Process Supervision (MiPS), a novel method for automating data curation. MiPS annotates an intermediate step by sampling completions of this solution through the reasoning model, and obtaining an accuracy defined as the proportion of correct completions. Inaccuracies of the reasoner would cause MiPS underestimating the accuracy of intermediate steps, therefore, we suggest and empirically show that verification focusing on high predicted scores of the verifier shall be preferred over that of low predicted scores, contrary to prior observations on human curated data. Our approach significantly improves the performance of PaLM 2 on math and coding tasks (accuracy +0.67% on GSM8K, +4.16% on MATH, +0.92% on MBPP compared with an output supervision trained verifier). Additionally, our study demonstrates that the verifier exhibits strong generalization ability across different reasoning models.",
+      "standard_url": "http://arxiv.org/abs/2402.02658v2",
+      "id": "2024-multi-step_problem_solving_through_a_verifier:_an_empirical_analysis_on_model-induced_process_supervision"
+    },
+    "32": {
+      "enum": "32",
+      "authors": "Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, Denny Zhou",
+      "title": "Chain of thought prompting elicits reasoning in large language models",
+      "publication": "arXiv preprint arXiv:2201.11903, 2022",
+      "year": 2022,
+      "summary": "We explore how generating a chain of thought -- a series of intermediate reasoning steps -- significantly improves the ability of large language models to perform complex reasoning. In particular, we show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain of thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting. Experiments on three large language models show that chain of thought prompting improves performance on a range of arithmetic, commonsense, and symbolic reasoning tasks. The empirical gains can be striking. For instance, prompting a 540B-parameter language model with just eight chain of thought exemplars achieves state of the art accuracy on the GSM8K benchmark of math word problems, surpassing even finetuned GPT-3 with a verifier.",
+      "standard_url": "http://arxiv.org/abs/2201.11903v6",
+      "id": "2022-chain_of_thought_prompting_elicits_reasoning_in_large_language_models"
+    },
+    "33": {
+      "enum": "33",
+      "authors": "Yangzhen Wu, Zhiqing Sun, Shanda Li, Sean Welleck, Yiming Yang",
+      "title": "An empirical analysis of compute-optimal inference for problem-solving with language models",
+      "publication": "arXiv preprint arXiv:2408.00724, 2024",
+      "year": 2024,
+      "summary": "While the scaling laws of large language models (LLMs) training have been extensively studied, optimal inference configurations of LLMs remain underexplored. We study inference scaling laws (aka test-time scaling laws) and compute-optimal inference, focusing on the trade-offs between model sizes and generating additional tokens with different inference strategies. As a first step towards understanding and designing compute-optimal inference methods, we studied cost-performance trade-offs for inference strategies such as greedy search, majority voting, best-of-$n$, weighted voting, and two different tree search algorithms, using different model sizes and compute budgets. Our findings suggest that scaling inference compute with inference strategies can be more computationally efficient than scaling model parameters. Additionally, smaller models combined with advanced inference algorithms offer Pareto-optimal trade-offs in cost and performance. For example, the Llemma-7B model, when paired with our novel tree search algorithm, consistently outperforms the Llemma-34B model across all tested inference strategies on the MATH benchmark. We hope these insights contribute to a deeper understanding of inference scaling laws (test-time scaling laws) for LLMs.",
+      "standard_url": "http://arxiv.org/abs/2408.00724v3",
+      "id": "2024-an_empirical_analysis_of_compute-optimal_inference_for_problem-solving_with_language_models"
+    },
+    "34": {
+      "enum": "34",
+      "authors": "Eric Zelikman, Yuhuai Wu, Jesse Mu, Noah D. Goodman",
+      "title": "Star: Bootstrapping reasoning with reasoning",
+      "publication": "Advances in Neural Information Processing Systems, 35:15476–15488, 2022",
+      "year": 2022,
+      "summary": "Generating step-by-step \"chain-of-thought\" rationales improves language model performance on complex reasoning tasks like mathematics or commonsense question-answering. However, inducing language model rationale generation currently requires either constructing massive rationale datasets or sacrificing accuracy by using only few-shot inference. We propose a technique to iteratively leverage a small number of rationale examples and a large dataset without rationales, to bootstrap the ability to perform successively more complex reasoning. This technique, the \"Self-Taught Reasoner\" (STaR), relies on a simple loop: generate rationales to answer many questions, prompted with a few rationale examples; if the generated answers are wrong, try again to generate a rationale given the correct answer; fine-tune on all the rationales that ultimately yielded correct answers; repeat. We show that STaR significantly improves performance on multiple datasets compared to a model fine-tuned to directly predict final answers, and performs comparably to fine-tuning a 30$\\times$ larger state-of-the-art language model on CommensenseQA. Thus, STaR lets a model improve itself by learning from its own generated reasoning.",
+      "standard_url": "http://arxiv.org/abs/2203.14465v2",
+      "id": "2022-star:_bootstrapping_reasoning_with_reasoning"
+    },
+    "35": {
+      "enum": "35",
+      "authors": "Yongcheng Zeng, Guoqing Liu, Weiyu Ma, Ning Yang, Haifeng Zhang, Jun Wang",
+      "title": "Token-level direct preference optimization",
+      "publication": "arXiv preprint arXiv:2404.11999, 2024",
+      "year": 2024,
+      "summary": "Fine-tuning pre-trained Large Language Models (LLMs) is essential to align them with human values and intentions. This process often utilizes methods like pairwise comparisons and KL divergence against a reference LLM, focusing on the evaluation of full answers generated by the models. However, the generation of these responses occurs in a token level, following a sequential, auto-regressive fashion. In this paper, we introduce Token-level Direct Preference Optimization (TDPO), a novel approach to align LLMs with human preferences by optimizing policy at the token level. Unlike previous methods, which face challenges in divergence efficiency, TDPO incorporates forward KL divergence constraints for each token, improving alignment and diversity. Utilizing the Bradley-Terry model for a token-based reward system, TDPO enhances the regulation of KL divergence, while preserving simplicity without the need for explicit reward modeling. Experimental results across various text tasks demonstrate TDPO's superior performance in balancing alignment with generation diversity. Notably, fine-tuning with TDPO strikes a better balance than DPO in the controlled sentiment generation and single-turn dialogue datasets, and significantly improves the quality of generated responses compared to both DPO and PPO-based RLHF methods. Our code is open-sourced at https://github.com/Vance0124/Token-level-Direct-Preference-Optimization.",
+      "standard_url": "http://arxiv.org/abs/2404.11999v5",
+      "id": "2024-token-level_direct_preference_optimization"
+    }
+  },
+  "authors": "Jun Wang",
+  "summary": "OpenAI o1 has shown that applying reinforcement learning to integrate reasoning steps directly during inference can significantly improve a model's reasoning capabilities. This result is exciting as the field transitions from the conventional autoregressive method of generating answers to a more deliberate approach that models the slow-thinking process through step-by-step reasoning training. Reinforcement learning plays a key role in both the model's training and decoding processes. In this article, we present a comprehensive formulation of reasoning problems and investigate the use of both model-based and model-free approaches to better support this slow-thinking framework.",
+  "standard_url": "http://arxiv.org/abs/2502.10867v1",
+  "id": "2025-a_tutorial_on_llm_reasoning:_relevant_methods_behind_chatgpt_o1"
+}

@@ -112,7 +112,7 @@ class TangledTreeBuilder:
         return nodes, edges
 
 if __name__ == '__main__':
-    from ParserConfig import DIRECTORY, OUTPUT_FILES
+    from CONFIG import DIRECTORY, OUTPUT_FILES
     from ArXivURL import ArXivURL
 
     url_list = []

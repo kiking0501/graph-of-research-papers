@@ -1,0 +1,1030 @@
+{
+  "name": "Chain Of Continuous Thoughts",
+  "year": 2025,
+  "url": "https://arxiv.org/html/2412.06769v3",
+  "title": "Training Large Language Models to Reason in a Continuous Latent Space",
+  "sections": {
+    "S1": "1 Introduction",
+    "S2": "2 Related Work",
+    "S3": "3 Coconut: Chain of Continuous Thought",
+    "S4": "4 Continuous Space Enables Latent Tree Search",
+    "S5": "5 Empirical Results with Coconut",
+    "S6": "6 Conclusion",
+    "S7": "7 Datasets",
+    "S8": "8 Clock-Time Reasoning Efficiency Metric",
+    "S9": "9 More Discussion"
+  },
+  "citations": [
+    {
+      "section_id": "S1",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Large language models (LLMs) have demonstrated remarkable reasoning abilities, emerging from extensive pretraining on human languages(Dubey et al,2024; Achiam et al,2023)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "Large language models (LLMs) have demonstrated remarkable reasoning abilities, emerging from extensive pretraining on human languages(Dubey et al,2024; Achiam et al,2023)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "42",
+      "cite_id": "42",
+      "sentence": "For example, a prevalent approach, known as chain-of-thought (CoT) reasoning(Wei et al,2022), involves prompting or training LLMs to generate solutions step-by-step using natural language"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "2",
+      "cite_id": "2",
+      "sentence": "Neuroimaging studies have consistently shown that the language network – a set of brain regions responsible for language comprehension and production – remains largely inactive during various reasoning tasks(Amalric and Dehaene,2019; Monti et al,2012,2007,2009; Fedorenko et al,2011)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "30",
+      "cite_id": "30",
+      "sentence": "Neuroimaging studies have consistently shown that the language network – a set of brain regions responsible for language comprehension and production – remains largely inactive during various reasoning tasks(Amalric and Dehaene,2019; Monti et al,2012,2007,2009; Fedorenko et al,2011)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "28",
+      "cite_id": "28",
+      "sentence": "Neuroimaging studies have consistently shown that the language network – a set of brain regions responsible for language comprehension and production – remains largely inactive during various reasoning tasks(Amalric and Dehaene,2019; Monti et al,2012,2007,2009; Fedorenko et al,2011)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "29",
+      "cite_id": "29",
+      "sentence": "Neuroimaging studies have consistently shown that the language network – a set of brain regions responsible for language comprehension and production – remains largely inactive during various reasoning tasks(Amalric and Dehaene,2019; Monti et al,2012,2007,2009; Fedorenko et al,2011)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "10",
+      "cite_id": "10",
+      "sentence": "Neuroimaging studies have consistently shown that the language network – a set of brain regions responsible for language comprehension and production – remains largely inactive during various reasoning tasks(Amalric and Dehaene,2019; Monti et al,2012,2007,2009; Fedorenko et al,2011)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "11",
+      "cite_id": "11",
+      "sentence": "Large language models (LLMs) have demonstrated remarkable reasoning abilities, emerging from extensive pretraining on human languages(Dubey et al,2024; Achiam et al,2023)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "26",
+      "cite_id": "26",
+      "sentence": "While previous work has attempted to fix these problems by prompting LLMs to generate succinct reasoning chains(Madaan and Yazdanbakhsh,2022), or performing additional reasoning before generating some critical tokens(Zelikman et al,2024), these solutions remain constrained within the language space and do not solve the fundamental problems"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "50",
+      "cite_id": "50",
+      "sentence": "While previous work has attempted to fix these problems by prompting LLMs to generate succinct reasoning chains(Madaan and Yazdanbakhsh,2022), or performing additional reasoning before generating some critical tokens(Zelikman et al,2024), these solutions remain constrained within the language space and do not solve the fundamental problems"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "To enhance the training of latent reasoning, we employ a multi-stage training strategy inspired byDeng et al (2024), which effectively utilizes language reasoning chains to guide the training process"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "45",
+      "cite_id": "45",
+      "sentence": "This advanced reasoning mechanism surpasses traditional CoT, even though the model is not explicitly trained or instructed to operate in this manner, as seen in previous works(Yao et al,2023; Hao et al,2023)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "19",
+      "cite_id": "19",
+      "sentence": "This advanced reasoning mechanism surpasses traditional CoT, even though the model is not explicitly trained or instructed to operate in this manner, as seen in previous works(Yao et al,2023; Hao et al,2023)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "5",
+      "cite_id": "5",
+      "sentence": "For math reasoning (GSM8k,Cobbe et al,2021), using continuous thoughts is shown to be beneficial to reasoning accuracy, mirroring the effects of language reasoning chains"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "33",
+      "cite_id": "33",
+      "sentence": "On logical reasoning including ProntoQA(Saparov and He,2022), and our newly proposed ProsQA (Section4) which requires stronger planning ability,Coconutand some of its variants even surpasses language-based CoT methods, while generating significantly fewer tokens during inference"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "42",
+      "cite_id": "42",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "22",
+      "cite_id": "22",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "51",
+      "cite_id": "51",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "49",
+      "cite_id": "49",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "47",
+      "cite_id": "47",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "40",
+      "cite_id": "40",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "21",
+      "cite_id": "21",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "35",
+      "cite_id": "35",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "46",
+      "cite_id": "46",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "26",
+      "cite_id": "26",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "27",
+      "cite_id": "27",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "25",
+      "cite_id": "25",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "23",
+      "cite_id": "23",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "19",
+      "cite_id": "19",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "43",
+      "cite_id": "43",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "45",
+      "cite_id": "45",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "20",
+      "cite_id": "20",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "24",
+      "cite_id": "24",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "37",
+      "cite_id": "37",
+      "sentence": "This includes prompting LLMs(Wei et al,2022; Khot et al,2022; Zhou et al,2022), or training LLMs to generate reasoning chains, either with supervised finetuning(Yue et al,2023; Yu et al,2023)or reinforcement learning(Wang et al,2024; Havrilla et al,2024; Shao et al,2024; Yu et al,2024a)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "44",
+      "cite_id": "44",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "4",
+      "cite_id": "4",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "44",
+      "cite_id": "44",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "4",
+      "cite_id": "4",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "34",
+      "cite_id": "34",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "39",
+      "cite_id": "39",
+      "sentence": "This phenomenon is known as the unfaithfulness of CoT reasoning(Wang et al,2022; Turpin et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "38",
+      "cite_id": "38",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "17",
+      "cite_id": "17",
+      "sentence": "Goyal et al (2023)pretrained the model by randomly inserting a learnable<pause>tokens to the training corpus"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "41",
+      "cite_id": "41",
+      "sentence": "Goyal et al (2023)pretrained the model by randomly inserting a learnable<pause>tokens to the training corpus"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "Goyal et al (2023)pretrained the model by randomly inserting a learnable<pause>tokens to the training corpus"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "48",
+      "cite_id": "48",
+      "sentence": "Yu et al (2024b)also proposed to distill a model that can reason latently from data generated with complex reasoning algorithms"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "15",
+      "cite_id": "15",
+      "sentence": "Goyal et al (2023)pretrained the model by randomly inserting a learnable<pause>tokens to the training corpus"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "9",
+      "cite_id": "9",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "3",
+      "cite_id": "3",
+      "sentence": "Previous works mostly define latent reasoning in LLMs as the hidden computation in transformers(Yang et al,2024; Biran et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "32",
+      "cite_id": "32",
+      "sentence": "Goyal et al (2023)pretrained the model by randomly inserting a learnable<pause>tokens to the training corpus"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "53",
+      "cite_id": "53",
+      "sentence": "Building onCoconut,Zhu et al (2025b)developed a theoretical framework demonstrating that continuous CoT can be more efficient than discrete CoT on certain tasks by encoding multiple reasoning paths in superposition states"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "52",
+      "cite_id": "52",
+      "sentence": "Subsequently,Zhu et al (2025a)analyzed the training dynamics to explain how such superposition emerges under theCoconuttraining objective"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "We leverage language CoT data to supervise continuous thought by implementing a multi-stage training curriculum inspired byDeng et al (2024)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "We leverage language CoT data to supervise continuous thought by implementing a multi-stage training curriculum inspired byDeng et al (2024)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "33",
+      "cite_id": "33",
+      "sentence": "Unlike previous logical reasoning datasets like ProntoQA(Saparov and He,2022), ProsQA’s DAG structure introduces complex exploration paths, making it particularly challenging for models to identify the correct reasoning chain"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "∗The result is fromDeng et al (2024)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "5",
+      "cite_id": "5",
+      "sentence": "We use GSM8k(Cobbe et al,2021)as the dataset for math reasoning"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "To train the model, we use a synthetic dataset generated byDeng et al (2023)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "33",
+      "cite_id": "33",
+      "sentence": "We use the ProntoQA(Saparov and He,2022)dataset, and our newly proposed ProsQA dataset, which is more challenging due to more distracting branches"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "(3)iCoT(Deng et al,2024): The model is trained with language reasoning chains and follows a carefully designed schedule that “internalizes” CoT"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "17",
+      "cite_id": "17",
+      "sentence": "(4)Pause token(Goyal et al,2023): The model is trained using only the question and answer without a reasoning chain"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "Language CoT proves to increase the effective depth of LLMs and enhance their expressiveness(Feng et al,2023)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "18",
+      "cite_id": "18",
+      "sentence": "Thus, generating more tokens serves as a way to inference-time scaling for reasoning(Guo et al,2025; Snell et al,2024)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "36",
+      "cite_id": "36",
+      "sentence": "Thus, generating more tokens serves as a way to inference-time scaling for reasoning(Guo et al,2025; Snell et al,2024)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "Thus, generating more tokens serves as a way to inference-time scaling for reasoning(Guo et al,2025; Snell et al,2024)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "To illustrate this, we train a series of CoT models that progressively “internalize”(Deng et al,2024)the initialm={0,1,2,3,ALL}m=\\{0,1,2,3,\\text{ALL}\\}reasoning steps, and plot their accuracy versus the number of generated tokens (labeled as “language” in the figure)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "33",
+      "cite_id": "33",
+      "sentence": "To construct the dataset, we first compile a set of typical entity names, such as “Alex” and “Jack,” along with fictional concept names like “lorpus” and “rorpus,” following the setting of ProntoQA(Saparov and He,2022)"
+    },
+    {
+      "section_id": "S9",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "Future work will explore finer-grained schedules, such as incrementally adding continuous thoughts one at a time while removing fewer language tokens, as in iCoT(Deng et al,2024)"
+    },
+    {
+      "section_id": "S9",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "2-3B and Llama 3-8B(Dubey et al,2024)withc=1c=1"
+    },
+    {
+      "section_id": "S9",
+      "cite_enum": "14",
+      "cite_id": "14",
+      "sentence": "We are encouraged by recent progress in this area(Geiping et al,2025; Barrault et al,2024; Gladstone et al,2025)"
+    },
+    {
+      "section_id": "S9",
+      "cite_enum": "3",
+      "cite_id": "3",
+      "sentence": "We are encouraged by recent progress in this area(Geiping et al,2025; Barrault et al,2024; Gladstone et al,2025)"
+    },
+    {
+      "section_id": "S9",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "We are encouraged by recent progress in this area(Geiping et al,2025; Barrault et al,2024; Gladstone et al,2025)"
+    }
+  ],
+  "preview": "<div class=\"ltx_para\" id=\"S1.p1\">\n<p class=\"ltx_p\">Large language models (LLMs) have demonstrated remarkable reasoning abilities, emerging from extensive pretraining on human languages . While next token prediction is an effective training objective, it imposes a fundamental constraint on the LLM as a reasoning machine: the explicit reasoning process of LLMs must be generated in word tokens. For example, a prevalent approach, known as chain-of-thought (CoT) reasoning , involves prompting or training LLMs to generate solutions step-by-step using natural language. However, this is in stark contrast to certain human cognition results. Neuroimaging studies have consistently shown that the language network – a set of brain regions responsible for language comprehension and production – remains largely inactive during various reasoning tasks  . Further evidence indicates that human language is optimized for communication rather than reasoning .</p>\n</div><div class=\"ltx_para\" id=\"S1.p2\">\n<p class=\"ltx_p\">A significant issue arises when LLMs use language for reasoning: the amount of reasoning required for each particular token varies greatly, yet current LLM architectures allocate nearly the same computing budget for predicting every token. Most tokens in a reasoning chain are generated solely for fluency, contributing little to the actual reasoning process. By contrast, some critical tokens require complex planning and pose huge challenges to LLMs. While previous work has attempted to fix these problems by prompting LLMs to generate succinct reasoning chains , or performing additional reasoning before generating some critical tokens , these solutions remain constrained within the language space and do not solve the fundamental problems. On the contrary, it would be ideal for LLMs to have the freedom to reason without any language constraints, and then translate their findings into language only when necessary.</p>\n</div><div class=\"ltx_para\" id=\"S1.p3\">\n<p class=\"ltx_p\">In this work we instead explore LLM reasoning in a latent space by introducing a novel paradigm, <span class=\"ltx_text ltx_font_smallcaps\">Coconut</span> (Chain of Continuous Thought). It involves a simple modification to the traditional CoT process: instead of mapping between hidden states and language tokens using the language model head and embedding layer, <span class=\"ltx_text ltx_font_smallcaps\">Coconut</span> directly feeds the last hidden state (a continuous thought) as the input embedding for the next token (Figure <a class=\"ltx_ref\" href=\"https://arxiv.org/html/2412.06769v3#S1.F1\" title=\"Figure 1 ‣ 1 Introduction ‣ Training Large Language Models to Reason in a Continuous Latent Space\"><span class=\"ltx_text ltx_ref_tag\">1</span></a>). This modification frees the reasoning from being within the language space, and the system can be optimized end-to-end by gradient descent, as continuous thoughts are fully differentiable. To enhance the training of latent reasoning, we employ a multi-stage training strategy inspired by , which effectively utilizes language reasoning chains to guide the training process.</p>\n</div><div class=\"ltx_para\" id=\"S1.p4\">\n<p class=\"ltx_p\">Interestingly, our proposed paradigm leads to an efficient reasoning pattern. Unlike language-based reasoning, continuous thoughts in <span class=\"ltx_text ltx_font_smallcaps\">Coconut</span> can encode multiple potential next steps simultaneously, allowing for a reasoning process akin to breadth-first search (BFS). While the model may not initially make the correct decision, it can maintain many possible options within the continuous thoughts and progressively eliminate incorrect paths through reasoning, guided by some implicit value functions. This advanced reasoning mechanism surpasses traditional CoT, even though the model is not explicitly trained or instructed to operate in this manner, as seen in previous works .</p>\n</div><div class=\"ltx_para\" id=\"S1.p5\">\n<p class=\"ltx_p\">Experimentally, <span class=\"ltx_text ltx_font_smallcaps\">Coconut</span> successfully enhances the reasoning capabilities of LLMs. For math reasoning (GSM8k, ), using continuous thoughts is shown to be beneficial to reasoning accuracy, mirroring the effects of language reasoning chains. This indicates the potential to scale and solve increasingly challenging problems by chaining more continuous thoughts. On logical reasoning including ProntoQA , and our newly proposed ProsQA (Section <a class=\"ltx_ref\" href=\"https://arxiv.org/html/2412.06769v3#S4\" title=\"4 Continuous Space Enables Latent Tree Search ‣ Training Large Language Models to Reason in a Continuous Latent Space\"><span class=\"ltx_text ltx_ref_tag\">4</span></a>) which requires stronger planning ability, <span class=\"ltx_text ltx_font_smallcaps\">Coconut</span> and some of its variants even surpasses language-based CoT methods, while generating significantly fewer tokens during inference. We believe that these findings underscore the potential of latent reasoning and could provide valuable insights for future research.</p>\n</div>",
+  "references": {
+    "1": {
+      "enum": "1",
+      "authors": "OpenAI, Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, Red Avila, Igor Babuschkin, Suchir Balaji, Valerie Balcom, Paul Baltescu, Haiming Bao, Mohammad Bavarian, Jeff Belgum, Irwan Bello, Jake Berdine, Gabriel Bernadett-Shapiro, Christopher Berner, Lenny Bogdonoff, Oleg Boiko, Madelaine Boyd, Anna-Luisa Brakman, Greg Brockman, Tim Brooks, Miles Brundage, Kevin Button, Trevor Cai, Rosie Campbell, Andrew Cann, Brittany Carey, Chelsea Carlson, Rory Carmichael, Brooke Chan, Che Chang, Fotis Chantzis, Derek Chen, Sully Chen, Ruby Chen, Jason Chen, Mark Chen, Ben Chess, Chester Cho, Casey Chu, Hyung Won Chung, Dave Cummings, Jeremiah Currier, Yunxing Dai, Cory Decareaux, Thomas Degry, Noah Deutsch, Damien Deville, Arka Dhar, David Dohan, Steve Dowling, Sheila Dunning, Adrien Ecoffet, Atty Eleti, Tyna Eloundou, David Farhi, Liam Fedus, Niko Felix, Simón Posada Fishman, Juston Forte, Isabella Fulford, Leo Gao, Elie Georges, Christian Gibson, Vik Goel, Tarun Gogineni, Gabriel Goh, Rapha Gontijo-Lopes, Jonathan Gordon, Morgan Grafstein, Scott Gray, Ryan Greene, Joshua Gross, Shixiang Shane Gu, Yufei Guo, Chris Hallacy, Jesse Han, Jeff Harris, Yuchen He, Mike Heaton, Johannes Heidecke, Chris Hesse, Alan Hickey, Wade Hickey, Peter Hoeschele, Brandon Houghton, Kenny Hsu, Shengli Hu, Xin Hu, Joost Huizinga, Shantanu Jain, Shawn Jain, Joanne Jang, Angela Jiang, Roger Jiang, Haozhun Jin, Denny Jin, Shino Jomoto, Billie Jonn, Heewoo Jun, Tomer Kaftan, Łukasz Kaiser, Ali Kamali, Ingmar Kanitscheider, Nitish Shirish Keskar, Tabarak Khan, Logan Kilpatrick, Jong Wook Kim, Christina Kim, Yongjik Kim, Jan Hendrik Kirchner, Jamie Kiros, Matt Knight, Daniel Kokotajlo, Łukasz Kondraciuk, Andrew Kondrich, Aris Konstantinidis, Kyle Kosic, Gretchen Krueger, Vishal Kuo, Michael Lampe, Ikai Lan, Teddy Lee, Jan Leike, Jade Leung, Daniel Levy, Chak Ming Li, Rachel Lim, Molly Lin, Stephanie Lin, Mateusz Litwin, Theresa Lopez, Ryan Lowe, Patricia Lue, Anna Makanju, Kim Malfacini, Sam Manning, Todor Markov, Yaniv Markovski, Bianca Martin, Katie Mayer, Andrew Mayne, Bob McGrew, Scott Mayer McKinney, Christine McLeavey, Paul McMillan, Jake McNeil, David Medina, Aalok Mehta, Jacob Menick, Luke Metz, Andrey Mishchenko, Pamela Mishkin, Vinnie Monaco, Evan Morikawa, Daniel Mossing, Tong Mu, Mira Murati, Oleg Murk, David Mély, Ashvin Nair, Reiichiro Nakano, Rajeev Nayak, Arvind Neelakantan, Richard Ngo, Hyeonwoo Noh, Long Ouyang, Cullen O'Keefe, Jakub Pachocki, Alex Paino, Joe Palermo, Ashley Pantuliano, Giambattista Parascandolo, Joel Parish, Emy Parparita, Alex Passos, Mikhail Pavlov, Andrew Peng, Adam Perelman, Filipe de Avila Belbute Peres, Michael Petrov, Henrique Ponde de Oliveira Pinto, Michael, Pokorny, Michelle Pokrass, Vitchyr H. Pong, Tolly Powell, Alethea Power, Boris Power, Elizabeth Proehl, Raul Puri, Alec Radford, Jack Rae, Aditya Ramesh, Cameron Raymond, Francis Real, Kendra Rimbach, Carl Ross, Bob Rotsted, Henri Roussez, Nick Ryder, Mario Saltarelli, Ted Sanders, Shibani Santurkar, Girish Sastry, Heather Schmidt, David Schnurr, John Schulman, Daniel Selsam, Kyla Sheppard, Toki Sherbakov, Jessica Shieh, Sarah Shoker, Pranav Shyam, Szymon Sidor, Eric Sigler, Maddie Simens, Jordan Sitkin, Katarina Slama, Ian Sohl, Benjamin Sokolowsky, Yang Song, Natalie Staudacher, Felipe Petroski Such, Natalie Summers, Ilya Sutskever, Jie Tang, Nikolas Tezak, Madeleine B. Thompson, Phil Tillet, Amin Tootoonchian, Elizabeth Tseng, Preston Tuggle, Nick Turley, Jerry Tworek, Juan Felipe Cerón Uribe, Andrea Vallone, Arun Vijayvergiya, Chelsea Voss, Carroll Wainwright, Justin Jay Wang, Alvin Wang, Ben Wang, Jonathan Ward, Jason Wei, CJ Weinmann, Akila Welihinda, Peter Welinder, Jiayi Weng, Lilian Weng, Matt Wiethoff, Dave Willner, Clemens Winter, Samuel Wolrich, Hannah Wong, Lauren Workman, Sherwin Wu, Jeff Wu, Michael Wu, Kai Xiao, Tao Xu, Sarah Yoo, Kevin Yu, Qiming Yuan, Wojciech Zaremba, Rowan Zellers, Chong Zhang, Marvin Zhang, Shengjia Zhao, Tianhao Zheng, Juntang Zhuang, William Zhuk, Barret Zoph",
+      "title": "Gpt-4 technical report",
+      "publication": "arXiv preprint arXiv:2303.08774, 2023",
+      "year": 2023,
+      "summary": "We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs. While less capable than humans in many real-world scenarios, GPT-4 exhibits human-level performance on various professional and academic benchmarks, including passing a simulated bar exam with a score around the top 10% of test takers. GPT-4 is a Transformer-based model pre-trained to predict the next token in a document. The post-training alignment process results in improved performance on measures of factuality and adherence to desired behavior. A core component of this project was developing infrastructure and optimization methods that behave predictably across a wide range of scales. This allowed us to accurately predict some aspects of GPT-4's performance based on models trained with no more than 1/1,000th the compute of GPT-4.",
+      "standard_url": "http://arxiv.org/abs/2303.08774v6",
+      "id": "2023-gpt-4_technical_report"
+    },
+    "2": {
+      "enum": "2",
+      "authors": "Marie Amalric and Stanislas Dehaene",
+      "title": "A distinct cortical network for mathematical knowledge in the human brain",
+      "publication": "NeuroImage, 189:19–31, 2019",
+      "year": "2019",
+      "summary": null,
+      "standard_url": null,
+      "id": "2019-a_distinct_cortical_network_for_mathematical_knowledge_in_the_human_brain"
+    },
+    "3": {
+      "enum": "3",
+      "authors": "LCM team, Loïc Barrault, Paul-Ambroise Duquenne, Maha Elbayad, Artyom Kozhevnikov, Belen Alastruey, Pierre Andrews, Mariano Coria, Guillaume Couairon, Marta R. Costa-jussà, David Dale, Hady Elsahar, Kevin Heffernan, João Maria Janeiro, Tuan Tran, Christophe Ropers, Eduardo Sánchez, Robin San Roman, Alexandre Mourachko, Safiyyah Saleem, Holger Schwenk",
+      "title": "Large concept models: Language modeling in a sentence representation space",
+      "publication": "arXiv preprint arXiv:2412.08821, 2024",
+      "year": 2024,
+      "summary": "LLMs have revolutionized the field of artificial intelligence and have emerged as the de-facto tool for many tasks. The current established technology of LLMs is to process input and generate output at the token level. This is in sharp contrast to humans who operate at multiple levels of abstraction, well beyond single words, to analyze information and to generate creative content. In this paper, we present an attempt at an architecture which operates on an explicit higher-level semantic representation, which we name a concept. Concepts are language- and modality-agnostic and represent a higher level idea or action in a flow. Hence, we build a \"Large Concept Model\". In this study, as proof of feasibility, we assume that a concept corresponds to a sentence, and use an existing sentence embedding space, SONAR, which supports up to 200 languages in both text and speech modalities.\n  The Large Concept Model is trained to perform autoregressive sentence prediction in an embedding space. We explore multiple approaches, namely MSE regression, variants of diffusion-based generation, and models operating in a quantized SONAR space. These explorations are performed using 1.6B parameter models and training data in the order of 1.3T tokens. We then scale one architecture to a model size of 7B parameters and training data of about 2.7T tokens. We perform an experimental evaluation on several generative tasks, namely summarization and a new task of summary expansion. Finally, we show that our model exhibits impressive zero-shot generalization performance to many languages, outperforming existing LLMs of the same size. The training code of our models is freely available.",
+      "standard_url": "http://arxiv.org/abs/2412.08821v2",
+      "id": "2024-large_concept_models:_language_modeling_in_a_sentence_representation_space"
+    },
+    "4": {
+      "enum": "4",
+      "authors": "Eden Biran, Daniela Gottesman, Sohee Yang, Mor Geva, Amir Globerson",
+      "title": "Hopping too late: Exploring the limitations of large language models on multi-hop queries",
+      "publication": "arXiv preprint arXiv:2406.12775, 2024",
+      "year": 2024,
+      "summary": "Large language models (LLMs) can solve complex multi-step problems, but little is known about how these computations are implemented internally. Motivated by this, we study how LLMs answer multi-hop queries such as \"The spouse of the performer of Imagine is\". These queries require two information extraction steps: a latent one for resolving the first hop (\"the performer of Imagine\") into the bridge entity (John Lennon), and another for resolving the second hop (\"the spouse of John Lennon\") into the target entity (Yoko Ono). Understanding how the latent step is computed internally is key to understanding the overall computation. By carefully analyzing the internal computations of transformer-based LLMs, we discover that the bridge entity is resolved in the early layers of the model. Then, only after this resolution, the two-hop query is solved in the later layers. Because the second hop commences in later layers, there could be cases where these layers no longer encode the necessary knowledge for correctly predicting the answer. Motivated by this, we propose a novel \"back-patching\" analysis method whereby a hidden representation from a later layer is patched back to an earlier layer. We find that in up to 66% of previously incorrect cases there exists a back-patch that results in the correct generation of the answer, showing that the later layers indeed sometimes lack the needed functionality. Overall, our methods and findings open further opportunities for understanding and improving latent reasoning in transformer-based LLMs.",
+      "standard_url": "http://arxiv.org/abs/2406.12775v2",
+      "id": "2024-hopping_too_late:_exploring_the_limitations_of_large_language_models_on_multi-hop_queries"
+    },
+    "5": {
+      "enum": "5",
+      "authors": "Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, John Schulman",
+      "title": "Training verifiers to solve math word problems",
+      "publication": "arXiv preprint arXiv:2110.14168, 2021",
+      "year": 2021,
+      "summary": "State-of-the-art language models can match human performance on many tasks, but they still struggle to robustly perform multi-step mathematical reasoning. To diagnose the failures of current models and support research, we introduce GSM8K, a dataset of 8.5K high quality linguistically diverse grade school math word problems. We find that even the largest transformer models fail to achieve high test performance, despite the conceptual simplicity of this problem distribution. To increase performance, we propose training verifiers to judge the correctness of model completions. At test time, we generate many candidate solutions and select the one ranked highest by the verifier. We demonstrate that verification significantly improves performance on GSM8K, and we provide strong empirical evidence that verification scales more effectively with increased data than a finetuning baseline.",
+      "standard_url": "http://arxiv.org/abs/2110.14168v2",
+      "id": "2021-training_verifiers_to_solve_math_word_problems"
+    },
+    "6": {
+      "enum": "6",
+      "authors": "Yuntian Deng, Kiran Prasad, Roland Fernandez, Paul Smolensky, Vishrav Chaudhary, Stuart Shieber",
+      "title": "Implicit chain of thought reasoning via knowledge distillation",
+      "publication": "arXiv preprint arXiv:2311.01460, 2023",
+      "year": 2023,
+      "summary": "To augment language models with the ability to reason, researchers usually prompt or finetune them to produce chain of thought reasoning steps before producing the final answer. However, although people use natural language to reason effectively, it may be that LMs could reason more effectively with some intermediate computation that is not in natural language. In this work, we explore an alternative reasoning approach: instead of explicitly producing the chain of thought reasoning steps, we use the language model's internal hidden states to perform implicit reasoning. The implicit reasoning steps are distilled from a teacher model trained on explicit chain-of-thought reasoning, and instead of doing reasoning \"horizontally\" by producing intermediate words one-by-one, we distill it such that the reasoning happens \"vertically\" among the hidden states in different layers. We conduct experiments on a multi-digit multiplication task and a grade school math problem dataset and find that this approach enables solving tasks previously not solvable without explicit chain-of-thought, at a speed comparable to no chain-of-thought.",
+      "standard_url": "http://arxiv.org/abs/2311.01460v1",
+      "id": "2023-implicit_chain_of_thought_reasoning_via_knowledge_distillation"
+    },
+    "7": {
+      "enum": "7",
+      "authors": "Yuntian Deng, Yejin Choi, Stuart Shieber",
+      "title": "From explicit cot to implicit cot: Learning to internalize cot step by step",
+      "publication": "arXiv preprint arXiv:2405.14838, 2024",
+      "year": 2024,
+      "summary": "When leveraging language models for reasoning tasks, generating explicit chain-of-thought (CoT) steps often proves essential for achieving high accuracy in final outputs. In this paper, we investigate if models can be taught to internalize these CoT steps. To this end, we propose a simple yet effective method for internalizing CoT steps: starting with a model trained for explicit CoT reasoning, we gradually remove the intermediate steps and finetune the model. This process allows the model to internalize the intermediate reasoning steps, thus simplifying the reasoning process while maintaining high performance. Our approach enables a GPT-2 Small model to solve 9-by-9 multiplication with up to 99% accuracy, whereas standard training cannot solve beyond 4-by-4 multiplication. Furthermore, our method proves effective on larger language models, such as Mistral 7B, achieving over 50% accuracy on GSM8K without producing any intermediate steps.",
+      "standard_url": "http://arxiv.org/abs/2405.14838v1",
+      "id": "2024-from_explicit_cot_to_implicit_cot:_learning_to_internalize_cot_step_by_step"
+    },
+    "8": {
+      "enum": "8",
+      "authors": "Aaron Grattafiori, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Alex Vaughan, Amy Yang, Angela Fan, Anirudh Goyal, Anthony Hartshorn, Aobo Yang, Archi Mitra, Archie Sravankumar, Artem Korenev, Arthur Hinsvark, Arun Rao, Aston Zhang, Aurelien Rodriguez, Austen Gregerson, Ava Spataru, Baptiste Roziere, Bethany Biron, Binh Tang, Bobbie Chern, Charlotte Caucheteux, Chaya Nayak, Chloe Bi, Chris Marra, Chris McConnell, Christian Keller, Christophe Touret, Chunyang Wu, Corinne Wong, Cristian Canton Ferrer, Cyrus Nikolaidis, Damien Allonsius, Daniel Song, Danielle Pintz, Danny Livshits, Danny Wyatt, David Esiobu, Dhruv Choudhary, Dhruv Mahajan, Diego Garcia-Olano, Diego Perino, Dieuwke Hupkes, Egor Lakomkin, Ehab AlBadawy, Elina Lobanova, Emily Dinan, Eric Michael Smith, Filip Radenovic, Francisco Guzmán, Frank Zhang, Gabriel Synnaeve, Gabrielle Lee, Georgia Lewis Anderson, Govind Thattai, Graeme Nail, Gregoire Mialon, Guan Pang, Guillem Cucurell, Hailey Nguyen, Hannah Korevaar, Hu Xu, Hugo Touvron, Iliyan Zarov, Imanol Arrieta Ibarra, Isabel Kloumann, Ishan Misra, Ivan Evtimov, Jack Zhang, Jade Copet, Jaewon Lee, Jan Geffert, Jana Vranes, Jason Park, Jay Mahadeokar, Jeet Shah, Jelmer van der Linde, Jennifer Billock, Jenny Hong, Jenya Lee, Jeremy Fu, Jianfeng Chi, Jianyu Huang, Jiawen Liu, Jie Wang, Jiecao Yu, Joanna Bitton, Joe Spisak, Jongsoo Park, Joseph Rocca, Joshua Johnstun, Joshua Saxe, Junteng Jia, Kalyan Vasuden Alwala, Karthik Prasad, Kartikeya Upasani, Kate Plawiak, Ke Li, Kenneth Heafield, Kevin Stone, Khalid El-Arini, Krithika Iyer, Kshitiz Malik, Kuenley Chiu, Kunal Bhalla, Kushal Lakhotia, Lauren Rantala-Yeary, Laurens van der Maaten, Lawrence Chen, Liang Tan, Liz Jenkins, Louis Martin, Lovish Madaan, Lubo Malo, Lukas Blecher, Lukas Landzaat, Luke de Oliveira, Madeline Muzzi, Mahesh Pasupuleti, Mannat Singh, Manohar Paluri, Marcin Kardas, Maria Tsimpoukelli, Mathew Oldham, Mathieu Rita, Maya Pavlova, Melanie Kambadur, Mike Lewis, Min Si, Mitesh Kumar Singh, Mona Hassan, Naman Goyal, Narjes Torabi, Nikolay Bashlykov, Nikolay Bogoychev, Niladri Chatterji, Ning Zhang, Olivier Duchenne, Onur Çelebi, Patrick Alrassy, Pengchuan Zhang, Pengwei Li, Petar Vasic, Peter Weng, Prajjwal Bhargava, Pratik Dubal, Praveen Krishnan, Punit Singh Koura, Puxin Xu, Qing He, Qingxiao Dong, Ragavan Srinivasan, Raj Ganapathy, Ramon Calderer, Ricardo Silveira Cabral, Robert Stojnic, Roberta Raileanu, Rohan Maheswari, Rohit Girdhar, Rohit Patel, Romain Sauvestre, Ronnie Polidoro, Roshan Sumbaly, Ross Taylor, Ruan Silva, Rui Hou, Rui Wang, Saghar Hosseini, Sahana Chennabasappa, Sanjay Singh, Sean Bell, Seohyun Sonia Kim, Sergey Edunov, Shaoliang Nie, Sharan Narang, Sharath Raparthy, Sheng Shen, Shengye Wan, Shruti Bhosale, Shun Zhang, Simon Vandenhende, Soumya Batra, Spencer Whitman, Sten Sootla, Stephane Collot, Suchin Gururangan, Sydney Borodinsky, Tamar Herman, Tara Fowler, Tarek Sheasha, Thomas Georgiou, Thomas Scialom, Tobias Speckbacher, Todor Mihaylov, Tong Xiao, Ujjwal Karn, Vedanuj Goswami, Vibhor Gupta, Vignesh Ramanathan, Viktor Kerkez, Vincent Gonguet, Virginie Do, Vish Vogeti, Vítor Albiero, Vladan Petrovic, Weiwei Chu, Wenhan Xiong, Wenyin Fu, Whitney Meers, Xavier Martinet, Xiaodong Wang, Xiaofang Wang, Xiaoqing Ellen Tan, Xide Xia, Xinfeng Xie, Xuchao Jia, Xuewei Wang, Yaelle Goldschlag, Yashesh Gaur, Yasmine Babaei, Yi Wen, Yiwen Song, Yuchen Zhang, Yue Li, Yuning Mao, Zacharie Delpierre Coudert, Zheng Yan, Zhengxing Chen, Zoe Papakipos, Aaditya Singh, Aayushi Srivastava, Abha Jain, Adam Kelsey, Adam Shajnfeld, Adithya Gangidi, Adolfo Victoria, Ahuva Goldstand, Ajay Menon, Ajay Sharma, Alex Boesenberg, Alexei Baevski, Allie Feinstein, Amanda Kallet, Amit Sangani, Amos Teo, Anam Yunus, Andrei Lupu, Andres Alvarado, Andrew Caples, Andrew Gu, Andrew Ho, Andrew Poulton, Andrew Ryan, Ankit Ramchandani, Annie Dong, Annie Franco, Anuj Goyal, Aparajita Saraf, Arkabandhu Chowdhury, Ashley Gabriel, Ashwin Bharambe, Assaf Eisenman, Azadeh Yazdan, Beau James, Ben Maurer, Benjamin Leonhardi, Bernie Huang, Beth Loyd, Beto De Paola, Bhargavi Paranjape, Bing Liu, Bo Wu, Boyu Ni, Braden Hancock, Bram Wasti, Brandon Spence, Brani Stojkovic, Brian Gamido, Britt Montalvo, Carl Parker, Carly Burton, Catalina Mejia, Ce Liu, Changhan Wang, Changkyu Kim, Chao Zhou, Chester Hu, Ching-Hsiang Chu, Chris Cai, Chris Tindal, Christoph Feichtenhofer, Cynthia Gao, Damon Civin, Dana Beaty, Daniel Kreymer, Daniel Li, David Adkins, David Xu, Davide Testuggine, Delia David, Devi Parikh, Diana Liskovich, Didem Foss, Dingkang Wang, Duc Le, Dustin Holland, Edward Dowling, Eissa Jamil, Elaine Montgomery, Eleonora Presani, Emily Hahn, Emily Wood, Eric-Tuan Le, Erik Brinkman, Esteban Arcaute, Evan Dunbar, Evan Smothers, Fei Sun, Felix Kreuk, Feng Tian, Filippos Kokkinos, Firat Ozgenel, Francesco Caggioni, Frank Kanayet, Frank Seide, Gabriela Medina Florez, Gabriella Schwarz, Gada Badeer, Georgia Swee, Gil Halpern, Grant Herman, Grigory Sizov, Guangyi, Zhang, Guna Lakshminarayanan, Hakan Inan, Hamid Shojanazeri, Han Zou, Hannah Wang, Hanwen Zha, Haroun Habeeb, Harrison Rudolph, Helen Suk, Henry Aspegren, Hunter Goldman, Hongyuan Zhan, Ibrahim Damlaj, Igor Molybog, Igor Tufanov, Ilias Leontiadis, Irina-Elena Veliche, Itai Gat, Jake Weissman, James Geboski, James Kohli, Janice Lam, Japhet Asher, Jean-Baptiste Gaya, Jeff Marcus, Jeff Tang, Jennifer Chan, Jenny Zhen, Jeremy Reizenstein, Jeremy Teboul, Jessica Zhong, Jian Jin, Jingyi Yang, Joe Cummings, Jon Carvill, Jon Shepard, Jonathan McPhie, Jonathan Torres, Josh Ginsburg, Junjie Wang, Kai Wu, Kam Hou U, Karan Saxena, Kartikay Khandelwal, Katayoun Zand, Kathy Matosich, Kaushik Veeraraghavan, Kelly Michelena, Keqian Li, Kiran Jagadeesh, Kun Huang, Kunal Chawla, Kyle Huang, Lailin Chen, Lakshya Garg, Lavender A, Leandro Silva, Lee Bell, Lei Zhang, Liangpeng Guo, Licheng Yu, Liron Moshkovich, Luca Wehrstedt, Madian Khabsa, Manav Avalani, Manish Bhatt, Martynas Mankus, Matan Hasson, Matthew Lennie, Matthias Reso, Maxim Groshev, Maxim Naumov, Maya Lathi, Meghan Keneally, Miao Liu, Michael L. Seltzer, Michal Valko, Michelle Restrepo, Mihir Patel, Mik Vyatskov, Mikayel Samvelyan, Mike Clark, Mike Macey, Mike Wang, Miquel Jubert Hermoso, Mo Metanat, Mohammad Rastegari, Munish Bansal, Nandhini Santhanam, Natascha Parks, Natasha White, Navyata Bawa, Nayan Singhal, Nick Egebo, Nicolas Usunier, Nikhil Mehta, Nikolay Pavlovich Laptev, Ning Dong, Norman Cheng, Oleg Chernoguz, Olivia Hart, Omkar Salpekar, Ozlem Kalinli, Parkin Kent, Parth Parekh, Paul Saab, Pavan Balaji, Pedro Rittner, Philip Bontrager, Pierre Roux, Piotr Dollar, Polina Zvyagina, Prashant Ratanchandani, Pritish Yuvraj, Qian Liang, Rachad Alao, Rachel Rodriguez, Rafi Ayub, Raghotham Murthy, Raghu Nayani, Rahul Mitra, Rangaprabhu Parthasarathy, Raymond Li, Rebekkah Hogan, Robin Battey, Rocky Wang, Russ Howes, Ruty Rinott, Sachin Mehta, Sachin Siby, Sai Jayesh Bondu, Samyak Datta, Sara Chugh, Sara Hunt, Sargun Dhillon, Sasha Sidorov, Satadru Pan, Saurabh Mahajan, Saurabh Verma, Seiji Yamamoto, Sharadh Ramaswamy, Shaun Lindsay, Shaun Lindsay, Sheng Feng, Shenghao Lin, Shengxin Cindy Zha, Shishir Patil, Shiva Shankar, Shuqiang Zhang, Shuqiang Zhang, Sinong Wang, Sneha Agarwal, Soji Sajuyigbe, Soumith Chintala, Stephanie Max, Stephen Chen, Steve Kehoe, Steve Satterfield, Sudarshan Govindaprasad, Sumit Gupta, Summer Deng, Sungmin Cho, Sunny Virk, Suraj Subramanian, Sy Choudhury, Sydney Goldman, Tal Remez, Tamar Glaser, Tamara Best, Thilo Koehler, Thomas Robinson, Tianhe Li, Tianjun Zhang, Tim Matthews, Timothy Chou, Tzook Shaked, Varun Vontimitta, Victoria Ajayi, Victoria Montanez, Vijai Mohan, Vinay Satish Kumar, Vishal Mangla, Vlad Ionescu, Vlad Poenaru, Vlad Tiberiu Mihailescu, Vladimir Ivanov, Wei Li, Wenchen Wang, Wenwen Jiang, Wes Bouaziz, Will Constable, Xiaocheng Tang, Xiaojian Wu, Xiaolan Wang, Xilun Wu, Xinbo Gao, Yaniv Kleinman, Yanjun Chen, Ye Hu, Ye Jia, Ye Qi, Yenda Li, Yilin Zhang, Ying Zhang, Yossi Adi, Youngjin Nam, Yu, Wang, Yu Zhao, Yuchen Hao, Yundi Qian, Yunlu Li, Yuzi He, Zach Rait, Zachary DeVito, Zef Rosnbrick, Zhaoduo Wen, Zhenyu Yang, Zhiwei Zhao, Zhiyu Ma",
+      "title": "The llama 3 herd of models",
+      "publication": "arXiv preprint arXiv:2407.21783, 2024",
+      "year": 2024,
+      "summary": "Modern artificial intelligence (AI) systems are powered by foundation models. This paper presents a new set of foundation models, called Llama 3. It is a herd of language models that natively support multilinguality, coding, reasoning, and tool usage. Our largest model is a dense Transformer with 405B parameters and a context window of up to 128K tokens. This paper presents an extensive empirical evaluation of Llama 3. We find that Llama 3 delivers comparable quality to leading language models such as GPT-4 on a plethora of tasks. We publicly release Llama 3, including pre-trained and post-trained versions of the 405B parameter language model and our Llama Guard 3 model for input and output safety. The paper also presents the results of experiments in which we integrate image, video, and speech capabilities into Llama 3 via a compositional approach. We observe this approach performs competitively with the state-of-the-art on image, video, and speech recognition tasks. The resulting models are not yet being broadly released as they are still under development.",
+      "standard_url": "http://arxiv.org/abs/2407.21783v3",
+      "id": "2024-the_llama_3_herd_of_models"
+    },
+    "9": {
+      "enum": "9",
+      "authors": "Ying Fan, Yilun Du, Kannan Ramchandran, Kangwook Lee",
+      "title": "Looped transformers for length generalization",
+      "publication": "arXiv preprint arXiv:2409.15647, 2024",
+      "year": 2024,
+      "summary": "Recent work has shown that Transformers trained from scratch can successfully solve various arithmetic and algorithmic tasks, such as adding numbers and computing parity. While these Transformers generalize well on unseen inputs of the same length, they struggle with length generalization, i.e., handling inputs of unseen lengths. In this work, we demonstrate that looped Transformers with an adaptive number of steps significantly improve length generalization. We focus on tasks with a known iterative solution, involving multiple iterations of a RASP-L operation - a length-generalizable operation that can be expressed by a finite-sized Transformer. We train looped Transformers using our proposed learning algorithm and observe that they learn highly length-generalizable solutions for various tasks.",
+      "standard_url": "http://arxiv.org/abs/2409.15647v5",
+      "id": "2024-looped_transformers_for_length_generalization"
+    },
+    "10": {
+      "enum": "10",
+      "authors": "Evelina Fedorenko, Michael K Behr, and Nancy Kanwisher",
+      "title": "Functional specificity for high-level linguistic processing in the human brain",
+      "publication": "Proceedings of the National Academy of Sciences, 108(39):16428–16433, 2011",
+      "year": "2011",
+      "summary": null,
+      "standard_url": null,
+      "id": "2011-functional_specificity_for_high-level_linguistic_processing_in_the_human_brain"
+    },
+    "11": {
+      "enum": "11",
+      "authors": "Evelina Fedorenko, Steven T Piantadosi, and Edward AF Gibson",
+      "title": "Language is primarily a tool for communication rather than thought",
+      "publication": "Nature, 630(8017):575–586, 2024",
+      "year": "2024",
+      "summary": null,
+      "standard_url": null,
+      "id": "2024-language_is_primarily_a_tool_for_communication_rather_than_thought"
+    },
+    "12": {
+      "enum": "12",
+      "authors": "Guhao Feng, Bohang Zhang, Yuntian Gu, Haotian Ye, Di He, Liwei Wang",
+      "title": "Towards revealing the mystery behind chain of thought: a theoretical perspective",
+      "publication": "Advances in Neural Information Processing Systems, 36, 2023",
+      "year": 2023,
+      "summary": "Recent studies have discovered that Chain-of-Thought prompting (CoT) can dramatically improve the performance of Large Language Models (LLMs), particularly when dealing with complex tasks involving mathematics or reasoning. Despite the enormous empirical success, the underlying mechanisms behind CoT and how it unlocks the potential of LLMs remain elusive. In this paper, we take a first step towards theoretically answering these questions. Specifically, we examine the expressivity of LLMs with CoT in solving fundamental mathematical and decision-making problems. By using circuit complexity theory, we first give impossibility results showing that bounded-depth Transformers are unable to directly produce correct answers for basic arithmetic/equation tasks unless the model size grows super-polynomially with respect to the input length. In contrast, we then prove by construction that autoregressive Transformers of constant size suffice to solve both tasks by generating CoT derivations using a commonly used math language format. Moreover, we show LLMs with CoT can handle a general class of decision-making problems known as Dynamic Programming, thus justifying its power in tackling complex real-world tasks. Finally, an extensive set of experiments show that, while Transformers always fail to directly predict the answers, they can consistently learn to generate correct solutions step-by-step given sufficient CoT demonstrations.",
+      "standard_url": "http://arxiv.org/abs/2305.15408v5",
+      "id": "2023-towards_revealing_the_mystery_behind_chain_of_thought:_a_theoretical_perspective"
+    },
+    "13": {
+      "enum": "13",
+      "authors": "Kanishk Gandhi, Denise Lee, Gabriel Grand, Muxin Liu, Winson Cheng, Archit Sharma, Noah D. Goodman",
+      "title": "Stream of search (sos): Learning to search in language",
+      "publication": "arXiv preprint arXiv:2404.03683, 2024",
+      "year": 2024,
+      "summary": "Language models are rarely shown fruitful mistakes while training. They then struggle to look beyond the next token, suffering from a snowballing of errors and struggling to predict the consequence of their actions several steps ahead. In this paper, we show how language models can be taught to search by representing the process of search in language, as a flattened string -- a stream of search (SoS). We propose a unified language for search that captures an array of different symbolic search strategies. We demonstrate our approach using the simple yet difficult game of Countdown, where the goal is to combine input numbers with arithmetic operations to reach a target number. We pretrain a transformer-based language model from scratch on a dataset of streams of search generated by heuristic solvers. We find that SoS pretraining increases search accuracy by 25% over models trained to predict only the optimal search trajectory. We further finetune this model with two policy improvement methods: Advantage-Induced Policy Alignment (APA) and Self-Taught Reasoner (STaR). The finetuned SoS models solve 36% of previously unsolved problems, including problems that cannot be solved by any of the heuristic solvers. Our results indicate that language models can learn to solve problems via search, self-improve to flexibly use different search strategies, and potentially discover new ones.",
+      "standard_url": "http://arxiv.org/abs/2404.03683v1",
+      "id": "2024-stream_of_search_(sos):_learning_to_search_in_language"
+    },
+    "14": {
+      "enum": "14",
+      "authors": "Jonas Geiping, Sean McLeish, Neel Jain, John Kirchenbauer, Siddharth Singh, Brian R. Bartoldson, Bhavya Kailkhura, Abhinav Bhatele, Tom Goldstein",
+      "title": "Scaling up test-time compute with latent reasoning: A recurrent depth approach",
+      "publication": "arXiv preprint arXiv:2502.05171, 2025",
+      "year": 2025,
+      "summary": "We study a novel language model architecture that is capable of scaling test-time computation by implicitly reasoning in latent space. Our model works by iterating a recurrent block, thereby unrolling to arbitrary depth at test-time. This stands in contrast to mainstream reasoning models that scale up compute by producing more tokens. Unlike approaches based on chain-of-thought, our approach does not require any specialized training data, can work with small context windows, and can capture types of reasoning that are not easily represented in words. We scale a proof-of-concept model to 3.5 billion parameters and 800 billion tokens. We show that the resulting model can improve its performance on reasoning benchmarks, sometimes dramatically, up to a computation load equivalent to 50 billion parameters.",
+      "standard_url": "http://arxiv.org/abs/2502.05171v2",
+      "id": "2025-scaling_up_test-time_compute_with_latent_reasoning:_a_recurrent_depth_approach"
+    },
+    "15": {
+      "enum": "15",
+      "authors": "Angeliki Giannou, Shashank Rajput, Jy-yong Sohn, Kangwook Lee, Jason D. Lee, Dimitris Papailiopoulos",
+      "title": "Looped transformers as programmable computers",
+      "publication": "In International Conference on Machine Learning, pages 11398–11442. PMLR, 2023",
+      "year": 2023,
+      "summary": "We present a framework for using transformer networks as universal computers by programming them with specific weights and placing them in a loop. Our input sequence acts as a punchcard, consisting of instructions and memory for data read/writes. We demonstrate that a constant number of encoder layers can emulate basic computing blocks, including embedding edit operations, non-linear functions, function calls, program counters, and conditional branches. Using these building blocks, we emulate a small instruction-set computer. This allows us to map iterative algorithms to programs that can be executed by a looped, 13-layer transformer. We show how this transformer, instructed by its input, can emulate a basic calculator, a basic linear algebra library, and in-context learning algorithms that employ backpropagation. Our work highlights the versatility of the attention mechanism, and demonstrates that even shallow transformers can execute full-fledged, general-purpose programs.",
+      "standard_url": "http://arxiv.org/abs/2301.13196v1",
+      "id": "2023-looped_transformers_as_programmable_computers"
+    },
+    "16": {
+      "enum": "16",
+      "authors": "Alexi Gladstone, Ganesh Nanduru, Md Mofijul Islam, Peixuan Han, Hyeonjeong Ha, Aman Chadha, Yilun Du, Heng Ji, Jundong Li, Tariq Iqbal",
+      "title": "Energy-based transformers are scalable learners and thinkers",
+      "publication": "arXiv preprint arXiv:2507.02092, 2025",
+      "year": 2025,
+      "summary": "Inference-time computation techniques, analogous to human System 2 Thinking, have recently become popular for improving model performances. However, most existing approaches suffer from several limitations: they are modality-specific (e.g., working only in text), problem-specific (e.g., verifiable domains like math and coding), or require additional supervision/training on top of unsupervised pretraining (e.g., verifiers or verifiable rewards). In this paper, we ask the question \"Is it possible to generalize these System 2 Thinking approaches, and develop models that learn to think solely from unsupervised learning?\" Interestingly, we find the answer is yes, by learning to explicitly verify the compatibility between inputs and candidate-predictions, and then re-framing prediction problems as optimization with respect to this verifier. Specifically, we train Energy-Based Transformers (EBTs) -- a new class of Energy-Based Models (EBMs) -- to assign an energy value to every input and candidate-prediction pair, enabling predictions through gradient descent-based energy minimization until convergence. Across both discrete (text) and continuous (visual) modalities, we find EBTs scale faster than the dominant Transformer++ approach during training, achieving an up to 35% higher scaling rate with respect to data, batch size, parameters, FLOPs, and depth. During inference, EBTs improve performance with System 2 Thinking by 29% more than the Transformer++ on language tasks, and EBTs outperform Diffusion Transformers on image denoising while using fewer forward passes. Further, we find that EBTs achieve better results than existing models on most downstream tasks given the same or worse pretraining performance, suggesting that EBTs generalize better than existing approaches. Consequently, EBTs are a promising new paradigm for scaling both the learning and thinking capabilities of models.",
+      "standard_url": "http://arxiv.org/abs/2507.02092v1",
+      "id": "2025-energy-based_transformers_are_scalable_learners_and_thinkers"
+    },
+    "17": {
+      "enum": "17",
+      "authors": "Sachin Goyal, Ziwei Ji, Ankit Singh Rawat, Aditya Krishna Menon, Sanjiv Kumar, Vaishnavh Nagarajan",
+      "title": "Think before you speak: Training language models with pause tokens",
+      "publication": "arXiv preprint arXiv:2310.02226, 2023",
+      "year": 2023,
+      "summary": "Language models generate responses by producing a series of tokens in immediate succession: the $(K+1)^{th}$ token is an outcome of manipulating $K$ hidden vectors per layer, one vector per preceding token. What if instead we were to let the model manipulate say, $K+10$ hidden vectors, before it outputs the $(K+1)^{th}$ token? We operationalize this idea by performing training and inference on language models with a (learnable) $\\textit{pause}$ token, a sequence of which is appended to the input prefix. We then delay extracting the model's outputs until the last pause token is seen, thereby allowing the model to process extra computation before committing to an answer. We empirically evaluate $\\textit{pause-training}$ on decoder-only models of 1B and 130M parameters with causal pretraining on C4, and on downstream tasks covering reasoning, question-answering, general understanding and fact recall. Our main finding is that inference-time delays show gains when the model is both pre-trained and finetuned with delays. For the 1B model, we witness gains on 8 of 9 tasks, most prominently, a gain of $18\\%$ EM score on the QA task of SQuAD, $8\\%$ on CommonSenseQA and $1\\%$ accuracy on the reasoning task of GSM8k. Our work raises a range of conceptual and practical future research questions on making delayed next-token prediction a widely applicable new paradigm.",
+      "standard_url": "http://arxiv.org/abs/2310.02226v3",
+      "id": "2023-think_before_you_speak:_training_language_models_with_pause_tokens"
+    },
+    "18": {
+      "enum": "18",
+      "authors": "DeepSeek-AI, Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Peiyi Wang, Qihao Zhu, Runxin Xu, Ruoyu Zhang, Shirong Ma, Xiao Bi, Xiaokang Zhang, Xingkai Yu, Yu Wu, Z. F. Wu, Zhibin Gou, Zhihong Shao, Zhuoshu Li, Ziyi Gao, Aixin Liu, Bing Xue, Bingxuan Wang, Bochao Wu, Bei Feng, Chengda Lu, Chenggang Zhao, Chengqi Deng, Chenyu Zhang, Chong Ruan, Damai Dai, Deli Chen, Dongjie Ji, Erhang Li, Fangyun Lin, Fucong Dai, Fuli Luo, Guangbo Hao, Guanting Chen, Guowei Li, H. Zhang, Han Bao, Hanwei Xu, Haocheng Wang, Honghui Ding, Huajian Xin, Huazuo Gao, Hui Qu, Hui Li, Jianzhong Guo, Jiashi Li, Jiawei Wang, Jingchang Chen, Jingyang Yuan, Junjie Qiu, Junlong Li, J. L. Cai, Jiaqi Ni, Jian Liang, Jin Chen, Kai Dong, Kai Hu, Kaige Gao, Kang Guan, Kexin Huang, Kuai Yu, Lean Wang, Lecong Zhang, Liang Zhao, Litong Wang, Liyue Zhang, Lei Xu, Leyi Xia, Mingchuan Zhang, Minghua Zhang, Minghui Tang, Meng Li, Miaojun Wang, Mingming Li, Ning Tian, Panpan Huang, Peng Zhang, Qiancheng Wang, Qinyu Chen, Qiushi Du, Ruiqi Ge, Ruisong Zhang, Ruizhe Pan, Runji Wang, R. J. Chen, R. L. Jin, Ruyi Chen, Shanghao Lu, Shangyan Zhou, Shanhuang Chen, Shengfeng Ye, Shiyu Wang, Shuiping Yu, Shunfeng Zhou, Shuting Pan, S. S. Li, Shuang Zhou, Shaoqing Wu, Shengfeng Ye, Tao Yun, Tian Pei, Tianyu Sun, T. Wang, Wangding Zeng, Wanjia Zhao, Wen Liu, Wenfeng Liang, Wenjun Gao, Wenqin Yu, Wentao Zhang, W. L. Xiao, Wei An, Xiaodong Liu, Xiaohan Wang, Xiaokang Chen, Xiaotao Nie, Xin Cheng, Xin Liu, Xin Xie, Xingchao Liu, Xinyu Yang, Xinyuan Li, Xuecheng Su, Xuheng Lin, X. Q. Li, Xiangyue Jin, Xiaojin Shen, Xiaosha Chen, Xiaowen Sun, Xiaoxiang Wang, Xinnan Song, Xinyi Zhou, Xianzu Wang, Xinxia Shan, Y. K. Li, Y. Q. Wang, Y. X. Wei, Yang Zhang, Yanhong Xu, Yao Li, Yao Zhao, Yaofeng Sun, Yaohui Wang, Yi Yu, Yichao Zhang, Yifan Shi, Yiliang Xiong, Ying He, Yishi Piao, Yisong Wang, Yixuan Tan, Yiyang Ma, Yiyuan Liu, Yongqiang Guo, Yuan Ou, Yuduan Wang, Yue Gong, Yuheng Zou, Yujia He, Yunfan Xiong, Yuxiang Luo, Yuxiang You, Yuxuan Liu, Yuyang Zhou, Y. X. Zhu, Yanhong Xu, Yanping Huang, Yaohui Li, Yi Zheng, Yuchen Zhu, Yunxian Ma, Ying Tang, Yukun Zha, Yuting Yan, Z. Z. Ren, Zehui Ren, Zhangli Sha, Zhe Fu, Zhean Xu, Zhenda Xie, Zhengyan Zhang, Zhewen Hao, Zhicheng Ma, Zhigang Yan, Zhiyu Wu, Zihui Gu, Zijia Zhu, Zijun Liu, Zilin Li, Ziwei Xie, Ziyang Song, Zizheng Pan, Zhen Huang, Zhipeng Xu, Zhongyu Zhang, Zhen Zhang",
+      "title": "Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning",
+      "publication": "arXiv preprint arXiv:2501.12948, 2025",
+      "year": 2025,
+      "summary": "General reasoning represents a long-standing and formidable challenge in artificial intelligence. Recent breakthroughs, exemplified by large language models (LLMs) and chain-of-thought prompting, have achieved considerable success on foundational reasoning tasks. However, this success is heavily contingent upon extensive human-annotated demonstrations, and models' capabilities are still insufficient for more complex problems. Here we show that the reasoning abilities of LLMs can be incentivized through pure reinforcement learning (RL), obviating the need for human-labeled reasoning trajectories. The proposed RL framework facilitates the emergent development of advanced reasoning patterns, such as self-reflection, verification, and dynamic strategy adaptation. Consequently, the trained model achieves superior performance on verifiable tasks such as mathematics, coding competitions, and STEM fields, surpassing its counterparts trained via conventional supervised learning on human demonstrations. Moreover, the emergent reasoning patterns exhibited by these large-scale models can be systematically harnessed to guide and enhance the reasoning capabilities of smaller models.",
+      "standard_url": "http://arxiv.org/abs/2501.12948v2",
+      "id": "2025-deepseek-r1:_incentivizing_reasoning_capability_in_llms_via_reinforcement_learning"
+    },
+    "19": {
+      "enum": "19",
+      "authors": "Shibo Hao, Yi Gu, Haodi Ma, Joshua Jiahua Hong, Zhen Wang, Daisy Zhe Wang, Zhiting Hu",
+      "title": "Reasoning with language model is planning with world model",
+      "publication": "arXiv preprint arXiv:2305.14992, 2023",
+      "year": 2023,
+      "summary": "Large language models (LLMs) have shown remarkable reasoning capabilities, especially when prompted to generate intermediate reasoning steps (e.g., Chain-of-Thought, CoT). However, LLMs can still struggle with problems that are easy for humans, such as generating action plans for executing tasks in a given environment, or performing complex math, logical, and commonsense reasoning. The deficiency stems from the key fact that LLMs lack an internal $\\textit{world model}$ to predict the world $\\textit{state}$ (e.g., environment status, intermediate variable values) and simulate long-term outcomes of actions. This prevents LLMs from performing deliberate planning akin to human brains, which involves exploring alternative reasoning paths, anticipating future states and rewards, and iteratively refining existing reasoning steps. To overcome the limitations, we propose a new LLM reasoning framework, $\\underline{R}$easoning vi$\\underline{a}$ $\\underline{P}$lanning $\\textbf{(RAP)}$. RAP repurposes the LLM as both a world model and a reasoning agent, and incorporates a principled planning algorithm (based on Monto Carlo Tree Search) for strategic exploration in the vast reasoning space. During reasoning, the LLM (as agent) incrementally builds a reasoning tree under the guidance of the LLM (as world model) and task-specific rewards, and obtains a high-reward reasoning path efficiently with a proper balance between exploration $\\textit{vs.}$ exploitation. We apply RAP to a variety of challenging reasoning problems including plan generation, math reasoning, and logical inference. Empirical results on these tasks demonstrate the superiority of RAP over various strong baselines, including CoT and least-to-most prompting with self-consistency. RAP on LLAMA-33B surpasses CoT on GPT-4 with 33% relative improvement in a plan generation setting.",
+      "standard_url": "http://arxiv.org/abs/2305.14992v2",
+      "id": "2023-reasoning_with_language_model_is_planning_with_world_model"
+    },
+    "20": {
+      "enum": "20",
+      "authors": "Shibo Hao, Yi Gu, Haotian Luo, Tianyang Liu, Xiyan Shao, Xinyuan Wang, Shuhua Xie, Haodi Ma, Adithya Samavedhi, Qiyue Gao, Zhen Wang, Zhiting Hu",
+      "title": "Llm reasoners: New evaluation, library, and analysis of step-by-step reasoning with large language models",
+      "publication": "arXiv preprint arXiv:2404.05221, 2024",
+      "year": 2024,
+      "summary": "Generating accurate step-by-step reasoning is essential for Large Language Models (LLMs) to address complex problems and enhance robustness and interpretability. Despite the flux of research on developing advanced reasoning approaches, systematically analyzing the diverse LLMs and reasoning strategies in generating reasoning chains remains a significant challenge. The difficulties stem from the lack of two key elements: (1) an automatic method for evaluating the generated reasoning chains on different tasks, and (2) a unified formalism and implementation of the diverse reasoning approaches for systematic comparison. This paper aims to close the gap: (1) We introduce AutoRace for fully automated reasoning chain evaluation. Existing metrics rely on expensive human annotations or pre-defined LLM prompts not adaptable to different tasks. In contrast, AutoRace automatically creates detailed evaluation criteria tailored for each task, and uses GPT-4 for accurate evaluation following the criteria. (2) We develop LLM Reasoners, a library for standardized modular implementation of existing and new reasoning algorithms, under a unified formulation of the search, reward, and world model components. With the new evaluation and library, (3) we conduct extensive study of different reasoning approaches (e.g., CoT, ToT, RAP). The analysis reveals interesting findings about different factors contributing to reasoning, including the reward-guidance, breadth-vs-depth in search, world model, and prompt formats, etc.",
+      "standard_url": "http://arxiv.org/abs/2404.05221v2",
+      "id": "2024-llm_reasoners:_new_evaluation_library_and_analysis_of_step-by-step_reasoning_with_large_language_models"
+    },
+    "21": {
+      "enum": "21",
+      "authors": "Alex Havrilla, Yuqing Du, Sharath Chandra Raparthy, Christoforos Nalmpantis, Jane Dwivedi-Yu, Maksym Zhuravinskyi, Eric Hambro, Sainbayar Sukhbaatar, Roberta Raileanu",
+      "title": "Teaching large language models to reason with reinforcement learning",
+      "publication": "arXiv preprint arXiv:2403.04642, 2024",
+      "year": 2024,
+      "summary": "Reinforcement Learning from Human Feedback (\\textbf{RLHF}) has emerged as a dominant approach for aligning LLM outputs with human preferences. Inspired by the success of RLHF, we study the performance of multiple algorithms that learn from feedback (Expert Iteration, Proximal Policy Optimization (\\textbf{PPO}), Return-Conditioned RL) on improving LLM reasoning capabilities. We investigate both sparse and dense rewards provided to the LLM both heuristically and via a learned reward model. We additionally start from multiple model sizes and initializations both with and without supervised fine-tuning (\\textbf{SFT}) data. Overall, we find all algorithms perform comparably, with Expert Iteration performing best in most cases. Surprisingly, we find the sample complexity of Expert Iteration is similar to that of PPO, requiring at most on the order of $10^6$ samples to converge from a pretrained checkpoint. We investigate why this is the case, concluding that during RL training models fail to explore significantly beyond solutions already produced by SFT models. Additionally, we discuss a trade off between maj@1 and pass@96 metric performance during SFT training and how conversely RL training improves both simultaneously. We then conclude by discussing the implications of our findings for RLHF and the future role of RL in LLM fine-tuning.",
+      "standard_url": "http://arxiv.org/abs/2403.04642v1",
+      "id": "2024-teaching_large_language_models_to_reason_with_reinforcement_learning"
+    },
+    "22": {
+      "enum": "22",
+      "authors": "Tushar Khot, Harsh Trivedi, Matthew Finlayson, Yao Fu, Kyle Richardson, Peter Clark, Ashish Sabharwal",
+      "title": "Decomposed prompting: A modular approach for solving complex tasks",
+      "publication": "arXiv preprint arXiv:2210.02406, 2022",
+      "year": 2022,
+      "summary": "Few-shot prompting is a surprisingly powerful way to use Large Language Models (LLMs) to solve various tasks. However, this approach struggles as the task complexity increases or when the individual reasoning steps of the task themselves are hard to learn, especially when embedded in more complex tasks. To address this, we propose Decomposed Prompting, a new approach to solve complex tasks by decomposing them (via prompting) into simpler sub-tasks that can be delegated to a library of prompting-based LLMs dedicated to these sub-tasks. This modular structure allows each prompt to be optimized for its specific sub-task, further decomposed if necessary, and even easily replaced with more effective prompts, trained models, or symbolic functions if desired. We show that the flexibility and modularity of Decomposed Prompting allows it to outperform prior work on few-shot prompting using GPT3. On symbolic reasoning tasks, we can further decompose sub-tasks that are hard for LLMs into even simpler solvable sub-tasks. When the complexity comes from the input length, we can recursively decompose the task into the same task but with smaller inputs. We also evaluate our approach on textual multi-step reasoning tasks: on long-context multi-hop QA task, we can more effectively teach the sub-tasks via our separate sub-tasks prompts; and on open-domain multi-hop QA, we can incorporate a symbolic information retrieval within our decomposition framework, leading to improved performance on both tasks. Datasets, Code and Prompts available at https://github.com/allenai/DecomP.",
+      "standard_url": "http://arxiv.org/abs/2210.02406v2",
+      "id": "2022-decomposed_prompting:_a_modular_approach_for_solving_complex_tasks"
+    },
+    "23": {
+      "enum": "23",
+      "authors": "Yann LeCun",
+      "title": "A path towards autonomous machine intelligence version 0.9. 2, 2022-06-27",
+      "publication": "Open Review, 62(1):1–62, 2022",
+      "year": "2022",
+      "summary": null,
+      "standard_url": null,
+      "id": "2022-a_path_towards_autonomous_machine_intelligence_version_0.9._2_2022-06-27"
+    },
+    "24": {
+      "enum": "24",
+      "authors": "Lucas Lehnert, Sainbayar Sukhbaatar, DiJia Su, Qinqing Zheng, Paul Mcvay, Michael Rabbat, Yuandong Tian",
+      "title": "Beyond a*: Better planning with transformers via search dynamics bootstrapping",
+      "publication": "arXiv preprint arXiv:2402.14083, 2024",
+      "year": 2024,
+      "summary": "While Transformers have enabled tremendous progress in various application settings, such architectures still trail behind traditional symbolic planners for solving complex decision making tasks. In this work, we demonstrate how to train Transformers to solve complex planning tasks. This is accomplished by training an encoder-decoder Transformer model to predict the search dynamics of the $A^*$ search algorithm. We fine tune this model to obtain a Searchformer, a Transformer model that optimally solves previously unseen Sokoban puzzles 93.7% of the time, while using up to 26.8% fewer search steps than the $A^*$ implementation that was used for training initially. In our training method, $A^*$'s search dynamics are expressed as a token sequence outlining when task states are added and removed into the search tree during symbolic planning. Searchformer significantly outperforms baselines that predict the optimal plan directly with a 5-10$\\times$ smaller model size and a 10$\\times$ smaller training dataset. Lastly, we demonstrate how Searchformer scales to larger and more complex decision making tasks with improved percentage of solved tasks and shortened search dynamics.",
+      "standard_url": "http://arxiv.org/abs/2402.14083v2",
+      "id": "2024-beyond_a*:_better_planning_with_transformers_via_search_dynamics_bootstrapping"
+    },
+    "25": {
+      "enum": "25",
+      "authors": "Zhiyuan Li, Hong Liu, Denny Zhou, Tengyu Ma",
+      "title": "Chain of thought empowers transformers to solve inherently serial problems",
+      "publication": "arXiv preprint arXiv:2402.12875, 2024",
+      "year": 2024,
+      "summary": "Instructing the model to generate a sequence of intermediate steps, a.k.a., a chain of thought (CoT), is a highly effective method to improve the accuracy of large language models (LLMs) on arithmetics and symbolic reasoning tasks. However, the mechanism behind CoT remains unclear. This work provides a theoretical understanding of the power of CoT for decoder-only transformers through the lens of expressiveness. Conceptually, CoT empowers the model with the ability to perform inherently serial computation, which is otherwise lacking in transformers, especially when depth is low. Given input length $n$, previous works have shown that constant-depth transformers with finite precision $\\mathsf{poly}(n)$ embedding size can only solve problems in $\\mathsf{TC}^0$ without CoT. We first show an even tighter expressiveness upper bound for constant-depth transformers with constant-bit precision, which can only solve problems in $\\mathsf{AC}^0$, a proper subset of $ \\mathsf{TC}^0$. However, with $T$ steps of CoT, constant-depth transformers using constant-bit precision and $O(\\log n)$ embedding size can solve any problem solvable by boolean circuits of size $T$. Empirically, enabling CoT dramatically improves the accuracy for tasks that are hard for parallel computation, including the composition of permutation groups, iterated squaring, and circuit value problems, especially for low-depth transformers.",
+      "standard_url": "http://arxiv.org/abs/2402.12875v4",
+      "id": "2024-chain_of_thought_empowers_transformers_to_solve_inherently_serial_problems"
+    },
+    "26": {
+      "enum": "26",
+      "authors": "Aman Madaan, Amir Yazdanbakhsh",
+      "title": "Text and patterns: For effective chain of thought, it takes two to tango",
+      "publication": "arXiv preprint arXiv:2209.07686, 2022",
+      "year": 2022,
+      "summary": "The past decade has witnessed dramatic gains in natural language processing and an unprecedented scaling of large language models. These developments have been accelerated by the advent of few-shot techniques such as chain of thought (CoT) prompting. Specifically, CoT pushes the performance of large language models in a few-shot setup by augmenting the prompts with intermediate steps. Despite impressive results across various tasks, the reasons behind their success have not been explored. This work uses counterfactual prompting to develop a deeper understanding of CoT-based few-shot prompting mechanisms in large language models. We first systematically identify and define the key components of a prompt: symbols, patterns, and text. Then, we devise and conduct an exhaustive set of experiments across four different tasks, by querying the model with counterfactual prompts where only one of these components is altered. Our experiments across three models (PaLM, GPT-3, and CODEX) reveal several surprising findings and brings into question the conventional wisdom around few-shot prompting. First, the presence of factual patterns in a prompt is practically immaterial to the success of CoT. Second, our results conclude that the primary role of intermediate steps may not be to facilitate learning how to solve a task. The intermediate steps are rather a beacon for the model to realize what symbols to replicate in the output to form a factual answer. Further, text imbues patterns with commonsense knowledge and meaning. Our empirical and qualitative analysis reveals that a symbiotic relationship between text and patterns explains the success of few-shot prompting: text helps extract commonsense from the question to help patterns, and patterns enforce task understanding and direct text generation.",
+      "standard_url": "http://arxiv.org/abs/2209.07686v2",
+      "id": "2022-text_and_patterns:_for_effective_chain_of_thought_it_takes_two_to_tango"
+    },
+    "27": {
+      "enum": "27",
+      "authors": "William Merrill and Ashish Sabharwal",
+      "title": "The expresssive power of transformers with chain of thought",
+      "publication": "arXiv preprint arXiv:2310.07923, 2023",
+      "year": "2023",
+      "summary": null,
+      "standard_url": null,
+      "id": "2023-the_expresssive_power_of_transformers_with_chain_of_thought"
+    },
+    "28": {
+      "enum": "28",
+      "authors": "Martin M Monti, Daniel N Osherson, Michael J Martinez, and Lawrence M Parsons",
+      "title": "Functional neuroanatomy of deductive inference: a language-independent distributed network",
+      "publication": "Neuroimage, 37(3):1005–1016, 2007",
+      "year": "2007",
+      "summary": null,
+      "standard_url": null,
+      "id": "2007-functional_neuroanatomy_of_deductive_inference:_a_language-independent_distributed_network"
+    },
+    "29": {
+      "enum": "29",
+      "authors": "Martin M Monti, Lawrence M Parsons, and Daniel N Osherson",
+      "title": "The boundaries of language and thought in deductive inference",
+      "publication": "Proceedings of the National Academy of Sciences, 106(30):12554–12559, 2009",
+      "year": "2009",
+      "summary": null,
+      "standard_url": null,
+      "id": "2009-the_boundaries_of_language_and_thought_in_deductive_inference"
+    },
+    "30": {
+      "enum": "30",
+      "authors": "Martin M Monti, Lawrence M Parsons, and Daniel N Osherson",
+      "title": "Thought beyond language: neural dissociation of algebra and natural language",
+      "publication": "Psychological science, 23(8):914–922, 2012",
+      "year": "2012",
+      "summary": null,
+      "standard_url": null,
+      "id": "2012-thought_beyond_language:_neural_dissociation_of_algebra_and_natural_language"
+    },
+    "31": {
+      "enum": "31",
+      "authors": "Jacob Pfau, William Merrill, Samuel R. Bowman",
+      "title": "Let’s think dot by dot: Hidden computation in transformer language models",
+      "publication": "arXiv preprint arXiv:2404.15758, 2024",
+      "year": 2024,
+      "summary": "Chain-of-thought responses from language models improve performance across most benchmarks. However, it remains unclear to what extent these performance gains can be attributed to human-like task decomposition or simply the greater computation that additional tokens allow. We show that transformers can use meaningless filler tokens (e.g., '......') in place of a chain of thought to solve two hard algorithmic tasks they could not solve when responding without intermediate tokens. However, we find empirically that learning to use filler tokens is difficult and requires specific, dense supervision to converge. We also provide a theoretical characterization of the class of problems where filler tokens are useful in terms of the quantifier depth of a first-order formula. For problems satisfying this characterization, chain-of-thought tokens need not provide information about the intermediate computational steps involved in multi-token computations. In summary, our results show that additional tokens can provide computational benefits independent of token choice. The fact that intermediate tokens can act as filler tokens raises concerns about large language models engaging in unauditable, hidden computations that are increasingly detached from the observed chain-of-thought tokens.",
+      "standard_url": "http://arxiv.org/abs/2404.15758v1",
+      "id": "2024-let’s_think_dot_by_dot:_hidden_computation_in_transformer_language_models"
+    },
+    "32": {
+      "enum": "32",
+      "authors": "Chau Pham, Boyi Liu, Yingxiang Yang, Zhengyu Chen, Tianyi Liu, Jianbo Yuan, Bryan A. Plummer, Zhaoran Wang, Hongxia Yang",
+      "title": "Let models speak ciphers: Multiagent debate through embeddings",
+      "publication": "arXiv preprint arXiv:2310.06272, 2023",
+      "year": 2023,
+      "summary": "Discussion and debate among Large Language Models (LLMs) have gained considerable attention due to their potential to enhance the reasoning ability of LLMs. Although natural language is an obvious choice for communication due to LLM's language understanding capability, the token sampling step needed when generating natural language poses a potential risk of information loss, as it uses only one token to represent the model's belief across the entire vocabulary. In this paper, we introduce a communication regime named CIPHER (Communicative Inter-Model Protocol Through Embedding Representation) to address this issue. Specifically, we remove the token sampling step from LLMs and let them communicate their beliefs across the vocabulary through the expectation of the raw transformer output embeddings. Remarkably, by deviating from natural language, CIPHER offers an advantage of encoding a broader spectrum of information without any modification to the model weights, outperforming the state-of-the-art LLM debate methods using natural language by 0.5-5.0% across five reasoning tasks and multiple open-source LLMs of varying sizes. This showcases the superiority and robustness of embeddings as an alternative \"language\" for communication among LLMs. We anticipate that CIPHER will inspire further exploration for the design of interactions within LLM agent systems, offering a new direction that could significantly influence future developments in the field.",
+      "standard_url": "http://arxiv.org/abs/2310.06272v2",
+      "id": "2023-let_models_speak_ciphers:_multiagent_debate_through_embeddings"
+    },
+    "33": {
+      "enum": "33",
+      "authors": "Abulhair Saparov, He He",
+      "title": "Language models are greedy reasoners: A systematic formal analysis of chain-of-thought",
+      "publication": "arXiv preprint arXiv:2210.01240, 2022",
+      "year": 2022,
+      "summary": "Large language models (LLMs) have shown remarkable reasoning capabilities given chain-of-thought prompts (examples with intermediate reasoning steps). Existing benchmarks measure reasoning ability indirectly, by evaluating accuracy on downstream tasks such as mathematical reasoning. However, it is unclear how these models obtain the answers and whether they rely on simple heuristics rather than the generated chain-of-thought. To enable systematic exploration of the reasoning ability of LLMs, we present a new synthetic question-answering dataset called PrOntoQA, where each example is generated from a synthetic world model represented in first-order logic. This allows us to parse the generated chain-of-thought into symbolic proofs for formal analysis. Our analysis on InstructGPT and GPT-3 shows that LLMs are quite capable of making correct individual deduction steps, and so are generally capable of reasoning, even in fictional contexts. However, they have difficulty with proof planning: When multiple valid deduction steps are available, they are not able to systematically explore the different options.",
+      "standard_url": "http://arxiv.org/abs/2210.01240v4",
+      "id": "2022-language_models_are_greedy_reasoners:_a_systematic_formal_analysis_of_chain-of-thought"
+    },
+    "34": {
+      "enum": "34",
+      "authors": "Yuval Shalev, Amir Feder, Ariel Goldstein",
+      "title": "Distributional reasoning in llms: Parallel reasoning processes in multi-hop reasoning",
+      "publication": "arXiv preprint arXiv:2406.13858, 2024",
+      "year": 2024,
+      "summary": "Large language models (LLMs) have shown an impressive ability to perform tasks believed to require thought processes. When the model does not document an explicit thought process, it becomes difficult to understand the processes occurring within its hidden layers and to determine if these processes can be referred to as reasoning. We introduce a novel and interpretable analysis of internal multi-hop reasoning processes in LLMs. We demonstrate that the prediction process for compositional reasoning questions can be modeled using a simple linear transformation between two semantic category spaces. We show that during inference, the middle layers of the network generate highly interpretable embeddings that represent a set of potential intermediate answers for the multi-hop question. We use statistical analyses to show that a corresponding subset of tokens is activated in the model's output, implying the existence of parallel reasoning paths. These observations hold true even when the model lacks the necessary knowledge to solve the task. Our findings can help uncover the strategies that LLMs use to solve reasoning tasks, offering insights into the types of thought processes that can emerge from artificial intelligence. Finally, we also discuss the implication of cognitive modeling of these results.",
+      "standard_url": "http://arxiv.org/abs/2406.13858v1",
+      "id": "2024-distributional_reasoning_in_llms:_parallel_reasoning_processes_in_multi-hop_reasoning"
+    },
+    "35": {
+      "enum": "35",
+      "authors": "Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y. K. Li, Y. Wu, Daya Guo",
+      "title": "Deepseekmath: Pushing the limits of mathematical reasoning in open language models",
+      "publication": "arXiv preprint arXiv:2402.03300, 2024",
+      "year": 2024,
+      "summary": "Mathematical reasoning poses a significant challenge for language models due to its complex and structured nature. In this paper, we introduce DeepSeekMath 7B, which continues pre-training DeepSeek-Coder-Base-v1.5 7B with 120B math-related tokens sourced from Common Crawl, together with natural language and code data. DeepSeekMath 7B has achieved an impressive score of 51.7% on the competition-level MATH benchmark without relying on external toolkits and voting techniques, approaching the performance level of Gemini-Ultra and GPT-4. Self-consistency over 64 samples from DeepSeekMath 7B achieves 60.9% on MATH. The mathematical reasoning capability of DeepSeekMath is attributed to two key factors: First, we harness the significant potential of publicly available web data through a meticulously engineered data selection pipeline. Second, we introduce Group Relative Policy Optimization (GRPO), a variant of Proximal Policy Optimization (PPO), that enhances mathematical reasoning abilities while concurrently optimizing the memory usage of PPO.",
+      "standard_url": "http://arxiv.org/abs/2402.03300v3",
+      "id": "2024-deepseekmath:_pushing_the_limits_of_mathematical_reasoning_in_open_language_models"
+    },
+    "36": {
+      "enum": "36",
+      "authors": "Charlie Snell, Jaehoon Lee, Kelvin Xu, Aviral Kumar",
+      "title": "Scaling llm test-time compute optimally can be more effective than scaling model parameters",
+      "publication": "arXiv preprint arXiv:2408.03314, 2024",
+      "year": 2024,
+      "summary": "Enabling LLMs to improve their outputs by using more test-time computation is a critical step towards building generally self-improving agents that can operate on open-ended natural language. In this paper, we study the scaling of inference-time computation in LLMs, with a focus on answering the question: if an LLM is allowed to use a fixed but non-trivial amount of inference-time compute, how much can it improve its performance on a challenging prompt? Answering this question has implications not only on the achievable performance of LLMs, but also on the future of LLM pretraining and how one should tradeoff inference-time and pre-training compute. Despite its importance, little research attempted to understand the scaling behaviors of various test-time inference methods. Moreover, current work largely provides negative results for a number of these strategies. In this work, we analyze two primary mechanisms to scale test-time computation: (1) searching against dense, process-based verifier reward models; and (2) updating the model's distribution over a response adaptively, given the prompt at test time. We find that in both cases, the effectiveness of different approaches to scaling test-time compute critically varies depending on the difficulty of the prompt. This observation motivates applying a \"compute-optimal\" scaling strategy, which acts to most effectively allocate test-time compute adaptively per prompt. Using this compute-optimal strategy, we can improve the efficiency of test-time compute scaling by more than 4x compared to a best-of-N baseline. Additionally, in a FLOPs-matched evaluation, we find that on problems where a smaller base model attains somewhat non-trivial success rates, test-time compute can be used to outperform a 14x larger model.",
+      "standard_url": "http://arxiv.org/abs/2408.03314v1",
+      "id": "2024-scaling_llm_test-time_compute_optimally_can_be_more_effective_than_scaling_model_parameters"
+    },
+    "37": {
+      "enum": "37",
+      "authors": "DiJia Su, Sainbayar Sukhbaatar, Michael Rabbat, Yuandong Tian, Qinqing Zheng",
+      "title": "Dualformer: Controllable fast and slow thinking by learning with randomized reasoning traces",
+      "publication": "arXiv preprint arXiv:2410.09918, 2024",
+      "year": 2024,
+      "summary": "In cognition theory, human thinking is governed by two systems: the fast and intuitive System 1 and the slower but more deliberative System 2. Analogously, Large Language Models (LLMs) can operate in two reasoning modes: outputting only the solutions (\\emph{fast mode}) or both the reasoning chain and the final solution (\\emph{slow mode}). We present \\dualformer, a single Transformer model that seamlessly integrates both the fast and slow reasoning modes by training on randomized reasoning traces, where different parts of the traces are strategically dropped during training. At inference time, \\dualformer can be easily configured to execute in either fast or slow mode, or automatically decide which mode to engage (\\emph{auto mode}). It outperforms baselines in both performance and computational efficiency across all three modes: (1) in slow mode, \\dualformer achieves $97.6\\%$ optimal rate on unseen $30 \\times 30$ maze tasks, surpassing the \\searchformer baseline ($93.3\\%$) trained on data with complete reasoning traces, with $45.5\\%$ fewer reasoning steps; (2) in fast mode, \\dualformer achieves $80\\%$ optimal rate, significantly outperforming the Solution-Only model trained on solution-only data, which has an optimal rate of only $30\\%$; (3) in auto mode, \\dualformer achieves $96.6\\%$ optimal rate with $59.9\\%$ fewer steps than \\searchformer. Moreover, \\dualformer produces more diverse reasoning traces than \\searchformer{}. For math reasoning problems, our techniques have also achieved improved performance with LLM fine-tuning, demonstrating its generalization beyond task-specific models. We open source our code at https://github.com/facebookresearch/dualformer.",
+      "standard_url": "http://arxiv.org/abs/2410.09918v3",
+      "id": "2024-dualformer:_controllable_fast_and_slow_thinking_by_learning_with_randomized_reasoning_traces"
+    },
+    "38": {
+      "enum": "38",
+      "authors": "Miles Turpin, Julian Michael, Ethan Perez, and Samuel Bowman",
+      "title": "Language models don’t always say what they think: unfaithful explanations in chain-of-thought prompting",
+      "publication": "Advances in Neural Information Processing Systems, 36, 2024",
+      "year": "2024",
+      "summary": null,
+      "standard_url": null,
+      "id": "2024-language_models_don’t_always_say_what_they_think:_unfaithful_explanations_in_chain-of-thought_prompting"
+    },
+    "39": {
+      "enum": "39",
+      "authors": "Boshi Wang, Sewon Min, Xiang Deng, Jiaming Shen, You Wu, Luke Zettlemoyer, Huan Sun",
+      "title": "Towards understanding chain-of-thought prompting: An empirical study of what matters",
+      "publication": "arXiv preprint arXiv:2212.10001, 2022",
+      "year": 2022,
+      "summary": "Chain-of-Thought (CoT) prompting can dramatically improve the multi-step reasoning abilities of large language models (LLMs). CoT explicitly encourages the LLM to generate intermediate rationales for solving a problem, by providing a series of reasoning steps in the demonstrations. Despite its success, there is still little understanding of what makes CoT prompting effective and which aspects of the demonstrated reasoning steps contribute to its performance. In this paper, we show that CoT reasoning is possible even with invalid demonstrations - prompting with invalid reasoning steps can achieve over 80-90% of the performance obtained using CoT under various metrics, while still generating coherent lines of reasoning during inference. Further experiments show that other aspects of the rationales, such as being relevant to the query and correctly ordering the reasoning steps, are much more important for effective CoT reasoning. Overall, these findings both deepen our understanding of CoT prompting, and open up new questions regarding LLMs' capability to learn to reason in context.",
+      "standard_url": "http://arxiv.org/abs/2212.10001v2",
+      "id": "2022-towards_understanding_chain-of-thought_prompting:_an_empirical_study_of_what_matters"
+    },
+    "40": {
+      "enum": "40",
+      "authors": "Peiyi Wang, Lei Li, Zhihong Shao, R. X. Xu, Damai Dai, Yifei Li, Deli Chen, Y. Wu, Zhifang Sui",
+      "title": "Math-shepherd: Verify and reinforce llms step-by-step without human annotations",
+      "publication": "In Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 9426–9439, 2024",
+      "year": 2023,
+      "summary": "In this paper, we present an innovative process-oriented math process reward model called \\textbf{Math-Shepherd}, which assigns a reward score to each step of math problem solutions. The training of Math-Shepherd is achieved using automatically constructed process-wise supervision data, breaking the bottleneck of heavy reliance on manual annotation in existing work. We explore the effectiveness of Math-Shepherd in two scenarios: 1) \\textit{Verification}: Math-Shepherd is utilized for reranking multiple outputs generated by Large Language Models (LLMs); 2) \\textit{Reinforcement Learning}: Math-Shepherd is employed to reinforce LLMs with step-by-step Proximal Policy Optimization (PPO). With Math-Shepherd, a series of open-source LLMs demonstrates exceptional performance. For instance, the step-by-step PPO with Math-Shepherd significantly improves the accuracy of Mistral-7B (77.9\\%$\\to$84.1\\% on GSM8K and 28.6\\%$\\to$33.0\\% on MATH). The accuracy can be further enhanced to 89.1\\% and 43.5\\% on GSM8K and MATH with the verification of Math-Shepherd, respectively. We believe that automatic process supervision holds significant potential for the future evolution of LLMs.",
+      "standard_url": "http://arxiv.org/abs/2312.08935v3",
+      "id": "2023-math-shepherd:_verify_and_reinforce_llms_step-by-step_without_human_annotations"
+    },
+    "41": {
+      "enum": "41",
+      "authors": "Xinyi Wang, Lucas Caccia, Oleksiy Ostapenko, Xingdi Yuan, William Yang Wang, Alessandro Sordoni",
+      "title": "Guiding language model reasoning with planning tokens",
+      "publication": "arXiv preprint arXiv:2310.05707, 2023",
+      "year": 2023,
+      "summary": "Large language models (LLMs) have recently attracted considerable interest for their ability to perform complex reasoning tasks, such as chain-of-thought (CoT) reasoning. However, most of the existing approaches to enhance this ability rely heavily on data-driven methods, while neglecting the structural aspects of the model's reasoning capacity. To encourage a more structural generation of CoT steps, we propose a hierarchical generation scheme: we let the LM generate a planning token at the start of each reasoning step, intuitively serving as a high-level plan of the current step, and add their embeddings to the model parameters. Our approach requires a negligible increase in trainable parameters (0.001%) and can be applied through either full fine-tuning or a more parameter-efficient scheme. We demonstrate our method's effectiveness by applying it to three different LLMs, showing notable accuracy improvements across three math word problem datasets and one multihop QA dataset with respect to standard fine-tuning baselines.",
+      "standard_url": "http://arxiv.org/abs/2310.05707v4",
+      "id": "2023-guiding_language_model_reasoning_with_planning_tokens"
+    },
+    "42": {
+      "enum": "42",
+      "authors": "Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, Denny Zhou",
+      "title": "Chain-of-thought prompting elicits reasoning in large language models",
+      "publication": "Advances in neural information processing systems, 35:24824–24837, 2022",
+      "year": 2022,
+      "summary": "We explore how generating a chain of thought -- a series of intermediate reasoning steps -- significantly improves the ability of large language models to perform complex reasoning. In particular, we show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain of thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting. Experiments on three large language models show that chain of thought prompting improves performance on a range of arithmetic, commonsense, and symbolic reasoning tasks. The empirical gains can be striking. For instance, prompting a 540B-parameter language model with just eight chain of thought exemplars achieves state of the art accuracy on the GSM8K benchmark of math word problems, surpassing even finetuned GPT-3 with a verifier.",
+      "standard_url": "http://arxiv.org/abs/2201.11903v6",
+      "id": "2022-chain-of-thought_prompting_elicits_reasoning_in_large_language_models"
+    },
+    "43": {
+      "enum": "43",
+      "authors": "Yuxi Xie, Kenji Kawaguchi, Yiran Zhao, Xu Zhao, Min-Yen Kan, Junxian He, Qizhe Xie",
+      "title": "Self-evaluation guided beam search for reasoning",
+      "publication": "Advances in Neural Information Processing Systems, 36, 2023",
+      "year": 2023,
+      "summary": "Breaking down a problem into intermediate steps has demonstrated impressive performance in Large Language Model (LLM) reasoning. However, the growth of the reasoning chain introduces uncertainty and error accumulation, making it challenging to elicit accurate final results. To tackle this challenge of uncertainty in multi-step reasoning, we introduce a stepwise self-evaluation mechanism to guide and calibrate the reasoning process of LLMs. We propose a decoding algorithm integrating the self-evaluation guidance via stochastic beam search. The self-evaluation guidance serves as a better-calibrated automatic criterion, facilitating an efficient search in the reasoning space and resulting in superior prediction quality. Stochastic beam search balances exploitation and exploration of the search space with temperature-controlled randomness. Our approach surpasses the corresponding Codex-backboned baselines in few-shot accuracy by $6.34\\%$, $9.56\\%$, and $5.46\\%$ on the GSM8K, AQuA, and StrategyQA benchmarks, respectively. Experiment results with Llama-2 on arithmetic reasoning demonstrate the efficiency of our method in outperforming the baseline methods with comparable computational budgets. Further analysis in multi-step reasoning finds our self-evaluation guidance pinpoints logic failures and leads to higher consistency and robustness. Our code is publicly available at https://guideddecoding.github.io/.",
+      "standard_url": "http://arxiv.org/abs/2305.00633v3",
+      "id": "2023-self-evaluation_guided_beam_search_for_reasoning"
+    },
+    "44": {
+      "enum": "44",
+      "authors": "Sohee Yang, Elena Gribovskaya, Nora Kassner, Mor Geva, Sebastian Riedel",
+      "title": "Do large language models latently perform multi-hop reasoning?",
+      "publication": "arXiv preprint arXiv:2402.16837, 2024",
+      "year": 2024,
+      "summary": "We study whether Large Language Models (LLMs) latently perform multi-hop reasoning with complex prompts such as \"The mother of the singer of 'Superstition' is\". We look for evidence of a latent reasoning pathway where an LLM (1) latently identifies \"the singer of 'Superstition'\" as Stevie Wonder, the bridge entity, and (2) uses its knowledge of Stevie Wonder's mother to complete the prompt. We analyze these two hops individually and consider their co-occurrence as indicative of latent multi-hop reasoning. For the first hop, we test if changing the prompt to indirectly mention the bridge entity instead of any other entity increases the LLM's internal recall of the bridge entity. For the second hop, we test if increasing this recall causes the LLM to better utilize what it knows about the bridge entity. We find strong evidence of latent multi-hop reasoning for the prompts of certain relation types, with the reasoning pathway used in more than 80% of the prompts. However, the utilization is highly contextual, varying across different types of prompts. Also, on average, the evidence for the second hop and the full multi-hop traversal is rather moderate and only substantial for the first hop. Moreover, we find a clear scaling trend with increasing model size for the first hop of reasoning but not for the second hop. Our experimental findings suggest potential challenges and opportunities for future development and applications of LLMs.",
+      "standard_url": "http://arxiv.org/abs/2402.16837v2",
+      "id": "2024-do_large_language_models_latently_perform_multi-hop_reasoning?"
+    },
+    "45": {
+      "enum": "45",
+      "authors": "Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas L. Griffiths, Yuan Cao, Karthik Narasimhan",
+      "title": "Tree of thoughts: Deliberate problem solving with large language models",
+      "publication": "Advances in Neural Information Processing Systems, 36, 2023",
+      "year": 2023,
+      "summary": "Language models are increasingly being deployed for general problem solving across a wide range of tasks, but are still confined to token-level, left-to-right decision-making processes during inference. This means they can fall short in tasks that require exploration, strategic lookahead, or where initial decisions play a pivotal role. To surmount these challenges, we introduce a new framework for language model inference, Tree of Thoughts (ToT), which generalizes over the popular Chain of Thought approach to prompting language models, and enables exploration over coherent units of text (thoughts) that serve as intermediate steps toward problem solving. ToT allows LMs to perform deliberate decision making by considering multiple different reasoning paths and self-evaluating choices to decide the next course of action, as well as looking ahead or backtracking when necessary to make global choices. Our experiments show that ToT significantly enhances language models' problem-solving abilities on three novel tasks requiring non-trivial planning or search: Game of 24, Creative Writing, and Mini Crosswords. For instance, in Game of 24, while GPT-4 with chain-of-thought prompting only solved 4% of tasks, our method achieved a success rate of 74%. Code repo with all prompts: https://github.com/princeton-nlp/tree-of-thought-llm.",
+      "standard_url": "http://arxiv.org/abs/2305.10601v2",
+      "id": "2023-tree_of_thoughts:_deliberate_problem_solving_with_large_language_models"
+    },
+    "46": {
+      "enum": "46",
+      "authors": "Fangxu Yu, Lai Jiang, Haoqiang Kang, Shibo Hao, and Lianhui Qin",
+      "title": "Flow of reasoning: Efficient training of llm policy with divergent thinking",
+      "publication": "arXiv preprint arXiv:2406.05673, 2024a",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-flow_of_reasoning:_efficient_training_of_llm_policy_with_divergent_thinking"
+    },
+    "47": {
+      "enum": "47",
+      "authors": "Longhui Yu, Weisen Jiang, Han Shi, Jincheng Yu, Zhengying Liu, Yu Zhang, James T. Kwok, Zhenguo Li, Adrian Weller, Weiyang Liu",
+      "title": "Metamath: Bootstrap your own mathematical questions for large language models",
+      "publication": "arXiv preprint arXiv:2309.12284, 2023",
+      "year": 2023,
+      "summary": "Large language models (LLMs) have pushed the limits of natural language understanding and exhibited excellent problem-solving ability. Despite the great success, most existing open-source LLMs (e.g., LLaMA-2) are still far away from satisfactory for solving mathematical problem due to the complex reasoning procedures. To bridge this gap, we propose MetaMath, a fine-tuned language model that specializes in mathematical reasoning. Specifically, we start by bootstrapping mathematical questions by rewriting the question from multiple perspectives without extra knowledge, which results in a new dataset called MetaMathQA. Then we fine-tune the LLaMA-2 models on MetaMathQA. Experimental results on two popular benchmarks (i.e., GSM8K and MATH) for mathematical reasoning demonstrate that MetaMath outperforms a suite of open-source LLMs by a significant margin. Our MetaMath-7B model achieves 66.4% on GSM8K and 19.4% on MATH, exceeding the state-of-the-art models of the same size by 11.5% and 8.7%. Particularly, MetaMath-70B achieves an accuracy of 82.3% on GSM8K, slightly better than GPT-3.5-Turbo. We release all the MetaMathQA dataset, the MetaMath models with different model sizes and the training code for public use.",
+      "standard_url": "http://arxiv.org/abs/2309.12284v4",
+      "id": "2023-metamath:_bootstrap_your_own_mathematical_questions_for_large_language_models"
+    },
+    "48": {
+      "enum": "48",
+      "authors": "Ping Yu, Jing Xu, Jason Weston, Ilia Kulikov",
+      "title": "Distilling system 2 into system 1",
+      "publication": "arXiv preprint arXiv:2407.06023, 2024b",
+      "year": 2024,
+      "summary": "Large language models (LLMs) can spend extra compute during inference to generate intermediate thoughts, which helps to produce better final responses. Since Chain-of-Thought (Wei et al., 2022), many such System 2 techniques have been proposed such as Rephrase and Respond (Deng et al., 2023a), System 2 Attention (Weston and Sukhbaatar, 2023) and Branch-Solve-Merge (Saha et al., 2023). In this work we investigate self-supervised methods to ``compile'' (distill) higher quality outputs from System 2 techniques back into LLM generations without intermediate reasoning token sequences, as this reasoning has been distilled into System 1. We show that several such techniques can be successfully distilled, resulting in improved results compared to the original System 1 performance, and with less inference cost than System 2. We posit that such System 2 distillation will be an important feature of future continually learning AI systems, enabling them to focus System 2 capabilities on the reasoning tasks that they cannot yet do well.",
+      "standard_url": "http://arxiv.org/abs/2407.06023v3",
+      "id": "2024-distilling_system_2_into_system_1"
+    },
+    "49": {
+      "enum": "49",
+      "authors": "Xiang Yue, Xingwei Qu, Ge Zhang, Yao Fu, Wenhao Huang, Huan Sun, Yu Su, Wenhu Chen",
+      "title": "Mammoth: Building math generalist models through hybrid instruction tuning",
+      "publication": "arXiv preprint arXiv:2309.05653, 2023",
+      "year": 2023,
+      "summary": "We introduce MAmmoTH, a series of open-source large language models (LLMs) specifically tailored for general math problem-solving. The MAmmoTH models are trained on MathInstruct, our meticulously curated instruction tuning dataset. MathInstruct is compiled from 13 math datasets with intermediate rationales, six of which have rationales newly curated by us. It presents a unique hybrid of chain-of-thought (CoT) and program-of-thought (PoT) rationales, and also ensures extensive coverage of diverse fields in math. The hybrid of CoT and PoT not only unleashes the potential of tool use but also allows different thought processes for different math problems. As a result, the MAmmoTH series substantially outperform existing open-source models on nine mathematical reasoning datasets across all scales with an average accuracy gain between 16% and 32%. Remarkably, our MAmmoTH-7B model reaches 33% on MATH (a competition-level dataset), which exceeds the best open-source 7B model (WizardMath) by 23%, and the MAmmoTH-34B model achieves 44% accuracy on MATH, even surpassing GPT-4's CoT result. Our work underscores the importance of diverse problem coverage and the use of hybrid rationales in developing superior math generalist models.",
+      "standard_url": "http://arxiv.org/abs/2309.05653v3",
+      "id": "2023-mammoth:_building_math_generalist_models_through_hybrid_instruction_tuning"
+    },
+    "50": {
+      "enum": "50",
+      "authors": "Eric Zelikman, Georges Harik, Yijia Shao, Varuna Jayasiri, Nick Haber, Noah D. Goodman",
+      "title": "Quiet-star: Language models can teach themselves to think before speaking",
+      "publication": "arXiv preprint arXiv:2403.09629, 2024",
+      "year": 2024,
+      "summary": "When writing and talking, people sometimes pause to think. Although reasoning-focused works have often framed reasoning as a method of answering questions or completing agentic tasks, reasoning is implicit in almost all written text. For example, this applies to the steps not stated between the lines of a proof or to the theory of mind underlying a conversation. In the Self-Taught Reasoner (STaR, Zelikman et al. 2022), useful thinking is learned by inferring rationales from few-shot examples in question-answering and learning from those that lead to a correct answer. This is a highly constrained setting -- ideally, a language model could instead learn to infer unstated rationales in arbitrary text. We present Quiet-STaR, a generalization of STaR in which LMs learn to generate rationales at each token to explain future text, improving their predictions. We address key challenges, including 1) the computational cost of generating continuations, 2) the fact that the LM does not initially know how to generate or use internal thoughts, and 3) the need to predict beyond individual next tokens. To resolve these, we propose a tokenwise parallel sampling algorithm, using learnable tokens indicating a thought's start and end, and an extended teacher-forcing technique. Encouragingly, generated rationales disproportionately help model difficult-to-predict tokens and improve the LM's ability to directly answer difficult questions. In particular, after continued pretraining of an LM on a corpus of internet text with Quiet-STaR, we find zero-shot improvements on GSM8K (5.9%$\\rightarrow$10.9%) and CommonsenseQA (36.3%$\\rightarrow$47.2%) and observe a perplexity improvement of difficult tokens in natural text. Crucially, these improvements require no fine-tuning on these tasks. Quiet-STaR marks a step towards LMs that can learn to reason in a more general and scalable way.",
+      "standard_url": "http://arxiv.org/abs/2403.09629v2",
+      "id": "2024-quiet-star:_language_models_can_teach_themselves_to_think_before_speaking"
+    },
+    "51": {
+      "enum": "51",
+      "authors": "Denny Zhou, Nathanael Schärli, Le Hou, Jason Wei, Nathan Scales, Xuezhi Wang, Dale Schuurmans, Claire Cui, Olivier Bousquet, Quoc Le, Ed Chi",
+      "title": "Least-to-most prompting enables complex reasoning in large language models",
+      "publication": "arXiv preprint arXiv:2205.10625, 2022",
+      "year": 2022,
+      "summary": "Chain-of-thought prompting has demonstrated remarkable performance on various natural language reasoning tasks. However, it tends to perform poorly on tasks which requires solving problems harder than the exemplars shown in the prompts. To overcome this challenge of easy-to-hard generalization, we propose a novel prompting strategy, least-to-most prompting. The key idea in this strategy is to break down a complex problem into a series of simpler subproblems and then solve them in sequence. Solving each subproblem is facilitated by the answers to previously solved subproblems. Our experimental results on tasks related to symbolic manipulation, compositional generalization, and math reasoning reveal that least-to-most prompting is capable of generalizing to more difficult problems than those seen in the prompts. A notable finding is that when the GPT-3 code-davinci-002 model is used with least-to-most prompting, it can solve the compositional generalization benchmark SCAN in any split (including length split) with an accuracy of at least 99% using just 14 exemplars, compared to only 16% accuracy with chain-of-thought prompting. This is particularly noteworthy because neural-symbolic models in the literature that specialize in solving SCAN are trained on the entire training set containing over 15,000 examples. We have included prompts for all the tasks in the Appendix.",
+      "standard_url": "http://arxiv.org/abs/2205.10625v3",
+      "id": "2022-least-to-most_prompting_enables_complex_reasoning_in_large_language_models"
+    },
+    "52": {
+      "enum": "52",
+      "authors": "Hanlin Zhu, Shibo Hao, Zhiting Hu, Jiantao Jiao, Stuart Russell, Yuandong Tian",
+      "title": "Emergence of superposition: Unveiling the training dynamics of chain of continuous thought",
+      "publication": "arXiv preprint arXiv:2509.23365, 2025a",
+      "year": 2025,
+      "summary": "Previous work shows that the chain of continuous thought (continuous CoT) improves the reasoning capability of large language models (LLMs) by enabling implicit parallel thinking, and a subsequent work provided theoretical insight by showing that a two-layer transformer equipped with continuous CoT can efficiently solve directed graph reachability by maintaining a superposition of multiple reasoning traces in the continuous thought. However, it remains unclear how the superposition mechanism is naturally learned from gradient-based training methods. To fill this gap, we theoretically analyze the training dynamics of a simplified two-layer transformer on the directed graph reachability problem to unveil how the superposition mechanism emerges during training in two training stages -- (i) a thought-generation stage that autoregressively expands the continuous thought, and (ii) a prediction stage that converts the thought into the final answer. Our analysis reveals that during training using continuous thought, the index-matching logit, an important quantity which reflects the strength of the model's local search ability, will first increase and then remain bounded under mild assumptions. The bounded index-matching logit effectively balances exploration and exploitation during the reasoning process: the model will exploit local problem structures to identify plausible search traces, and assign comparable weights to multiple such traces to explore when it is uncertain about which solution is correct, which results in superposition. Our experimental results tracking the growth of logits further validate our theory.",
+      "standard_url": "http://arxiv.org/abs/2509.23365v2",
+      "id": "2025-emergence_of_superposition:_unveiling_the_training_dynamics_of_chain_of_continuous_thought"
+    },
+    "53": {
+      "enum": "53",
+      "authors": "Hanlin Zhu, Shibo Hao, Zhiting Hu, Jiantao Jiao, Stuart Russell, Yuandong Tian",
+      "title": "Reasoning by superposition: A theoretical perspective on chain of continuous thought",
+      "publication": "arXiv preprint arXiv:2505.12514, 2025b",
+      "year": 2025,
+      "summary": "Large Language Models (LLMs) have demonstrated remarkable performance in many applications, including challenging reasoning problems via chain-of-thoughts (CoTs) techniques that generate ``thinking tokens'' before answering the questions. While existing theoretical works demonstrate that CoTs with discrete tokens boost the capability of LLMs, recent work on continuous CoTs lacks a theoretical understanding of why it outperforms discrete counterparts in various reasoning tasks such as directed graph reachability, a fundamental graph reasoning problem that includes many practical domain applications as special cases. In this paper, we prove that a two-layer transformer with $D$ steps of continuous CoTs can solve the directed graph reachability problem, where $D$ is the diameter of the graph, while the best known result of constant-depth transformers with discrete CoTs requires $O(n^2)$ decoding steps where $n$ is the number of vertices ($D<n$). In our construction, each continuous thought vector is a superposition state that encodes multiple search frontiers simultaneously (i.e., parallel breadth-first search (BFS)), while discrete CoTs must choose a single path sampled from the superposition state, which leads to sequential search that requires many more steps and may be trapped into local solutions. We also performed extensive experiments to verify that our theoretical construction aligns well with the empirical solution obtained via training dynamics. Notably, encoding of multiple search frontiers as a superposition state automatically emerges in training continuous CoTs, without explicit supervision to guide the model to explore multiple paths simultaneously.",
+      "standard_url": "http://arxiv.org/abs/2505.12514v3",
+      "id": "2025-reasoning_by_superposition:_a_theoretical_perspective_on_chain_of_continuous_thought"
+    }
+  },
+  "authors": "Shibo Hao, Sainbayar Sukhbaatar, DiJia Su, Xian Li, Zhiting Hu, Jason Weston, Yuandong Tian",
+  "summary": "Large language models (LLMs) are typically constrained to reason in the language space, where they express the reasoning process through a chain-of-thought (CoT) to solve complex problems. However, the language space may not always be optimal for reasoning. Most word tokens primarily ensure textual coherence and are not essential for reasoning, while some critical tokens require complex planning and pose challenges to LLMs. To explore the potential of reasoning beyond language, we introduce a new paradigm called Coconut (Chain of Continuous Thought). Coconut utilizes the last hidden state of the LLM as a representation of the reasoning state, termed \"continuous thought.\" Instead of decoding this state into words, we feed it back to the model as the next input embedding directly in the continuous space. This latent reasoning paradigm enables an advanced reasoning pattern, where continuous thoughts can encode multiple alternative next steps, allowing the model to perform a breadth-first search (BFS) rather than committing prematurely to a single deterministic path as in CoT. Coconut outperforms CoT on logical reasoning tasks that require substantial search during planning and achieves a better trade-off between accuracy and efficiency.",
+  "standard_url": "http://arxiv.org/abs/2412.06769v3",
+  "id": "2025-training_large_language_models_to_reason_in_a_continuous_latent_space"
+}

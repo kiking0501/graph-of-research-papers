@@ -1,0 +1,657 @@
+{
+  "name": "OpenAI o1",
+  "year": 2024,
+  "url": "https://arxiv.org/html/2410.13639v2",
+  "title": "A Comparative Study on Reasoning Patterns of OpenAI’s o1 Model",
+  "sections": {
+    "S1": "1 Introduction",
+    "S2": "2 Related Work",
+    "S3": "3 Experimental Setup",
+    "S4": "4 Results",
+    "S5": "5 Case Study",
+    "S6": "6 Conclusion"
+  },
+  "citations": [
+    {
+      "section_id": "S1",
+      "cite_enum": "28",
+      "cite_id": "28",
+      "sentence": ", Commonsense Reasoning(Yang et al,2018), Coding(Jain et al,2024; Chai et al,2024a), Math(Satpute et al,2024; Chai et al,2024b), and Dialogue(Young & Shishido,2023))"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": ", Commonsense Reasoning(Yang et al,2018), Coding(Jain et al,2024; Chai et al,2024a), Math(Satpute et al,2024; Chai et al,2024b), and Dialogue(Young & Shishido,2023))"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": ", Commonsense Reasoning(Yang et al,2018), Coding(Jain et al,2024; Chai et al,2024a), Math(Satpute et al,2024; Chai et al,2024b), and Dialogue(Young & Shishido,2023))"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "21",
+      "cite_id": "21",
+      "sentence": ", Commonsense Reasoning(Yang et al,2018), Coding(Jain et al,2024; Chai et al,2024a), Math(Satpute et al,2024; Chai et al,2024b), and Dialogue(Young & Shishido,2023))"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": ", Commonsense Reasoning(Yang et al,2018), Coding(Jain et al,2024; Chai et al,2024a), Math(Satpute et al,2024; Chai et al,2024b), and Dialogue(Young & Shishido,2023))"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "30",
+      "cite_id": "30",
+      "sentence": ", Commonsense Reasoning(Yang et al,2018), Coding(Jain et al,2024; Chai et al,2024a), Math(Satpute et al,2024; Chai et al,2024b), and Dialogue(Young & Shishido,2023))"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Recently, Test-time Compute methods, such as Best-of-N (BoN) and Self-Refine(Madaan et al,2024), have been proposed to enhance model performance during the inference phase and have shown to be more efficient than simply increasing model parameters"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "28",
+      "cite_id": "28",
+      "sentence": "Therefore, we select four benchmarks—HotpotQA(Yang et al,2018), Collie(Yao et al,2023), USACO(Shi et al,2024), and AIME222https://huggingface"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "29",
+      "cite_id": "29",
+      "sentence": "Therefore, we select four benchmarks—HotpotQA(Yang et al,2018), Collie(Yao et al,2023), USACO(Shi et al,2024), and AIME222https://huggingface"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "22",
+      "cite_id": "22",
+      "sentence": "Therefore, we select four benchmarks—HotpotQA(Yang et al,2018), Collie(Yao et al,2023), USACO(Shi et al,2024), and AIME222https://huggingface"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "34",
+      "cite_id": "34",
+      "sentence": "Therefore, we select four benchmarks—HotpotQA(Yang et al,2018), Collie(Yao et al,2023), USACO(Shi et al,2024), and AIME222https://huggingface"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "3",
+      "cite_id": "3",
+      "sentence": "Therefore, we select four benchmarks—HotpotQA(Yang et al,2018), Collie(Yao et al,2023), USACO(Shi et al,2024), and AIME222https://huggingface"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "27",
+      "cite_id": "27",
+      "sentence": "Therefore, we select four benchmarks—HotpotQA(Yang et al,2018), Collie(Yao et al,2023), USACO(Shi et al,2024), and AIME222https://huggingface"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "2",
+      "cite_id": "2",
+      "sentence": "Therefore, we select four benchmarks—HotpotQA(Yang et al,2018), Collie(Yao et al,2023), USACO(Shi et al,2024), and AIME222https://huggingface"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Therefore, we select four benchmarks—HotpotQA(Yang et al,2018), Collie(Yao et al,2023), USACO(Shi et al,2024), and AIME222https://huggingface"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Therefore, we select four benchmarks—HotpotQA(Yang et al,2018), Collie(Yao et al,2023), USACO(Shi et al,2024), and AIME222https://huggingface"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "33",
+      "cite_id": "33",
+      "sentence": "Therefore, we select four benchmarks—HotpotQA(Yang et al,2018), Collie(Yao et al,2023), USACO(Shi et al,2024), and AIME222https://huggingface"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "25",
+      "cite_id": "25",
+      "sentence": "With the emergence of Transformers(Vaswani,2017)and the scaling laws(Henighan et al,2020), the researchers try to scale up the parameters of the generative language model"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "11",
+      "cite_id": "11",
+      "sentence": "With the emergence of Transformers(Vaswani,2017)and the scaling laws(Henighan et al,2020), the researchers try to scale up the parameters of the generative language model"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "19",
+      "cite_id": "19",
+      "sentence": "As a result, OpenAI’s GPT series models(Radford,2018; Radford et al,2019; Brown,2020; Achiam et al,2023)have achieved remarkable success in the NLP field"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "20",
+      "cite_id": "20",
+      "sentence": "As a result, OpenAI’s GPT series models(Radford,2018; Radford et al,2019; Brown,2020; Achiam et al,2023)have achieved remarkable success in the NLP field"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "5",
+      "cite_id": "5",
+      "sentence": "With the emergence of Transformers(Vaswani,2017)and the scaling laws(Henighan et al,2020), the researchers try to scale up the parameters of the generative language model"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "As a result, OpenAI’s GPT series models(Radford,2018; Radford et al,2019; Brown,2020; Achiam et al,2023)have achieved remarkable success in the NLP field"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "3",
+      "cite_id": "3",
+      "sentence": "As a result, OpenAI’s GPT series models(Radford,2018; Radford et al,2019; Brown,2020; Achiam et al,2023)have achieved remarkable success in the NLP field"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "27",
+      "cite_id": "27",
+      "sentence": "Inspired by the scaling law, the rapid development of open-source models has also been achieved through scaling up the size of parameters and collecting huge data for pre-training, such as Qwen(Bai et al,2023; Yang et al,2024), Yi(AI et al,2024), Llama(Touvron et al,2023; Dubey et al,2024), and Deepseek(Bi et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "2",
+      "cite_id": "2",
+      "sentence": "Inspired by the scaling law, the rapid development of open-source models has also been achieved through scaling up the size of parameters and collecting huge data for pre-training, such as Qwen(Bai et al,2023; Yang et al,2024), Yi(AI et al,2024), Llama(Touvron et al,2023; Dubey et al,2024), and Deepseek(Bi et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "24",
+      "cite_id": "24",
+      "sentence": "As a result, OpenAI’s GPT series models(Radford,2018; Radford et al,2019; Brown,2020; Achiam et al,2023)have achieved remarkable success in the NLP field"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Inspired by the scaling law, the rapid development of open-source models has also been achieved through scaling up the size of parameters and collecting huge data for pre-training, such as Qwen(Bai et al,2023; Yang et al,2024), Yi(AI et al,2024), Llama(Touvron et al,2023; Dubey et al,2024), and Deepseek(Bi et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "4",
+      "cite_id": "4",
+      "sentence": "Inspired by the scaling law, the rapid development of open-source models has also been achieved through scaling up the size of parameters and collecting huge data for pre-training, such as Qwen(Bai et al,2023; Yang et al,2024), Yi(AI et al,2024), Llama(Touvron et al,2023; Dubey et al,2024), and Deepseek(Bi et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "23",
+      "cite_id": "23",
+      "sentence": "Inspired by the scaling law, the rapid development of open-source models has also been achieved through scaling up the size of parameters and collecting huge data for pre-training, such as Qwen(Bai et al,2023; Yang et al,2024), Yi(AI et al,2024), Llama(Touvron et al,2023; Dubey et al,2024), and Deepseek(Bi et al,2024)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "23",
+      "cite_id": "23",
+      "sentence": "Snell et al (2024)propose that scaling LLMs Test-time Compute optimally can be more effective than scaling model parameters"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "26",
+      "cite_id": "26",
+      "sentence": "Wang et al (2023)conduct a hierarchical hypothesis search to enable inductive reasoning capabilities"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "9",
+      "cite_id": "9",
+      "sentence": "Wang et al (2023)conduct a hierarchical hypothesis search to enable inductive reasoning capabilities"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "17",
+      "cite_id": "17",
+      "sentence": "Wang et al (2023)conduct a hierarchical hypothesis search to enable inductive reasoning capabilities"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "18",
+      "cite_id": "18",
+      "sentence": "Snell et al (2024)propose that scaling LLMs Test-time Compute optimally can be more effective than scaling model parameters"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "10",
+      "cite_id": "10",
+      "sentence": "Wang et al (2023)conduct a hierarchical hypothesis search to enable inductive reasoning capabilities"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "Snell et al (2024)propose that scaling LLMs Test-time Compute optimally can be more effective than scaling model parameters"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "28",
+      "cite_id": "28",
+      "sentence": "We selectHotpotQA(Yang et al,2018)andCollie(Yao et al,2023)to evaluate the commonsense reasoning ability of LLMs"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "29",
+      "cite_id": "29",
+      "sentence": "We selectHotpotQA(Yang et al,2018)andCollie(Yao et al,2023)to evaluate the commonsense reasoning ability of LLMs"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "34",
+      "cite_id": "34",
+      "sentence": "According to LIME(Zhu et al,2024), we design adata filteringmodule to show the performance differences among different models"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "According to LIME(Zhu et al,2024), we design adata filteringmodule to show the performance differences among different models"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "3",
+      "cite_id": "3",
+      "sentence": "We selectHotpotQA(Yang et al,2018)andCollie(Yao et al,2023)to evaluate the commonsense reasoning ability of LLMs"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "22",
+      "cite_id": "22",
+      "sentence": "We are using the bronze level of theUSACO(Shi et al,2024)competition to test the coding skills of LLMs"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "It improves initial outputs from LLMs through iterative feedback and refinement(Madaan et al,2024)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "32",
+      "cite_id": "32",
+      "sentence": "For the commonsense reasoning datasets, we leverage the existing state-of-the-art agent framework(Zhou et al,2023;2024)for evaluation"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "33",
+      "cite_id": "33",
+      "sentence": "For the commonsense reasoning datasets, we leverage the existing state-of-the-art agent framework(Zhou et al,2023;2024)for evaluation"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "14",
+      "cite_id": "14",
+      "sentence": "Skywork-Reward-Gemma-2-27B(Liu & Zeng,2024)and URM-LLaMa-3"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "15",
+      "cite_id": "15",
+      "sentence": "Skywork-Reward-Gemma-2-27B(Liu & Zeng,2024)and URM-LLaMa-3"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "Skywork-Reward-Gemma-2-27B(Liu & Zeng,2024)and URM-LLaMa-3"
+    }
+  ],
+  "preview": "<div class=\"ltx_para ltx_noindent\" id=\"S1.p1\">\n<p class=\"ltx_p\" id=\"S1.p1.1\">Large Language Models (LLMs) have achieved great success in various tasks (e.g., Commonsense Reasoning , Coding , Math , and Dialogue ). To further improve their performance, researchers have continuously increased the number of model parameters and expanded the training data. However, this method of scaling up the model parameters is reaching a bottleneck, and the efficiency of performance improvement is becoming progressively limited.</p>\n</div><div class=\"ltx_para ltx_noindent\" id=\"S1.p2\">\n<p class=\"ltx_p\" id=\"S1.p2.1\">Recently, Test-time Compute methods, such as Best-of-N (BoN) and Self-Refine , have been proposed to enhance model performance during the inference phase and have shown to be more efficient than simply increasing model parameters. However, there is a lack of research comparing the effectiveness of different Test-time Compute methods across various tasks, which would provide valuable guidance for researchers developing new models.\nBesides,\nunderstanding the inference mechanism of the o1 model is very important to help researchers enhance the capabilities of LLMs.</p>\n</div><div class=\"ltx_para ltx_noindent\" id=\"S1.p3\">\n<p class=\"ltx_p\" id=\"S1.p3.1\">To address the aforementioned issues, we compare OpenAI’s o1 model with various Test-time Compute methods, using GPT-4o as the backbone.\nAccording to the OpenAI o1 report <span class=\"ltx_note ltx_role_footnote\" id=\"footnote1\"><sup class=\"ltx_note_mark\">1</sup><span class=\"ltx_note_outer\"><span class=\"ltx_note_content\"><sup class=\"ltx_note_mark\">1</sup><span class=\"ltx_tag ltx_tag_note\">1</span><a class=\"ltx_ref ltx_url ltx_font_typewriter\" href=\"https://openai.com/index/introducing-openai-o1-preview/\" title=\"\">https://openai.com/index/introducing-openai-o1-preview/</a></span></span></span>, the model demonstrates exceptional improvements in areas such as mathematics and coding.\nTherefore, we select four benchmarks—HotpotQA , Collie , USACO , and AIME <span class=\"ltx_note ltx_role_footnote\" id=\"footnote2\"><sup class=\"ltx_note_mark\">2</sup><span class=\"ltx_note_outer\"><span class=\"ltx_note_content\"><sup class=\"ltx_note_mark\">2</sup><span class=\"ltx_tag ltx_tag_note\">2</span><a class=\"ltx_ref ltx_url ltx_font_typewriter\" href=\"https://huggingface.co/datasets/AI-MO/aimo-validation-aime\" title=\"\">https://huggingface.co/datasets/AI-MO/aimo-validation-aime</a></span></span></span>—to encompass three key reasoning domains.\nFor certain benchmarks (i.e., HotpotQA and Collie) that are not challenging for current LLMs,\nwe follow the LIME  and implement a voting method using four selected models (i.e., Qwen , Yi , Llama3 , and Claude <span class=\"ltx_note ltx_role_footnote\" id=\"footnote3\"><sup class=\"ltx_note_mark\">3</sup><span class=\"ltx_note_outer\"><span class=\"ltx_note_content\"><sup class=\"ltx_note_mark\">3</sup><span class=\"ltx_tag ltx_tag_note\">3</span><a class=\"ltx_ref ltx_url ltx_font_typewriter\" href=\"https://claude.ai/\" title=\"\">https://claude.ai/</a></span></span></span>) to filter out samples that cannot be correctly answered by more than two of the LLMs.\nThen we select four Test-time Compute methods (including Best-of-N (BoN), Step-wise BoN, Agent Workflow, and Self-Refine) as baselines which use the GPT-4o as the backbone.\nAs for BoN and Step-wise BoN, we use GPT-4o as the reward model to select the most suitable responses for a given sample.\nWe directly use the code from the GitHub of the Self-Refine .\nAs for the Agent Workflow, we utilize the state-of-the-art agent framework  on the HotpotQA and Collie, and we use the GPTs <span class=\"ltx_note ltx_role_footnote\" id=\"footnote4\"><sup class=\"ltx_note_mark\">4</sup><span class=\"ltx_note_outer\"><span class=\"ltx_note_content\"><sup class=\"ltx_note_mark\">4</sup><span class=\"ltx_tag ltx_tag_note\">4</span><a class=\"ltx_ref ltx_url ltx_font_typewriter\" href=\"https://openai.com/index/introducing-gpts/\" title=\"\">https://openai.com/index/introducing-gpts/</a></span></span></span> for USACO and AIME.</p>\n</div><div class=\"ltx_para ltx_noindent\" id=\"S1.p4\">\n<p class=\"ltx_p\" id=\"S1.p4.1\">We have conducted comprehensive experiments on our filtered benchmarks, and we have the following insightful findings:</p>\n<ul class=\"ltx_itemize\" id=\"S1.I1\">\n<li class=\"ltx_item\" id=\"S1.I1.i1\" style=\"list-style-type:none;\">\n<span class=\"ltx_tag ltx_tag_item\">•</span>\n<div class=\"ltx_para\" id=\"S1.I1.i1.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i1.p1.1\">The OpenAI’s o1 model achieves the best results across almost all benchmarks and demonstrates significant improvements in coding and math tasks using the CoT-based approach.</p>\n</div>\n</li>\n<li class=\"ltx_item\" id=\"S1.I1.i2\" style=\"list-style-type:none;\">\n<span class=\"ltx_tag ltx_tag_item\">•</span>\n<div class=\"ltx_para ltx_noindent\" id=\"S1.I1.i2.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i2.p1.1\">The domain-specific system prompt is crucial for Step-wise methods. Specifically, the Agent Workflow method greatly enhances the model’s performance and it is relatively close to the o1’s performance, while the impact of Step-wise BoN on the model’s capabilities is mainly evident in the HotpotQA task.\nBesides, we assume that the Agent Workflow with a series of domain-specific system prompts can not only reduce unnecessary reasoning steps but also carefully align with the reasoning problems.</p>\n</div>\n</li>\n<li class=\"ltx_item\" id=\"S1.I1.i3\" style=\"list-style-type:none;\">\n<span class=\"ltx_tag ltx_tag_item\">•</span>\n<div class=\"ltx_para\" id=\"S1.I1.i3.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i3.p1.1\">We summarize 6 types of o1 reasoning patterns (i.e., <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.1\">Systematic Analysis (SA)</span>, <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.2\">Method Reuse (MR)</span>, <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.3\">Divide and Conquer (DC)</span>, <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.4\">Self-Refinement (SR)</span>, <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.5\">Context Identification (CI)</span>, and <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.6\">Emphasizing Constraints (EC)</span>) across four benchmarks, and we observe that the most commonly used reasoning patterns in o1 are DC and SR, which might be the key to o1’s success.\nMoreover, the reasoning patterns vary across different tasks.\nSpecifically, for commonsense reasoning tasks, o1 tends to use CI and EC. In contrast, in math and coding tasks, o1 mainly relies on MR and DC.</p>\n</div>\n</li>\n<li class=\"ltx_item\" id=\"S1.I1.i4\" style=\"list-style-type:none;\">\n<span class=\"ltx_tag ltx_tag_item\">•</span>\n<div class=\"ltx_para ltx_noindent\" id=\"S1.I1.i4.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i4.p1.1\">We also explore the number of reasoning tokens of o1 across different tasks, and observe that the number of reasoning tokens varies a lot across different tasks.</p>\n</div>\n</li>\n</ul>\n</div><div class=\"ltx_para\" id=\"S1.I1.i1.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i1.p1.1\">The OpenAI’s o1 model achieves the best results across almost all benchmarks and demonstrates significant improvements in coding and math tasks using the CoT-based approach.</p>\n</div><div class=\"ltx_para ltx_noindent\" id=\"S1.I1.i2.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i2.p1.1\">The domain-specific system prompt is crucial for Step-wise methods. Specifically, the Agent Workflow method greatly enhances the model’s performance and it is relatively close to the o1’s performance, while the impact of Step-wise BoN on the model’s capabilities is mainly evident in the HotpotQA task.\nBesides, we assume that the Agent Workflow with a series of domain-specific system prompts can not only reduce unnecessary reasoning steps but also carefully align with the reasoning problems.</p>\n</div><div class=\"ltx_para\" id=\"S1.I1.i3.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i3.p1.1\">We summarize 6 types of o1 reasoning patterns (i.e., <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.1\">Systematic Analysis (SA)</span>, <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.2\">Method Reuse (MR)</span>, <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.3\">Divide and Conquer (DC)</span>, <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.4\">Self-Refinement (SR)</span>, <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.5\">Context Identification (CI)</span>, and <span class=\"ltx_text ltx_font_bold\" id=\"S1.I1.i3.p1.1.6\">Emphasizing Constraints (EC)</span>) across four benchmarks, and we observe that the most commonly used reasoning patterns in o1 are DC and SR, which might be the key to o1’s success.\nMoreover, the reasoning patterns vary across different tasks.\nSpecifically, for commonsense reasoning tasks, o1 tends to use CI and EC. In contrast, in math and coding tasks, o1 mainly relies on MR and DC.</p>\n</div><div class=\"ltx_para ltx_noindent\" id=\"S1.I1.i4.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i4.p1.1\">We also explore the number of reasoning tokens of o1 across different tasks, and observe that the number of reasoning tokens varies a lot across different tasks.</p>\n</div>",
+  "references": {
+    "1": {
+      "enum": "1",
+      "authors": "OpenAI, Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, Red Avila, Igor Babuschkin, Suchir Balaji, Valerie Balcom, Paul Baltescu, Haiming Bao, Mohammad Bavarian, Jeff Belgum, Irwan Bello, Jake Berdine, Gabriel Bernadett-Shapiro, Christopher Berner, Lenny Bogdonoff, Oleg Boiko, Madelaine Boyd, Anna-Luisa Brakman, Greg Brockman, Tim Brooks, Miles Brundage, Kevin Button, Trevor Cai, Rosie Campbell, Andrew Cann, Brittany Carey, Chelsea Carlson, Rory Carmichael, Brooke Chan, Che Chang, Fotis Chantzis, Derek Chen, Sully Chen, Ruby Chen, Jason Chen, Mark Chen, Ben Chess, Chester Cho, Casey Chu, Hyung Won Chung, Dave Cummings, Jeremiah Currier, Yunxing Dai, Cory Decareaux, Thomas Degry, Noah Deutsch, Damien Deville, Arka Dhar, David Dohan, Steve Dowling, Sheila Dunning, Adrien Ecoffet, Atty Eleti, Tyna Eloundou, David Farhi, Liam Fedus, Niko Felix, Simón Posada Fishman, Juston Forte, Isabella Fulford, Leo Gao, Elie Georges, Christian Gibson, Vik Goel, Tarun Gogineni, Gabriel Goh, Rapha Gontijo-Lopes, Jonathan Gordon, Morgan Grafstein, Scott Gray, Ryan Greene, Joshua Gross, Shixiang Shane Gu, Yufei Guo, Chris Hallacy, Jesse Han, Jeff Harris, Yuchen He, Mike Heaton, Johannes Heidecke, Chris Hesse, Alan Hickey, Wade Hickey, Peter Hoeschele, Brandon Houghton, Kenny Hsu, Shengli Hu, Xin Hu, Joost Huizinga, Shantanu Jain, Shawn Jain, Joanne Jang, Angela Jiang, Roger Jiang, Haozhun Jin, Denny Jin, Shino Jomoto, Billie Jonn, Heewoo Jun, Tomer Kaftan, Łukasz Kaiser, Ali Kamali, Ingmar Kanitscheider, Nitish Shirish Keskar, Tabarak Khan, Logan Kilpatrick, Jong Wook Kim, Christina Kim, Yongjik Kim, Jan Hendrik Kirchner, Jamie Kiros, Matt Knight, Daniel Kokotajlo, Łukasz Kondraciuk, Andrew Kondrich, Aris Konstantinidis, Kyle Kosic, Gretchen Krueger, Vishal Kuo, Michael Lampe, Ikai Lan, Teddy Lee, Jan Leike, Jade Leung, Daniel Levy, Chak Ming Li, Rachel Lim, Molly Lin, Stephanie Lin, Mateusz Litwin, Theresa Lopez, Ryan Lowe, Patricia Lue, Anna Makanju, Kim Malfacini, Sam Manning, Todor Markov, Yaniv Markovski, Bianca Martin, Katie Mayer, Andrew Mayne, Bob McGrew, Scott Mayer McKinney, Christine McLeavey, Paul McMillan, Jake McNeil, David Medina, Aalok Mehta, Jacob Menick, Luke Metz, Andrey Mishchenko, Pamela Mishkin, Vinnie Monaco, Evan Morikawa, Daniel Mossing, Tong Mu, Mira Murati, Oleg Murk, David Mély, Ashvin Nair, Reiichiro Nakano, Rajeev Nayak, Arvind Neelakantan, Richard Ngo, Hyeonwoo Noh, Long Ouyang, Cullen O'Keefe, Jakub Pachocki, Alex Paino, Joe Palermo, Ashley Pantuliano, Giambattista Parascandolo, Joel Parish, Emy Parparita, Alex Passos, Mikhail Pavlov, Andrew Peng, Adam Perelman, Filipe de Avila Belbute Peres, Michael Petrov, Henrique Ponde de Oliveira Pinto, Michael, Pokorny, Michelle Pokrass, Vitchyr H. Pong, Tolly Powell, Alethea Power, Boris Power, Elizabeth Proehl, Raul Puri, Alec Radford, Jack Rae, Aditya Ramesh, Cameron Raymond, Francis Real, Kendra Rimbach, Carl Ross, Bob Rotsted, Henri Roussez, Nick Ryder, Mario Saltarelli, Ted Sanders, Shibani Santurkar, Girish Sastry, Heather Schmidt, David Schnurr, John Schulman, Daniel Selsam, Kyla Sheppard, Toki Sherbakov, Jessica Shieh, Sarah Shoker, Pranav Shyam, Szymon Sidor, Eric Sigler, Maddie Simens, Jordan Sitkin, Katarina Slama, Ian Sohl, Benjamin Sokolowsky, Yang Song, Natalie Staudacher, Felipe Petroski Such, Natalie Summers, Ilya Sutskever, Jie Tang, Nikolas Tezak, Madeleine B. Thompson, Phil Tillet, Amin Tootoonchian, Elizabeth Tseng, Preston Tuggle, Nick Turley, Jerry Tworek, Juan Felipe Cerón Uribe, Andrea Vallone, Arun Vijayvergiya, Chelsea Voss, Carroll Wainwright, Justin Jay Wang, Alvin Wang, Ben Wang, Jonathan Ward, Jason Wei, CJ Weinmann, Akila Welihinda, Peter Welinder, Jiayi Weng, Lilian Weng, Matt Wiethoff, Dave Willner, Clemens Winter, Samuel Wolrich, Hannah Wong, Lauren Workman, Sherwin Wu, Jeff Wu, Michael Wu, Kai Xiao, Tao Xu, Sarah Yoo, Kevin Yu, Qiming Yuan, Wojciech Zaremba, Rowan Zellers, Chong Zhang, Marvin Zhang, Shengjia Zhao, Tianhao Zheng, Juntang Zhuang, William Zhuk, Barret Zoph",
+      "title": "Gpt-4 technical report",
+      "publication": "arXiv preprint arXiv:2303.08774, 2023",
+      "year": 2023,
+      "summary": "We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs. While less capable than humans in many real-world scenarios, GPT-4 exhibits human-level performance on various professional and academic benchmarks, including passing a simulated bar exam with a score around the top 10% of test takers. GPT-4 is a Transformer-based model pre-trained to predict the next token in a document. The post-training alignment process results in improved performance on measures of factuality and adherence to desired behavior. A core component of this project was developing infrastructure and optimization methods that behave predictably across a wide range of scales. This allowed us to accurately predict some aspects of GPT-4's performance based on models trained with no more than 1/1,000th the compute of GPT-4.",
+      "standard_url": "http://arxiv.org/abs/2303.08774v6",
+      "id": "2023-gpt-4_technical_report"
+    },
+    "2": {
+      "enum": "2",
+      "authors": "01. AI, :, Alex Young, Bei Chen, Chao Li, Chengen Huang, Ge Zhang, Guanwei Zhang, Heng Li, Jiangcheng Zhu, Jianqun Chen, Jing Chang, Kaidong Yu, Peng Liu, Qiang Liu, Shawn Yue, Senbin Yang, Shiming Yang, Tao Yu, Wen Xie, Wenhao Huang, Xiaohui Hu, Xiaoyi Ren, Xinyao Niu, Pengcheng Nie, Yuchi Xu, Yudong Liu, Yue Wang, Yuxuan Cai, Zhenyu Gu, Zhiyuan Liu, and Zonghong Dai",
+      "title": "Yi: Open foundation models by 01.ai, 2024",
+      "publication": null,
+      "year": "2024",
+      "summary": null,
+      "standard_url": null,
+      "id": "2024-yi:_open_foundation_models_by_01.ai_2024"
+    },
+    "3": {
+      "enum": "3",
+      "authors": "Jinze Bai, Shuai Bai, Yunfei Chu, Zeyu Cui, Kai Dang, Xiaodong Deng, Yang Fan, Wenbin Ge, Yu Han, Fei Huang, Binyuan Hui, Luo Ji, Mei Li, Junyang Lin, Runji Lin, Dayiheng Liu, Gao Liu, Chengqiang Lu, Keming Lu, Jianxin Ma, Rui Men, Xingzhang Ren, Xuancheng Ren, Chuanqi Tan, Sinan Tan, Jianhong Tu, Peng Wang, Shijie Wang, Wei Wang, Shengguang Wu, Benfeng Xu, Jin Xu, An Yang, Hao Yang, Jian Yang, Shusheng Yang, Yang Yao, Bowen Yu, Hongyi Yuan, Zheng Yuan, Jianwei Zhang, Xingxuan Zhang, Yichang Zhang, Zhenru Zhang, Chang Zhou, Jingren Zhou, Xiaohuan Zhou, Tianhang Zhu",
+      "title": "Qwen technical report",
+      "publication": "arXiv preprint arXiv:2309.16609, 2023",
+      "year": 2023,
+      "summary": "Large language models (LLMs) have revolutionized the field of artificial intelligence, enabling natural language processing tasks that were previously thought to be exclusive to humans. In this work, we introduce Qwen, the first installment of our large language model series. Qwen is a comprehensive language model series that encompasses distinct models with varying parameter counts. It includes Qwen, the base pretrained language models, and Qwen-Chat, the chat models finetuned with human alignment techniques. The base language models consistently demonstrate superior performance across a multitude of downstream tasks, and the chat models, particularly those trained using Reinforcement Learning from Human Feedback (RLHF), are highly competitive. The chat models possess advanced tool-use and planning capabilities for creating agent applications, showcasing impressive performance even when compared to bigger models on complex tasks like utilizing a code interpreter. Furthermore, we have developed coding-specialized models, Code-Qwen and Code-Qwen-Chat, as well as mathematics-focused models, Math-Qwen-Chat, which are built upon base language models. These models demonstrate significantly improved performance in comparison with open-source models, and slightly fall behind the proprietary models.",
+      "standard_url": "http://arxiv.org/abs/2309.16609v1",
+      "id": "2023-qwen_technical_report"
+    },
+    "4": {
+      "enum": "4",
+      "authors": "DeepSeek-AI, :, Xiao Bi, Deli Chen, Guanting Chen, Shanhuang Chen, Damai Dai, Chengqi Deng, Honghui Ding, Kai Dong, Qiushi Du, Zhe Fu, Huazuo Gao, Kaige Gao, Wenjun Gao, Ruiqi Ge, Kang Guan, Daya Guo, Jianzhong Guo, Guangbo Hao, Zhewen Hao, Ying He, Wenjie Hu, Panpan Huang, Erhang Li, Guowei Li, Jiashi Li, Yao Li, Y. K. Li, Wenfeng Liang, Fangyun Lin, A. X. Liu, Bo Liu, Wen Liu, Xiaodong Liu, Xin Liu, Yiyuan Liu, Haoyu Lu, Shanghao Lu, Fuli Luo, Shirong Ma, Xiaotao Nie, Tian Pei, Yishi Piao, Junjie Qiu, Hui Qu, Tongzheng Ren, Zehui Ren, Chong Ruan, Zhangli Sha, Zhihong Shao, Junxiao Song, Xuecheng Su, Jingxiang Sun, Yaofeng Sun, Minghui Tang, Bingxuan Wang, Peiyi Wang, Shiyu Wang, Yaohui Wang, Yongji Wang, Tong Wu, Y. Wu, Xin Xie, Zhenda Xie, Ziwei Xie, Yiliang Xiong, Hanwei Xu, R. X. Xu, Yanhong Xu, Dejian Yang, Yuxiang You, Shuiping Yu, Xingkai Yu, B. Zhang, Haowei Zhang, Lecong Zhang, Liyue Zhang, Mingchuan Zhang, Minghua Zhang, Wentao Zhang, Yichao Zhang, Chenggang Zhao, Yao Zhao, Shangyan Zhou, Shunfeng Zhou, Qihao Zhu, Yuheng Zou",
+      "title": "Deepseek llm: Scaling open-source language models with longtermism",
+      "publication": "arXiv preprint arXiv:2401.02954, 2024",
+      "year": 2024,
+      "summary": "The rapid development of open-source large language models (LLMs) has been truly remarkable. However, the scaling law described in previous literature presents varying conclusions, which casts a dark cloud over scaling LLMs. We delve into the study of scaling laws and present our distinctive findings that facilitate scaling of large scale models in two commonly used open-source configurations, 7B and 67B. Guided by the scaling laws, we introduce DeepSeek LLM, a project dedicated to advancing open-source language models with a long-term perspective. To support the pre-training phase, we have developed a dataset that currently consists of 2 trillion tokens and is continuously expanding. We further conduct supervised fine-tuning (SFT) and Direct Preference Optimization (DPO) on DeepSeek LLM Base models, resulting in the creation of DeepSeek Chat models. Our evaluation results demonstrate that DeepSeek LLM 67B surpasses LLaMA-2 70B on various benchmarks, particularly in the domains of code, mathematics, and reasoning. Furthermore, open-ended evaluations reveal that DeepSeek LLM 67B Chat exhibits superior performance compared to GPT-3.5.",
+      "standard_url": "http://arxiv.org/abs/2401.02954v1",
+      "id": "2024-deepseek_llm:_scaling_open-source_language_models_with_longtermism"
+    },
+    "5": {
+      "enum": "5",
+      "authors": "Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, Dario Amodei",
+      "title": "Language models are few-shot learners",
+      "publication": "arXiv preprint arXiv:2005.14165, 2020",
+      "year": 2020,
+      "summary": "Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to do. Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same time, we also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally, we find that GPT-3 can generate samples of news articles which human evaluators have difficulty distinguishing from articles written by humans. We discuss broader societal impacts of this finding and of GPT-3 in general.",
+      "standard_url": "http://arxiv.org/abs/2005.14165v4",
+      "id": "2020-language_models_are_few-shot_learners"
+    },
+    "6": {
+      "enum": "6",
+      "authors": "Linzheng Chai, Shukai Liu, Jian Yang, Yuwei Yin, Ke Jin, Jiaheng Liu, Tao Sun, Ge Zhang, Changyu Ren, Hongcheng Guo, Zekun Wang, Boyang Wang, Xianjie Wu, Bing Wang, Tongliang Li, Liqun Yang, Sufeng Duan, Zhoujun Li",
+      "title": "Mceval: Massively multilingual code evaluation",
+      "publication": "arXiv preprint arXiv:2406.07436, 2024a",
+      "year": 2024,
+      "summary": "Code large language models (LLMs) have shown remarkable advances in code understanding, completion, and generation tasks. Programming benchmarks, comprised of a selection of code challenges and corresponding test cases, serve as a standard to evaluate the capability of different LLMs in such tasks. However, most existing benchmarks primarily focus on Python and are still restricted to a limited number of languages, where other languages are translated from the Python samples (e.g. MultiPL-E) degrading the data diversity. To further facilitate the research of code LLMs, we propose a massively multilingual code benchmark covering 40 programming languages (McEval) with 16K test samples, which substantially pushes the limits of code LLMs in multilingual scenarios. The benchmark contains challenging code completion, understanding, and generation evaluation tasks with finely curated massively multilingual instruction corpora McEval-Instruct. In addition, we introduce an effective multilingual coder mCoder trained on McEval-Instruct to support multilingual programming language generation. Extensive experimental results on McEval show that there is still a difficult journey between open-source models and closed-source LLMs (e.g. GPT-series models) in numerous languages. The instruction corpora, evaluation benchmark, and leaderboard are available at \\url{https://mceval.github.io/}.",
+      "standard_url": "http://arxiv.org/abs/2406.07436v1",
+      "id": "2024-mceval:_massively_multilingual_code_evaluation"
+    },
+    "7": {
+      "enum": "7",
+      "authors": "Linzheng Chai, Jian Yang, Tao Sun, Hongcheng Guo, Jiaheng Liu, Bing Wang, Xiannian Liang, Jiaqi Bai, Tongliang Li, Qiyao Peng, Zhoujun Li",
+      "title": "xcot: Cross-lingual instruction tuning for cross-lingual chain-of-thought reasoning",
+      "publication": "arXiv preprint arXiv:2401.07037, 2024b",
+      "year": 2024,
+      "summary": "Chain-of-thought (CoT) has emerged as a powerful technique to elicit reasoning in large language models and improve a variety of downstream tasks. CoT mainly demonstrates excellent performance in English, but its usage in low-resource languages is constrained due to poor language generalization. To bridge the gap among different languages, we propose a cross-lingual instruction fine-tuning framework (xCOT) to transfer knowledge from high-resource languages to low-resource languages. Specifically, the multilingual instruction training data (xCOT-INSTRUCT) is created to encourage the semantic alignment of multiple languages. We introduce cross-lingual in-context few-shot learning (xICL)) to accelerate multilingual agreement in instruction tuning, where some fragments of source languages in examples are randomly substituted by their counterpart translations of target languages. During multilingual instruction tuning, we adopt the randomly online CoT strategy to enhance the multilingual reasoning ability of the large language model by first translating the query to another language and then answering in English. To further facilitate the language transfer, we leverage the high-resource CoT to supervise the training of low-resource languages with cross-lingual distillation. Experimental results on previous benchmarks demonstrate the superior performance of xCoT in reducing the gap among different languages, highlighting its potential to reduce the cross-lingual gap.",
+      "standard_url": "http://arxiv.org/abs/2401.07037v1",
+      "id": "2024-xcot:_cross-lingual_instruction_tuning_for_cross-lingual_chain-of-thought_reasoning"
+    },
+    "8": {
+      "enum": "8",
+      "authors": "Aaron Grattafiori, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Alex Vaughan, Amy Yang, Angela Fan, Anirudh Goyal, Anthony Hartshorn, Aobo Yang, Archi Mitra, Archie Sravankumar, Artem Korenev, Arthur Hinsvark, Arun Rao, Aston Zhang, Aurelien Rodriguez, Austen Gregerson, Ava Spataru, Baptiste Roziere, Bethany Biron, Binh Tang, Bobbie Chern, Charlotte Caucheteux, Chaya Nayak, Chloe Bi, Chris Marra, Chris McConnell, Christian Keller, Christophe Touret, Chunyang Wu, Corinne Wong, Cristian Canton Ferrer, Cyrus Nikolaidis, Damien Allonsius, Daniel Song, Danielle Pintz, Danny Livshits, Danny Wyatt, David Esiobu, Dhruv Choudhary, Dhruv Mahajan, Diego Garcia-Olano, Diego Perino, Dieuwke Hupkes, Egor Lakomkin, Ehab AlBadawy, Elina Lobanova, Emily Dinan, Eric Michael Smith, Filip Radenovic, Francisco Guzmán, Frank Zhang, Gabriel Synnaeve, Gabrielle Lee, Georgia Lewis Anderson, Govind Thattai, Graeme Nail, Gregoire Mialon, Guan Pang, Guillem Cucurell, Hailey Nguyen, Hannah Korevaar, Hu Xu, Hugo Touvron, Iliyan Zarov, Imanol Arrieta Ibarra, Isabel Kloumann, Ishan Misra, Ivan Evtimov, Jack Zhang, Jade Copet, Jaewon Lee, Jan Geffert, Jana Vranes, Jason Park, Jay Mahadeokar, Jeet Shah, Jelmer van der Linde, Jennifer Billock, Jenny Hong, Jenya Lee, Jeremy Fu, Jianfeng Chi, Jianyu Huang, Jiawen Liu, Jie Wang, Jiecao Yu, Joanna Bitton, Joe Spisak, Jongsoo Park, Joseph Rocca, Joshua Johnstun, Joshua Saxe, Junteng Jia, Kalyan Vasuden Alwala, Karthik Prasad, Kartikeya Upasani, Kate Plawiak, Ke Li, Kenneth Heafield, Kevin Stone, Khalid El-Arini, Krithika Iyer, Kshitiz Malik, Kuenley Chiu, Kunal Bhalla, Kushal Lakhotia, Lauren Rantala-Yeary, Laurens van der Maaten, Lawrence Chen, Liang Tan, Liz Jenkins, Louis Martin, Lovish Madaan, Lubo Malo, Lukas Blecher, Lukas Landzaat, Luke de Oliveira, Madeline Muzzi, Mahesh Pasupuleti, Mannat Singh, Manohar Paluri, Marcin Kardas, Maria Tsimpoukelli, Mathew Oldham, Mathieu Rita, Maya Pavlova, Melanie Kambadur, Mike Lewis, Min Si, Mitesh Kumar Singh, Mona Hassan, Naman Goyal, Narjes Torabi, Nikolay Bashlykov, Nikolay Bogoychev, Niladri Chatterji, Ning Zhang, Olivier Duchenne, Onur Çelebi, Patrick Alrassy, Pengchuan Zhang, Pengwei Li, Petar Vasic, Peter Weng, Prajjwal Bhargava, Pratik Dubal, Praveen Krishnan, Punit Singh Koura, Puxin Xu, Qing He, Qingxiao Dong, Ragavan Srinivasan, Raj Ganapathy, Ramon Calderer, Ricardo Silveira Cabral, Robert Stojnic, Roberta Raileanu, Rohan Maheswari, Rohit Girdhar, Rohit Patel, Romain Sauvestre, Ronnie Polidoro, Roshan Sumbaly, Ross Taylor, Ruan Silva, Rui Hou, Rui Wang, Saghar Hosseini, Sahana Chennabasappa, Sanjay Singh, Sean Bell, Seohyun Sonia Kim, Sergey Edunov, Shaoliang Nie, Sharan Narang, Sharath Raparthy, Sheng Shen, Shengye Wan, Shruti Bhosale, Shun Zhang, Simon Vandenhende, Soumya Batra, Spencer Whitman, Sten Sootla, Stephane Collot, Suchin Gururangan, Sydney Borodinsky, Tamar Herman, Tara Fowler, Tarek Sheasha, Thomas Georgiou, Thomas Scialom, Tobias Speckbacher, Todor Mihaylov, Tong Xiao, Ujjwal Karn, Vedanuj Goswami, Vibhor Gupta, Vignesh Ramanathan, Viktor Kerkez, Vincent Gonguet, Virginie Do, Vish Vogeti, Vítor Albiero, Vladan Petrovic, Weiwei Chu, Wenhan Xiong, Wenyin Fu, Whitney Meers, Xavier Martinet, Xiaodong Wang, Xiaofang Wang, Xiaoqing Ellen Tan, Xide Xia, Xinfeng Xie, Xuchao Jia, Xuewei Wang, Yaelle Goldschlag, Yashesh Gaur, Yasmine Babaei, Yi Wen, Yiwen Song, Yuchen Zhang, Yue Li, Yuning Mao, Zacharie Delpierre Coudert, Zheng Yan, Zhengxing Chen, Zoe Papakipos, Aaditya Singh, Aayushi Srivastava, Abha Jain, Adam Kelsey, Adam Shajnfeld, Adithya Gangidi, Adolfo Victoria, Ahuva Goldstand, Ajay Menon, Ajay Sharma, Alex Boesenberg, Alexei Baevski, Allie Feinstein, Amanda Kallet, Amit Sangani, Amos Teo, Anam Yunus, Andrei Lupu, Andres Alvarado, Andrew Caples, Andrew Gu, Andrew Ho, Andrew Poulton, Andrew Ryan, Ankit Ramchandani, Annie Dong, Annie Franco, Anuj Goyal, Aparajita Saraf, Arkabandhu Chowdhury, Ashley Gabriel, Ashwin Bharambe, Assaf Eisenman, Azadeh Yazdan, Beau James, Ben Maurer, Benjamin Leonhardi, Bernie Huang, Beth Loyd, Beto De Paola, Bhargavi Paranjape, Bing Liu, Bo Wu, Boyu Ni, Braden Hancock, Bram Wasti, Brandon Spence, Brani Stojkovic, Brian Gamido, Britt Montalvo, Carl Parker, Carly Burton, Catalina Mejia, Ce Liu, Changhan Wang, Changkyu Kim, Chao Zhou, Chester Hu, Ching-Hsiang Chu, Chris Cai, Chris Tindal, Christoph Feichtenhofer, Cynthia Gao, Damon Civin, Dana Beaty, Daniel Kreymer, Daniel Li, David Adkins, David Xu, Davide Testuggine, Delia David, Devi Parikh, Diana Liskovich, Didem Foss, Dingkang Wang, Duc Le, Dustin Holland, Edward Dowling, Eissa Jamil, Elaine Montgomery, Eleonora Presani, Emily Hahn, Emily Wood, Eric-Tuan Le, Erik Brinkman, Esteban Arcaute, Evan Dunbar, Evan Smothers, Fei Sun, Felix Kreuk, Feng Tian, Filippos Kokkinos, Firat Ozgenel, Francesco Caggioni, Frank Kanayet, Frank Seide, Gabriela Medina Florez, Gabriella Schwarz, Gada Badeer, Georgia Swee, Gil Halpern, Grant Herman, Grigory Sizov, Guangyi, Zhang, Guna Lakshminarayanan, Hakan Inan, Hamid Shojanazeri, Han Zou, Hannah Wang, Hanwen Zha, Haroun Habeeb, Harrison Rudolph, Helen Suk, Henry Aspegren, Hunter Goldman, Hongyuan Zhan, Ibrahim Damlaj, Igor Molybog, Igor Tufanov, Ilias Leontiadis, Irina-Elena Veliche, Itai Gat, Jake Weissman, James Geboski, James Kohli, Janice Lam, Japhet Asher, Jean-Baptiste Gaya, Jeff Marcus, Jeff Tang, Jennifer Chan, Jenny Zhen, Jeremy Reizenstein, Jeremy Teboul, Jessica Zhong, Jian Jin, Jingyi Yang, Joe Cummings, Jon Carvill, Jon Shepard, Jonathan McPhie, Jonathan Torres, Josh Ginsburg, Junjie Wang, Kai Wu, Kam Hou U, Karan Saxena, Kartikay Khandelwal, Katayoun Zand, Kathy Matosich, Kaushik Veeraraghavan, Kelly Michelena, Keqian Li, Kiran Jagadeesh, Kun Huang, Kunal Chawla, Kyle Huang, Lailin Chen, Lakshya Garg, Lavender A, Leandro Silva, Lee Bell, Lei Zhang, Liangpeng Guo, Licheng Yu, Liron Moshkovich, Luca Wehrstedt, Madian Khabsa, Manav Avalani, Manish Bhatt, Martynas Mankus, Matan Hasson, Matthew Lennie, Matthias Reso, Maxim Groshev, Maxim Naumov, Maya Lathi, Meghan Keneally, Miao Liu, Michael L. Seltzer, Michal Valko, Michelle Restrepo, Mihir Patel, Mik Vyatskov, Mikayel Samvelyan, Mike Clark, Mike Macey, Mike Wang, Miquel Jubert Hermoso, Mo Metanat, Mohammad Rastegari, Munish Bansal, Nandhini Santhanam, Natascha Parks, Natasha White, Navyata Bawa, Nayan Singhal, Nick Egebo, Nicolas Usunier, Nikhil Mehta, Nikolay Pavlovich Laptev, Ning Dong, Norman Cheng, Oleg Chernoguz, Olivia Hart, Omkar Salpekar, Ozlem Kalinli, Parkin Kent, Parth Parekh, Paul Saab, Pavan Balaji, Pedro Rittner, Philip Bontrager, Pierre Roux, Piotr Dollar, Polina Zvyagina, Prashant Ratanchandani, Pritish Yuvraj, Qian Liang, Rachad Alao, Rachel Rodriguez, Rafi Ayub, Raghotham Murthy, Raghu Nayani, Rahul Mitra, Rangaprabhu Parthasarathy, Raymond Li, Rebekkah Hogan, Robin Battey, Rocky Wang, Russ Howes, Ruty Rinott, Sachin Mehta, Sachin Siby, Sai Jayesh Bondu, Samyak Datta, Sara Chugh, Sara Hunt, Sargun Dhillon, Sasha Sidorov, Satadru Pan, Saurabh Mahajan, Saurabh Verma, Seiji Yamamoto, Sharadh Ramaswamy, Shaun Lindsay, Shaun Lindsay, Sheng Feng, Shenghao Lin, Shengxin Cindy Zha, Shishir Patil, Shiva Shankar, Shuqiang Zhang, Shuqiang Zhang, Sinong Wang, Sneha Agarwal, Soji Sajuyigbe, Soumith Chintala, Stephanie Max, Stephen Chen, Steve Kehoe, Steve Satterfield, Sudarshan Govindaprasad, Sumit Gupta, Summer Deng, Sungmin Cho, Sunny Virk, Suraj Subramanian, Sy Choudhury, Sydney Goldman, Tal Remez, Tamar Glaser, Tamara Best, Thilo Koehler, Thomas Robinson, Tianhe Li, Tianjun Zhang, Tim Matthews, Timothy Chou, Tzook Shaked, Varun Vontimitta, Victoria Ajayi, Victoria Montanez, Vijai Mohan, Vinay Satish Kumar, Vishal Mangla, Vlad Ionescu, Vlad Poenaru, Vlad Tiberiu Mihailescu, Vladimir Ivanov, Wei Li, Wenchen Wang, Wenwen Jiang, Wes Bouaziz, Will Constable, Xiaocheng Tang, Xiaojian Wu, Xiaolan Wang, Xilun Wu, Xinbo Gao, Yaniv Kleinman, Yanjun Chen, Ye Hu, Ye Jia, Ye Qi, Yenda Li, Yilin Zhang, Ying Zhang, Yossi Adi, Youngjin Nam, Yu, Wang, Yu Zhao, Yuchen Hao, Yundi Qian, Yunlu Li, Yuzi He, Zach Rait, Zachary DeVito, Zef Rosnbrick, Zhaoduo Wen, Zhenyu Yang, Zhiwei Zhao, Zhiyu Ma",
+      "title": "The llama 3 herd of models",
+      "publication": "arXiv preprint arXiv:2407.21783, 2024",
+      "year": 2024,
+      "summary": "Modern artificial intelligence (AI) systems are powered by foundation models. This paper presents a new set of foundation models, called Llama 3. It is a herd of language models that natively support multilinguality, coding, reasoning, and tool usage. Our largest model is a dense Transformer with 405B parameters and a context window of up to 128K tokens. This paper presents an extensive empirical evaluation of Llama 3. We find that Llama 3 delivers comparable quality to leading language models such as GPT-4 on a plethora of tasks. We publicly release Llama 3, including pre-trained and post-trained versions of the 405B parameter language model and our Llama Guard 3 model for input and output safety. The paper also presents the results of experiments in which we integrate image, video, and speech capabilities into Llama 3 via a compositional approach. We observe this approach performs competitively with the state-of-the-art on image, video, and speech recognition tasks. The resulting models are not yet being broadly released as they are still under development.",
+      "standard_url": "http://arxiv.org/abs/2407.21783v3",
+      "id": "2024-the_llama_3_herd_of_models"
+    },
+    "9": {
+      "enum": "9",
+      "authors": "Luyu Gao, Aman Madaan, Shuyan Zhou, Uri Alon, Pengfei Liu, Yiming Yang, Jamie Callan, Graham Neubig",
+      "title": "Pal: Program-aided language models",
+      "publication": "In International Conference on Machine Learning, pp.  10764–10799. PMLR, 2023",
+      "year": 2022,
+      "summary": "Large language models (LLMs) have recently demonstrated an impressive ability to perform arithmetic and symbolic reasoning tasks, when provided with a few examples at test time (\"few-shot prompting\"). Much of this success can be attributed to prompting methods such as \"chain-of-thought'', which employ LLMs for both understanding the problem description by decomposing it into steps, as well as solving each step of the problem. While LLMs seem to be adept at this sort of step-by-step decomposition, LLMs often make logical and arithmetic mistakes in the solution part, even when the problem is decomposed correctly. In this paper, we present Program-Aided Language models (PAL): a novel approach that uses the LLM to read natural language problems and generate programs as the intermediate reasoning steps, but offloads the solution step to a runtime such as a Python interpreter. With PAL, decomposing the natural language problem into runnable steps remains the only learning task for the LLM, while solving is delegated to the interpreter. We demonstrate this synergy between a neural LLM and a symbolic interpreter across 13 mathematical, symbolic, and algorithmic reasoning tasks from BIG-Bench Hard and other benchmarks. In all these natural language reasoning tasks, generating code using an LLM and reasoning using a Python interpreter leads to more accurate results than much larger models. For example, PAL using Codex achieves state-of-the-art few-shot accuracy on the GSM8K benchmark of math word problems, surpassing PaLM-540B which uses chain-of-thought by absolute 15% top-1. Our code and data are publicly available at http://reasonwithpal.com/ .",
+      "standard_url": "http://arxiv.org/abs/2211.10435v2",
+      "id": "2022-pal:_program-aided_language_models"
+    },
+    "10": {
+      "enum": "10",
+      "authors": "Sachin Goyal, Ziwei Ji, Ankit Singh Rawat, Aditya Krishna Menon, Sanjiv Kumar, Vaishnavh Nagarajan",
+      "title": "Think before you speak: Training language models with pause tokens",
+      "publication": "arXiv preprint arXiv:2310.02226, 2023",
+      "year": 2023,
+      "summary": "Language models generate responses by producing a series of tokens in immediate succession: the $(K+1)^{th}$ token is an outcome of manipulating $K$ hidden vectors per layer, one vector per preceding token. What if instead we were to let the model manipulate say, $K+10$ hidden vectors, before it outputs the $(K+1)^{th}$ token? We operationalize this idea by performing training and inference on language models with a (learnable) $\\textit{pause}$ token, a sequence of which is appended to the input prefix. We then delay extracting the model's outputs until the last pause token is seen, thereby allowing the model to process extra computation before committing to an answer. We empirically evaluate $\\textit{pause-training}$ on decoder-only models of 1B and 130M parameters with causal pretraining on C4, and on downstream tasks covering reasoning, question-answering, general understanding and fact recall. Our main finding is that inference-time delays show gains when the model is both pre-trained and finetuned with delays. For the 1B model, we witness gains on 8 of 9 tasks, most prominently, a gain of $18\\%$ EM score on the QA task of SQuAD, $8\\%$ on CommonSenseQA and $1\\%$ accuracy on the reasoning task of GSM8k. Our work raises a range of conceptual and practical future research questions on making delayed next-token prediction a widely applicable new paradigm.",
+      "standard_url": "http://arxiv.org/abs/2310.02226v3",
+      "id": "2023-think_before_you_speak:_training_language_models_with_pause_tokens"
+    },
+    "11": {
+      "enum": "11",
+      "authors": "Tom Henighan, Jared Kaplan, Mor Katz, Mark Chen, Christopher Hesse, Jacob Jackson, Heewoo Jun, Tom B. Brown, Prafulla Dhariwal, Scott Gray, Chris Hallacy, Benjamin Mann, Alec Radford, Aditya Ramesh, Nick Ryder, Daniel M. Ziegler, John Schulman, Dario Amodei, Sam McCandlish",
+      "title": "Scaling laws for autoregressive generative modeling",
+      "publication": "arXiv preprint arXiv:2010.14701, 2020",
+      "year": 2020,
+      "summary": "We identify empirical scaling laws for the cross-entropy loss in four domains: generative image modeling, video modeling, multimodal image$\\leftrightarrow$text models, and mathematical problem solving. In all cases autoregressive Transformers smoothly improve in performance as model size and compute budgets increase, following a power-law plus constant scaling law. The optimal model size also depends on the compute budget through a power-law, with exponents that are nearly universal across all data domains.\n  The cross-entropy loss has an information theoretic interpretation as $S($True$) + D_{\\mathrm{KL}}($True$||$Model$)$, and the empirical scaling laws suggest a prediction for both the true data distribution's entropy and the KL divergence between the true and model distributions. With this interpretation, billion-parameter Transformers are nearly perfect models of the YFCC100M image distribution downsampled to an $8\\times 8$ resolution, and we can forecast the model size needed to achieve any given reducible loss (ie $D_{\\mathrm{KL}}$) in nats/image for other resolutions.\n  We find a number of additional scaling laws in specific domains: (a) we identify a scaling relation for the mutual information between captions and images in multimodal models, and show how to answer the question \"Is a picture worth a thousand words?\"; (b) in the case of mathematical problem solving, we identify scaling laws for model performance when extrapolating beyond the training distribution; (c) we finetune generative image models for ImageNet classification and find smooth scaling of the classification loss and error rate, even as the generative loss levels off. Taken together, these results strengthen the case that scaling laws have important implications for neural network performance, including on downstream tasks.",
+      "standard_url": "http://arxiv.org/abs/2010.14701v2",
+      "id": "2020-scaling_laws_for_autoregressive_generative_modeling"
+    },
+    "12": {
+      "enum": "12",
+      "authors": "Naman Jain, King Han, Alex Gu, Wen-Ding Li, Fanjia Yan, Tianjun Zhang, Sida Wang, Armando Solar-Lezama, Koushik Sen, Ion Stoica",
+      "title": "Livecodebench: Holistic and contamination free evaluation of large language models for code",
+      "publication": "arXiv preprint arXiv:2403.07974, 2024",
+      "year": 2024,
+      "summary": "Large Language Models (LLMs) applied to code-related applications have emerged as a prominent field, attracting significant interest from both academia and industry. However, as new and improved LLMs are developed, existing evaluation benchmarks (e.g., HumanEval, MBPP) are no longer sufficient for assessing their capabilities. In this work, we propose LiveCodeBench, a comprehensive and contamination-free evaluation of LLMs for code, which continuously collects new problems over time from contests across three competition platforms, namely LeetCode, AtCoder, and CodeForces. Notably, our benchmark also focuses on a broader range of code related capabilities, such as self-repair, code execution, and test output prediction, beyond just code generation. Currently, LiveCodeBench hosts four hundred high-quality coding problems that were published between May 2023 and May 2024. We have evaluated 18 base LLMs and 34 instruction-tuned LLMs on LiveCodeBench. We present empirical findings on contamination, holistic performance comparisons, potential overfitting in existing benchmarks as well as individual model comparisons. We will release all prompts and model completions for further community analysis, along with a general toolkit for adding new scenarios and model",
+      "standard_url": "http://arxiv.org/abs/2403.07974v2",
+      "id": "2024-livecodebench:_holistic_and_contamination_free_evaluation_of_large_language_models_for_code"
+    },
+    "13": {
+      "enum": "13",
+      "authors": "Nathan Lambert, Valentina Pyatkin, Jacob Morrison, LJ Miranda, Bill Yuchen Lin, Khyathi Chandu, Nouha Dziri, Sachin Kumar, Tom Zick, Yejin Choi, Noah A. Smith, Hannaneh Hajishirzi",
+      "title": "Rewardbench: Evaluating reward models for language modeling",
+      "publication": "arXiv preprint arXiv:2403.13787, 2024",
+      "year": 2024,
+      "summary": "Reward models (RMs) are at the crux of successfully using RLHF to align pretrained models to human preferences, yet there has been relatively little study that focuses on evaluation of those models. Evaluating reward models presents an opportunity to understand the opaque technologies used for alignment of language models and which values are embedded in them. Resources for reward model training and understanding are sparse in the nascent open-source community around them. To enhance scientific understanding of reward models, we present RewardBench, a benchmark dataset and code-base for evaluation. The RewardBench dataset is a collection of prompt-chosen-rejected trios spanning chat, reasoning, and safety, to benchmark how reward models perform on challenging, structured and out-of-distribution queries. We create specific comparison datasets for RMs that have subtle, but verifiable reasons (e.g. bugs, incorrect facts) why one answer should be preferred to another. On the RewardBench leaderboard, we evaluate reward models trained with a variety of methods, such as the direct MLE training of classifiers and the implicit reward modeling of Direct Preference Optimization (DPO). We present many findings on propensity for refusals, reasoning limitations, and instruction following shortcomings of various reward models towards a better understanding of the RLHF process.",
+      "standard_url": "http://arxiv.org/abs/2403.13787v2",
+      "id": "2024-rewardbench:_evaluating_reward_models_for_language_modeling"
+    },
+    "14": {
+      "enum": "14",
+      "authors": "Chris Yuhao Liu and Liang Zeng",
+      "title": "Skywork reward model series",
+      "publication": "https://huggingface.co/Skywork, September 2024",
+      "year": "2024",
+      "summary": null,
+      "standard_url": null,
+      "id": "2024-skywork_reward_model_series"
+    },
+    "15": {
+      "enum": "15",
+      "authors": "Xingzhou Lou, Dong Yan, Wei Shen, Yuzi Yan, Jian Xie, and Junge Zhang",
+      "title": "Uncertainty-aware reward model: Teaching reward models to know what is unknown, 2024",
+      "publication": "URL https://arxiv.org/abs/2410.00847",
+      "year": "2410",
+      "summary": null,
+      "standard_url": null,
+      "id": "2410-uncertainty-aware_reward_model:_teaching_reward_models_to_know_what_is_unknown_2024"
+    },
+    "16": {
+      "enum": "16",
+      "authors": "Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah Wiegreffe, Uri Alon, Nouha Dziri, Shrimai Prabhumoye, Yiming Yang, Shashank Gupta, Bodhisattwa Prasad Majumder, Katherine Hermann, Sean Welleck, Amir Yazdanbakhsh, Peter Clark",
+      "title": "Self-refine: Iterative refinement with self-feedback",
+      "publication": "Advances in Neural Information Processing Systems, 36, 2024",
+      "year": 2023,
+      "summary": "Like humans, large language models (LLMs) do not always generate the best output on their first try. Motivated by how humans refine their written text, we introduce Self-Refine, an approach for improving initial outputs from LLMs through iterative feedback and refinement. The main idea is to generate an initial output using an LLMs; then, the same LLMs provides feedback for its output and uses it to refine itself, iteratively. Self-Refine does not require any supervised training data, additional training, or reinforcement learning, and instead uses a single LLM as the generator, refiner, and feedback provider. We evaluate Self-Refine across 7 diverse tasks, ranging from dialog response generation to mathematical reasoning, using state-of-the-art (GPT-3.5, ChatGPT, and GPT-4) LLMs. Across all evaluated tasks, outputs generated with Self-Refine are preferred by humans and automatic metrics over those generated with the same LLM using conventional one-step generation, improving by ~20% absolute on average in task performance. Our work demonstrates that even state-of-the-art LLMs like GPT-4 can be further improved at test time using our simple, standalone approach.",
+      "standard_url": "http://arxiv.org/abs/2303.17651v2",
+      "id": "2023-self-refine:_iterative_refinement_with_self-feedback"
+    },
+    "17": {
+      "enum": "17",
+      "authors": "Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu, Yankai Lin, Xin Cong, Xiangru Tang, Bill Qian, Sihan Zhao, Lauren Hong, Runchu Tian, Ruobing Xie, Jie Zhou, Mark Gerstein, Dahai Li, Zhiyuan Liu, Maosong Sun",
+      "title": "Toolllm: Facilitating large language models to master 16000+ real-world apis",
+      "publication": "arXiv preprint arXiv:2307.16789, 2023",
+      "year": 2023,
+      "summary": "Despite the advancements of open-source large language models (LLMs), e.g., LLaMA, they remain significantly limited in tool-use capabilities, i.e., using external tools (APIs) to fulfill human instructions. The reason is that current instruction tuning largely focuses on basic language tasks but ignores the tool-use domain. This is in contrast to the excellent tool-use capabilities of state-of-the-art (SOTA) closed-source LLMs, e.g., ChatGPT. To bridge this gap, we introduce ToolLLM, a general tool-use framework encompassing data construction, model training, and evaluation. We first present ToolBench, an instruction-tuning dataset for tool use, which is constructed automatically using ChatGPT. Specifically, the construction can be divided into three stages: (i) API collection: we collect 16,464 real-world RESTful APIs spanning 49 categories from RapidAPI Hub; (ii) instruction generation: we prompt ChatGPT to generate diverse instructions involving these APIs, covering both single-tool and multi-tool scenarios; (iii) solution path annotation: we use ChatGPT to search for a valid solution path (chain of API calls) for each instruction. To enhance the reasoning capabilities of LLMs, we develop a novel depth-first search-based decision tree algorithm. It enables LLMs to evaluate multiple reasoning traces and expand the search space. Moreover, to evaluate the tool-use capabilities of LLMs, we develop an automatic evaluator: ToolEval. Based on ToolBench, we fine-tune LLaMA to obtain an LLM ToolLLaMA, and equip it with a neural API retriever to recommend appropriate APIs for each instruction. Experiments show that ToolLLaMA demonstrates a remarkable ability to execute complex instructions and generalize to unseen APIs, and exhibits comparable performance to ChatGPT. Our ToolLLaMA also demonstrates strong zero-shot generalization ability in an out-of-distribution tool-use dataset: APIBench.",
+      "standard_url": "http://arxiv.org/abs/2307.16789v2",
+      "id": "2023-toolllm:_facilitating_large_language_models_to_master_16000+_real-world_apis"
+    },
+    "18": {
+      "enum": "18",
+      "authors": "Changle Qu, Sunhao Dai, Xiaochi Wei, Hengyi Cai, Shuaiqiang Wang, Dawei Yin, Jun Xu, Ji-Rong Wen",
+      "title": "Tool learning with large language models: A survey",
+      "publication": "arXiv preprint arXiv:2405.17935, 2024",
+      "year": 2024,
+      "summary": "Recently, tool learning with large language models (LLMs) has emerged as a promising paradigm for augmenting the capabilities of LLMs to tackle highly complex problems. Despite growing attention and rapid advancements in this field, the existing literature remains fragmented and lacks systematic organization, posing barriers to entry for newcomers. This gap motivates us to conduct a comprehensive survey of existing works on tool learning with LLMs. In this survey, we focus on reviewing existing literature from the two primary aspects (1) why tool learning is beneficial and (2) how tool learning is implemented, enabling a comprehensive understanding of tool learning with LLMs. We first explore the \"why\" by reviewing both the benefits of tool integration and the inherent benefits of the tool learning paradigm from six specific aspects. In terms of \"how\", we systematically review the literature according to a taxonomy of four key stages in the tool learning workflow: task planning, tool selection, tool calling, and response generation. Additionally, we provide a detailed summary of existing benchmarks and evaluation methods, categorizing them according to their relevance to different stages. Finally, we discuss current challenges and outline potential future directions, aiming to inspire both researchers and industrial developers to further explore this emerging and promising area. We also maintain a GitHub repository to continually keep track of the relevant papers and resources in this rising area at https://github.com/quchangle1/LLM-Tool-Survey.",
+      "standard_url": "http://arxiv.org/abs/2405.17935v3",
+      "id": "2024-tool_learning_with_large_language_models:_a_survey"
+    },
+    "19": {
+      "enum": "19",
+      "authors": "Alec Radford",
+      "title": "Improving language understanding by generative pre-training",
+      "publication": "2018",
+      "year": "2018",
+      "summary": null,
+      "standard_url": null,
+      "id": "2018-improving_language_understanding_by_generative_pre-training"
+    },
+    "20": {
+      "enum": "20",
+      "authors": "Alec Radford, Jeff Wu, Rewon Child, David Luan, Dario Amodei, and Ilya Sutskever",
+      "title": "Language models are unsupervised multitask learners",
+      "publication": "2019",
+      "year": "2019",
+      "summary": null,
+      "standard_url": null,
+      "id": "2019-language_models_are_unsupervised_multitask_learners"
+    },
+    "21": {
+      "enum": "21",
+      "authors": "Ankit Satpute, Noah Giessing, Andre Greiner-Petter, Moritz Schubotz, Olaf Teschke, Akiko Aizawa, Bela Gipp",
+      "title": "Can llms master math? investigating large language models on math stack exchange",
+      "publication": "In Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval, pp.  2316–2320, 2024",
+      "year": 2024,
+      "summary": "Large Language Models (LLMs) have demonstrated exceptional capabilities in various natural language tasks, often achieving performances that surpass those of humans. Despite these advancements, the domain of mathematics presents a distinctive challenge, primarily due to its specialized structure and the precision it demands. In this study, we adopted a two-step approach for investigating the proficiency of LLMs in answering mathematical questions. First, we employ the most effective LLMs, as identified by their performance on math question-answer benchmarks, to generate answers to 78 questions from the Math Stack Exchange (MSE). Second, a case analysis is conducted on the LLM that showed the highest performance, focusing on the quality and accuracy of its answers through manual evaluation. We found that GPT-4 performs best (nDCG of 0.48 and P@10 of 0.37) amongst existing LLMs fine-tuned for answering mathematics questions and outperforms the current best approach on ArqMATH3 Task1, considering P@10. Our Case analysis indicates that while the GPT-4 can generate relevant responses in certain instances, it does not consistently answer all questions accurately. This paper explores the current limitations of LLMs in navigating complex mathematical problem-solving. Through case analysis, we shed light on the gaps in LLM capabilities within mathematics, thereby setting the stage for future research and advancements in AI-driven mathematical reasoning. We make our code and findings publicly available for research: \\url{https://github.com/gipplab/LLM-Investig-MathStackExchange}",
+      "standard_url": "http://arxiv.org/abs/2404.00344v1",
+      "id": "2024-can_llms_master_math?_investigating_large_language_models_on_math_stack_exchange"
+    },
+    "22": {
+      "enum": "22",
+      "authors": "Quan Shi, Michael Tang, Karthik Narasimhan, Shunyu Yao",
+      "title": "Can language models solve olympiad programming?",
+      "publication": "arXiv preprint arXiv:2404.10952, 2024",
+      "year": 2024,
+      "summary": "Computing olympiads contain some of the most challenging problems for humans, requiring complex algorithmic reasoning, puzzle solving, in addition to generating efficient code. However, it has been understudied as a domain to evaluate language models (LMs). In this paper, we introduce the USACO benchmark with 307 problems from the USA Computing Olympiad, along with high-quality unit tests, reference code, and official analyses for each problem. These resources enable us to construct and test a range of LM inference methods for competitive programming for the first time. We find GPT-4 only achieves a 8.7% pass@1 accuracy with zero-shot chain-of-thought prompting, and our best inference method improves it to 20.2% using a combination of self-reflection and retrieval over episodic knowledge. However, this is far from solving the benchmark. To better understand the remaining challenges, we design a novel human-in-the-loop study and surprisingly find that a small number of targeted hints enable GPT-4 to solve 13 out of 15 problems previously unsolvable by any model and method. Our benchmark, baseline methods, quantitative results, and qualitative analysis serve as an initial step toward LMs with grounded, creative, and algorithmic reasoning.",
+      "standard_url": "http://arxiv.org/abs/2404.10952v1",
+      "id": "2024-can_language_models_solve_olympiad_programming?"
+    },
+    "23": {
+      "enum": "23",
+      "authors": "Charlie Snell, Jaehoon Lee, Kelvin Xu, Aviral Kumar",
+      "title": "Scaling llm test-time compute optimally can be more effective than scaling model parameters",
+      "publication": "arXiv preprint arXiv:2408.03314, 2024",
+      "year": 2024,
+      "summary": "Enabling LLMs to improve their outputs by using more test-time computation is a critical step towards building generally self-improving agents that can operate on open-ended natural language. In this paper, we study the scaling of inference-time computation in LLMs, with a focus on answering the question: if an LLM is allowed to use a fixed but non-trivial amount of inference-time compute, how much can it improve its performance on a challenging prompt? Answering this question has implications not only on the achievable performance of LLMs, but also on the future of LLM pretraining and how one should tradeoff inference-time and pre-training compute. Despite its importance, little research attempted to understand the scaling behaviors of various test-time inference methods. Moreover, current work largely provides negative results for a number of these strategies. In this work, we analyze two primary mechanisms to scale test-time computation: (1) searching against dense, process-based verifier reward models; and (2) updating the model's distribution over a response adaptively, given the prompt at test time. We find that in both cases, the effectiveness of different approaches to scaling test-time compute critically varies depending on the difficulty of the prompt. This observation motivates applying a \"compute-optimal\" scaling strategy, which acts to most effectively allocate test-time compute adaptively per prompt. Using this compute-optimal strategy, we can improve the efficiency of test-time compute scaling by more than 4x compared to a best-of-N baseline. Additionally, in a FLOPs-matched evaluation, we find that on problems where a smaller base model attains somewhat non-trivial success rates, test-time compute can be used to outperform a 14x larger model.",
+      "standard_url": "http://arxiv.org/abs/2408.03314v1",
+      "id": "2024-scaling_llm_test-time_compute_optimally_can_be_more_effective_than_scaling_model_parameters"
+    },
+    "24": {
+      "enum": "24",
+      "authors": "Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, Guillaume Lample",
+      "title": "Llama: Open and efficient foundation language models",
+      "publication": "arXiv preprint arXiv:2302.13971, 2023",
+      "year": 2023,
+      "summary": "We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters. We train our models on trillions of tokens, and show that it is possible to train state-of-the-art models using publicly available datasets exclusively, without resorting to proprietary and inaccessible datasets. In particular, LLaMA-13B outperforms GPT-3 (175B) on most benchmarks, and LLaMA-65B is competitive with the best models, Chinchilla-70B and PaLM-540B. We release all our models to the research community.",
+      "standard_url": "http://arxiv.org/abs/2302.13971v1",
+      "id": "2023-llama:_open_and_efficient_foundation_language_models"
+    },
+    "25": {
+      "enum": "25",
+      "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin",
+      "title": "Attention is all you need",
+      "publication": "Advances in Neural Information Processing Systems, 2017",
+      "year": 2017,
+      "summary": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+      "standard_url": "http://arxiv.org/abs/1706.03762v7",
+      "id": "2017-attention_is_all_you_need"
+    },
+    "26": {
+      "enum": "26",
+      "authors": "Ruocheng Wang, Eric Zelikman, Gabriel Poesia, Yewen Pu, Nick Haber, Noah D. Goodman",
+      "title": "Hypothesis search: Inductive reasoning with language models",
+      "publication": "arXiv preprint arXiv:2309.05660, 2023",
+      "year": 2023,
+      "summary": "Inductive reasoning is a core problem-solving capacity: humans can identify underlying principles from a few examples, which robustly generalize to novel scenarios. Recent work evaluates large language models (LLMs) on inductive reasoning tasks by directly prompting them yielding \"in context learning.\" This works well for straightforward inductive tasks but performs poorly on complex tasks such as the Abstraction and Reasoning Corpus (ARC). In this work, we propose to improve the inductive reasoning ability of LLMs by generating explicit hypotheses at multiple levels of abstraction: we prompt the LLM to propose multiple abstract hypotheses about the problem, in natural language, then implement the natural language hypotheses as concrete Python programs. These programs can be verified by running on observed examples and generalized to novel inputs. To reduce the hypothesis search space, we explore steps to filter the set of hypotheses to implement: we either ask the LLM to summarize them into a smaller set of hypotheses or ask human annotators to select a subset. We verify our pipeline's effectiveness on the ARC visual inductive reasoning benchmark, its variant 1D-ARC, string transformation dataset SyGuS, and list transformation dataset List Functions. On a random 100-problem subset of ARC, our automated pipeline using LLM summaries achieves 30% accuracy, outperforming the direct prompting baseline (accuracy of 17%). With the minimal human input of selecting from LLM-generated candidates, performance is boosted to 33%. Our ablations show that both abstract hypothesis generation and concrete program representations benefit LLMs on inductive reasoning tasks.",
+      "standard_url": "http://arxiv.org/abs/2309.05660v2",
+      "id": "2023-hypothesis_search:_inductive_reasoning_with_language_models"
+    },
+    "27": {
+      "enum": "27",
+      "authors": "An Yang, Baosong Yang, Binyuan Hui, Bo Zheng, Bowen Yu, Chang Zhou, Chengpeng Li, Chengyuan Li, Dayiheng Liu, Fei Huang, Guanting Dong, Haoran Wei, Huan Lin, Jialong Tang, Jialin Wang, Jian Yang, Jianhong Tu, Jianwei Zhang, Jianxin Ma, Jianxin Yang, Jin Xu, Jingren Zhou, Jinze Bai, Jinzheng He, Junyang Lin, Kai Dang, Keming Lu, Keqin Chen, Kexin Yang, Mei Li, Mingfeng Xue, Na Ni, Pei Zhang, Peng Wang, Ru Peng, Rui Men, Ruize Gao, Runji Lin, Shijie Wang, Shuai Bai, Sinan Tan, Tianhang Zhu, Tianhao Li, Tianyu Liu, Wenbin Ge, Xiaodong Deng, Xiaohuan Zhou, Xingzhang Ren, Xinyu Zhang, Xipin Wei, Xuancheng Ren, Xuejing Liu, Yang Fan, Yang Yao, Yichang Zhang, Yu Wan, Yunfei Chu, Yuqiong Liu, Zeyu Cui, Zhenru Zhang, Zhifang Guo, Zhihao Fan",
+      "title": "Qwen2 technical report",
+      "publication": "arXiv preprint arXiv:2407.10671, 2024",
+      "year": 2024,
+      "summary": "This report introduces the Qwen2 series, the latest addition to our large language models and large multimodal models. We release a comprehensive suite of foundational and instruction-tuned language models, encompassing a parameter range from 0.5 to 72 billion, featuring dense models and a Mixture-of-Experts model. Qwen2 surpasses most prior open-weight models, including its predecessor Qwen1.5, and exhibits competitive performance relative to proprietary models across diverse benchmarks on language understanding, generation, multilingual proficiency, coding, mathematics, and reasoning.\n  The flagship model, Qwen2-72B, showcases remarkable performance: 84.2 on MMLU, 37.9 on GPQA, 64.6 on HumanEval, 89.5 on GSM8K, and 82.4 on BBH as a base language model. The instruction-tuned variant, Qwen2-72B-Instruct, attains 9.1 on MT-Bench, 48.1 on Arena-Hard, and 35.7 on LiveCodeBench. Moreover, Qwen2 demonstrates robust multilingual capabilities, proficient in approximately 30 languages, spanning English, Chinese, Spanish, French, German, Arabic, Russian, Korean, Japanese, Thai, Vietnamese, and more, underscoring its versatility and global reach.\n  To foster community innovation and accessibility, we have made the Qwen2 model weights openly available on Hugging Face and ModelScope, and the supplementary materials including example code on GitHub. These platforms also include resources for quantization, fine-tuning, and deployment, facilitating a wide range of applications and research endeavors.",
+      "standard_url": "http://arxiv.org/abs/2407.10671v4",
+      "id": "2024-qwen2_technical_report"
+    },
+    "28": {
+      "enum": "28",
+      "authors": "Zhilin Yang, Peng Qi, Saizheng Zhang, Yoshua Bengio, William W. Cohen, Ruslan Salakhutdinov, Christopher D. Manning",
+      "title": "Hotpotqa: A dataset for diverse, explainable multi-hop question answering",
+      "publication": "arXiv preprint arXiv:1809.09600, 2018",
+      "year": 2018,
+      "summary": "Existing question answering (QA) datasets fail to train QA systems to perform complex reasoning and provide explanations for answers. We introduce HotpotQA, a new dataset with 113k Wikipedia-based question-answer pairs with four key features: (1) the questions require finding and reasoning over multiple supporting documents to answer; (2) the questions are diverse and not constrained to any pre-existing knowledge bases or knowledge schemas; (3) we provide sentence-level supporting facts required for reasoning, allowing QA systems to reason with strong supervision and explain the predictions; (4) we offer a new type of factoid comparison questions to test QA systems' ability to extract relevant facts and perform necessary comparison. We show that HotpotQA is challenging for the latest QA systems, and the supporting facts enable models to improve performance and make explainable predictions.",
+      "standard_url": "http://arxiv.org/abs/1809.09600v1",
+      "id": "2018-hotpotqa:_a_dataset_for_diverse_explainable_multi-hop_question_answering"
+    },
+    "29": {
+      "enum": "29",
+      "authors": "Shunyu Yao, Howard Chen, Austin W. Hanjie, Runzhe Yang, Karthik Narasimhan",
+      "title": "Collie: Systematic construction of constrained text generation tasks",
+      "publication": "arXiv preprint arXiv:2307.08689, 2023",
+      "year": 2023,
+      "summary": "Text generation under constraints have seen increasing interests in natural language processing, especially with the rapidly improving capabilities of large language models. However, existing benchmarks for constrained generation usually focus on fixed constraint types (e.g.,generate a sentence containing certain words) that have proved to be easy for state-of-the-art models like GPT-4. We present COLLIE, a grammar-based framework that allows the specification of rich, compositional constraints with diverse generation levels (word, sentence, paragraph, passage) and modeling challenges (e.g.,language understanding, logical reasoning, counting, semantic planning). We also develop tools for automatic extraction of task instances given a constraint structure and a raw text corpus. Using COLLIE, we compile the COLLIE-v1 dataset with 2080 instances comprising 13 constraint structures. We perform systematic experiments across five state-of-the-art instruction-tuned language models and analyze their performances to reveal shortcomings. COLLIE is designed to be extensible and lightweight, and we hope the community finds it useful to develop more complex constraints and evaluations in the future.",
+      "standard_url": "http://arxiv.org/abs/2307.08689v1",
+      "id": "2023-collie:_systematic_construction_of_constrained_text_generation_tasks"
+    },
+    "30": {
+      "enum": "30",
+      "authors": "Julio Christian Young and Makoto Shishido",
+      "title": "Investigating openai’s chatgpt potentials in generating chatbot’s dialogue for english as a foreign language learning",
+      "publication": "International journal of advanced computer science and applications, 14(6), 2023",
+      "year": "2023",
+      "summary": null,
+      "standard_url": null,
+      "id": "2023-investigating_openai’s_chatgpt_potentials_in_generating_chatbot’s_dialogue_for_english_as_a_foreign_language_learning"
+    },
+    "31": {
+      "enum": "31",
+      "authors": "Eric Zelikman, Georges Harik, Yijia Shao, Varuna Jayasiri, Nick Haber, Noah D. Goodman",
+      "title": "Quiet-star: Language models can teach themselves to think before speaking",
+      "publication": "arXiv preprint arXiv:2403.09629, 2024",
+      "year": 2024,
+      "summary": "When writing and talking, people sometimes pause to think. Although reasoning-focused works have often framed reasoning as a method of answering questions or completing agentic tasks, reasoning is implicit in almost all written text. For example, this applies to the steps not stated between the lines of a proof or to the theory of mind underlying a conversation. In the Self-Taught Reasoner (STaR, Zelikman et al. 2022), useful thinking is learned by inferring rationales from few-shot examples in question-answering and learning from those that lead to a correct answer. This is a highly constrained setting -- ideally, a language model could instead learn to infer unstated rationales in arbitrary text. We present Quiet-STaR, a generalization of STaR in which LMs learn to generate rationales at each token to explain future text, improving their predictions. We address key challenges, including 1) the computational cost of generating continuations, 2) the fact that the LM does not initially know how to generate or use internal thoughts, and 3) the need to predict beyond individual next tokens. To resolve these, we propose a tokenwise parallel sampling algorithm, using learnable tokens indicating a thought's start and end, and an extended teacher-forcing technique. Encouragingly, generated rationales disproportionately help model difficult-to-predict tokens and improve the LM's ability to directly answer difficult questions. In particular, after continued pretraining of an LM on a corpus of internet text with Quiet-STaR, we find zero-shot improvements on GSM8K (5.9%$\\rightarrow$10.9%) and CommonsenseQA (36.3%$\\rightarrow$47.2%) and observe a perplexity improvement of difficult tokens in natural text. Crucially, these improvements require no fine-tuning on these tasks. Quiet-STaR marks a step towards LMs that can learn to reason in a more general and scalable way.",
+      "standard_url": "http://arxiv.org/abs/2403.09629v2",
+      "id": "2024-quiet-star:_language_models_can_teach_themselves_to_think_before_speaking"
+    },
+    "32": {
+      "enum": "32",
+      "authors": "Wangchunshu Zhou, Yuchen Eleanor Jiang, Long Li, Jialong Wu, Tiannan Wang, Shi Qiu, Jintian Zhang, Jing Chen, Ruipu Wu, Shuai Wang, Shiding Zhu, Jiyu Chen, Wentao Zhang, Xiangru Tang, Ningyu Zhang, Huajun Chen, Peng Cui, Mrinmaya Sachan",
+      "title": "Agents: An open-source framework for autonomous language agents",
+      "publication": "arXiv preprint arXiv:2309.07870, 2023",
+      "year": 2023,
+      "summary": "Recent advances on large language models (LLMs) enable researchers and developers to build autonomous language agents that can automatically solve various tasks and interact with environments, humans, and other agents using natural language interfaces. We consider language agents as a promising direction towards artificial general intelligence and release Agents, an open-source library with the goal of opening up these advances to a wider non-specialist audience. Agents is carefully engineered to support important features including planning, memory, tool usage, multi-agent communication, and fine-grained symbolic control. Agents is user-friendly as it enables non-specialists to build, customize, test, tune, and deploy state-of-the-art autonomous language agents without much coding. The library is also research-friendly as its modularized design makes it easily extensible for researchers. Agents is available at https://github.com/aiwaves-cn/agents.",
+      "standard_url": "http://arxiv.org/abs/2309.07870v3",
+      "id": "2023-agents:_an_open-source_framework_for_autonomous_language_agents"
+    },
+    "33": {
+      "enum": "33",
+      "authors": "Wangchunshu Zhou, Yixin Ou, Shengwei Ding, Long Li, Jialong Wu, Tiannan Wang, Jiamin Chen, Shuai Wang, Xiaohua Xu, Ningyu Zhang, Huajun Chen, Yuchen Eleanor Jiang",
+      "title": "Symbolic learning enables self-evolving agents",
+      "publication": "arXiv preprint arXiv:2406.18532, 2024",
+      "year": 2024,
+      "summary": "The AI community has been exploring a pathway to artificial general intelligence (AGI) by developing \"language agents\", which are complex large language models (LLMs) pipelines involving both prompting techniques and tool usage methods. While language agents have demonstrated impressive capabilities for many real-world tasks, a fundamental limitation of current language agents research is that they are model-centric, or engineering-centric. That's to say, the progress on prompts, tools, and pipelines of language agents requires substantial manual engineering efforts from human experts rather than automatically learning from data. We believe the transition from model-centric, or engineering-centric, to data-centric, i.e., the ability of language agents to autonomously learn and evolve in environments, is the key for them to possibly achieve AGI.\n  In this work, we introduce agent symbolic learning, a systematic framework that enables language agents to optimize themselves on their own in a data-centric way using symbolic optimizers. Specifically, we consider agents as symbolic networks where learnable weights are defined by prompts, tools, and the way they are stacked together. Agent symbolic learning is designed to optimize the symbolic network within language agents by mimicking two fundamental algorithms in connectionist learning: back-propagation and gradient descent. Instead of dealing with numeric weights, agent symbolic learning works with natural language simulacrums of weights, loss, and gradients. We conduct proof-of-concept experiments on both standard benchmarks and complex real-world tasks and show that agent symbolic learning enables language agents to update themselves after being created and deployed in the wild, resulting in \"self-evolving agents\".",
+      "standard_url": "http://arxiv.org/abs/2406.18532v1",
+      "id": "2024-symbolic_learning_enables_self-evolving_agents"
+    },
+    "34": {
+      "enum": "34",
+      "authors": "Kang Zhu, Qianbo Zang, Shian Jia, Siwei Wu, Feiteng Fang, Yizhi Li, Shuyue Guo, Tianyu Zheng, Bo Li, Haoning Wu, et al",
+      "title": "Lime-m: Less is more for evaluation of mllms",
+      "publication": "arXiv preprint arXiv:2409.06851, 2024",
+      "year": "2024",
+      "summary": null,
+      "standard_url": null,
+      "id": "2024-lime-m:_less_is_more_for_evaluation_of_mllms"
+    }
+  },
+  "authors": "Siwei Wu, Zhongyuan Peng, Xinrun Du, Tuney Zheng, Minghao Liu, Jialong Wu, Jiachen Ma, Yizhi Li, Jian Yang, Wangchunshu Zhou, Qunshu Lin, Junbo Zhao, Zhaoxiang Zhang, Wenhao Huang, Ge Zhang, Chenghua Lin, J. H. Liu",
+  "summary": "Enabling Large Language Models (LLMs) to handle a wider range of complex tasks (e.g., coding, math) has drawn great attention from many researchers. As LLMs continue to evolve, merely increasing the number of model parameters yields diminishing performance improvements and heavy computational costs. Recently, OpenAI's o1 model has shown that inference strategies (i.e., Test-time Compute methods) can also significantly enhance the reasoning capabilities of LLMs. However, the mechanisms behind these methods are still unexplored. In our work, to investigate the reasoning patterns of o1, we compare o1 with existing Test-time Compute methods (BoN, Step-wise BoN, Agent Workflow, and Self-Refine) by using OpenAI's GPT-4o as a backbone on general reasoning benchmarks in three domains (i.e., math, coding, commonsense reasoning). Specifically, first, our experiments show that the o1 model has achieved the best performance on most datasets. Second, as for the methods of searching diverse responses (e.g., BoN), we find the reward models' capability and the search space both limit the upper boundary of these methods. Third, as for the methods that break the problem into many sub-problems, the Agent Workflow has achieved better performance than Step-wise BoN due to the domain-specific system prompt for planning better reasoning processes. Fourth, it is worth mentioning that we have summarized six reasoning patterns of o1, and provided a detailed analysis on several reasoning benchmarks.",
+  "standard_url": "http://arxiv.org/abs/2410.13639v2",
+  "id": "2024-a_comparative_study_on_reasoning_patterns_of_openai’s_o1_model"
+}

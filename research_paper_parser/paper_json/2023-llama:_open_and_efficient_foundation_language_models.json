@@ -1,0 +1,1626 @@
+{
+  "name": "LLaMA",
+  "year": 2023,
+  "url": "https://ar5iv.labs.arxiv.org/html/2302.13971",
+  "title": "LLaMA: Open and Efficient Foundation Language Models",
+  "sections": {
+    "S1": "1 Introduction",
+    "S2": "2 Approach",
+    "S3": "3 Main results",
+    "S4": "4 Instruction Finetuning",
+    "S5": "5 Bias, Toxicity and Misinformation",
+    "S6": "6 Carbon footprint",
+    "S7": "7 Related work",
+    "S8": "8 Conclusion",
+    "Sx1": "Acknowledgements"
+  },
+  "citations": [
+    {
+      "section_id": "S1",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Large Languages Models (LLMs) trained on massive corpora of texts have shown their ability to perform new tasks from textual instructions or from a few examplesBrown et al (2020)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "35",
+      "cite_id": "35",
+      "sentence": "Large Languages Models (LLMs) trained on massive corpora of texts have shown their ability to perform new tasks from textual instructions or from a few examplesBrown et al (2020)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "These few-shot properties first appeared when scaling models to a sufficient sizeKaplan et al (2020), resulting in a line of work that focuses on further scaling these modelsChowdhery et al (2022); Rae et al (2021)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "56",
+      "cite_id": "56",
+      "sentence": "These few-shot properties first appeared when scaling models to a sufficient sizeKaplan et al (2020), resulting in a line of work that focuses on further scaling these modelsChowdhery et al (2022); Rae et al (2021)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "These few-shot properties first appeared when scaling models to a sufficient sizeKaplan et al (2020), resulting in a line of work that focuses on further scaling these modelsChowdhery et al (2022); Rae et al (2021)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "The objective of the scaling laws fromHoffmann et al (2022)is to determine how to best scale the dataset and model sizes for a particulartrainingcompute budget"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "The objective of the scaling laws fromHoffmann et al (2022)is to determine how to best scale the dataset and model sizes for a particulartrainingcompute budget"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "82",
+      "cite_id": "82",
+      "sentence": "There exist some exceptions, notably OPT(Zhang et al,2022), GPT-NeoX(Black et al,2022), BLOOM(Scao et al,2022)and GLM(Zeng et al,2022), but none that are competitive with PaLM-62B or Chinchilla"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "5",
+      "cite_id": "5",
+      "sentence": "There exist some exceptions, notably OPT(Zhang et al,2022), GPT-NeoX(Black et al,2022), BLOOM(Scao et al,2022)and GLM(Zeng et al,2022), but none that are competitive with PaLM-62B or Chinchilla"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "62",
+      "cite_id": "62",
+      "sentence": "There exist some exceptions, notably OPT(Zhang et al,2022), GPT-NeoX(Black et al,2022), BLOOM(Scao et al,2022)and GLM(Zeng et al,2022), but none that are competitive with PaLM-62B or Chinchilla"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "80",
+      "cite_id": "80",
+      "sentence": "There exist some exceptions, notably OPT(Zhang et al,2022), GPT-NeoX(Black et al,2022), BLOOM(Scao et al,2022)and GLM(Zeng et al,2022), but none that are competitive with PaLM-62B or Chinchilla"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "73",
+      "cite_id": "73",
+      "sentence": "In the rest of this paper, we present an overview of the modifications we made to the transformer architectureVaswani et al (2017), as well as our training method"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Our training approach is similar to the methods described in previous workBrown et al (2020); Chowdhery et al (2022), and is inspired by the Chinchilla scaling lawsHoffmann et al (2022)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "Our training approach is similar to the methods described in previous workBrown et al (2020); Chowdhery et al (2022), and is inspired by the Chinchilla scaling lawsHoffmann et al (2022)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "Our training approach is similar to the methods described in previous workBrown et al (2020); Chowdhery et al (2022), and is inspired by the Chinchilla scaling lawsHoffmann et al (2022)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "77",
+      "cite_id": "77",
+      "sentence": "We preprocess five CommonCrawl dumps, ranging from 2017 to 2020, with the CCNet pipelineWenzek et al (2020)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "57",
+      "cite_id": "57",
+      "sentence": "We thus included the publicly available C4 dataset(Raffel et al,2020)in our data"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "22",
+      "cite_id": "22",
+      "sentence": "We include two book corpora in our training dataset: the Gutenberg Project, which contains books that are in the public domain, and the Books3 section of ThePile(Gao et al,2020), a publicly available dataset for training large language models"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "43",
+      "cite_id": "43",
+      "sentence": "FollowingLewkowycz et al (2022), we removed everything before the first section, as well as the bibliography"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "63",
+      "cite_id": "63",
+      "sentence": "We tokenize the data with the byte-pair encoding (BPE) algorithm(Sennrich et al,2015), using the implementation from SentencePiece(Kudo and Richardson,2018)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "39",
+      "cite_id": "39",
+      "sentence": "We tokenize the data with the byte-pair encoding (BPE) algorithm(Sennrich et al,2015), using the implementation from SentencePiece(Kudo and Richardson,2018)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "73",
+      "cite_id": "73",
+      "sentence": "Following recent work on large language models, our network is based on the transformer architectureVaswani et al (2017)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "81",
+      "cite_id": "81",
+      "sentence": "We use the RMSNorm normalizing function, introduced byZhang and Sennrich (2019)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "66",
+      "cite_id": "66",
+      "sentence": "We replace the ReLU non-linearity by the SwiGLU activation function, introduced byShazeer (2020)to improve the performance"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "70",
+      "cite_id": "70",
+      "sentence": "We remove the absolute positional embeddings, and instead, add rotary positional embeddings (RoPE), introduced bySu et al (2021), at each layer of the network"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "46",
+      "cite_id": "46",
+      "sentence": "Our models are trained using the AdamW optimizer(Loshchilov and Hutter,2017), with the following hyper-parameters:β1=0"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "53",
+      "cite_id": "53",
+      "sentence": "com/facebookresearch/xformersis inspired byRabe and Staats (2021)and uses the backward fromDao et al (2022)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "18",
+      "cite_id": "18",
+      "sentence": "com/facebookresearch/xformersis inspired byRabe and Staats (2021)and uses the backward fromDao et al (2022)"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "38",
+      "cite_id": "38",
+      "sentence": "To fully benefit from this optimization, we need to reduce the memory usage of the model by using model and sequence parallelism, as described byKorthikanti et al (2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Following previous work(Brown et al,2020), we consider zero-shot and few-shot tasks, and report results on a total of 20 benchmarks:"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "We compare LLaMA with other foundation models, namely the non-publicly available language models GPT-3(Brown et al,2020), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022)and PaLM(Chowdhery et al,2022), as well as the open-sourced OPT models(Zhang et al,2022), GPT-J(Wang and Komatsuzaki,2021), and GPT-Neo(Black et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "56",
+      "cite_id": "56",
+      "sentence": "We compare LLaMA with other foundation models, namely the non-publicly available language models GPT-3(Brown et al,2020), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022)and PaLM(Chowdhery et al,2022), as well as the open-sourced OPT models(Zhang et al,2022), GPT-J(Wang and Komatsuzaki,2021), and GPT-Neo(Black et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "We compare LLaMA with other foundation models, namely the non-publicly available language models GPT-3(Brown et al,2020), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022)and PaLM(Chowdhery et al,2022), as well as the open-sourced OPT models(Zhang et al,2022), GPT-J(Wang and Komatsuzaki,2021), and GPT-Neo(Black et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "We compare LLaMA with other foundation models, namely the non-publicly available language models GPT-3(Brown et al,2020), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022)and PaLM(Chowdhery et al,2022), as well as the open-sourced OPT models(Zhang et al,2022), GPT-J(Wang and Komatsuzaki,2021), and GPT-Neo(Black et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "82",
+      "cite_id": "82",
+      "sentence": "We compare LLaMA with other foundation models, namely the non-publicly available language models GPT-3(Brown et al,2020), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022)and PaLM(Chowdhery et al,2022), as well as the open-sourced OPT models(Zhang et al,2022), GPT-J(Wang and Komatsuzaki,2021), and GPT-Neo(Black et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "74",
+      "cite_id": "74",
+      "sentence": "We compare LLaMA with other foundation models, namely the non-publicly available language models GPT-3(Brown et al,2020), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022)and PaLM(Chowdhery et al,2022), as well as the open-sourced OPT models(Zhang et al,2022), GPT-J(Wang and Komatsuzaki,2021), and GPT-Neo(Black et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "5",
+      "cite_id": "5",
+      "sentence": "We compare LLaMA with other foundation models, namely the non-publicly available language models GPT-3(Brown et al,2020), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022)and PaLM(Chowdhery et al,2022), as well as the open-sourced OPT models(Zhang et al,2022), GPT-J(Wang and Komatsuzaki,2021), and GPT-Neo(Black et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "32",
+      "cite_id": "32",
+      "sentence": "We compare LLaMA with other foundation models, namely the non-publicly available language models GPT-3(Brown et al,2020), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022)and PaLM(Chowdhery et al,2022), as well as the open-sourced OPT models(Zhang et al,2022), GPT-J(Wang and Komatsuzaki,2021), and GPT-Neo(Black et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "We compare LLaMA with other foundation models, namely the non-publicly available language models GPT-3(Brown et al,2020), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022)and PaLM(Chowdhery et al,2022), as well as the open-sourced OPT models(Zhang et al,2022), GPT-J(Wang and Komatsuzaki,2021), and GPT-Neo(Black et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "23",
+      "cite_id": "23",
+      "sentence": "We followGao et al (2021)and use the likelihood normalized by the number of characters in the completion, except for certain datasets (OpenBookQA, BoolQ), for which we followBrown et al (2020), and select a completion based on the likelihood normalized by the likelihood of the completion given “Answer:” as context:P(𝚌𝚘𝚖𝚙𝚕𝚎𝚝𝚒𝚘𝚗∣𝚌𝚘𝚗𝚝𝚎𝚡𝚝)/P(𝚌𝚘𝚖𝚙𝚕𝚎𝚝𝚒𝚘𝚗∣``Answer:\"){\\scriptstyle P(\\mathtt{completion}\\mid\\mathtt{context})/P(\\mathtt{completion}\\mid``Answer:\")}"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "We followGao et al (2021)and use the likelihood normalized by the number of characters in the completion, except for certain datasets (OpenBookQA, BoolQ), for which we followBrown et al (2020), and select a completion based on the likelihood normalized by the likelihood of the completion given “Answer:” as context:P(𝚌𝚘𝚖𝚙𝚕𝚎𝚝𝚒𝚘𝚗∣𝚌𝚘𝚗𝚝𝚎𝚡𝚝)/P(𝚌𝚘𝚖𝚙𝚕𝚎𝚝𝚒𝚘𝚗∣``Answer:\"){\\scriptstyle P(\\mathtt{completion}\\mid\\mathtt{context})/P(\\mathtt{completion}\\mid``Answer:\")}"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "14",
+      "cite_id": "14",
+      "sentence": "We consider eight standard common sense reasoning benchmarks: BoolQ(Clark et al,2019), PIQA(Bisk et al,2020), SIQA(Sap et al,2019), HellaSwag(Zellers et al,2019), WinoGrande(Sakaguchi et al,2021), ARC easy and challenge(Clark et al,2018)and OpenBookQA(Mihaylov et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "4",
+      "cite_id": "4",
+      "sentence": "We consider eight standard common sense reasoning benchmarks: BoolQ(Clark et al,2019), PIQA(Bisk et al,2020), SIQA(Sap et al,2019), HellaSwag(Zellers et al,2019), WinoGrande(Sakaguchi et al,2021), ARC easy and challenge(Clark et al,2018)and OpenBookQA(Mihaylov et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "61",
+      "cite_id": "61",
+      "sentence": "We consider eight standard common sense reasoning benchmarks: BoolQ(Clark et al,2019), PIQA(Bisk et al,2020), SIQA(Sap et al,2019), HellaSwag(Zellers et al,2019), WinoGrande(Sakaguchi et al,2021), ARC easy and challenge(Clark et al,2018)and OpenBookQA(Mihaylov et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "79",
+      "cite_id": "79",
+      "sentence": "We consider eight standard common sense reasoning benchmarks: BoolQ(Clark et al,2019), PIQA(Bisk et al,2020), SIQA(Sap et al,2019), HellaSwag(Zellers et al,2019), WinoGrande(Sakaguchi et al,2021), ARC easy and challenge(Clark et al,2018)and OpenBookQA(Mihaylov et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "60",
+      "cite_id": "60",
+      "sentence": "We consider eight standard common sense reasoning benchmarks: BoolQ(Clark et al,2019), PIQA(Bisk et al,2020), SIQA(Sap et al,2019), HellaSwag(Zellers et al,2019), WinoGrande(Sakaguchi et al,2021), ARC easy and challenge(Clark et al,2018)and OpenBookQA(Mihaylov et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "15",
+      "cite_id": "15",
+      "sentence": "We consider eight standard common sense reasoning benchmarks: BoolQ(Clark et al,2019), PIQA(Bisk et al,2020), SIQA(Sap et al,2019), HellaSwag(Zellers et al,2019), WinoGrande(Sakaguchi et al,2021), ARC easy and challenge(Clark et al,2018)and OpenBookQA(Mihaylov et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "48",
+      "cite_id": "48",
+      "sentence": "We consider eight standard common sense reasoning benchmarks: BoolQ(Clark et al,2019), PIQA(Bisk et al,2020), SIQA(Sap et al,2019), HellaSwag(Zellers et al,2019), WinoGrande(Sakaguchi et al,2021), ARC easy and challenge(Clark et al,2018)and OpenBookQA(Mihaylov et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "41",
+      "cite_id": "41",
+      "sentence": "We compare LLaMA to existing large language models on two closed-book question answering benchmarks: Natural Questions(Kwiatkowski et al,2019)and TriviaQAJoshi et al (2017)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "33",
+      "cite_id": "33",
+      "sentence": "We compare LLaMA to existing large language models on two closed-book question answering benchmarks: Natural Questions(Kwiatkowski et al,2019)and TriviaQAJoshi et al (2017)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "42",
+      "cite_id": "42",
+      "sentence": "We evaluate our models on the RACE reading comprehension benchmark(Lai et al,2017)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "We follow the evaluation setup fromBrown et al (2020)and report results in Table6"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "28",
+      "cite_id": "28",
+      "sentence": "We evaluate our models on two mathematical reasoning benchmarks: MATHHendrycks et al (2021)and GSM8kCobbe et al (2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "We evaluate our models on two mathematical reasoning benchmarks: MATHHendrycks et al (2021)and GSM8kCobbe et al (2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "43",
+      "cite_id": "43",
+      "sentence": "In Table7, we compare with PaLM and MinervaLewkowycz et al (2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "43",
+      "cite_id": "43",
+      "sentence": "In Table7, we compare with PaLM and MinervaLewkowycz et al (2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "75",
+      "cite_id": "75",
+      "sentence": "In Table7, we compare with PaLM and MinervaLewkowycz et al (2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "11",
+      "cite_id": "11",
+      "sentence": "We evaluate the ability of our models to write code from a natural language description on two benchmarks: HumanEvalChen et al (2021)and MBPPAustin et al (2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "We evaluate the ability of our models to write code from a natural language description on two benchmarks: HumanEvalChen et al (2021)and MBPPAustin et al (2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "71",
+      "cite_id": "71",
+      "sentence": "In Table8, we compare the pass@1 scores of our models with existing language models that have not been finetuned on code, namely PaLM and LaMDAThoppilan et al (2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "11",
+      "cite_id": "11",
+      "sentence": "We use the same method asChen et al (2021)to obtain unbiased estimates of the pass@k"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "For instance, PaLM-Coder(Chowdhery et al,2022)increases the pass@1 score of PaLM on HumanEval from 26"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "11",
+      "cite_id": "11",
+      "sentence": "Other models trained specifically for code also perform better than general models on these tasks(Chen et al,2021; Nijkamp et al,2022; Fried et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "51",
+      "cite_id": "51",
+      "sentence": "For instance, PaLM-Coder(Chowdhery et al,2022)increases the pass@1 score of PaLM on HumanEval from 26"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "21",
+      "cite_id": "21",
+      "sentence": "For instance, PaLM-Coder(Chowdhery et al,2022)increases the pass@1 score of PaLM on HumanEval from 26"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "HumanEval generations are done in zero-shot and MBBP with 3-shot prompts similar toAustin et al (2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "The values marked with∗are read from figures inChowdhery et al (2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "27",
+      "cite_id": "27",
+      "sentence": "The massive multitask language understanding benchmark, or MMLU, introduced byHendrycks et al (2020)consists of multiple choice questions covering various domains of knowledge, including humanities, STEM and social sciences"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "Since this is not the focus of this paper, we only conducted a single experiment following the same protocol asChung et al (2022)to train an instruct model, LLaMA-I"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "32",
+      "cite_id": "32",
+      "sentence": "In Table10, we report the results of our instruct model LLaMA-I on MMLU and compare with existing instruction finetuned models of moderate sizes, namely, OPT-IMLIyer et al (2022)and the Flan-PaLM seriesChung et al (2022)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "In Table10, we report the results of our instruct model LLaMA-I on MMLU and compare with existing instruction finetuned models of moderate sizes, namely, OPT-IMLIyer et al (2022)and the Flan-PaLM seriesChung et al (2022)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "32",
+      "cite_id": "32",
+      "sentence": "In Table10, we report the results of our instruct model LLaMA-I on MMLU and compare with existing instruction finetuned models of moderate sizes, namely, OPT-IMLIyer et al (2022)and the Flan-PaLM seriesChung et al (2022)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "67",
+      "cite_id": "67",
+      "sentence": "Large language models have been showed to reproduce and amplify biases that are existing in the training data(Sheng et al,2019; Kurita et al,2019), and to generate toxic or offensive content(Gehman et al,2020)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "40",
+      "cite_id": "40",
+      "sentence": "Large language models have been showed to reproduce and amplify biases that are existing in the training data(Sheng et al,2019; Kurita et al,2019), and to generate toxic or offensive content(Gehman et al,2020)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "24",
+      "cite_id": "24",
+      "sentence": "Large language models have been showed to reproduce and amplify biases that are existing in the training data(Sheng et al,2019; Kurita et al,2019), and to generate toxic or offensive content(Gehman et al,2020)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "82",
+      "cite_id": "82",
+      "sentence": "Several recent workZhang et al (2022); Hoffmann et al (2022)have considered the RealToxicityPrompts benchmarkGehman et al (2020)as an indicator of how toxic is their model"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "Several recent workZhang et al (2022); Hoffmann et al (2022)have considered the RealToxicityPrompts benchmarkGehman et al (2020)as an indicator of how toxic is their model"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "24",
+      "cite_id": "24",
+      "sentence": "Several recent workZhang et al (2022); Hoffmann et al (2022)have considered the RealToxicityPrompts benchmarkGehman et al (2020)as an indicator of how toxic is their model"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "82",
+      "cite_id": "82",
+      "sentence": "This was also observed in previous workZhang et al (2022), with the notable exception ofHoffmann et al (2022)where they do not see a difference between Chinchilla and Gopher, despite different sizes"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "This was also observed in previous workZhang et al (2022), with the notable exception ofHoffmann et al (2022)where they do not see a difference between Chinchilla and Gopher, despite different sizes"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "50",
+      "cite_id": "50",
+      "sentence": "We evaluate the biases in our model on the CrowS-PairsNangia et al (2020)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "59",
+      "cite_id": "59",
+      "sentence": "To further investigate the biases of our model on the gender category, we look at the WinoGender benchmark(Rudinger et al,2018), a co-reference resolution dataset"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "56",
+      "cite_id": "56",
+      "sentence": "A similar observation was made in previous workRae et al (2021); Hoffmann et al (2022), and is likely indicative of gender bias"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "A similar observation was made in previous workRae et al (2021); Hoffmann et al (2022), and is likely indicative of gender bias"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "45",
+      "cite_id": "45",
+      "sentence": "TruthfulQA(Lin et al,2021)aims to measure the truthfulness of a model, i"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "45",
+      "cite_id": "45",
+      "sentence": "TruthfulQA(Lin et al,2021)aims to measure the truthfulness of a model, i"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "52",
+      "cite_id": "52",
+      "sentence": "We follow the QA prompt style used inOuyang et al (2022), and report the performance of GPT-3 from the same paper"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "78",
+      "cite_id": "78",
+      "sentence": "We followWu et al (2022)to compute carbon emission of training OPT, BLOOM and our models in the same data center"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "78",
+      "cite_id": "78",
+      "sentence": "We follow a formula forWu et al (2022)to estimate the Watt-hour, Wh, needed to train a model, as well as the tons of carbon emissions, tCO2eq"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "64",
+      "cite_id": "64",
+      "sentence": "are probability distributions over sequences of words, tokens or characters(Shannon,1948,1951)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "65",
+      "cite_id": "65",
+      "sentence": "are probability distributions over sequences of words, tokens or characters(Shannon,1948,1951)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "2",
+      "cite_id": "2",
+      "sentence": "This task, often framed as next token prediction, has long been considered a core problem in natural language processing(Bahl et al,1983; Brown et al,1990)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "This task, often framed as next token prediction, has long been considered a core problem in natural language processing(Bahl et al,1983; Brown et al,1990)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "72",
+      "cite_id": "72",
+      "sentence": "BecauseTuring (1950)proposed to measure machine intelligence by using language through the “imitation game”, language modeling has been proposed as a benchmark to measure progress toward artificial intelligence(Mahoney,1999)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "47",
+      "cite_id": "47",
+      "sentence": "BecauseTuring (1950)proposed to measure machine intelligence by using language through the “imitation game”, language modeling has been proposed as a benchmark to measure progress toward artificial intelligence(Mahoney,1999)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "2",
+      "cite_id": "2",
+      "sentence": "Traditionally, language models were based onn𝑛n-gram count statistics(Bahl et al,1983), and various smoothing techniques were proposed to improve the estimation of rare events(Katz,1987; Kneser and Ney,1995)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "36",
+      "cite_id": "36",
+      "sentence": "Traditionally, language models were based onn𝑛n-gram count statistics(Bahl et al,1983), and various smoothing techniques were proposed to improve the estimation of rare events(Katz,1987; Kneser and Ney,1995)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "37",
+      "cite_id": "37",
+      "sentence": "Traditionally, language models were based onn𝑛n-gram count statistics(Bahl et al,1983), and various smoothing techniques were proposed to improve the estimation of rare events(Katz,1987; Kneser and Ney,1995)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "3",
+      "cite_id": "3",
+      "sentence": "In the past two decades, neural networks have been successfully applied to the language modelling task, starting from feed forward models(Bengio et al,2000), recurrent neural networks(Elman,1990; Mikolov et al,2010)and LSTMs(Hochreiter and Schmidhuber,1997; Graves,2013)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "20",
+      "cite_id": "20",
+      "sentence": "In the past two decades, neural networks have been successfully applied to the language modelling task, starting from feed forward models(Bengio et al,2000), recurrent neural networks(Elman,1990; Mikolov et al,2010)and LSTMs(Hochreiter and Schmidhuber,1997; Graves,2013)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "49",
+      "cite_id": "49",
+      "sentence": "In the past two decades, neural networks have been successfully applied to the language modelling task, starting from feed forward models(Bengio et al,2000), recurrent neural networks(Elman,1990; Mikolov et al,2010)and LSTMs(Hochreiter and Schmidhuber,1997; Graves,2013)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "30",
+      "cite_id": "30",
+      "sentence": "In the past two decades, neural networks have been successfully applied to the language modelling task, starting from feed forward models(Bengio et al,2000), recurrent neural networks(Elman,1990; Mikolov et al,2010)and LSTMs(Hochreiter and Schmidhuber,1997; Graves,2013)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "25",
+      "cite_id": "25",
+      "sentence": "In the past two decades, neural networks have been successfully applied to the language modelling task, starting from feed forward models(Bengio et al,2000), recurrent neural networks(Elman,1990; Mikolov et al,2010)and LSTMs(Hochreiter and Schmidhuber,1997; Graves,2013)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "73",
+      "cite_id": "73",
+      "sentence": "More recently, transformer networks, based on self-attention, have led to important improvements, especially for capturing long range dependencies(Vaswani et al,2017; Radford et al,2018; Dai et al,2019)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "54",
+      "cite_id": "54",
+      "sentence": "More recently, transformer networks, based on self-attention, have led to important improvements, especially for capturing long range dependencies(Vaswani et al,2017; Radford et al,2018; Dai et al,2019)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "17",
+      "cite_id": "17",
+      "sentence": "More recently, transformer networks, based on self-attention, have led to important improvements, especially for capturing long range dependencies(Vaswani et al,2017; Radford et al,2018; Dai et al,2019)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "Brants et al (2007)showed the benefits of using language models trained on 2 trillion tokens, resulting in 300 billionn𝑛n-grams, on the quality of machine translation"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "26",
+      "cite_id": "26",
+      "sentence": "While this work relied on a simple smoothing technique, calledStupid Backoff,Heafield et al (2013)later showed how to scale Kneser-Ney smoothing to Web-scale data"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "9",
+      "cite_id": "9",
+      "sentence": "This allowed to train a 5-gram model on 975 billions tokens from CommonCrawl, resulting in a model with 500 billionsn𝑛n-grams(Buck et al,2014)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "10",
+      "cite_id": "10",
+      "sentence": "While this work relied on a simple smoothing technique, calledStupid Backoff,Heafield et al (2013)later showed how to scale Kneser-Ney smoothing to Web-scale data"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "34",
+      "cite_id": "34",
+      "sentence": "In the context of neural language models,Jozefowicz et al (2016)obtained state-of-the-art results on the Billion Word benchmark by scaling LSTMs to 1 billion parameters"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "19",
+      "cite_id": "19",
+      "sentence": "Notable models include BERT(Devlin et al,2018), GPT-2(Radford et al,2019), Megatron-LM(Shoeybi et al,2019), and T5(Raffel et al,2020)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "55",
+      "cite_id": "55",
+      "sentence": "Notable models include BERT(Devlin et al,2018), GPT-2(Radford et al,2019), Megatron-LM(Shoeybi et al,2019), and T5(Raffel et al,2020)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "68",
+      "cite_id": "68",
+      "sentence": "Notable models include BERT(Devlin et al,2018), GPT-2(Radford et al,2019), Megatron-LM(Shoeybi et al,2019), and T5(Raffel et al,2020)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "57",
+      "cite_id": "57",
+      "sentence": "Notable models include BERT(Devlin et al,2018), GPT-2(Radford et al,2019), Megatron-LM(Shoeybi et al,2019), and T5(Raffel et al,2020)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Notable models include BERT(Devlin et al,2018), GPT-2(Radford et al,2019), Megatron-LM(Shoeybi et al,2019), and T5(Raffel et al,2020)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "44",
+      "cite_id": "44",
+      "sentence": "This lead to a series ofLarge Language Models, such as Jurassic-1(Lieber et al,2021), Megatron-Turing NLG(Smith et al,2022), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022), PaLM(Chowdhery et al,2022), OPT(Zhang et al,2022), and GLM(Zeng et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "69",
+      "cite_id": "69",
+      "sentence": "This lead to a series ofLarge Language Models, such as Jurassic-1(Lieber et al,2021), Megatron-Turing NLG(Smith et al,2022), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022), PaLM(Chowdhery et al,2022), OPT(Zhang et al,2022), and GLM(Zeng et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "56",
+      "cite_id": "56",
+      "sentence": "This lead to a series ofLarge Language Models, such as Jurassic-1(Lieber et al,2021), Megatron-Turing NLG(Smith et al,2022), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022), PaLM(Chowdhery et al,2022), OPT(Zhang et al,2022), and GLM(Zeng et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "This lead to a series ofLarge Language Models, such as Jurassic-1(Lieber et al,2021), Megatron-Turing NLG(Smith et al,2022), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022), PaLM(Chowdhery et al,2022), OPT(Zhang et al,2022), and GLM(Zeng et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "This lead to a series ofLarge Language Models, such as Jurassic-1(Lieber et al,2021), Megatron-Turing NLG(Smith et al,2022), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022), PaLM(Chowdhery et al,2022), OPT(Zhang et al,2022), and GLM(Zeng et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "82",
+      "cite_id": "82",
+      "sentence": "This lead to a series ofLarge Language Models, such as Jurassic-1(Lieber et al,2021), Megatron-Turing NLG(Smith et al,2022), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022), PaLM(Chowdhery et al,2022), OPT(Zhang et al,2022), and GLM(Zeng et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "80",
+      "cite_id": "80",
+      "sentence": "This lead to a series ofLarge Language Models, such as Jurassic-1(Lieber et al,2021), Megatron-Turing NLG(Smith et al,2022), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022), PaLM(Chowdhery et al,2022), OPT(Zhang et al,2022), and GLM(Zeng et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "29",
+      "cite_id": "29",
+      "sentence": "Hestness et al (2017)andRosenfeld et al (2019)studied the impact of scaling on the performance of deep learning models, showing the existence of power laws between the model and dataset sizes and the performance of the system"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "58",
+      "cite_id": "58",
+      "sentence": "Notable models include BERT(Devlin et al,2018), GPT-2(Radford et al,2019), Megatron-LM(Shoeybi et al,2019), and T5(Raffel et al,2020)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "35",
+      "cite_id": "35",
+      "sentence": "Notable models include BERT(Devlin et al,2018), GPT-2(Radford et al,2019), Megatron-LM(Shoeybi et al,2019), and T5(Raffel et al,2020)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "This lead to a series ofLarge Language Models, such as Jurassic-1(Lieber et al,2021), Megatron-Turing NLG(Smith et al,2022), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022), PaLM(Chowdhery et al,2022), OPT(Zhang et al,2022), and GLM(Zeng et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "76",
+      "cite_id": "76",
+      "sentence": "This lead to a series ofLarge Language Models, such as Jurassic-1(Lieber et al,2021), Megatron-Turing NLG(Smith et al,2022), Gopher(Rae et al,2021), Chinchilla(Hoffmann et al,2022), PaLM(Chowdhery et al,2022), OPT(Zhang et al,2022), and GLM(Zeng et al,2022)"
+    },
+    {
+      "section_id": "S8",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "Additionally, we observed likeChung et al (2022)that finetuning these models on instructions lead to promising results, and we plan to further investigate this in future work"
+    },
+    {
+      "section_id": "A4",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "LLaMA-65B fine-tuned with the protocol and instruction dataset fromChung et al (2022)"
+    }
+  ],
+  "preview": "<div class=\"ltx_para\" id=\"S1.p1\">\n<p class=\"ltx_p\" id=\"S1.p1.1\">Large Languages Models (LLMs) trained on massive corpora of texts have shown their ability to perform new tasks from textual instructions or from a few examples .\nThese few-shot properties first appeared when scaling models to a sufficient size , resulting in a line of work that focuses on further scaling these models .\nThese efforts are based on the assumption that more parameters will lead to better performance.\nHowever, recent work from  shows that, for a given compute budget, the best performances are not achieved by the largest models, but by smaller models trained on more data.</p>\n</div><div class=\"ltx_para\" id=\"S1.p2\">\n<p class=\"ltx_p\" id=\"S1.p2.1\">The objective of the scaling laws from  is to determine how to best scale the dataset and model sizes for a particular <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p2.1.1\">training</em> compute budget.\nHowever, this objective disregards the <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p2.1.2\">inference</em> budget, which becomes critical when serving a language model at scale.\nIn this context, given a target level of performance, the preferred model is not the fastest to train but the fastest at inference, and although it may be cheaper to train a large model to reach a certain level of performance, a smaller one trained longer will ultimately be cheaper at inference.\nFor instance, although  recommends training a 10B model on 200B tokens, we find that the performance of a 7B model continues to improve even after 1T tokens.</p>\n</div><div class=\"ltx_para\" id=\"S1.p3\">\n<p class=\"ltx_p\" id=\"S1.p3.1\">The focus of this work is to train a series of language models that achieve the best possible performance at various inference budgets, by training on more tokens than what is typically used.\nThe resulting models, called <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p3.1.1\">LLaMA</em>, ranges from 7B to 65B parameters with competitive performance compared to the best existing LLMs.\nFor instance, LLaMA-13B outperforms GPT-3 on most benchmarks, despite being 10<math alttext=\"\\times\" class=\"ltx_Math\" display=\"inline\" id=\"S1.p3.1.m1.1\"><semantics id=\"S1.p3.1.m1.1a\"><mo id=\"S1.p3.1.m1.1.1\" xref=\"S1.p3.1.m1.1.1.cmml\">×</mo><annotation-xml encoding=\"MathML-Content\" id=\"S1.p3.1.m1.1b\"><times id=\"S1.p3.1.m1.1.1.cmml\" xref=\"S1.p3.1.m1.1.1\"></times></annotation-xml><annotation encoding=\"application/x-tex\" id=\"S1.p3.1.m1.1c\">\\times</annotation></semantics></math> smaller.\nWe believe that this model will help democratize the access and study of LLMs, since it can be run on a single GPU.\nAt the higher-end of the scale, our 65B-parameter model is also competitive with the best large language models such as Chinchilla or PaLM-540B.</p>\n</div><div class=\"ltx_para\" id=\"S1.p4\">\n<p class=\"ltx_p\" id=\"S1.p4.1\">Unlike Chinchilla, PaLM, or GPT-3, we only use publicly available data, making our work compatible with open-sourcing, while most existing models rely on data which is either not publicly available or undocumented (e.g. “Books – 2TB” or “Social media conversations”).\nThere exist some exceptions, notably OPT , GPT-NeoX , BLOOM  and GLM , but none that are competitive with PaLM-62B or Chinchilla.</p>\n</div><div class=\"ltx_para\" id=\"S1.p5\">\n<p class=\"ltx_p\" id=\"S1.p5.1\">In the rest of this paper, we present an overview of the modifications we made to the transformer architecture , as well as our training method.\nWe then report the performance of our models and compare with others LLMs on a set of standard benchmarks.\nFinally, we expose some of the biases and toxicity encoded in our models, using some of the most recent benchmarks from the responsible AI community.</p>\n</div>",
+  "references": {
+    "1": {
+      "enum": "1",
+      "authors": "Jacob Austin, Augustus Odena, Maxwell Nye, Maarten Bosma, Henryk Michalewski, David Dohan, Ellen Jiang, Carrie Cai, Michael Terry, Quoc Le, Charles Sutton",
+      "title": "Program synthesis with large language models",
+      "publication": null,
+      "year": 2021,
+      "summary": "This paper explores the limits of the current generation of large language models for program synthesis in general purpose programming languages. We evaluate a collection of such models (with between 244M and 137B parameters) on two new benchmarks, MBPP and MathQA-Python, in both the few-shot and fine-tuning regimes. Our benchmarks are designed to measure the ability of these models to synthesize short Python programs from natural language descriptions. The Mostly Basic Programming Problems (MBPP) dataset contains 974 programming tasks, designed to be solvable by entry-level programmers. The MathQA-Python dataset, a Python version of the MathQA benchmark, contains 23914 problems that evaluate the ability of the models to synthesize code from more complex text. On both datasets, we find that synthesis performance scales log-linearly with model size. Our largest models, even without finetuning on a code dataset, can synthesize solutions to 59.6 percent of the problems from MBPP using few-shot learning with a well-designed prompt. Fine-tuning on a held-out portion of the dataset improves performance by about 10 percentage points across most model sizes. On the MathQA-Python dataset, the largest fine-tuned model achieves 83.8 percent accuracy. Going further, we study the model's ability to engage in dialog about code, incorporating human feedback to improve its solutions. We find that natural language feedback from a human halves the error rate compared to the model's initial prediction. Additionally, we conduct an error analysis to shed light on where these models fall short and what types of programs are most difficult to generate. Finally, we explore the semantic grounding of these models by fine-tuning them to predict the results of program execution. We find that even our best models are generally unable to predict the output of a program given a specific input.",
+      "standard_url": "http://arxiv.org/abs/2108.07732v1",
+      "id": "2021-program_synthesis_with_large_language_models"
+    },
+    "2": {
+      "enum": "2",
+      "authors": "Lalit R Bahl, Frederick Jelinek, and Robert L Mercer. 1983",
+      "title": "A maximum likelihood approach to continuous speech recognition",
+      "publication": "IEEE transactions on pattern analysis and machine intelligence, pages 179–190",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-a_maximum_likelihood_approach_to_continuous_speech_recognition"
+    },
+    "3": {
+      "enum": "3",
+      "authors": "Simeng Sun, Mohit Iyyer",
+      "title": "A neural probabilistic language model",
+      "publication": "Advances in neural information processing systems, 13",
+      "year": 2021,
+      "summary": "Recent progress in language modeling has been driven not only by advances in neural architectures, but also through hardware and optimization improvements. In this paper, we revisit the neural probabilistic language model (NPLM) of~\\citet{Bengio2003ANP}, which simply concatenates word embeddings within a fixed window and passes the result through a feed-forward network to predict the next word. When scaled up to modern hardware, this model (despite its many limitations) performs much better than expected on word-level language model benchmarks. Our analysis reveals that the NPLM achieves lower perplexity than a baseline Transformer with short input contexts but struggles to handle long-term dependencies. Inspired by this result, we modify the Transformer by replacing its first self-attention layer with the NPLM's local concatenation layer, which results in small but consistent perplexity decreases across three word-level language modeling datasets.",
+      "standard_url": "http://arxiv.org/abs/2104.03474v1",
+      "id": "2021-a_neural_probabilistic_language_model"
+    },
+    "4": {
+      "enum": "4",
+      "authors": "Yonatan Bisk, Rowan Zellers, Ronan Le Bras, Jianfeng Gao, Yejin Choi",
+      "title": "Piqa: Reasoning about physical commonsense in natural language",
+      "publication": "In Proceedings of the AAAI conference on artificial intelligence, pages 7432–7439",
+      "year": 2019,
+      "summary": "To apply eyeshadow without a brush, should I use a cotton swab or a toothpick? Questions requiring this kind of physical commonsense pose a challenge to today's natural language understanding systems. While recent pretrained models (such as BERT) have made progress on question answering over more abstract domains - such as news articles and encyclopedia entries, where text is plentiful - in more physical domains, text is inherently limited due to reporting bias. Can AI systems learn to reliably answer physical common-sense questions without experiencing the physical world? In this paper, we introduce the task of physical commonsense reasoning and a corresponding benchmark dataset Physical Interaction: Question Answering or PIQA. Though humans find the dataset easy (95% accuracy), large pretrained models struggle (77%). We provide analysis about the dimensions of knowledge that existing models lack, which offers significant opportunities for future research.",
+      "standard_url": "http://arxiv.org/abs/1911.11641v1",
+      "id": "2019-piqa:_reasoning_about_physical_commonsense_in_natural_language"
+    },
+    "5": {
+      "enum": "5",
+      "authors": "Sid Black, Stella Biderman, Eric Hallahan, Quentin Anthony, Leo Gao, Laurence Golding, Horace He, Connor Leahy, Kyle McDonell, Jason Phang, Michael Pieler, USVSN Sai Prashanth, Shivanshu Purohit, Laria Reynolds, Jonathan Tow, Ben Wang, Samuel Weinbach",
+      "title": "Gpt-neox-20b: An open-source autoregressive language model",
+      "publication": "arXiv preprint arXiv:2204.06745",
+      "year": 2022,
+      "summary": "We introduce GPT-NeoX-20B, a 20 billion parameter autoregressive language model trained on the Pile, whose weights will be made freely and openly available to the public through a permissive license. It is, to the best of our knowledge, the largest dense autoregressive model that has publicly available weights at the time of submission. In this work, we describe \\model{}'s architecture and training and evaluate its performance on a range of language-understanding, mathematics, and knowledge-based tasks. We find that GPT-NeoX-20B is a particularly powerful few-shot reasoner and gains far more in performance when evaluated five-shot than similarly sized GPT-3 and FairSeq models. We open-source the training and evaluation code, as well as the model weights, at https://github.com/EleutherAI/gpt-neox.",
+      "standard_url": "http://arxiv.org/abs/2204.06745v1",
+      "id": "2022-gpt-neox-20b:_an_open-source_autoregressive_language_model"
+    },
+    "6": {
+      "enum": "6",
+      "authors": "Daniel Scalena, Gabriele Sarti, Arianna Bisazza, Elisabetta Fersini, Malvina Nissim",
+      "title": "Large language models in machine translation",
+      "publication": "In Proceedings of the 2007 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning (EMNLP-CoNLL), pages 858–867, Prague, Czech Republic. Association for Computational Linguistics",
+      "year": 2025,
+      "summary": "Large language models have simplified the production of personalized translations reflecting predefined stylistic constraints. However, these systems still struggle when stylistic requirements are implicitly represented by a set of examples, such as texts produced by a specific human translator. In this work, we explore various strategies for personalizing automatically generated translations when few examples are available, with a focus on the challenging domain of literary translation. We begin by determining the feasibility of the task and how style information is encoded within model representations. Then, we evaluate various prompting strategies and inference-time interventions for steering model generations towards a personalized style, with a particular focus on contrastive steering with sparse autoencoder (SAE) latents to identify salient personalization properties. We demonstrate that contrastive SAE steering yields robust style conditioning and translation quality, resulting in higher inference-time computational efficiency than prompting approaches. We further examine the impact of steering on model activations, finding that layers encoding personalization properties are impacted similarly by prompting and SAE steering, suggesting a similar mechanism at play.",
+      "standard_url": "http://arxiv.org/abs/2505.16612v2",
+      "id": "2025-large_language_models_in_machine_translation"
+    },
+    "7": {
+      "enum": "7",
+      "authors": "Peter F Brown, John Cocke, Stephen A Della Pietra, Vincent J Della Pietra, Frederick Jelinek, John Lafferty, Robert L Mercer, and Paul S Roossin. 1990",
+      "title": "A statistical approach to machine translation",
+      "publication": "Computational linguistics, 16(2):79–85",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-a_statistical_approach_to_machine_translation"
+    },
+    "8": {
+      "enum": "8",
+      "authors": "Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, Dario Amodei",
+      "title": "Language models are few-shot learners",
+      "publication": null,
+      "year": 2020,
+      "summary": "Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to do. Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same time, we also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally, we find that GPT-3 can generate samples of news articles which human evaluators have difficulty distinguishing from articles written by humans. We discuss broader societal impacts of this finding and of GPT-3 in general.",
+      "standard_url": "http://arxiv.org/abs/2005.14165v4",
+      "id": "2020-language_models_are_few-shot_learners"
+    },
+    "9": {
+      "enum": "9",
+      "authors": "Christian Buck, Kenneth Heafield, and Bas Van Ooyen. 2014",
+      "title": "N-gram counts and language models from the common crawl",
+      "publication": "In LREC, volume 2, page 4",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-n-gram_counts_and_language_models_from_the_common_crawl"
+    },
+    "10": {
+      "enum": "10",
+      "authors": "Ciprian Chelba, Tomas Mikolov, Mike Schuster, Qi Ge, Thorsten Brants, Phillipp Koehn, Tony Robinson",
+      "title": "One billion word benchmark for measuring progress in statistical language modeling",
+      "publication": "arXiv preprint arXiv:1312.3005",
+      "year": 2013,
+      "summary": "We propose a new benchmark corpus to be used for measuring progress in statistical language modeling. With almost one billion words of training data, we hope this benchmark will be useful to quickly evaluate novel language modeling techniques, and to compare their contribution when combined with other advanced techniques. We show performance of several well-known types of language models, with the best results achieved with a recurrent neural network based language model. The baseline unpruned Kneser-Ney 5-gram model achieves perplexity 67.6; a combination of techniques leads to 35% reduction in perplexity, or 10% reduction in cross-entropy (bits), over that baseline.\n  The benchmark is available as a code.google.com project; besides the scripts needed to rebuild the training/held-out data, it also makes available log-probability values for each word in each of ten held-out data sets, for each of the baseline n-gram models.",
+      "standard_url": "http://arxiv.org/abs/1312.3005v3",
+      "id": "2013-one_billion_word_benchmark_for_measuring_progress_in_statistical_language_modeling"
+    },
+    "11": {
+      "enum": "11",
+      "authors": "Mark Chen, Jerry Tworek, Heewoo Jun, Qiming Yuan, Henrique Ponde de Oliveira Pinto, Jared Kaplan, Harri Edwards, Yuri Burda, Nicholas Joseph, Greg Brockman, Alex Ray, Raul Puri, Gretchen Krueger, Michael Petrov, Heidy Khlaaf, Girish Sastry, Pamela Mishkin, Brooke Chan, Scott Gray, Nick Ryder, Mikhail Pavlov, Alethea Power, Lukasz Kaiser, Mohammad Bavarian, Clemens Winter, Philippe Tillet, Felipe Petroski Such, Dave Cummings, Matthias Plappert, Fotios Chantzis, Elizabeth Barnes, Ariel Herbert-Voss, William Hebgen Guss, Alex Nichol, Alex Paino, Nikolas Tezak, Jie Tang, Igor Babuschkin, Suchir Balaji, Shantanu Jain, William Saunders, Christopher Hesse, Andrew N. Carr, Jan Leike, Josh Achiam, Vedant Misra, Evan Morikawa, Alec Radford, Matthew Knight, Miles Brundage, Mira Murati, Katie Mayer, Peter Welinder, Bob McGrew, Dario Amodei, Sam McCandlish, Ilya Sutskever, Wojciech Zaremba",
+      "title": "Evaluating large language models trained on code",
+      "publication": null,
+      "year": 2021,
+      "summary": "We introduce Codex, a GPT language model fine-tuned on publicly available code from GitHub, and study its Python code-writing capabilities. A distinct production version of Codex powers GitHub Copilot. On HumanEval, a new evaluation set we release to measure functional correctness for synthesizing programs from docstrings, our model solves 28.8% of the problems, while GPT-3 solves 0% and GPT-J solves 11.4%. Furthermore, we find that repeated sampling from the model is a surprisingly effective strategy for producing working solutions to difficult prompts. Using this method, we solve 70.2% of our problems with 100 samples per problem. Careful investigation of our model reveals its limitations, including difficulty with docstrings describing long chains of operations and with binding operations to variables. Finally, we discuss the potential broader impacts of deploying powerful code generation technologies, covering safety, security, and economics.",
+      "standard_url": "http://arxiv.org/abs/2107.03374v2",
+      "id": "2021-evaluating_large_language_models_trained_on_code"
+    },
+    "12": {
+      "enum": "12",
+      "authors": "Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra, Adam Roberts, Paul Barham, Hyung Won Chung, Charles Sutton, Sebastian Gehrmann, Parker Schuh, Kensen Shi, Sasha Tsvyashchenko, Joshua Maynez, Abhishek Rao, Parker Barnes, Yi Tay, Noam Shazeer, Vinodkumar Prabhakaran, Emily Reif, Nan Du, Ben Hutchinson, Reiner Pope, James Bradbury, Jacob Austin, Michael Isard, Guy Gur-Ari, Pengcheng Yin, Toju Duke, Anselm Levskaya, Sanjay Ghemawat, Sunipa Dev, Henryk Michalewski, Xavier Garcia, Vedant Misra, Kevin Robinson, Liam Fedus, Denny Zhou, Daphne Ippolito, David Luan, Hyeontaek Lim, Barret Zoph, Alexander Spiridonov, Ryan Sepassi, David Dohan, Shivani Agrawal, Mark Omernick, Andrew M. Dai, Thanumalayan Sankaranarayana Pillai, Marie Pellat, Aitor Lewkowycz, Erica Moreira, Rewon Child, Oleksandr Polozov, Katherine Lee, Zongwei Zhou, Xuezhi Wang, Brennan Saeta, Mark Diaz, Orhan Firat, Michele Catasta, Jason Wei, Kathy Meier-Hellstern, Douglas Eck, Jeff Dean, Slav Petrov, Noah Fiedel",
+      "title": "Palm: Scaling language modeling with pathways",
+      "publication": null,
+      "year": 2022,
+      "summary": "Large language models have been shown to achieve remarkable performance across a variety of natural language tasks using few-shot learning, which drastically reduces the number of task-specific training examples needed to adapt the model to a particular application. To further our understanding of the impact of scale on few-shot learning, we trained a 540-billion parameter, densely activated, Transformer language model, which we call Pathways Language Model PaLM. We trained PaLM on 6144 TPU v4 chips using Pathways, a new ML system which enables highly efficient training across multiple TPU Pods. We demonstrate continued benefits of scaling by achieving state-of-the-art few-shot learning results on hundreds of language understanding and generation benchmarks. On a number of these tasks, PaLM 540B achieves breakthrough performance, outperforming the finetuned state-of-the-art on a suite of multi-step reasoning tasks, and outperforming average human performance on the recently released BIG-bench benchmark. A significant number of BIG-bench tasks showed discontinuous improvements from model scale, meaning that performance steeply increased as we scaled to our largest model. PaLM also has strong capabilities in multilingual tasks and source code generation, which we demonstrate on a wide array of benchmarks. We additionally provide a comprehensive analysis on bias and toxicity, and study the extent of training data memorization with respect to model scale. Finally, we discuss the ethical considerations related to large language models and discuss potential mitigation strategies.",
+      "standard_url": "http://arxiv.org/abs/2204.02311v5",
+      "id": "2022-palm:_scaling_language_modeling_with_pathways"
+    },
+    "13": {
+      "enum": "13",
+      "authors": "Hyung Won Chung, Le Hou, Shayne Longpre, Barret Zoph, Yi Tay, William Fedus, Yunxuan Li, Xuezhi Wang, Mostafa Dehghani, Siddhartha Brahma, Albert Webson, Shixiang Shane Gu, Zhuyun Dai, Mirac Suzgun, Xinyun Chen, Aakanksha Chowdhery, Alex Castro-Ros, Marie Pellat, Kevin Robinson, Dasha Valter, Sharan Narang, Gaurav Mishra, Adams Yu, Vincent Zhao, Yanping Huang, Andrew Dai, Hongkun Yu, Slav Petrov, Ed H. Chi, Jeff Dean, Jacob Devlin, Adam Roberts, Denny Zhou, Quoc V. Le, Jason Wei",
+      "title": "Scaling instruction-finetuned language models",
+      "publication": "arXiv preprint arXiv:2210.11416",
+      "year": 2022,
+      "summary": "Finetuning language models on a collection of datasets phrased as instructions has been shown to improve model performance and generalization to unseen tasks. In this paper we explore instruction finetuning with a particular focus on (1) scaling the number of tasks, (2) scaling the model size, and (3) finetuning on chain-of-thought data. We find that instruction finetuning with the above aspects dramatically improves performance on a variety of model classes (PaLM, T5, U-PaLM), prompting setups (zero-shot, few-shot, CoT), and evaluation benchmarks (MMLU, BBH, TyDiQA, MGSM, open-ended generation). For instance, Flan-PaLM 540B instruction-finetuned on 1.8K tasks outperforms PALM 540B by a large margin (+9.4% on average). Flan-PaLM 540B achieves state-of-the-art performance on several benchmarks, such as 75.2% on five-shot MMLU. We also publicly release Flan-T5 checkpoints, which achieve strong few-shot performance even compared to much larger models, such as PaLM 62B. Overall, instruction finetuning is a general method for improving the performance and usability of pretrained language models.",
+      "standard_url": "http://arxiv.org/abs/2210.11416v5",
+      "id": "2022-scaling_instruction-finetuned_language_models"
+    },
+    "14": {
+      "enum": "14",
+      "authors": "Christopher Clark, Kenton Lee, Ming-Wei Chang, Tom Kwiatkowski, Michael Collins, Kristina Toutanova",
+      "title": "Boolq: Exploring the surprising difficulty of natural yes/no questions",
+      "publication": "arXiv preprint arXiv:1905.10044",
+      "year": 2019,
+      "summary": "In this paper we study yes/no questions that are naturally occurring --- meaning that they are generated in unprompted and unconstrained settings. We build a reading comprehension dataset, BoolQ, of such questions, and show that they are unexpectedly challenging. They often query for complex, non-factoid information, and require difficult entailment-like inference to solve. We also explore the effectiveness of a range of transfer learning baselines. We find that transferring from entailment data is more effective than transferring from paraphrase or extractive QA data, and that it, surprisingly, continues to be very beneficial even when starting from massive pre-trained language models such as BERT. Our best method trains BERT on MultiNLI and then re-trains it on our train set. It achieves 80.4% accuracy compared to 90% accuracy of human annotators (and 62% majority-baseline), leaving a significant gap for future work.",
+      "standard_url": "http://arxiv.org/abs/1905.10044v1",
+      "id": "2019-boolq:_exploring_the_surprising_difficulty_of_natural_yes/no_questions"
+    },
+    "15": {
+      "enum": "15",
+      "authors": "Peter Clark, Isaac Cowhey, Oren Etzioni, Tushar Khot, Ashish Sabharwal, Carissa Schoenick, Oyvind Tafjord",
+      "title": "Think you have solved question answering? try arc, the ai2 reasoning challenge",
+      "publication": "arXiv preprint arXiv:1803.05457",
+      "year": 2018,
+      "summary": "We present a new question set, text corpus, and baselines assembled to encourage AI research in advanced question answering. Together, these constitute the AI2 Reasoning Challenge (ARC), which requires far more powerful knowledge and reasoning than previous challenges such as SQuAD or SNLI. The ARC question set is partitioned into a Challenge Set and an Easy Set, where the Challenge Set contains only questions answered incorrectly by both a retrieval-based algorithm and a word co-occurence algorithm. The dataset contains only natural, grade-school science questions (authored for human tests), and is the largest public-domain set of this kind (7,787 questions). We test several baselines on the Challenge Set, including leading neural models from the SQuAD and SNLI tasks, and find that none are able to significantly outperform a random baseline, reflecting the difficult nature of this task. We are also releasing the ARC Corpus, a corpus of 14M science sentences relevant to the task, and implementations of the three neural baseline models tested. Can your model perform better? We pose ARC as a challenge to the community.",
+      "standard_url": "http://arxiv.org/abs/1803.05457v1",
+      "id": "2018-think_you_have_solved_question_answering?_try_arc_the_ai2_reasoning_challenge"
+    },
+    "16": {
+      "enum": "16",
+      "authors": "Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, John Schulman",
+      "title": "Training verifiers to solve math word problems",
+      "publication": "arXiv preprint arXiv:2110.14168",
+      "year": 2021,
+      "summary": "State-of-the-art language models can match human performance on many tasks, but they still struggle to robustly perform multi-step mathematical reasoning. To diagnose the failures of current models and support research, we introduce GSM8K, a dataset of 8.5K high quality linguistically diverse grade school math word problems. We find that even the largest transformer models fail to achieve high test performance, despite the conceptual simplicity of this problem distribution. To increase performance, we propose training verifiers to judge the correctness of model completions. At test time, we generate many candidate solutions and select the one ranked highest by the verifier. We demonstrate that verification significantly improves performance on GSM8K, and we provide strong empirical evidence that verification scales more effectively with increased data than a finetuning baseline.",
+      "standard_url": "http://arxiv.org/abs/2110.14168v2",
+      "id": "2021-training_verifiers_to_solve_math_word_problems"
+    },
+    "17": {
+      "enum": "17",
+      "authors": "Zihang Dai, Zhilin Yang, Yiming Yang, Jaime Carbonell, Quoc V. Le, Ruslan Salakhutdinov",
+      "title": "Transformer-xl: Attentive language models beyond a fixed-length context",
+      "publication": "arXiv preprint arXiv:1901.02860",
+      "year": 2019,
+      "summary": "Transformers have a potential of learning longer-term dependency, but are limited by a fixed-length context in the setting of language modeling. We propose a novel neural architecture Transformer-XL that enables learning dependency beyond a fixed length without disrupting temporal coherence. It consists of a segment-level recurrence mechanism and a novel positional encoding scheme. Our method not only enables capturing longer-term dependency, but also resolves the context fragmentation problem. As a result, Transformer-XL learns dependency that is 80% longer than RNNs and 450% longer than vanilla Transformers, achieves better performance on both short and long sequences, and is up to 1,800+ times faster than vanilla Transformers during evaluation. Notably, we improve the state-of-the-art results of bpc/perplexity to 0.99 on enwiki8, 1.08 on text8, 18.3 on WikiText-103, 21.8 on One Billion Word, and 54.5 on Penn Treebank (without finetuning). When trained only on WikiText-103, Transformer-XL manages to generate reasonably coherent, novel text articles with thousands of tokens. Our code, pretrained models, and hyperparameters are available in both Tensorflow and PyTorch.",
+      "standard_url": "http://arxiv.org/abs/1901.02860v3",
+      "id": "2019-transformer-xl:_attentive_language_models_beyond_a_fixed-length_context"
+    },
+    "18": {
+      "enum": "18",
+      "authors": "Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, Christopher Ré",
+      "title": "Flashattention: Fast and memory-efficient exact attention with io-awareness",
+      "publication": "arXiv preprint arXiv:2205.14135",
+      "year": 2022,
+      "summary": "Transformers are slow and memory-hungry on long sequences, since the time and memory complexity of self-attention are quadratic in sequence length. Approximate attention methods have attempted to address this problem by trading off model quality to reduce the compute complexity, but often do not achieve wall-clock speedup. We argue that a missing principle is making attention algorithms IO-aware -- accounting for reads and writes between levels of GPU memory. We propose FlashAttention, an IO-aware exact attention algorithm that uses tiling to reduce the number of memory reads/writes between GPU high bandwidth memory (HBM) and GPU on-chip SRAM. We analyze the IO complexity of FlashAttention, showing that it requires fewer HBM accesses than standard attention, and is optimal for a range of SRAM sizes. We also extend FlashAttention to block-sparse attention, yielding an approximate attention algorithm that is faster than any existing approximate attention method. FlashAttention trains Transformers faster than existing baselines: 15% end-to-end wall-clock speedup on BERT-large (seq. length 512) compared to the MLPerf 1.1 training speed record, 3$\\times$ speedup on GPT-2 (seq. length 1K), and 2.4$\\times$ speedup on long-range arena (seq. length 1K-4K). FlashAttention and block-sparse FlashAttention enable longer context in Transformers, yielding higher quality models (0.7 better perplexity on GPT-2 and 6.4 points of lift on long-document classification) and entirely new capabilities: the first Transformers to achieve better-than-chance performance on the Path-X challenge (seq. length 16K, 61.4% accuracy) and Path-256 (seq. length 64K, 63.1% accuracy).",
+      "standard_url": "http://arxiv.org/abs/2205.14135v2",
+      "id": "2022-flashattention:_fast_and_memory-efficient_exact_attention_with_io-awareness"
+    },
+    "19": {
+      "enum": "19",
+      "authors": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova",
+      "title": "Bert: Pre-training of deep bidirectional transformers for language understanding",
+      "publication": "arXiv preprint arXiv:1810.04805",
+      "year": 2018,
+      "summary": "We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications.\n  BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5% (7.7% point absolute improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).",
+      "standard_url": "http://arxiv.org/abs/1810.04805v2",
+      "id": "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding"
+    },
+    "20": {
+      "enum": "20",
+      "authors": "Jeffrey L Elman. 1990",
+      "title": "Finding structure in time",
+      "publication": "Cognitive science, 14(2):179–211",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-finding_structure_in_time"
+    },
+    "21": {
+      "enum": "21",
+      "authors": "Daniel Fried, Armen Aghajanyan, Jessy Lin, Sida Wang, Eric Wallace, Freda Shi, Ruiqi Zhong, Wen-tau Yih, Luke Zettlemoyer, Mike Lewis",
+      "title": "Incoder: A generative model for code infilling and synthesis",
+      "publication": "arXiv preprint arXiv:2204.05999",
+      "year": 2022,
+      "summary": "Code is seldom written in a single left-to-right pass and is instead repeatedly edited and refined. We introduce InCoder, a unified generative model that can perform program synthesis (via left-to-right generation) as well as editing (via infilling). InCoder is trained to generate code files from a large corpus of permissively licensed code, where regions of code have been randomly masked and moved to the end of each file, allowing code infilling with bidirectional context. Our model is the first generative model that is able to directly perform zero-shot code infilling, which we evaluate on challenging tasks such as type inference, comment generation, and variable re-naming. We find that the ability to condition on bidirectional context substantially improves performance on these tasks, while still performing comparably on standard program synthesis benchmarks in comparison to left-to-right only models pretrained at similar scale. The InCoder models and code are publicly released. https://sites.google.com/view/incoder-code-models",
+      "standard_url": "http://arxiv.org/abs/2204.05999v3",
+      "id": "2022-incoder:_a_generative_model_for_code_infilling_and_synthesis"
+    },
+    "22": {
+      "enum": "22",
+      "authors": "Leo Gao, Stella Biderman, Sid Black, Laurence Golding, Travis Hoppe, Charles Foster, Jason Phang, Horace He, Anish Thite, Noa Nabeshima, Shawn Presser, Connor Leahy",
+      "title": "The Pile: An 800gb dataset of diverse text for language modeling",
+      "publication": "arXiv preprint arXiv:2101.00027",
+      "year": 2020,
+      "summary": "Recent work has demonstrated that increased training dataset diversity improves general cross-domain knowledge and downstream generalization capability for large-scale language models. With this in mind, we present \\textit{the Pile}: an 825 GiB English text corpus targeted at training large-scale language models. The Pile is constructed from 22 diverse high-quality subsets -- both existing and newly constructed -- many of which derive from academic or professional sources. Our evaluation of the untuned performance of GPT-2 and GPT-3 on the Pile shows that these models struggle on many of its components, such as academic writing. Conversely, models trained on the Pile improve significantly over both Raw CC and CC-100 on all components of the Pile, while improving performance on downstream evaluations. Through an in-depth exploratory analysis, we document potentially concerning aspects of the data for prospective users. We make publicly available the code used in its construction.",
+      "standard_url": "http://arxiv.org/abs/2101.00027v1",
+      "id": "2020-the_pile:_an_800gb_dataset_of_diverse_text_for_language_modeling"
+    },
+    "23": {
+      "enum": "23",
+      "authors": "Leo Gao, Jonathan Tow, Stella Biderman, Sid Black, Anthony DiPofi, Charles Foster, Laurence Golding, Jeffrey Hsu, Kyle McDonell, Niklas Muennighoff, Jason Phang, Laria Reynolds, Eric Tang, Anish Thite, Ben Wang, Kevin Wang, and Andy Zou. 2021",
+      "title": "A framework for few-shot language model evaluation",
+      "publication": null,
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-a_framework_for_few-shot_language_model_evaluation"
+    },
+    "24": {
+      "enum": "24",
+      "authors": "Samuel Gehman, Suchin Gururangan, Maarten Sap, Yejin Choi, Noah A. Smith",
+      "title": "Realtoxicityprompts: Evaluating neural toxic degeneration in language models",
+      "publication": "arXiv preprint arXiv:2009.11462",
+      "year": 2020,
+      "summary": "Pretrained neural language models (LMs) are prone to generating racist, sexist, or otherwise toxic language which hinders their safe deployment. We investigate the extent to which pretrained LMs can be prompted to generate toxic language, and the effectiveness of controllable text generation algorithms at preventing such toxic degeneration. We create and release RealToxicityPrompts, a dataset of 100K naturally occurring, sentence-level prompts derived from a large corpus of English web text, paired with toxicity scores from a widely-used toxicity classifier. Using RealToxicityPrompts, we find that pretrained LMs can degenerate into toxic text even from seemingly innocuous prompts. We empirically assess several controllable generation methods, and find that while data- or compute-intensive methods (e.g., adaptive pretraining on non-toxic data) are more effective at steering away from toxicity than simpler solutions (e.g., banning \"bad\" words), no current method is failsafe against neural toxic degeneration. To pinpoint the potential cause of such persistent toxic degeneration, we analyze two web text corpora used to pretrain several LMs (including GPT-2; Radford et. al, 2019), and find a significant amount of offensive, factually unreliable, and otherwise toxic content. Our work provides a test bed for evaluating toxic generations by LMs and stresses the need for better data selection processes for pretraining.",
+      "standard_url": "http://arxiv.org/abs/2009.11462v2",
+      "id": "2020-realtoxicityprompts:_evaluating_neural_toxic_degeneration_in_language_models"
+    },
+    "25": {
+      "enum": "25",
+      "authors": "Alex Graves",
+      "title": "Generating sequences with recurrent neural networks",
+      "publication": "arXiv preprint arXiv:1308.0850",
+      "year": 2013,
+      "summary": "This paper shows how Long Short-term Memory recurrent neural networks can be used to generate complex sequences with long-range structure, simply by predicting one data point at a time. The approach is demonstrated for text (where the data are discrete) and online handwriting (where the data are real-valued). It is then extended to handwriting synthesis by allowing the network to condition its predictions on a text sequence. The resulting system is able to generate highly realistic cursive handwriting in a wide variety of styles.",
+      "standard_url": "http://arxiv.org/abs/1308.0850v5",
+      "id": "2013-generating_sequences_with_recurrent_neural_networks"
+    },
+    "26": {
+      "enum": "26",
+      "authors": "Kenneth Heafield, Ivan Pouzyrevsky, Jonathan H Clark, and Philipp Koehn. 2013",
+      "title": "Scalable modified kneser-ney language model estimation",
+      "publication": "In Proceedings of the 51st Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers), pages 690–696",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-scalable_modified_kneser-ney_language_model_estimation"
+    },
+    "27": {
+      "enum": "27",
+      "authors": "Dan Hendrycks, Collin Burns, Steven Basart, Andy Zou, Mantas Mazeika, Dawn Song, Jacob Steinhardt",
+      "title": "Measuring massive multitask language understanding",
+      "publication": "arXiv preprint arXiv:2009.03300",
+      "year": 2020,
+      "summary": "We propose a new test to measure a text model's multitask accuracy. The test covers 57 tasks including elementary mathematics, US history, computer science, law, and more. To attain high accuracy on this test, models must possess extensive world knowledge and problem solving ability. We find that while most recent models have near random-chance accuracy, the very largest GPT-3 model improves over random chance by almost 20 percentage points on average. However, on every one of the 57 tasks, the best models still need substantial improvements before they can reach expert-level accuracy. Models also have lopsided performance and frequently do not know when they are wrong. Worse, they still have near-random accuracy on some socially important subjects such as morality and law. By comprehensively evaluating the breadth and depth of a model's academic and professional understanding, our test can be used to analyze models across many tasks and to identify important shortcomings.",
+      "standard_url": "http://arxiv.org/abs/2009.03300v3",
+      "id": "2020-measuring_massive_multitask_language_understanding"
+    },
+    "28": {
+      "enum": "28",
+      "authors": "Dan Hendrycks, Collin Burns, Saurav Kadavath, Akul Arora, Steven Basart, Eric Tang, Dawn Song, Jacob Steinhardt",
+      "title": "Measuring mathematical problem solving with the math dataset",
+      "publication": "arXiv preprint arXiv:2103.03874",
+      "year": 2021,
+      "summary": "Many intellectual endeavors require mathematical problem solving, but this skill remains beyond the capabilities of computers. To measure this ability in machine learning models, we introduce MATH, a new dataset of 12,500 challenging competition mathematics problems. Each problem in MATH has a full step-by-step solution which can be used to teach models to generate answer derivations and explanations. To facilitate future research and increase accuracy on MATH, we also contribute a large auxiliary pretraining dataset which helps teach models the fundamentals of mathematics. Even though we are able to increase accuracy on MATH, our results show that accuracy remains relatively low, even with enormous Transformer models. Moreover, we find that simply increasing budgets and model parameter counts will be impractical for achieving strong mathematical reasoning if scaling trends continue. While scaling Transformers is automatically solving most other text-based tasks, scaling is not currently solving MATH. To have more traction on mathematical problem solving we will likely need new algorithmic advancements from the broader research community.",
+      "standard_url": "http://arxiv.org/abs/2103.03874v2",
+      "id": "2021-measuring_mathematical_problem_solving_with_the_math_dataset"
+    },
+    "29": {
+      "enum": "29",
+      "authors": "Joel Hestness, Sharan Narang, Newsha Ardalani, Gregory Diamos, Heewoo Jun, Hassan Kianinejad, Md. Mostofa Ali Patwary, Yang Yang, Yanqi Zhou",
+      "title": "Deep learning scaling is predictable, empirically",
+      "publication": "arXiv preprint arXiv:1712.00409",
+      "year": 2017,
+      "summary": "Deep learning (DL) creates impactful advances following a virtuous recipe: model architecture search, creating large training data sets, and scaling computation. It is widely believed that growing training sets and models should improve accuracy and result in better products. As DL application domains grow, we would like a deeper understanding of the relationships between training set size, computational scale, and model accuracy improvements to advance the state-of-the-art.\n  This paper presents a large scale empirical characterization of generalization error and model size growth as training sets grow. We introduce a methodology for this measurement and test four machine learning domains: machine translation, language modeling, image processing, and speech recognition. Our empirical results show power-law generalization error scaling across a breadth of factors, resulting in power-law exponents---the \"steepness\" of the learning curve---yet to be explained by theoretical work. Further, model improvements only shift the error but do not appear to affect the power-law exponent. We also show that model size scales sublinearly with data size. These scaling relationships have significant implications on deep learning research, practice, and systems. They can assist model debugging, setting accuracy targets, and decisions about data set growth. They can also guide computing system design and underscore the importance of continued computational scaling.",
+      "standard_url": "http://arxiv.org/abs/1712.00409v1",
+      "id": "2017-deep_learning_scaling_is_predictable_empirically"
+    },
+    "30": {
+      "enum": "30",
+      "authors": "Ivo Danihelka, Greg Wayne, Benigno Uria, Nal Kalchbrenner, Alex Graves",
+      "title": "Long short-term memory",
+      "publication": "Neural computation, 9(8):1735–1780",
+      "year": 2016,
+      "summary": "We investigate a new method to augment recurrent neural networks with extra memory without increasing the number of network parameters. The system has an associative memory based on complex-valued vectors and is closely related to Holographic Reduced Representations and Long Short-Term Memory networks. Holographic Reduced Representations have limited capacity: as they store more information, each retrieval becomes noisier due to interference. Our system in contrast creates redundant copies of stored information, which enables retrieval with reduced noise. Experiments demonstrate faster learning on multiple memorization tasks.",
+      "standard_url": "http://arxiv.org/abs/1602.03032v2",
+      "id": "2016-long_short-term_memory"
+    },
+    "31": {
+      "enum": "31",
+      "authors": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, Tom Hennigan, Eric Noland, Katie Millican, George van den Driessche, Bogdan Damoc, Aurelia Guy, Simon Osindero, Karen Simonyan, Erich Elsen, Jack W. Rae, Oriol Vinyals, Laurent Sifre",
+      "title": "Training compute-optimal large language models",
+      "publication": null,
+      "year": 2022,
+      "summary": "We investigate the optimal model size and number of tokens for training a transformer language model under a given compute budget. We find that current large language models are significantly undertrained, a consequence of the recent focus on scaling language models whilst keeping the amount of training data constant. By training over 400 language models ranging from 70 million to over 16 billion parameters on 5 to 500 billion tokens, we find that for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled. We test this hypothesis by training a predicted compute-optimal model, Chinchilla, that uses the same compute budget as Gopher but with 70B parameters and 4$\\times$ more more data. Chinchilla uniformly and significantly outperforms Gopher (280B), GPT-3 (175B), Jurassic-1 (178B), and Megatron-Turing NLG (530B) on a large range of downstream evaluation tasks. This also means that Chinchilla uses substantially less compute for fine-tuning and inference, greatly facilitating downstream usage. As a highlight, Chinchilla reaches a state-of-the-art average accuracy of 67.5% on the MMLU benchmark, greater than a 7% improvement over Gopher.",
+      "standard_url": "http://arxiv.org/abs/2203.15556v1",
+      "id": "2022-training_compute-optimal_large_language_models"
+    },
+    "32": {
+      "enum": "32",
+      "authors": "Srinivasan Iyer, Xi Victoria Lin, Ramakanth Pasunuru, Todor Mihaylov, Daniel Simig, Ping Yu, Kurt Shuster, Tianlu Wang, Qing Liu, Punit Singh Koura, Xian Li, Brian O'Horo, Gabriel Pereyra, Jeff Wang, Christopher Dewan, Asli Celikyilmaz, Luke Zettlemoyer, Ves Stoyanov",
+      "title": "Opt-iml: Scaling language model instruction meta learning through the lens of generalization",
+      "publication": "arXiv preprint arXiv:2212.12017",
+      "year": 2022,
+      "summary": "Recent work has shown that fine-tuning large pre-trained language models on a collection of tasks described via instructions, a.k.a. instruction-tuning, improves their zero and few-shot generalization to unseen tasks. However, there is a limited understanding of the performance trade-offs of different decisions made during the instruction-tuning process. These decisions include the scale and diversity of the instruction-tuning benchmark, different task sampling strategies, fine-tuning with and without demonstrations, training using specialized datasets for reasoning and dialogue, and finally, the fine-tuning objectives themselves. In this paper, we characterize the effect of instruction-tuning decisions on downstream task performance when scaling both model and benchmark sizes. To this end, we create OPT-IML Bench: a large benchmark for Instruction Meta-Learning (IML) of 2000 NLP tasks consolidated into task categories from 8 existing benchmarks, and prepare an evaluation framework to measure three types of model generalizations: to tasks from fully held-out categories, to held-out tasks from seen categories, and to held-out instances from seen tasks. Through the lens of this framework, we first present insights about instruction-tuning decisions as applied to OPT-30B and further exploit these insights to train OPT-IML 30B and 175B, which are instruction-tuned versions of OPT. OPT-IML demonstrates all three generalization abilities at both scales on four different evaluation benchmarks with diverse tasks and input formats -- PromptSource, FLAN, Super-NaturalInstructions, and UnifiedSKG. Not only does it significantly outperform OPT on all benchmarks but is also highly competitive with existing models fine-tuned on each specific benchmark. We release OPT-IML at both scales, together with the OPT-IML Bench evaluation framework.",
+      "standard_url": "http://arxiv.org/abs/2212.12017v3",
+      "id": "2022-opt-iml:_scaling_language_model_instruction_meta_learning_through_the_lens_of_generalization"
+    },
+    "33": {
+      "enum": "33",
+      "authors": "Mandar Joshi, Eunsol Choi, Daniel S. Weld, Luke Zettlemoyer",
+      "title": "Triviaqa: A large scale distantly supervised challenge dataset for reading comprehension",
+      "publication": "arXiv preprint arXiv:1705.03551",
+      "year": 2017,
+      "summary": "We present TriviaQA, a challenging reading comprehension dataset containing over 650K question-answer-evidence triples. TriviaQA includes 95K question-answer pairs authored by trivia enthusiasts and independently gathered evidence documents, six per question on average, that provide high quality distant supervision for answering the questions. We show that, in comparison to other recently introduced large-scale datasets, TriviaQA (1) has relatively complex, compositional questions, (2) has considerable syntactic and lexical variability between questions and corresponding answer-evidence sentences, and (3) requires more cross sentence reasoning to find answers. We also present two baseline algorithms: a feature-based classifier and a state-of-the-art neural network, that performs well on SQuAD reading comprehension. Neither approach comes close to human performance (23% and 40% vs. 80%), suggesting that TriviaQA is a challenging testbed that is worth significant future study. Data and code available at -- http://nlp.cs.washington.edu/triviaqa/",
+      "standard_url": "http://arxiv.org/abs/1705.03551v2",
+      "id": "2017-triviaqa:_a_large_scale_distantly_supervised_challenge_dataset_for_reading_comprehension"
+    },
+    "34": {
+      "enum": "34",
+      "authors": "Rafal Jozefowicz, Oriol Vinyals, Mike Schuster, Noam Shazeer, Yonghui Wu",
+      "title": "Exploring the limits of language modeling",
+      "publication": "arXiv preprint arXiv:1602.02410",
+      "year": 2016,
+      "summary": "In this work we explore recent advances in Recurrent Neural Networks for large scale Language Modeling, a task central to language understanding. We extend current models to deal with two key challenges present in this task: corpora and vocabulary sizes, and complex, long term structure of language. We perform an exhaustive study on techniques such as character Convolutional Neural Networks or Long-Short Term Memory, on the One Billion Word Benchmark. Our best single model significantly improves state-of-the-art perplexity from 51.3 down to 30.0 (whilst reducing the number of parameters by a factor of 20), while an ensemble of models sets a new record by improving perplexity from 41.0 down to 23.7. We also release these models for the NLP and ML community to study and improve upon.",
+      "standard_url": "http://arxiv.org/abs/1602.02410v2",
+      "id": "2016-exploring_the_limits_of_language_modeling"
+    },
+    "35": {
+      "enum": "35",
+      "authors": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, Dario Amodei",
+      "title": "Scaling laws for neural language models",
+      "publication": "arXiv preprint arXiv:2001.08361",
+      "year": 2020,
+      "summary": "We study empirical scaling laws for language model performance on the cross-entropy loss. The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude. Other architectural details such as network width or depth have minimal effects within a wide range. Simple equations govern the dependence of overfitting on model/dataset size and the dependence of training speed on model size. These relationships allow us to determine the optimal allocation of a fixed compute budget. Larger models are significantly more sample-efficient, such that optimally compute-efficient training involves training very large models on a relatively modest amount of data and stopping significantly before convergence.",
+      "standard_url": "http://arxiv.org/abs/2001.08361v1",
+      "id": "2020-scaling_laws_for_neural_language_models"
+    },
+    "36": {
+      "enum": "36",
+      "authors": "Slava Katz. 1987",
+      "title": "Estimation of probabilities from sparse data for the language model component of a speech recognizer",
+      "publication": "IEEE transactions on acoustics, speech, and signal processing, 35(3):400–401",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-estimation_of_probabilities_from_sparse_data_for_the_language_model_component_of_a_speech_recognizer"
+    },
+    "37": {
+      "enum": "37",
+      "authors": "Reinhard Kneser and Hermann Ney. 1995",
+      "title": "Improved backing-off for m-gram language modeling",
+      "publication": "In 1995 international conference on acoustics, speech, and signal processing, volume 1, pages 181–184. IEEE",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-improved_backing-off_for_m-gram_language_modeling"
+    },
+    "38": {
+      "enum": "38",
+      "authors": "Vijay Korthikanti, Jared Casper, Sangkug Lym, Lawrence McAfee, Michael Andersch, Mohammad Shoeybi, Bryan Catanzaro",
+      "title": "Reducing activation recomputation in large transformer models",
+      "publication": "arXiv preprint arXiv:2205.05198",
+      "year": 2022,
+      "summary": "Training large transformer models is one of the most important computational challenges of modern AI. In this paper, we show how to significantly accelerate training of large transformer models by reducing activation recomputation. Activation recomputation is commonly used to work around memory capacity constraints. Rather than storing activations for backpropagation, they are traditionally recomputed, which saves memory but adds redundant compute. In this work, we show most of this redundant compute is unnecessary because we can reduce memory consumption sufficiently without it. We present two novel yet very simple techniques: sequence parallelism and selective activation recomputation. In conjunction with tensor parallelism, these techniques almost eliminate the need to recompute activations. We evaluate our approach on language models up to one trillion parameters in scale and show that our method reduces activation memory by 5x, while reducing execution time overhead from activation recomputation by over 90%. For example, when training a 530B parameter GPT-3 style model on 2240 NVIDIA A100 GPUs, we achieve a Model Flops Utilization of 54.2%, which is 29% faster than the 42.1% we achieve using recomputation. Our implementation will be available in both Megatron-LM and NeMo-Megatron.",
+      "standard_url": "http://arxiv.org/abs/2205.05198v1",
+      "id": "2022-reducing_activation_recomputation_in_large_transformer_models"
+    },
+    "39": {
+      "enum": "39",
+      "authors": "Taku Kudo, John Richardson",
+      "title": "Sentencepiece: A simple and language independent subword tokenizer and detokenizer for neural text processing",
+      "publication": "arXiv preprint arXiv:1808.06226",
+      "year": 2018,
+      "summary": "This paper describes SentencePiece, a language-independent subword tokenizer and detokenizer designed for Neural-based text processing, including Neural Machine Translation. It provides open-source C++ and Python implementations for subword units. While existing subword segmentation tools assume that the input is pre-tokenized into word sequences, SentencePiece can train subword models directly from raw sentences, which allows us to make a purely end-to-end and language independent system. We perform a validation experiment of NMT on English-Japanese machine translation, and find that it is possible to achieve comparable accuracy to direct subword training from raw sentences. We also compare the performance of subword training and segmentation with various configurations. SentencePiece is available under the Apache 2 license at https://github.com/google/sentencepiece.",
+      "standard_url": "http://arxiv.org/abs/1808.06226v1",
+      "id": "2018-sentencepiece:_a_simple_and_language_independent_subword_tokenizer_and_detokenizer_for_neural_text_processing"
+    },
+    "40": {
+      "enum": "40",
+      "authors": "Keita Kurita, Nidhi Vyas, Ayush Pareek, Alan W Black, and Yulia Tsvetkov. 2019",
+      "title": "Quantifying social biases in contextual word representations",
+      "publication": "In 1st ACL Workshop on Gender Bias for Natural Language Processing",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-quantifying_social_biases_in_contextual_word_representations"
+    },
+    "41": {
+      "enum": "41",
+      "authors": "Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redfield, Michael Collins, Ankur Parikh, Chris Alberti, Danielle Epstein, Illia Polosukhin, Jacob Devlin, Kenton Lee, et al. 2019",
+      "title": "Natural questions: a benchmark for question answering research",
+      "publication": "Transactions of the Association for Computational Linguistics, 7:453–466",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-natural_questions:_a_benchmark_for_question_answering_research"
+    },
+    "42": {
+      "enum": "42",
+      "authors": "Guokun Lai, Qizhe Xie, Hanxiao Liu, Yiming Yang, Eduard Hovy",
+      "title": "Race: Large-scale reading comprehension dataset from examinations",
+      "publication": "arXiv preprint arXiv:1704.04683",
+      "year": 2017,
+      "summary": "We present RACE, a new dataset for benchmark evaluation of methods in the reading comprehension task. Collected from the English exams for middle and high school Chinese students in the age range between 12 to 18, RACE consists of near 28,000 passages and near 100,000 questions generated by human experts (English instructors), and covers a variety of topics which are carefully designed for evaluating the students' ability in understanding and reasoning. In particular, the proportion of questions that requires reasoning is much larger in RACE than that in other benchmark datasets for reading comprehension, and there is a significant gap between the performance of the state-of-the-art models (43%) and the ceiling human performance (95%). We hope this new dataset can serve as a valuable resource for research and evaluation in machine comprehension. The dataset is freely available at http://www.cs.cmu.edu/~glai1/data/race/ and the code is available at https://github.com/qizhex/RACE_AR_baselines.",
+      "standard_url": "http://arxiv.org/abs/1704.04683v5",
+      "id": "2017-race:_large-scale_reading_comprehension_dataset_from_examinations"
+    },
+    "43": {
+      "enum": "43",
+      "authors": "Aitor Lewkowycz, Anders Andreassen, David Dohan, Ethan Dyer, Henryk Michalewski, Vinay Ramasesh, Ambrose Slone, Cem Anil, Imanol Schlag, Theo Gutman-Solo, Yuhuai Wu, Behnam Neyshabur, Guy Gur-Ari, Vedant Misra",
+      "title": "Solving quantitative reasoning problems with language models",
+      "publication": "In Advances in Neural Information Processing Systems",
+      "year": 2022,
+      "summary": "Language models have achieved remarkable performance on a wide range of tasks that require natural language understanding. Nevertheless, state-of-the-art models have generally struggled with tasks that require quantitative reasoning, such as solving mathematics, science, and engineering problems at the college level. To help close this gap, we introduce Minerva, a large language model pretrained on general natural language data and further trained on technical content. The model achieves state-of-the-art performance on technical benchmarks without the use of external tools. We also evaluate our model on over two hundred undergraduate-level problems in physics, biology, chemistry, economics, and other sciences that require quantitative reasoning, and find that the model can correctly answer nearly a third of them.",
+      "standard_url": "http://arxiv.org/abs/2206.14858v2",
+      "id": "2022-solving_quantitative_reasoning_problems_with_language_models"
+    },
+    "44": {
+      "enum": "44",
+      "authors": "Opher Lieber, Or Sharir, Barak Lenz, and Yoav Shoham. 2021",
+      "title": "Jurassic-1: Technical details and evaluation",
+      "publication": "White Paper. AI21 Labs, 1",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-jurassic-1:_technical_details_and_evaluation"
+    },
+    "45": {
+      "enum": "45",
+      "authors": "Stephanie Lin, Jacob Hilton, Owain Evans",
+      "title": "Truthfulqa: Measuring how models mimic human falsehoods",
+      "publication": "arXiv preprint arXiv:2109.07958",
+      "year": 2021,
+      "summary": "We propose a benchmark to measure whether a language model is truthful in generating answers to questions. The benchmark comprises 817 questions that span 38 categories, including health, law, finance and politics. We crafted questions that some humans would answer falsely due to a false belief or misconception. To perform well, models must avoid generating false answers learned from imitating human texts. We tested GPT-3, GPT-Neo/J, GPT-2 and a T5-based model. The best model was truthful on 58% of questions, while human performance was 94%. Models generated many false answers that mimic popular misconceptions and have the potential to deceive humans. The largest models were generally the least truthful. This contrasts with other NLP tasks, where performance improves with model size. However, this result is expected if false answers are learned from the training distribution. We suggest that scaling up models alone is less promising for improving truthfulness than fine-tuning using training objectives other than imitation of text from the web.",
+      "standard_url": "http://arxiv.org/abs/2109.07958v2",
+      "id": "2021-truthfulqa:_measuring_how_models_mimic_human_falsehoods"
+    },
+    "46": {
+      "enum": "46",
+      "authors": "Ilya Loshchilov, Frank Hutter",
+      "title": "Decoupled weight decay regularization",
+      "publication": "arXiv preprint arXiv:1711.05101",
+      "year": 2017,
+      "summary": "L$_2$ regularization and weight decay regularization are equivalent for standard stochastic gradient descent (when rescaled by the learning rate), but as we demonstrate this is \\emph{not} the case for adaptive gradient algorithms, such as Adam. While common implementations of these algorithms employ L$_2$ regularization (often calling it \"weight decay\" in what may be misleading due to the inequivalence we expose), we propose a simple modification to recover the original formulation of weight decay regularization by \\emph{decoupling} the weight decay from the optimization steps taken w.r.t. the loss function. We provide empirical evidence that our proposed modification (i) decouples the optimal choice of weight decay factor from the setting of the learning rate for both standard SGD and Adam and (ii) substantially improves Adam's generalization performance, allowing it to compete with SGD with momentum on image classification datasets (on which it was previously typically outperformed by the latter). Our proposed decoupled weight decay has already been adopted by many researchers, and the community has implemented it in TensorFlow and PyTorch; the complete source code for our experiments is available at https://github.com/loshchil/AdamW-and-SGDW",
+      "standard_url": "http://arxiv.org/abs/1711.05101v3",
+      "id": "2017-decoupled_weight_decay_regularization"
+    },
+    "47": {
+      "enum": "47",
+      "authors": "Matthew V Mahoney. 1999",
+      "title": "Text compression as a test for artificial intelligence",
+      "publication": "AAAI/IAAI, 970",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-text_compression_as_a_test_for_artificial_intelligence"
+    },
+    "48": {
+      "enum": "48",
+      "authors": "Todor Mihaylov, Peter Clark, Tushar Khot, Ashish Sabharwal",
+      "title": "Can a suit of armor conduct electricity? a new dataset for open book question answering",
+      "publication": "arXiv preprint arXiv:1809.02789",
+      "year": 2018,
+      "summary": "We present a new kind of question answering dataset, OpenBookQA, modeled after open book exams for assessing human understanding of a subject. The open book that comes with our questions is a set of 1329 elementary level science facts. Roughly 6000 questions probe an understanding of these facts and their application to novel situations. This requires combining an open book fact (e.g., metals conduct electricity) with broad common knowledge (e.g., a suit of armor is made of metal) obtained from other sources. While existing QA datasets over documents or knowledge bases, being generally self-contained, focus on linguistic understanding, OpenBookQA probes a deeper understanding of both the topic---in the context of common knowledge---and the language it is expressed in. Human performance on OpenBookQA is close to 92%, but many state-of-the-art pre-trained QA methods perform surprisingly poorly, worse than several simple neural baselines we develop. Our oracle experiments designed to circumvent the knowledge retrieval bottleneck demonstrate the value of both the open book and additional facts. We leave it as a challenge to solve the retrieval problem in this multi-hop setting and to close the large gap to human performance.",
+      "standard_url": "http://arxiv.org/abs/1809.02789v1",
+      "id": "2018-can_a_suit_of_armor_conduct_electricity?_a_new_dataset_for_open_book_question_answering"
+    },
+    "49": {
+      "enum": "49",
+      "authors": "Tomas Mikolov, Martin Karafiát, Lukas Burget, Jan Cernockỳ, and Sanjeev Khudanpur. 2010",
+      "title": "Recurrent neural network based language model",
+      "publication": "In Interspeech, pages 1045–1048. Makuhari",
+      "year": "1045",
+      "summary": null,
+      "standard_url": null,
+      "id": "1045-recurrent_neural_network_based_language_model"
+    },
+    "50": {
+      "enum": "50",
+      "authors": "Nikita Nangia, Clara Vania, Rasika Bhalerao, Samuel R. Bowman",
+      "title": "CrowS-pairs: A challenge dataset for measuring social biases in masked language models",
+      "publication": "In EMNLP 2020",
+      "year": 2020,
+      "summary": "Pretrained language models, especially masked language models (MLMs) have seen success across many NLP tasks. However, there is ample evidence that they use the cultural biases that are undoubtedly present in the corpora they are trained on, implicitly creating harm with biased representations. To measure some forms of social bias in language models against protected demographic groups in the US, we introduce the Crowdsourced Stereotype Pairs benchmark (CrowS-Pairs). CrowS-Pairs has 1508 examples that cover stereotypes dealing with nine types of bias, like race, religion, and age. In CrowS-Pairs a model is presented with two sentences: one that is more stereotyping and another that is less stereotyping. The data focuses on stereotypes about historically disadvantaged groups and contrasts them with advantaged groups. We find that all three of the widely-used MLMs we evaluate substantially favor sentences that express stereotypes in every category in CrowS-Pairs. As work on building less biased models advances, this dataset can be used as a benchmark to evaluate progress.",
+      "standard_url": "http://arxiv.org/abs/2010.00133v1",
+      "id": "2020-crows-pairs:_a_challenge_dataset_for_measuring_social_biases_in_masked_language_models"
+    },
+    "51": {
+      "enum": "51",
+      "authors": "Erik Nijkamp, Bo Pang, Hiroaki Hayashi, Lifu Tu, Huan Wang, Yingbo Zhou, Silvio Savarese, Caiming Xiong",
+      "title": "Codegen: An open large language model for code with multi-turn program synthesis",
+      "publication": "arXiv preprint arXiv:2203.13474",
+      "year": 2022,
+      "summary": "Program synthesis strives to generate a computer program as a solution to a given problem specification, expressed with input-output examples or natural language descriptions. The prevalence of large language models advances the state-of-the-art for program synthesis, though limited training resources and data impede open access to such models. To democratize this, we train and release a family of large language models up to 16.1B parameters, called CODEGEN, on natural language and programming language data, and open source the training library JAXFORMER. We show the utility of the trained model by demonstrating that it is competitive with the previous state-of-the-art on zero-shot Python code generation on HumanEval. We further investigate the multi-step paradigm for program synthesis, where a single program is factorized into multiple prompts specifying subproblems. To this end, we construct an open benchmark, Multi-Turn Programming Benchmark (MTPB), consisting of 115 diverse problem sets that are factorized into multi-turn prompts. Our analysis on MTPB shows that the same intent provided to CODEGEN in multi-turn fashion significantly improves program synthesis over that provided as a single turn. We make the training library JAXFORMER and model checkpoints available as open source contribution: https://github.com/salesforce/CodeGen.",
+      "standard_url": "http://arxiv.org/abs/2203.13474v5",
+      "id": "2022-codegen:_an_open_large_language_model_for_code_with_multi-turn_program_synthesis"
+    },
+    "52": {
+      "enum": "52",
+      "authors": "Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul Christiano, Jan Leike, Ryan Lowe",
+      "title": "Training language models to follow instructions with human feedback",
+      "publication": "In Advances in Neural Information Processing Systems",
+      "year": 2022,
+      "summary": "Making language models bigger does not inherently make them better at following a user's intent. For example, large language models can generate outputs that are untruthful, toxic, or simply not helpful to the user. In other words, these models are not aligned with their users. In this paper, we show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback. Starting with a set of labeler-written prompts and prompts submitted through the OpenAI API, we collect a dataset of labeler demonstrations of the desired model behavior, which we use to fine-tune GPT-3 using supervised learning. We then collect a dataset of rankings of model outputs, which we use to further fine-tune this supervised model using reinforcement learning from human feedback. We call the resulting models InstructGPT. In human evaluations on our prompt distribution, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters. Moreover, InstructGPT models show improvements in truthfulness and reductions in toxic output generation while having minimal performance regressions on public NLP datasets. Even though InstructGPT still makes simple mistakes, our results show that fine-tuning with human feedback is a promising direction for aligning language models with human intent.",
+      "standard_url": "http://arxiv.org/abs/2203.02155v1",
+      "id": "2022-training_language_models_to_follow_instructions_with_human_feedback"
+    },
+    "53": {
+      "enum": "53",
+      "authors": "Markus N Rabe and Charles Staats. 2021",
+      "title": "Self-attention does not need o​(n2)𝑜superscript𝑛2o(n^{2}) memory",
+      "publication": "arXiv preprint arXiv:2112.05682",
+      "year": "2112",
+      "summary": null,
+      "standard_url": null,
+      "id": "2112-self-attention_does_not_need_o​(n2)𝑜superscript𝑛2o(n^{2})_memory"
+    },
+    "54": {
+      "enum": "54",
+      "authors": "Alec Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever, et al. 2018",
+      "title": "Improving language understanding by generative pre-training",
+      "publication": null,
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-improving_language_understanding_by_generative_pre-training"
+    },
+    "55": {
+      "enum": "55",
+      "authors": "Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, et al. 2019",
+      "title": "Language models are unsupervised multitask learners",
+      "publication": "OpenAI blog, 1(8):9",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-language_models_are_unsupervised_multitask_learners"
+    },
+    "56": {
+      "enum": "56",
+      "authors": "Jack W. Rae, Sebastian Borgeaud, Trevor Cai, Katie Millican, Jordan Hoffmann, Francis Song, John Aslanides, Sarah Henderson, Roman Ring, Susannah Young, Eliza Rutherford, Tom Hennigan, Jacob Menick, Albin Cassirer, Richard Powell, George van den Driessche, Lisa Anne Hendricks, Maribeth Rauh, Po-Sen Huang, Amelia Glaese, Johannes Welbl, Sumanth Dathathri, Saffron Huang, Jonathan Uesato, John Mellor, Irina Higgins, Antonia Creswell, Nat McAleese, Amy Wu, Erich Elsen, Siddhant Jayakumar, Elena Buchatskaya, David Budden, Esme Sutherland, Karen Simonyan, Michela Paganini, Laurent Sifre, Lena Martens, Xiang Lorraine Li, Adhiguna Kuncoro, Aida Nematzadeh, Elena Gribovskaya, Domenic Donato, Angeliki Lazaridou, Arthur Mensch, Jean-Baptiste Lespiau, Maria Tsimpoukelli, Nikolai Grigorev, Doug Fritz, Thibault Sottiaux, Mantas Pajarskas, Toby Pohlen, Zhitao Gong, Daniel Toyama, Cyprien de Masson d'Autume, Yujia Li, Tayfun Terzi, Vladimir Mikulik, Igor Babuschkin, Aidan Clark, Diego de Las Casas, Aurelia Guy, Chris Jones, James Bradbury, Matthew Johnson, Blake Hechtman, Laura Weidinger, Iason Gabriel, William Isaac, Ed Lockhart, Simon Osindero, Laura Rimell, Chris Dyer, Oriol Vinyals, Kareem Ayoub, Jeff Stanway, Lorrayne Bennett, Demis Hassabis, Koray Kavukcuoglu, Geoffrey Irving",
+      "title": "Scaling language models: Methods, analysis & insights from training gopher",
+      "publication": null,
+      "year": 2021,
+      "summary": "Language modelling provides a step towards intelligent communication systems by harnessing large repositories of written human knowledge to better predict and understand the world. In this paper, we present an analysis of Transformer-based language model performance across a wide range of model scales -- from models with tens of millions of parameters up to a 280 billion parameter model called Gopher. These models are evaluated on 152 diverse tasks, achieving state-of-the-art performance across the majority. Gains from scale are largest in areas such as reading comprehension, fact-checking, and the identification of toxic language, but logical and mathematical reasoning see less benefit. We provide a holistic analysis of the training dataset and model's behaviour, covering the intersection of model scale with bias and toxicity. Finally we discuss the application of language models to AI safety and the mitigation of downstream harms.",
+      "standard_url": "http://arxiv.org/abs/2112.11446v2",
+      "id": "2021-scaling_language_models:_methods_analysis_&_insights_from_training_gopher"
+    },
+    "57": {
+      "enum": "57",
+      "authors": "Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu",
+      "title": "Exploring the limits of transfer learning with a unified text-to-text transformer",
+      "publication": "The Journal of Machine Learning Research, 21(1):5485–5551",
+      "year": 2019,
+      "summary": "Transfer learning, where a model is first pre-trained on a data-rich task before being fine-tuned on a downstream task, has emerged as a powerful technique in natural language processing (NLP). The effectiveness of transfer learning has given rise to a diversity of approaches, methodology, and practice. In this paper, we explore the landscape of transfer learning techniques for NLP by introducing a unified framework that converts all text-based language problems into a text-to-text format. Our systematic study compares pre-training objectives, architectures, unlabeled data sets, transfer approaches, and other factors on dozens of language understanding tasks. By combining the insights from our exploration with scale and our new ``Colossal Clean Crawled Corpus'', we achieve state-of-the-art results on many benchmarks covering summarization, question answering, text classification, and more. To facilitate future work on transfer learning for NLP, we release our data set, pre-trained models, and code.",
+      "standard_url": "http://arxiv.org/abs/1910.10683v4",
+      "id": "2019-exploring_the_limits_of_transfer_learning_with_a_unified_text-to-text_transformer"
+    },
+    "58": {
+      "enum": "58",
+      "authors": "Jonathan S. Rosenfeld, Amir Rosenfeld, Yonatan Belinkov, Nir Shavit",
+      "title": "A constructive prediction of the generalization error across scales",
+      "publication": "arXiv preprint arXiv:1909.12673",
+      "year": 2019,
+      "summary": "The dependency of the generalization error of neural networks on model and dataset size is of critical importance both in practice and for understanding the theory of neural networks. Nevertheless, the functional form of this dependency remains elusive. In this work, we present a functional form which approximates well the generalization error in practice. Capitalizing on the successful concept of model scaling (e.g., width, depth), we are able to simultaneously construct such a form and specify the exact models which can attain it across model/data scales. Our construction follows insights obtained from observations conducted over a range of model/data scales, in various model types and datasets, in vision and language tasks. We show that the form both fits the observations well across scales, and provides accurate predictions from small- to large-scale models and data.",
+      "standard_url": "http://arxiv.org/abs/1909.12673v2",
+      "id": "2019-a_constructive_prediction_of_the_generalization_error_across_scales"
+    },
+    "59": {
+      "enum": "59",
+      "authors": "Rachel Rudinger, Jason Naradowsky, Brian Leonard, Benjamin Van Durme",
+      "title": "Gender bias in coreference resolution",
+      "publication": "In NAACL-HLT 2018",
+      "year": 2018,
+      "summary": "We present an empirical study of gender bias in coreference resolution systems. We first introduce a novel, Winograd schema-style set of minimal pair sentences that differ only by pronoun gender. With these \"Winogender schemas,\" we evaluate and confirm systematic gender bias in three publicly-available coreference resolution systems, and correlate this bias with real-world and textual gender statistics.",
+      "standard_url": "http://arxiv.org/abs/1804.09301v1",
+      "id": "2018-gender_bias_in_coreference_resolution"
+    },
+    "60": {
+      "enum": "60",
+      "authors": "Keisuke Sakaguchi, Ronan Le Bras, Chandra Bhagavatula, Yejin Choi",
+      "title": "Winogrande: An adversarial winograd schema challenge at scale",
+      "publication": "Communications of the ACM, 64(9):99–106",
+      "year": 2019,
+      "summary": "The Winograd Schema Challenge (WSC) (Levesque, Davis, and Morgenstern 2011), a benchmark for commonsense reasoning, is a set of 273 expert-crafted pronoun resolution problems originally designed to be unsolvable for statistical models that rely on selectional preferences or word associations. However, recent advances in neural language models have already reached around 90% accuracy on variants of WSC. This raises an important question whether these models have truly acquired robust commonsense capabilities or whether they rely on spurious biases in the datasets that lead to an overestimation of the true capabilities of machine commonsense. To investigate this question, we introduce WinoGrande, a large-scale dataset of 44k problems, inspired by the original WSC design, but adjusted to improve both the scale and the hardness of the dataset. The key steps of the dataset construction consist of (1) a carefully designed crowdsourcing procedure, followed by (2) systematic bias reduction using a novel AfLite algorithm that generalizes human-detectable word associations to machine-detectable embedding associations. The best state-of-the-art methods on WinoGrande achieve 59.4-79.1%, which are 15-35% below human performance of 94.0%, depending on the amount of the training data allowed. Furthermore, we establish new state-of-the-art results on five related benchmarks - WSC (90.1%), DPR (93.1%), COPA (90.6%), KnowRef (85.6%), and Winogender (97.1%). These results have dual implications: on one hand, they demonstrate the effectiveness of WinoGrande when used as a resource for transfer learning. On the other hand, they raise a concern that we are likely to be overestimating the true capabilities of machine commonsense across all these benchmarks. We emphasize the importance of algorithmic bias reduction in existing and future benchmarks to mitigate such overestimation.",
+      "standard_url": "http://arxiv.org/abs/1907.10641v2",
+      "id": "2019-winogrande:_an_adversarial_winograd_schema_challenge_at_scale"
+    },
+    "61": {
+      "enum": "61",
+      "authors": "Maarten Sap, Hannah Rashkin, Derek Chen, Ronan LeBras, Yejin Choi",
+      "title": "Socialiqa: Commonsense reasoning about social interactions",
+      "publication": "arXiv preprint arXiv:1904.09728",
+      "year": 2019,
+      "summary": "We introduce Social IQa, the first largescale benchmark for commonsense reasoning about social situations. Social IQa contains 38,000 multiple choice questions for probing emotional and social intelligence in a variety of everyday situations (e.g., Q: \"Jordan wanted to tell Tracy a secret, so Jordan leaned towards Tracy. Why did Jordan do this?\" A: \"Make sure no one else could hear\"). Through crowdsourcing, we collect commonsense questions along with correct and incorrect answers about social interactions, using a new framework that mitigates stylistic artifacts in incorrect answers by asking workers to provide the right answer to a different but related question. Empirical results show that our benchmark is challenging for existing question-answering models based on pretrained language models, compared to human performance (>20% gap). Notably, we further establish Social IQa as a resource for transfer learning of commonsense knowledge, achieving state-of-the-art performance on multiple commonsense reasoning tasks (Winograd Schemas, COPA).",
+      "standard_url": "http://arxiv.org/abs/1904.09728v3",
+      "id": "2019-socialiqa:_commonsense_reasoning_about_social_interactions"
+    },
+    "62": {
+      "enum": "62",
+      "authors": "BigScience Workshop, :, Teven Le Scao, Angela Fan, Christopher Akiki, Ellie Pavlick, Suzana Ilić, Daniel Hesslow, Roman Castagné, Alexandra Sasha Luccioni, François Yvon, Matthias Gallé, Jonathan Tow, Alexander M. Rush, Stella Biderman, Albert Webson, Pawan Sasanka Ammanamanchi, Thomas Wang, Benoît Sagot, Niklas Muennighoff, Albert Villanova del Moral, Olatunji Ruwase, Rachel Bawden, Stas Bekman, Angelina McMillan-Major, Iz Beltagy, Huu Nguyen, Lucile Saulnier, Samson Tan, Pedro Ortiz Suarez, Victor Sanh, Hugo Laurençon, Yacine Jernite, Julien Launay, Margaret Mitchell, Colin Raffel, Aaron Gokaslan, Adi Simhi, Aitor Soroa, Alham Fikri Aji, Amit Alfassy, Anna Rogers, Ariel Kreisberg Nitzav, Canwen Xu, Chenghao Mou, Chris Emezue, Christopher Klamm, Colin Leong, Daniel van Strien, David Ifeoluwa Adelani, Dragomir Radev, Eduardo González Ponferrada, Efrat Levkovizh, Ethan Kim, Eyal Bar Natan, Francesco De Toni, Gérard Dupont, Germán Kruszewski, Giada Pistilli, Hady Elsahar, Hamza Benyamina, Hieu Tran, Ian Yu, Idris Abdulmumin, Isaac Johnson, Itziar Gonzalez-Dios, Javier de la Rosa, Jenny Chim, Jesse Dodge, Jian Zhu, Jonathan Chang, Jörg Frohberg, Joseph Tobing, Joydeep Bhattacharjee, Khalid Almubarak, Kimbo Chen, Kyle Lo, Leandro Von Werra, Leon Weber, Long Phan, Loubna Ben allal, Ludovic Tanguy, Manan Dey, Manuel Romero Muñoz, Maraim Masoud, María Grandury, Mario Šaško, Max Huang, Maximin Coavoux, Mayank Singh, Mike Tian-Jian Jiang, Minh Chien Vu, Mohammad A. Jauhar, Mustafa Ghaleb, Nishant Subramani, Nora Kassner, Nurulaqilla Khamis, Olivier Nguyen, Omar Espejel, Ona de Gibert, Paulo Villegas, Peter Henderson, Pierre Colombo, Priscilla Amuok, Quentin Lhoest, Rheza Harliman, Rishi Bommasani, Roberto Luis López, Rui Ribeiro, Salomey Osei, Sampo Pyysalo, Sebastian Nagel, Shamik Bose, Shamsuddeen Hassan Muhammad, Shanya Sharma, Shayne Longpre, Somaieh Nikpoor, Stanislav Silberberg, Suhas Pai, Sydney Zink, Tiago Timponi Torrent, Timo Schick, Tristan Thrush, Valentin Danchev, Vassilina Nikoulina, Veronika Laippala, Violette Lepercq, Vrinda Prabhu, Zaid Alyafeai, Zeerak Talat, Arun Raja, Benjamin Heinzerling, Chenglei Si, Davut Emre Taşar, Elizabeth Salesky, Sabrina J. Mielke, Wilson Y. Lee, Abheesht Sharma, Andrea Santilli, Antoine Chaffin, Arnaud Stiegler, Debajyoti Datta, Eliza Szczechla, Gunjan Chhablani, Han Wang, Harshit Pandey, Hendrik Strobelt, Jason Alan Fries, Jos Rozen, Leo Gao, Lintang Sutawika, M Saiful Bari, Maged S. Al-shaibani, Matteo Manica, Nihal Nayak, Ryan Teehan, Samuel Albanie, Sheng Shen, Srulik Ben-David, Stephen H. Bach, Taewoon Kim, Tali Bers, Thibault Fevry, Trishala Neeraj, Urmish Thakker, Vikas Raunak, Xiangru Tang, Zheng-Xin Yong, Zhiqing Sun, Shaked Brody, Yallow Uri, Hadar Tojarieh, Adam Roberts, Hyung Won Chung, Jaesung Tae, Jason Phang, Ofir Press, Conglong Li, Deepak Narayanan, Hatim Bourfoune, Jared Casper, Jeff Rasley, Max Ryabinin, Mayank Mishra, Minjia Zhang, Mohammad Shoeybi, Myriam Peyrounette, Nicolas Patry, Nouamane Tazi, Omar Sanseviero, Patrick von Platen, Pierre Cornette, Pierre François Lavallée, Rémi Lacroix, Samyam Rajbhandari, Sanchit Gandhi, Shaden Smith, Stéphane Requena, Suraj Patil, Tim Dettmers, Ahmed Baruwa, Amanpreet Singh, Anastasia Cheveleva, Anne-Laure Ligozat, Arjun Subramonian, Aurélie Névéol, Charles Lovering, Dan Garrette, Deepak Tunuguntla, Ehud Reiter, Ekaterina Taktasheva, Ekaterina Voloshina, Eli Bogdanov, Genta Indra Winata, Hailey Schoelkopf, Jan-Christoph Kalo, Jekaterina Novikova, Jessica Zosa Forde, Jordan Clive, Jungo Kasai, Ken Kawamura, Liam Hazan, Marine Carpuat, Miruna Clinciu, Najoung Kim, Newton Cheng, Oleg Serikov, Omer Antverg, Oskar van der Wal, Rui Zhang, Ruochen Zhang, Sebastian Gehrmann, Shachar Mirkin, Shani Pais, Tatiana Shavrina, Thomas Scialom, Tian Yun, Tomasz Limisiewicz, Verena Rieser, Vitaly Protasov, Vladislav Mikhailov, Yada Pruksachatkun, Yonatan Belinkov, Zachary Bamberger, Zdeněk Kasner, Alice Rueda, Amanda Pestana, Amir Feizpour, Ammar Khan, Amy Faranak, Ana Santos, Anthony Hevia, Antigona Unldreaj, Arash Aghagol, Arezoo Abdollahi, Aycha Tammour, Azadeh HajiHosseini, Bahareh Behroozi, Benjamin Ajibade, Bharat Saxena, Carlos Muñoz Ferrandis, Daniel McDuff, Danish Contractor, David Lansky, Davis David, Douwe Kiela, Duong A. Nguyen, Edward Tan, Emi Baylor, Ezinwanne Ozoani, Fatima Mirza, Frankline Ononiwu, Habib Rezanejad, Hessie Jones, Indrani Bhattacharya, Irene Solaiman, Irina Sedenko, Isar Nejadgholi, Jesse Passmore, Josh Seltzer, Julio Bonis Sanz, Livia Dutra, Mairon Samagaio, Maraim Elbadri, Margot Mieskes, Marissa Gerchick, Martha Akinlolu, Michael McKenna, Mike Qiu, Muhammed Ghauri, Mykola Burynok, Nafis Abrar, Nazneen Rajani, Nour Elkott, Nour Fahmy, Olanrewaju Samuel, Ran An, Rasmus Kromann, Ryan Hao, Samira Alizadeh, Sarmad Shubber, Silas Wang, Sourav Roy, Sylvain Viguier, Thanh Le, Tobi Oyebade, Trieu Le, Yoyo Yang, Zach Nguyen, Abhinav Ramesh Kashyap, Alfredo Palasciano, Alison Callahan, Anima Shukla, Antonio Miranda-Escalada, Ayush Singh, Benjamin Beilharz, Bo Wang, Caio Brito, Chenxi Zhou, Chirag Jain, Chuxin Xu, Clémentine Fourrier, Daniel León Periñán, Daniel Molano, Dian Yu, Enrique Manjavacas, Fabio Barth, Florian Fuhrimann, Gabriel Altay, Giyaseddin Bayrak, Gully Burns, Helena U. Vrabec, Imane Bello, Ishani Dash, Jihyun Kang, John Giorgi, Jonas Golde, Jose David Posada, Karthik Rangasai Sivaraman, Lokesh Bulchandani, Lu Liu, Luisa Shinzato, Madeleine Hahn de Bykhovetz, Maiko Takeuchi, Marc Pàmies, Maria A Castillo, Marianna Nezhurina, Mario Sänger, Matthias Samwald, Michael Cullan, Michael Weinberg, Michiel De Wolf, Mina Mihaljcic, Minna Liu, Moritz Freidank, Myungsun Kang, Natasha Seelam, Nathan Dahlberg, Nicholas Michio Broad, Nikolaus Muellner, Pascale Fung, Patrick Haller, Ramya Chandrasekhar, Renata Eisenberg, Robert Martin, Rodrigo Canalli, Rosaline Su, Ruisi Su, Samuel Cahyawijaya, Samuele Garda, Shlok S Deshmukh, Shubhanshu Mishra, Sid Kiblawi, Simon Ott, Sinee Sang-aroonsiri, Srishti Kumar, Stefan Schweter, Sushil Bharati, Tanmay Laud, Théo Gigant, Tomoya Kainuma, Wojciech Kusa, Yanis Labrak, Yash Shailesh Bajaj, Yash Venkatraman, Yifan Xu, Yingxin Xu, Yu Xu, Zhe Tan, Zhongli Xie, Zifan Ye, Mathilde Bras, Younes Belkada, Thomas Wolf",
+      "title": "Bloom: A 176b-parameter open-access multilingual language model",
+      "publication": "arXiv preprint arXiv:2211.05100",
+      "year": 2022,
+      "summary": "Large language models (LLMs) have been shown to be able to perform new tasks based on a few demonstrations or natural language instructions. While these capabilities have led to widespread adoption, most LLMs are developed by resource-rich organizations and are frequently kept from the public. As a step towards democratizing this powerful technology, we present BLOOM, a 176B-parameter open-access language model designed and built thanks to a collaboration of hundreds of researchers. BLOOM is a decoder-only Transformer language model that was trained on the ROOTS corpus, a dataset comprising hundreds of sources in 46 natural and 13 programming languages (59 in total). We find that BLOOM achieves competitive performance on a wide variety of benchmarks, with stronger results after undergoing multitask prompted finetuning. To facilitate future research and applications using LLMs, we publicly release our models and code under the Responsible AI License.",
+      "standard_url": "http://arxiv.org/abs/2211.05100v4",
+      "id": "2022-bloom:_a_176b-parameter_open-access_multilingual_language_model"
+    },
+    "63": {
+      "enum": "63",
+      "authors": "Rico Sennrich, Barry Haddow, Alexandra Birch",
+      "title": "Neural machine translation of rare words with subword units",
+      "publication": "arXiv preprint arXiv:1508.07909",
+      "year": 2015,
+      "summary": "Neural machine translation (NMT) models typically operate with a fixed vocabulary, but translation is an open-vocabulary problem. Previous work addresses the translation of out-of-vocabulary words by backing off to a dictionary. In this paper, we introduce a simpler and more effective approach, making the NMT model capable of open-vocabulary translation by encoding rare and unknown words as sequences of subword units. This is based on the intuition that various word classes are translatable via smaller units than words, for instance names (via character copying or transliteration), compounds (via compositional translation), and cognates and loanwords (via phonological and morphological transformations). We discuss the suitability of different word segmentation techniques, including simple character n-gram models and a segmentation based on the byte pair encoding compression algorithm, and empirically show that subword models improve over a back-off dictionary baseline for the WMT 15 translation tasks English-German and English-Russian by 1.1 and 1.3 BLEU, respectively.",
+      "standard_url": "http://arxiv.org/abs/1508.07909v5",
+      "id": "2015-neural_machine_translation_of_rare_words_with_subword_units"
+    },
+    "64": {
+      "enum": "64",
+      "authors": "Hsin-Po Wang",
+      "title": "A mathematical theory of communication",
+      "publication": "The Bell system technical journal, 27(3):379–423",
+      "year": 2021,
+      "summary": "The performance of an error correcting code is evaluated by its error probability, rate, and en/decoding complexity. The performance of a series of codes is evaluated by, as the block lengths approach infinity, whether their error probabilities decay to zero, whether their rates converge to capacity, and whether their growth in complexities stays under control. Over any discrete memoryless channel, I build codes such that: (1) their error probabilities and rates scale like random codes; and (2) their en/decoding complexities scale like polar codes. Quantitatively, for any constants $p,r>0$ s.t. $p+2r<1$, I construct a series of codes with block length $N$ approaching infinity, error probability $\\exp(-N^p)$, rate $N^{-r}$ less than the capacity, and en/decoding complexity $O(N\\log N)$ per block. Over any discrete memoryless channel, I also build codes such that: (1) they achieve capacity rapidly; and (2) their en/decoding complexities outperform all known codes over non-BEC channels. Quantitatively, for any constants $t,r>0$ s.t. $2r<1$, I construct a series of codes with block length $N$ approaching infinity, error probability $\\exp(-(\\log N)^t)$, rate $N^{-r}$ less than the capacity, and en/decoding complexity $O(N\\log(\\log N))$ per block. The two aforementioned results are built upon two pillars: a versatile framework that generates codes on the basis of channel polarization, and a calculus-probability machinery that evaluates the performances of codes. The framework that generates codes and the machinery that evaluates codes can be extended to many other scenarios in network information theory. To name a few: lossless compression, lossy compression, Slepian-Wolf, Wyner-Ziv, multiple access channel, wiretap channel, and broadcast channel. In each scenario, the adapted notions of error probability and rate approach their limits at the same paces as specified above.",
+      "standard_url": "http://arxiv.org/abs/2107.06420v1",
+      "id": "2021-a_mathematical_theory_of_communication"
+    },
+    "65": {
+      "enum": "65",
+      "authors": "Claude E Shannon. 1951",
+      "title": "Prediction and entropy of printed english",
+      "publication": "Bell system technical journal, 30(1):50–64",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-prediction_and_entropy_of_printed_english"
+    },
+    "66": {
+      "enum": "66",
+      "authors": "Noam Shazeer",
+      "title": "Glu variants improve transformer",
+      "publication": "arXiv preprint arXiv:2002.05202",
+      "year": 2020,
+      "summary": "Gated Linear Units (arXiv:1612.08083) consist of the component-wise product of two linear projections, one of which is first passed through a sigmoid function. Variations on GLU are possible, using different nonlinear (or even linear) functions in place of sigmoid. We test these variants in the feed-forward sublayers of the Transformer (arXiv:1706.03762) sequence-to-sequence model, and find that some of them yield quality improvements over the typically-used ReLU or GELU activations.",
+      "standard_url": "http://arxiv.org/abs/2002.05202v1",
+      "id": "2020-glu_variants_improve_transformer"
+    },
+    "67": {
+      "enum": "67",
+      "authors": "Emily Sheng, Kai-Wei Chang, Premkumar Natarajan, Nanyun Peng",
+      "title": "The woman worked as a babysitter: On biases in language generation",
+      "publication": "arXiv preprint arXiv:1909.01326",
+      "year": 2019,
+      "summary": "We present a systematic study of biases in natural language generation (NLG) by analyzing text generated from prompts that contain mentions of different demographic groups. In this work, we introduce the notion of the regard towards a demographic, use the varying levels of regard towards different demographics as a defining metric for bias in NLG, and analyze the extent to which sentiment scores are a relevant proxy metric for regard. To this end, we collect strategically-generated text from language models and manually annotate the text with both sentiment and regard scores. Additionally, we build an automatic regard classifier through transfer learning, so that we can analyze biases in unseen text. Together, these methods reveal the extent of the biased nature of language model generations. Our analysis provides a study of biases in NLG, bias metrics and correlated human judgments, and empirical evidence on the usefulness of our annotated dataset.",
+      "standard_url": "http://arxiv.org/abs/1909.01326v2",
+      "id": "2019-the_woman_worked_as_a_babysitter:_on_biases_in_language_generation"
+    },
+    "68": {
+      "enum": "68",
+      "authors": "Mohammad Shoeybi, Mostofa Patwary, Raul Puri, Patrick LeGresley, Jared Casper, Bryan Catanzaro",
+      "title": "Megatron-lm: Training multi-billion parameter language models using model parallelism",
+      "publication": "arXiv preprint arXiv:1909.08053",
+      "year": 2019,
+      "summary": "Recent work in language modeling demonstrates that training large transformer models advances the state of the art in Natural Language Processing applications. However, very large models can be quite difficult to train due to memory constraints. In this work, we present our techniques for training very large transformer models and implement a simple, efficient intra-layer model parallel approach that enables training transformer models with billions of parameters. Our approach does not require a new compiler or library changes, is orthogonal and complimentary to pipeline model parallelism, and can be fully implemented with the insertion of a few communication operations in native PyTorch. We illustrate this approach by converging transformer based models up to 8.3 billion parameters using 512 GPUs. We sustain 15.1 PetaFLOPs across the entire application with 76% scaling efficiency when compared to a strong single GPU baseline that sustains 39 TeraFLOPs, which is 30% of peak FLOPs. To demonstrate that large language models can further advance the state of the art (SOTA), we train an 8.3 billion parameter transformer language model similar to GPT-2 and a 3.9 billion parameter model similar to BERT. We show that careful attention to the placement of layer normalization in BERT-like models is critical to achieving increased performance as the model size grows. Using the GPT-2 model we achieve SOTA results on the WikiText103 (10.8 compared to SOTA perplexity of 15.8) and LAMBADA (66.5% compared to SOTA accuracy of 63.2%) datasets. Our BERT model achieves SOTA results on the RACE dataset (90.9% compared to SOTA accuracy of 89.4%).",
+      "standard_url": "http://arxiv.org/abs/1909.08053v4",
+      "id": "2019-megatron-lm:_training_multi-billion_parameter_language_models_using_model_parallelism"
+    },
+    "69": {
+      "enum": "69",
+      "authors": "Shaden Smith, Mostofa Patwary, Brandon Norick, Patrick LeGresley, Samyam Rajbhandari, Jared Casper, Zhun Liu, Shrimai Prabhumoye, George Zerveas, Vijay Korthikanti, Elton Zhang, Rewon Child, Reza Yazdani Aminabadi, Julie Bernauer, Xia Song, Mohammad Shoeybi, Yuxiong He, Michael Houston, Saurabh Tiwary, Bryan Catanzaro",
+      "title": "Using deepspeed and megatron to train megatron-turing nlg 530b, a large-scale generative language model",
+      "publication": null,
+      "year": 2022,
+      "summary": "Pretrained general-purpose language models can achieve state-of-the-art accuracies in various natural language processing domains by adapting to downstream tasks via zero-shot, few-shot and fine-tuning techniques. Because of their success, the size of these models has increased rapidly, requiring high-performance hardware, software, and algorithmic techniques to enable training such large models. As the result of a joint effort between Microsoft and NVIDIA, we present details on the training of the largest monolithic transformer based language model, Megatron-Turing NLG 530B (MT-NLG), with 530 billion parameters. In this paper, we first focus on the infrastructure as well as the 3D parallelism methodology used to train this model using DeepSpeed and Megatron. Next, we detail the training process, the design of our training corpus, and our data curation techniques, which we believe is a key ingredient to the success of the model. Finally, we discuss various evaluation results, as well as other interesting observations and new properties exhibited by MT-NLG. We demonstrate that MT-NLG achieves superior zero-, one-, and few-shot learning accuracies on several NLP benchmarks and establishes new state-of-the-art results. We believe that our contributions will help further the development of large-scale training infrastructures, large-scale language models, and natural language generations.",
+      "standard_url": "http://arxiv.org/abs/2201.11990v3",
+      "id": "2022-using_deepspeed_and_megatron_to_train_megatron-turing_nlg_530b_a_large-scale_generative_language_model"
+    },
+    "70": {
+      "enum": "70",
+      "authors": "Jianlin Su, Yu Lu, Shengfeng Pan, Ahmed Murtadha, Bo Wen, Yunfeng Liu",
+      "title": "Roformer: Enhanced transformer with rotary position embedding",
+      "publication": "arXiv preprint arXiv:2104.09864",
+      "year": 2021,
+      "summary": "Position encoding recently has shown effective in the transformer architecture. It enables valuable supervision for dependency modeling between elements at different positions of the sequence. In this paper, we first investigate various methods to integrate positional information into the learning process of transformer-based language models. Then, we propose a novel method named Rotary Position Embedding(RoPE) to effectively leverage the positional information. Specifically, the proposed RoPE encodes the absolute position with a rotation matrix and meanwhile incorporates the explicit relative position dependency in self-attention formulation. Notably, RoPE enables valuable properties, including the flexibility of sequence length, decaying inter-token dependency with increasing relative distances, and the capability of equipping the linear self-attention with relative position encoding. Finally, we evaluate the enhanced transformer with rotary position embedding, also called RoFormer, on various long text classification benchmark datasets. Our experiments show that it consistently overcomes its alternatives. Furthermore, we provide a theoretical analysis to explain some experimental results. RoFormer is already integrated into Huggingface: \\url{https://huggingface.co/docs/transformers/model_doc/roformer}.",
+      "standard_url": "http://arxiv.org/abs/2104.09864v5",
+      "id": "2021-roformer:_enhanced_transformer_with_rotary_position_embedding"
+    },
+    "71": {
+      "enum": "71",
+      "authors": "Romal Thoppilan, Daniel De Freitas, Jamie Hall, Noam Shazeer, Apoorv Kulshreshtha, Heng-Tze Cheng, Alicia Jin, Taylor Bos, Leslie Baker, Yu Du, YaGuang Li, Hongrae Lee, Huaixiu Steven Zheng, Amin Ghafouri, Marcelo Menegali, Yanping Huang, Maxim Krikun, Dmitry Lepikhin, James Qin, Dehao Chen, Yuanzhong Xu, Zhifeng Chen, Adam Roberts, Maarten Bosma, Vincent Zhao, Yanqi Zhou, Chung-Ching Chang, Igor Krivokon, Will Rusch, Marc Pickett, Pranesh Srinivasan, Laichee Man, Kathleen Meier-Hellstern, Meredith Ringel Morris, Tulsee Doshi, Renelito Delos Santos, Toju Duke, Johnny Soraker, Ben Zevenbergen, Vinodkumar Prabhakaran, Mark Diaz, Ben Hutchinson, Kristen Olson, Alejandra Molina, Erin Hoffman-John, Josh Lee, Lora Aroyo, Ravi Rajakumar, Alena Butryna, Matthew Lamm, Viktoriya Kuzmina, Joe Fenton, Aaron Cohen, Rachel Bernstein, Ray Kurzweil, Blaise Aguera-Arcas, Claire Cui, Marian Croak, Ed Chi, Quoc Le",
+      "title": "Lamda: Language models for dialog applications",
+      "publication": null,
+      "year": 2022,
+      "summary": "We present LaMDA: Language Models for Dialog Applications. LaMDA is a family of Transformer-based neural language models specialized for dialog, which have up to 137B parameters and are pre-trained on 1.56T words of public dialog data and web text. While model scaling alone can improve quality, it shows less improvements on safety and factual grounding. We demonstrate that fine-tuning with annotated data and enabling the model to consult external knowledge sources can lead to significant improvements towards the two key challenges of safety and factual grounding. The first challenge, safety, involves ensuring that the model's responses are consistent with a set of human values, such as preventing harmful suggestions and unfair bias. We quantify safety using a metric based on an illustrative set of human values, and we find that filtering candidate responses using a LaMDA classifier fine-tuned with a small amount of crowdworker-annotated data offers a promising approach to improving model safety. The second challenge, factual grounding, involves enabling the model to consult external knowledge sources, such as an information retrieval system, a language translator, and a calculator. We quantify factuality using a groundedness metric, and we find that our approach enables the model to generate responses grounded in known sources, rather than responses that merely sound plausible. Finally, we explore the use of LaMDA in the domains of education and content recommendations, and analyze their helpfulness and role consistency.",
+      "standard_url": "http://arxiv.org/abs/2201.08239v3",
+      "id": "2022-lamda:_language_models_for_dialog_applications"
+    },
+    "72": {
+      "enum": "72",
+      "authors": "A. M. Turing. 1950",
+      "title": "Computing Machinery and Intelligence",
+      "publication": "[Oxford University Press, Mind Association]",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-computing_machinery_and_intelligence"
+    },
+    "73": {
+      "enum": "73",
+      "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin",
+      "title": "Attention is all you need",
+      "publication": "In Advances in Neural Information Processing Systems 30, pages 5998–6008",
+      "year": 2017,
+      "summary": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+      "standard_url": "http://arxiv.org/abs/1706.03762v7",
+      "id": "2017-attention_is_all_you_need"
+    },
+    "74": {
+      "enum": "74",
+      "authors": "Ben Wang and Aran Komatsuzaki. 2021",
+      "title": "GPT-J-6B: A 6 Billion Parameter Autoregressive Language Model",
+      "publication": "https://github.com/kingoflolz/mesh-transformer-jax",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-gpt-j-6b:_a_6_billion_parameter_autoregressive_language_model"
+    },
+    "75": {
+      "enum": "75",
+      "authors": "Xuezhi Wang, Jason Wei, Dale Schuurmans, Quoc Le, Ed Chi, Sharan Narang, Aakanksha Chowdhery, Denny Zhou",
+      "title": "Self-consistency improves chain of thought reasoning in language models",
+      "publication": null,
+      "year": 2022,
+      "summary": "Chain-of-thought prompting combined with pre-trained large language models has achieved encouraging results on complex reasoning tasks. In this paper, we propose a new decoding strategy, self-consistency, to replace the naive greedy decoding used in chain-of-thought prompting. It first samples a diverse set of reasoning paths instead of only taking the greedy one, and then selects the most consistent answer by marginalizing out the sampled reasoning paths. Self-consistency leverages the intuition that a complex reasoning problem typically admits multiple different ways of thinking leading to its unique correct answer. Our extensive empirical evaluation shows that self-consistency boosts the performance of chain-of-thought prompting with a striking margin on a range of popular arithmetic and commonsense reasoning benchmarks, including GSM8K (+17.9%), SVAMP (+11.0%), AQuA (+12.2%), StrategyQA (+6.4%) and ARC-challenge (+3.9%).",
+      "standard_url": "http://arxiv.org/abs/2203.11171v4",
+      "id": "2022-self-consistency_improves_chain_of_thought_reasoning_in_language_models"
+    },
+    "76": {
+      "enum": "76",
+      "authors": "Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph, Sebastian Borgeaud, Dani Yogatama, Maarten Bosma, Denny Zhou, Donald Metzler, Ed H. Chi, Tatsunori Hashimoto, Oriol Vinyals, Percy Liang, Jeff Dean, William Fedus",
+      "title": "Emergent abilities of large language models",
+      "publication": "arXiv preprint arXiv:2206.07682",
+      "year": 2022,
+      "summary": "Scaling up language models has been shown to predictably improve performance and sample efficiency on a wide range of downstream tasks. This paper instead discusses an unpredictable phenomenon that we refer to as emergent abilities of large language models. We consider an ability to be emergent if it is not present in smaller models but is present in larger models. Thus, emergent abilities cannot be predicted simply by extrapolating the performance of smaller models. The existence of such emergence implies that additional scaling could further expand the range of capabilities of language models.",
+      "standard_url": "http://arxiv.org/abs/2206.07682v2",
+      "id": "2022-emergent_abilities_of_large_language_models"
+    },
+    "77": {
+      "enum": "77",
+      "authors": "Guillaume Wenzek, Marie-Anne Lachaux, Alexis Conneau, Vishrav Chaudhary, Francisco Guzmán, Armand Joulin, Edouard Grave",
+      "title": "CCNet: Extracting high quality monolingual datasets from web crawl data",
+      "publication": "In Language Resources and Evaluation Conference",
+      "year": 2019,
+      "summary": "Pre-training text representations have led to significant improvements in many areas of natural language processing. The quality of these models benefits greatly from the size of the pretraining corpora as long as its quality is preserved. In this paper, we describe an automatic pipeline to extract massive high-quality monolingual datasets from Common Crawl for a variety of languages. Our pipeline follows the data processing introduced in fastText (Mikolov et al., 2017; Grave et al., 2018), that deduplicates documents and identifies their language. We augment this pipeline with a filtering step to select documents that are close to high quality corpora like Wikipedia.",
+      "standard_url": "http://arxiv.org/abs/1911.00359v2",
+      "id": "2019-ccnet:_extracting_high_quality_monolingual_datasets_from_web_crawl_data"
+    },
+    "78": {
+      "enum": "78",
+      "authors": "Carole-Jean Wu, Ramya Raghavendra, Udit Gupta, Bilge Acun, Newsha Ardalani, Kiwan Maeng, Gloria Chang, Fiona Aga Behram, James Huang, Charles Bai, Michael Gschwind, Anurag Gupta, Myle Ott, Anastasia Melnikov, Salvatore Candido, David Brooks, Geeta Chauhan, Benjamin Lee, Hsien-Hsin S. Lee, Bugra Akyildiz, Maximilian Balandat, Joe Spisak, Ravi Jain, Mike Rabbat, Kim Hazelwood",
+      "title": "Sustainable ai: Environmental implications, challenges and opportunities",
+      "publication": "Proceedings of Machine Learning and Systems, 4:795–813",
+      "year": 2021,
+      "summary": "This paper explores the environmental impact of the super-linear growth trends for AI from a holistic perspective, spanning Data, Algorithms, and System Hardware. We characterize the carbon footprint of AI computing by examining the model development cycle across industry-scale machine learning use cases and, at the same time, considering the life cycle of system hardware. Taking a step further, we capture the operational and manufacturing carbon footprint of AI computing and present an end-to-end analysis for what and how hardware-software design and at-scale optimization can help reduce the overall carbon footprint of AI. Based on the industry experience and lessons learned, we share the key challenges and chart out important development directions across the many dimensions of AI. We hope the key messages and insights presented in this paper can inspire the community to advance the field of AI in an environmentally-responsible manner.",
+      "standard_url": "http://arxiv.org/abs/2111.00364v2",
+      "id": "2021-sustainable_ai:_environmental_implications_challenges_and_opportunities"
+    },
+    "79": {
+      "enum": "79",
+      "authors": "Rowan Zellers, Ari Holtzman, Yonatan Bisk, Ali Farhadi, Yejin Choi",
+      "title": "Hellaswag: Can a machine really finish your sentence?",
+      "publication": "arXiv preprint arXiv:1905.07830",
+      "year": 2019,
+      "summary": "Recent work by Zellers et al. (2018) introduced a new task of commonsense natural language inference: given an event description such as \"A woman sits at a piano,\" a machine must select the most likely followup: \"She sets her fingers on the keys.\" With the introduction of BERT, near human-level performance was reached. Does this mean that machines can perform human level commonsense inference?\n  In this paper, we show that commonsense inference still proves difficult for even state-of-the-art models, by presenting HellaSwag, a new challenge dataset. Though its questions are trivial for humans (>95% accuracy), state-of-the-art models struggle (<48%). We achieve this via Adversarial Filtering (AF), a data collection paradigm wherein a series of discriminators iteratively select an adversarial set of machine-generated wrong answers. AF proves to be surprisingly robust. The key insight is to scale up the length and complexity of the dataset examples towards a critical 'Goldilocks' zone wherein generated text is ridiculous to humans, yet often misclassified by state-of-the-art models.\n  Our construction of HellaSwag, and its resulting difficulty, sheds light on the inner workings of deep pretrained models. More broadly, it suggests a new path forward for NLP research, in which benchmarks co-evolve with the evolving state-of-the-art in an adversarial way, so as to present ever-harder challenges.",
+      "standard_url": "http://arxiv.org/abs/1905.07830v1",
+      "id": "2019-hellaswag:_can_a_machine_really_finish_your_sentence?"
+    },
+    "80": {
+      "enum": "80",
+      "authors": "Aohan Zeng, Xiao Liu, Zhengxiao Du, Zihan Wang, Hanyu Lai, Ming Ding, Zhuoyi Yang, Yifan Xu, Wendi Zheng, Xiao Xia, Weng Lam Tam, Zixuan Ma, Yufei Xue, Jidong Zhai, Wenguang Chen, Peng Zhang, Yuxiao Dong, Jie Tang",
+      "title": "Glm-130b: An open bilingual pre-trained model",
+      "publication": null,
+      "year": 2022,
+      "summary": "We introduce GLM-130B, a bilingual (English and Chinese) pre-trained language model with 130 billion parameters. It is an attempt to open-source a 100B-scale model at least as good as GPT-3 (davinci) and unveil how models of such a scale can be successfully pre-trained. Over the course of this effort, we face numerous unexpected technical and engineering challenges, particularly on loss spikes and divergence. In this paper, we introduce the training process of GLM-130B including its design choices, training strategies for both efficiency and stability, and engineering efforts. The resultant GLM-130B model offers significant outperformance over GPT-3 175B (davinci) on a wide range of popular English benchmarks while the performance advantage is not observed in OPT-175B and BLOOM-176B. It also consistently and significantly outperforms ERNIE TITAN 3.0 260B -- the largest Chinese language model -- across related benchmarks. Finally, we leverage a unique scaling property of GLM-130B to reach INT4 quantization without post training, with almost no performance loss, making it the first among 100B-scale models and more importantly, allowing its effective inference on 4$\\times$RTX 3090 (24G) or 8$\\times$RTX 2080 Ti (11G) GPUs, the most affordable GPUs required for using 100B-scale models. The GLM-130B model weights are publicly accessible and its code, training logs, related toolkit, and lessons learned are open-sourced at \\url{https://github.com/THUDM/GLM-130B/}.",
+      "standard_url": "http://arxiv.org/abs/2210.02414v2",
+      "id": "2022-glm-130b:_an_open_bilingual_pre-trained_model"
+    },
+    "81": {
+      "enum": "81",
+      "authors": "Biao Zhang, Rico Sennrich",
+      "title": "Root mean square layer normalization",
+      "publication": "Advances in Neural Information Processing Systems, 32",
+      "year": 2019,
+      "summary": "Layer normalization (LayerNorm) has been successfully applied to various deep neural networks to help stabilize training and boost model convergence because of its capability in handling re-centering and re-scaling of both inputs and weight matrix. However, the computational overhead introduced by LayerNorm makes these improvements expensive and significantly slows the underlying network, e.g. RNN in particular. In this paper, we hypothesize that re-centering invariance in LayerNorm is dispensable and propose root mean square layer normalization, or RMSNorm. RMSNorm regularizes the summed inputs to a neuron in one layer according to root mean square (RMS), giving the model re-scaling invariance property and implicit learning rate adaptation ability. RMSNorm is computationally simpler and thus more efficient than LayerNorm. We also present partial RMSNorm, or pRMSNorm where the RMS is estimated from p% of the summed inputs without breaking the above properties. Extensive experiments on several tasks using diverse network architectures show that RMSNorm achieves comparable performance against LayerNorm but reduces the running time by 7%~64% on different models. Source code is available at https://github.com/bzhangGo/rmsnorm.",
+      "standard_url": "http://arxiv.org/abs/1910.07467v1",
+      "id": "2019-root_mean_square_layer_normalization"
+    },
+    "82": {
+      "enum": "82",
+      "authors": "Susan Zhang, Stephen Roller, Naman Goyal, Mikel Artetxe, Moya Chen, Shuohui Chen, Christopher Dewan, Mona Diab, Xian Li, Xi Victoria Lin, Todor Mihaylov, Myle Ott, Sam Shleifer, Kurt Shuster, Daniel Simig, Punit Singh Koura, Anjali Sridhar, Tianlu Wang, Luke Zettlemoyer",
+      "title": "Opt: Open pre-trained transformer language models",
+      "publication": "arXiv preprint arXiv:2205.01068",
+      "year": 2022,
+      "summary": "Large language models, which are often trained for hundreds of thousands of compute days, have shown remarkable capabilities for zero- and few-shot learning. Given their computational cost, these models are difficult to replicate without significant capital. For the few that are available through APIs, no access is granted to the full model weights, making them difficult to study. We present Open Pre-trained Transformers (OPT), a suite of decoder-only pre-trained transformers ranging from 125M to 175B parameters, which we aim to fully and responsibly share with interested researchers. We show that OPT-175B is comparable to GPT-3, while requiring only 1/7th the carbon footprint to develop. We are also releasing our logbook detailing the infrastructure challenges we faced, along with code for experimenting with all of the released models.",
+      "standard_url": "http://arxiv.org/abs/2205.01068v4",
+      "id": "2022-opt:_open_pre-trained_transformer_language_models"
+    }
+  },
+  "authors": "Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, Guillaume Lample",
+  "summary": "We introduce LLaMA, a collection of foundation language models ranging from 7B to 65B parameters. We train our models on trillions of tokens, and show that it is possible to train state-of-the-art models using publicly available datasets exclusively, without resorting to proprietary and inaccessible datasets. In particular, LLaMA-13B outperforms GPT-3 (175B) on most benchmarks, and LLaMA-65B is competitive with the best models, Chinchilla-70B and PaLM-540B. We release all our models to the research community.",
+  "standard_url": "http://arxiv.org/abs/2302.13971v1",
+  "id": "2023-llama:_open_and_efficient_foundation_language_models"
+}

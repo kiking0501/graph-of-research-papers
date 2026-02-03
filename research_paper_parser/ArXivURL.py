@@ -17,6 +17,7 @@ class ArXivURL:
         self.year = year
         self.url = url
         if url:
+            print(f"\n[{self.name}] {self.url}")
             self.html_content = self.get_html_content(url)
             self.parser = BeautifulSoup(self.html_content, 'html.parser', from_encoding='utf-8')
             for k, v in self.parse_content(self.parser).items():
@@ -199,7 +200,7 @@ class ArXivURL:
         return content
 
 if __name__ == '__main__':
-    from ParserConfig import INPUT_CONFIG, DIRECTORY
+    from CONFIG import INPUT_CONFIG, DIRECTORY
     for name, year, url in INPUT_CONFIG:
         url_object = ArXivURL(name=name, year=year, url=url)
         url_object.json_dump(directory=DIRECTORY)
