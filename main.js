@@ -27,7 +27,7 @@ $( document ).ready(function() {
             .on("dblclick.zoom", null);
         svg.call(
           zoom.transform,
-          d3.zoomIdentity.scale(2)
+          d3.zoomIdentity.scale(3)
         );
         svg.on("contextmenu", (event) => {
             event.preventDefault();
@@ -287,7 +287,7 @@ function renderD3Chart(data, options={}) {
 
     <g class="view-container">
     
-      <text x=20 y=30 style="fill:grey;font-weight:500;pointer-events:none;">
+      <text x=20 y=30 style="fill:grey;font-weight:500;font-size:20px;pointer-events:none;">
         [Right-click] to move; [Mouse-wheel] to zoom
       </text>
 
