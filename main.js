@@ -227,6 +227,11 @@ function toggle_side_bar(node_id) {
 /* Modified from: https://observablehq.com/@nitaku/tangled-tree-visualization-ii */
 
 function renderD3Chart(data, options={}) {
+
+  function getDisplayText(node) {
+    return `[${node.year}] ${node.name ? node.name : node.title}`;
+  }
+
   options.color ||= (d, i) => color(i)
   
   const tangleLayout = constructD3TangleLayout(_.cloneDeep(data), options);
@@ -269,6 +274,15 @@ function renderD3Chart(data, options={}) {
           text-decoration: underline;
           filter: brightness(1.5);    /* Make the color "pop" */
       }
+
+      .bundle-group:hover .link {
+          stroke-width: 5px; 
+          filter: brightness(0.8); 
+          transition: stroke-width 0.1s ease;
+      }
+      .link-hitbox {
+          fill: none;
+      }
     </style>
 
     <g class="view-container">
@@ -278,7 +292,7 @@ function renderD3Chart(data, options={}) {
       </text>
 
       ${tangleLayout.bundles.map((b, i) => {
-        let d = b.links
+        let pathData = b.links
           .map(
             l => `
           M${l.xt} ${l.yt}
@@ -289,14 +303,29 @@ function renderD3Chart(data, options={}) {
           L${l.xs} ${l.ys}`
           )
           .join("");
-        return `
-          <path class="link" d="${d}" stroke="${background_color}" stroke-width="5"/>
-          <path class="link" d="${d}" stroke="${options.color(b, i)}" stroke-width="2"/>
-        `;
+          // return `
+          //   <path class="link" d="${pathData}" stroke="${background_color}" stroke-width="5"/>
+          //   <path class="link" d="${pathData}" stroke="${options.color(b, i)}" stroke-width="2"/>
+          // `;
+
+          const parentNames = [...new Set(b.parents.map(p => getDisplayText(p)))].sort().reverse();
+          const tooltipText = `Reference edge, from ${parentNames.length} paper(s):\n${parentNames.join("\n")}`.replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+          return `
+            <g class="bundle-group">
+              <path class="link" d="${pathData}" stroke="${background_color}" stroke-width="5"/>              
+              <path class="link" d="${pathData}" stroke="${options.color(b, i)}" stroke-width="2"/>
+              <path class="link-hitbox" d="${pathData}" 
+                    stroke="transparent"
+                    stroke-width="15" 
+                    style="cursor: pointer; pointer-events: stroke;">
+                <title>${tooltipText}</title>
+              </path>
+            </g>
+          `;
       })}
 
       ${tangleLayout.nodes.map(n => {
-          const displayText = `[${n.year}] ${n.name ? n.name : n.title}`;
+          const displayText = getDisplayText(n);
           let addlText = ` (${n.title})`;
 
           let textColor = "black";
