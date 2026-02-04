@@ -4,11 +4,12 @@ import _ from "https://cdn.jsdelivr.net/npm/lodash@4.17.21/+esm";
 
 var ACTIVE_NODE = null;
 var NODES_INDEX = null;
+const DEFAULT_DISPLAY = '2025-search-o1:_agentic_search-enhanced_large_reasoning_models';
 
 $( document ).ready(function() {
     d3.json("research_paper_parser/complete_tree.json").then(data => {
-       const svgString = renderD3Chart(data);
-       $("#tree_container").html(svgString);
+        const svgString = renderD3Chart(data);
+        $("#tree_container").html(svgString);
 
         const svg = d3.select("#tangle-svg");
         const container = svg.select(".view-container");
@@ -41,7 +42,17 @@ $( document ).ready(function() {
               node_click(node_id);
           });
 
-        node_click("2025-a_tutorial_on_llm_reasoning:_relevant_methods_behind_chatgpt_o1");    
+        Object.values(NODES_INDEX)
+          .filter(node => node.name)
+          .sort((a, b) => b.id.localeCompare(a.id))
+          .forEach(node => {
+            const displayText = get_display_text(node, true);
+            $("#select_papers").append(
+              `<option value="${node.id}">${displayText}</option>`
+            );
+          });
+        
+        node_click(DEFAULT_DISPLAY);    
     });
 
     $("#side_bar").on("click", "li.cite_bullet", function() {
@@ -51,12 +62,26 @@ $( document ).ready(function() {
         node_click($(this).attr("back_id"));
     });
 
+    $('#select_papers').on('change', function() {
+        if ($(this).val()) node_click($(this).val());
+    });
+
     
 });
 
 
 const background_color = "#ffffff";
 const color = d3.scaleOrdinal(d3.schemeDark2);
+
+
+
+function get_display_text(node, show_name) {
+  if (node.name && show_name) {
+    return `[${node.year}, ${node.name}] ${node.title}`;
+  }
+  return `[${node.year}] ${node.title}`;
+}
+
 
 function node_click(node_id, from_node_id) {
     console.log("You are on: " + node_id);
@@ -205,7 +230,7 @@ function get_referenced_by_html(node_id) {
 
 function toggle_side_bar(node_id) {
     const tree = $("#tree_container");
-    const side_bar = $("#side_bar");
+    const side_bar = $("#side_bar_container");
 
     if (!ACTIVE_NODE) {
       tree.removeClass("col-xs-12").addClass("col-xs-8");
@@ -228,9 +253,6 @@ function toggle_side_bar(node_id) {
 
 function renderD3Chart(data, options={}) {
 
-  function getDisplayText(node) {
-    return `[${node.year}] ${node.name ? node.name : node.title}`;
-  }
 
   options.color ||= (d, i) => color(i)
   
@@ -303,12 +325,8 @@ function renderD3Chart(data, options={}) {
           L${l.xs} ${l.ys}`
           )
           .join("");
-          // return `
-          //   <path class="link" d="${pathData}" stroke="${background_color}" stroke-width="5"/>
-          //   <path class="link" d="${pathData}" stroke="${options.color(b, i)}" stroke-width="2"/>
-          // `;
 
-          const parentNames = [...new Set(b.parents.map(p => getDisplayText(p)))].sort().reverse();
+          const parentNames = [...new Set(b.parents.map(p => get_display_text(p, true)))].sort().reverse();
           const tooltipText = `Reference edge, from ${parentNames.length} paper(s):\n${parentNames.join("\n")}`.replace(/"/g, '&quot;').replace(/'/g, '&apos;');
           return `
             <g class="bundle-group">
@@ -325,8 +343,7 @@ function renderD3Chart(data, options={}) {
       })}
 
       ${tangleLayout.nodes.map(n => {
-          const displayText = getDisplayText(n);
-          let addlText = ` (${n.title})`;
+          const displayText = get_display_text(n, true);
 
           let textColor = "black";
           if (!n.name && n.bundle && n.bundles.length > 0) {
@@ -335,7 +352,6 @@ function renderD3Chart(data, options={}) {
                 textColor = options.color(bundle, bundle.i)
               }
           }
-          if (!n.name) addlText = ``;
 
           const fontSize = n.name ? "12px" : "10px";
           const fontWeight = n.name ? "bold" : "normal";
@@ -357,7 +373,7 @@ function renderD3Chart(data, options={}) {
                 <text x="${n.x + 4}" y="${n.y - n.height / 2 - 4}" 
                       style="fill: ${textColor};
                              font-size: ${fontSize}; font-weight: ${fontWeight};">
-                  ${displayText}${addlText}
+                  ${displayText}
                 </text>
                 <rect x="${n.x - 15}" y="${n.y - n.height}" 
                       width="200" height="${n.height * 2}" 
