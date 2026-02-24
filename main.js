@@ -7,6 +7,16 @@ var NODES_INDEX = null;
 const DEFAULT_DISPLAY = '2025-search-o1:_agentic_search-enhanced_large_reasoning_models';
 
 $( document ).ready(function() {
+
+    var params = {
+        "id": DEFAULT_DISPLAY,
+    };
+    let urlParams = new URLSearchParams(window.location.search.substring(1));
+    urlParams.forEach((value, key) => {
+        params[key] = value;
+    });
+
+
     d3.json("research_paper_parser/complete_tree.json").then(data => {
         const svgString = renderD3Chart(data);
         $("#tree_container").html(svgString);
@@ -52,12 +62,9 @@ $( document ).ready(function() {
             );
           });
         
-        node_click(DEFAULT_DISPLAY);    
+        node_click(params["id"], params["from"]);    
     });
 
-    $("#side_bar").on("click", "li.cite_bullet", function() {
-        node_click($(this).attr("cite_id"), $(this).attr("source_id"));
-    });
     $("#side_bar").on("click", ".back_link", function() {
         node_click($(this).attr("back_id"));
     });
@@ -65,6 +72,8 @@ $( document ).ready(function() {
     $('#select_papers').on('change', function() {
         if ($(this).val()) node_click($(this).val());
     });
+
+
 
     
 });
@@ -93,12 +102,12 @@ function node_click(node_id, from_node_id) {
     var side_bar = $("#side_bar_template").clone().removeAttr("id");
 
     // GO-BACK button
-    if (from_node_id) {
-      var back_link = side_bar.find(".back_link");
-      back_link.attr("back_id", from_node_id);
-      back_link.find(".back_link_target").text(NODES_INDEX[from_node_id].title);
-      back_link.show();
-    }
+    // if (from_node_id) {
+    //   var back_link = side_bar.find(".back_link");
+    //   back_link.attr("back_id", from_node_id);
+    //   back_link.find(".back_link_target").text(NODES_INDEX[from_node_id].title);
+    //   back_link.show();
+    // }
     
     // basic information
     const attrs = ["year", "title"];
@@ -146,13 +155,15 @@ function node_click(node_id, from_node_id) {
           });
         }
         
-        side_bar.find(".paper_authors .text").text(authors) 
-        side_bar.find(".paper_url .text").html(
-          '<a href="' + standard_url + '" target="_blank">' + standard_url + '</a>'
-        );
-        side_bar.find(".paper_url .pdf").html(
-          '[<a href="' + standard_url.replace("/abs/", "/pdf/") + '" target="_blank" style="font-weight:bold">View PDF</a>]' 
-        )
+        side_bar.find(".paper_authors .text").text(authors)
+        if (standard_url != 'N/A') { 
+          side_bar.find(".paper_url .text").html(
+            '<a href="' + standard_url + '" target="_blank">' + standard_url + '</a>'
+          );
+          side_bar.find(".paper_url .pdf").html(
+            '[<a href="' + standard_url.replace("/abs/", "/pdf/") + '" target="_blank" style="font-weight:bold">View PDF</a>]' 
+          )
+        }
         side_bar.find(".paper_summary .content").html(summary);
 
         side_bar.show();
@@ -177,8 +188,10 @@ function get_citation_html(grouped, sections, references, node_id) {
           htmlString += "<ul>";
 
           grouped[sectionId][sentence].forEach(enumVal => {
-              htmlString += `<li class="cite_bullet" source_id="${node_id}" cite_id="${references[enumVal]['id']}">
-                ${enumVal}: [${references[enumVal]["year"]}] ${references[enumVal]["title"]}
+              htmlString += `<li class="cite_bullet">
+                <a href="?id=${references[enumVal]['id']}" target="_blank">
+                  ${enumVal}: [${references[enumVal]["year"]}] ${references[enumVal]["title"]}
+                </a>
               </li>`;
           });
 
@@ -212,8 +225,10 @@ function get_referenced_by_html(node_id) {
   let htmlString = "<ul>";
   var sentences; 
   NODES_INDEX[node_id].parents.forEach((parent, idx) => {
-      htmlString += `<li class="cite_bullet" source_id="${node_id}" cite_id="${parent.id}">
-        [${NODES_INDEX[parent.id].year}] ${NODES_INDEX[parent.id].title}</strong>
+      htmlString += `<li class="cite_bullet">
+        <a href="?id=${parent.id}" target="_blank">
+          [${NODES_INDEX[parent.id].year}] ${NODES_INDEX[parent.id].title}</strong>
+        </a>
       </li>`;
       sentences = NODES_INDEX[node_id].sentences[idx];
       if (sentences.length > 0) {
@@ -470,7 +485,7 @@ function constructD3TangleLayout(levels, options={}){
   });
 
   const node_width = 70;     // Horizontal space.
-  const node_height = 45;     // Vertical space between nodes.
+  const node_height = 25;     // Vertical space between nodes.
   const padding = 50;        // Margin around the graph so text isn't cut at the edges
   const bundle_width = 50; //15
   const level_y_padding = 16;

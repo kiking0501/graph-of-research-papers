@@ -1,0 +1,1793 @@
+{
+  "name": "Chain-of-Thought",
+  "year": 2022,
+  "url": "https://ar5iv.labs.arxiv.org/html/2201.11903",
+  "title": "Chain-of-Thought Prompting Elicits Reasoning  in Large Language Models",
+  "sections": {
+    "S1": "1 Introduction",
+    "S2": "2 Chain-of-Thought Prompting",
+    "S3": "3 Arithmetic Reasoning",
+    "S4": "4 Commonsense Reasoning",
+    "S5": "5 Symbolic Reasoning",
+    "S6": "6 Discussion",
+    "S7": "7 Related Work",
+    "S8": "8 Conclusions",
+    "Sx1": "Acknowledgements",
+    "Sx2": "Checklist"
+  },
+  "citations": [
+    {
+      "section_id": "S0",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Finetuned GPT-3 and prior best are fromCobbe et al (2021)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "47",
+      "cite_id": "47",
+      "sentence": "The NLP landscape has recently been revolutionized by language models(Peters et al,2018; Devlin et al,2019; Brown et al,2020,inter alia)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "17",
+      "cite_id": "17",
+      "sentence": "The NLP landscape has recently been revolutionized by language models(Peters et al,2018; Devlin et al,2019; Brown et al,2020,inter alia)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "The NLP landscape has recently been revolutionized by language models(Peters et al,2018; Devlin et al,2019; Brown et al,2020,inter alia)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "27",
+      "cite_id": "27",
+      "sentence": "The NLP landscape has recently been revolutionized by language models(Peters et al,2018; Devlin et al,2019; Brown et al,2020,inter alia)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "The NLP landscape has recently been revolutionized by language models(Peters et al,2018; Devlin et al,2019; Brown et al,2020,inter alia)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "50",
+      "cite_id": "50",
+      "sentence": "However, scaling up model size alone has not proved sufficient for achieving high performance on challenging tasks such as arithmetic, commonsense, and symbolic reasoning(Rae et al,2021)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "36",
+      "cite_id": "36",
+      "sentence": "Prior work has given models the ability to generate natural language intermediate steps by training from scratch(Ling et al,2017)or finetuning a pretrained model(Cobbe et al,2021), in addition to neuro-symbolic methods that use formal languages instead of natural language(Roy and Roth,2015; Chiang and Chen,2019; Amini et al,2019; Chen et al,2019)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Prior work has given models the ability to generate natural language intermediate steps by training from scratch(Ling et al,2017)or finetuning a pretrained model(Cobbe et al,2021), in addition to neuro-symbolic methods that use formal languages instead of natural language(Roy and Roth,2015; Chiang and Chen,2019; Amini et al,2019; Chen et al,2019)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "59",
+      "cite_id": "59",
+      "sentence": "Prior work has given models the ability to generate natural language intermediate steps by training from scratch(Ling et al,2017)or finetuning a pretrained model(Cobbe et al,2021), in addition to neuro-symbolic methods that use formal languages instead of natural language(Roy and Roth,2015; Chiang and Chen,2019; Amini et al,2019; Chen et al,2019)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "14",
+      "cite_id": "14",
+      "sentence": "Prior work has given models the ability to generate natural language intermediate steps by training from scratch(Ling et al,2017)or finetuning a pretrained model(Cobbe et al,2021), in addition to neuro-symbolic methods that use formal languages instead of natural language(Roy and Roth,2015; Chiang and Chen,2019; Amini et al,2019; Chen et al,2019)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "2",
+      "cite_id": "2",
+      "sentence": "Prior work has given models the ability to generate natural language intermediate steps by training from scratch(Ling et al,2017)or finetuning a pretrained model(Cobbe et al,2021), in addition to neuro-symbolic methods that use formal languages instead of natural language(Roy and Roth,2015; Chiang and Chen,2019; Amini et al,2019; Chen et al,2019)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "Prior work has given models the ability to generate natural language intermediate steps by training from scratch(Ling et al,2017)or finetuning a pretrained model(Cobbe et al,2021), in addition to neuro-symbolic methods that use formal languages instead of natural language(Roy and Roth,2015; Chiang and Chen,2019; Amini et al,2019; Chen et al,2019)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Remarkably, this has been successful for a range of simple question-answering tasks(Brown et al,2020)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "For the traditional few-shot prompting method used inBrown et al (2020), it works poorly on tasks that require reasoning abilities, and often does not improve substantially with increasing language model scale(Rae et al,2021)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "50",
+      "cite_id": "50",
+      "sentence": "For the traditional few-shot prompting method used inBrown et al (2020), it works poorly on tasks that require reasoning abilities, and often does not improve substantially with increasing language model scale(Rae et al,2021)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Figure2illustrates one such result—on the GSM8K benchmark of math word problems(Cobbe et al,2021), chain-of-thought prompting with PaLM 540B outperforms standard prompting by a large margin and achieves new state-of-the-art performance"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "43",
+      "cite_id": "43",
+      "sentence": "The chain of thought in this case resembles a solution and can interpreted as one, but we still opt to call it a chain of thought to better capture the idea that it mimics a step-by-step thought process for arriving at the answer (and also, solutions/explanations typically comeafterthe final answer(Narang et al,2020; Wiegreffe et al,2022; Lampinen et al,2022,inter alia))"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "73",
+      "cite_id": "73",
+      "sentence": "The chain of thought in this case resembles a solution and can interpreted as one, but we still opt to call it a chain of thought to better capture the idea that it mimics a step-by-step thought process for arriving at the answer (and also, solutions/explanations typically comeafterthe final answer(Narang et al,2020; Wiegreffe et al,2022; Lampinen et al,2022,inter alia))"
+    },
+    {
+      "section_id": "S2",
+      "cite_enum": "29",
+      "cite_id": "29",
+      "sentence": "The chain of thought in this case resembles a solution and can interpreted as one, but we still opt to call it a chain of thought to better capture the idea that it mimics a step-by-step thought process for arriving at the answer (and also, solutions/explanations typically comeafterthe final answer(Narang et al,2020; Wiegreffe et al,2022; Lampinen et al,2022,inter alia))"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "24",
+      "cite_id": "24",
+      "sentence": "Though simple for humans, arithmetic reasoning is a task where language models often struggle(Hendrycks et al,2021; Patel et al,2021,inter alia)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "46",
+      "cite_id": "46",
+      "sentence": "Though simple for humans, arithmetic reasoning is a task where language models often struggle(Hendrycks et al,2021; Patel et al,2021,inter alia)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Though simple for humans, arithmetic reasoning is a task where language models often struggle(Hendrycks et al,2021; Patel et al,2021,inter alia)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "We consider the following five math word problem benchmarks:(1)theGSM8Kbenchmark of math word problems(Cobbe et al,2021),(2)theSVAMPdataset of math word problems with varying structures(Patel et al,2021),(3)theASDivdataset of diverse math word problems(Miao et al,2020),(4)theAQuAdataset of algebraic word problems, and(5)theMAWPSbenchmark(Koncel-Kedziorski et al,2016)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "46",
+      "cite_id": "46",
+      "sentence": "We consider the following five math word problem benchmarks:(1)theGSM8Kbenchmark of math word problems(Cobbe et al,2021),(2)theSVAMPdataset of math word problems with varying structures(Patel et al,2021),(3)theASDivdataset of diverse math word problems(Miao et al,2020),(4)theAQuAdataset of algebraic word problems, and(5)theMAWPSbenchmark(Koncel-Kedziorski et al,2016)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "41",
+      "cite_id": "41",
+      "sentence": "We consider the following five math word problem benchmarks:(1)theGSM8Kbenchmark of math word problems(Cobbe et al,2021),(2)theSVAMPdataset of math word problems with varying structures(Patel et al,2021),(3)theASDivdataset of diverse math word problems(Miao et al,2020),(4)theAQuAdataset of algebraic word problems, and(5)theMAWPSbenchmark(Koncel-Kedziorski et al,2016)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "28",
+      "cite_id": "28",
+      "sentence": "We consider the following five math word problem benchmarks:(1)theGSM8Kbenchmark of math word problems(Cobbe et al,2021),(2)theSVAMPdataset of math word problems with varying structures(Patel et al,2021),(3)theASDivdataset of diverse math word problems(Miao et al,2020),(4)theAQuAdataset of algebraic word problems, and(5)theMAWPSbenchmark(Koncel-Kedziorski et al,2016)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "For the baseline, we consider standard few-shot prompting, popularized byBrown et al (2020), in which a language model is given in-context exemplars of input–output pairs before outputting a prediction for a test-time example"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "The first isGPT-3(Brown et al,2020), for which we use text-ada-001, text-babbage-001, text-curie-001, and text-davinci-002, which presumably correspond to InstructGPT models of 350M, 1"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "45",
+      "cite_id": "45",
+      "sentence": "7B, and 175B parameters(Ouyang et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "68",
+      "cite_id": "68",
+      "sentence": "7B, and 175B parameters(Ouyang et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "67",
+      "cite_id": "67",
+      "sentence": "7B, and 175B parameters(Ouyang et al,2022)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "The fourth isUL2 20B(Tay et al,2022), and the fifth isCodex(Chen et al,2021, code-davinci-002 in the OpenAI API)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "69",
+      "cite_id": "69",
+      "sentence": "We sample from the models via greedy decoding (though follow-up work shows chain-of-thought prompting can be improved by taking the majority final answer over many sampled generations(Wang et al,2022a))"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "72",
+      "cite_id": "72",
+      "sentence": "First,Figure4shows that chain-of-thought prompting is an emergent ability of model scale(Wei et al,2022b)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Prior best numbers are fromCobbe et al (2021)for GSM8K,Jie et al (2022)for SVAMP, andLan et al (2021)for MAWPS"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "26",
+      "cite_id": "26",
+      "sentence": "Prior best numbers are fromCobbe et al (2021)for GSM8K,Jie et al (2022)for SVAMP, andLan et al (2021)for MAWPS"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "30",
+      "cite_id": "30",
+      "sentence": "Prior best numbers are fromCobbe et al (2021)for GSM8K,Jie et al (2022)for SVAMP, andLan et al (2021)for MAWPS"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "85",
+      "cite_id": "85",
+      "sentence": "4%)(Zhao et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "4%)(Zhao et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "31",
+      "cite_id": "31",
+      "sentence": "Although there is variance among different chain of thought annotations, as would be expected when using exemplar-based prompting(Le Scao and Rush,2021; Reynolds and McDonell,2021; Zhao et al,2021), all sets of chain of thought prompts outperform the standard baseline by a large margin"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "58",
+      "cite_id": "58",
+      "sentence": "Although there is variance among different chain of thought annotations, as would be expected when using exemplar-based prompting(Le Scao and Rush,2021; Reynolds and McDonell,2021; Zhao et al,2021), all sets of chain of thought prompts outperform the standard baseline by a large margin"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "85",
+      "cite_id": "85",
+      "sentence": "Although there is variance among different chain of thought annotations, as would be expected when using exemplar-based prompting(Le Scao and Rush,2021; Reynolds and McDonell,2021; Zhao et al,2021), all sets of chain of thought prompts outperform the standard baseline by a large margin"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "66",
+      "cite_id": "66",
+      "sentence": "Commonsense reasoning is key for interacting with the world and is still beyond the reach of current natural language understanding systems(Talmor et al,2021)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "64",
+      "cite_id": "64",
+      "sentence": "The popularCSQA(Talmor et al,2019)asks commonsense questions about the world involving complex semantics that often require prior knowledge"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "20",
+      "cite_id": "20",
+      "sentence": "StrategyQA(Geva et al,2021)requires models to infer a multi-hop strategy to answer questions"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "StrategyQA(Geva et al,2021)requires models to infer a multi-hop strategy to answer questions"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "Finally, theSayCandataset(Ahn et al,2022)involves mapping a natural language instruction to a sequence of robot actions from a discrete set"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "For SayCan, we use six examples from the training set used inAhn et al (2022)and also manually composed chains of thought"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "64",
+      "cite_id": "64",
+      "sentence": "Prior best numbers are from the leaderboards of CSQA(Talmor et al,2019)and StrategyQA(Geva et al,2021)(single-model only, as of May 5, 2022)"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "20",
+      "cite_id": "20",
+      "sentence": "Prior best numbers are from the leaderboards of CSQA(Talmor et al,2019)and StrategyQA(Geva et al,2021)(single-model only, as of May 5, 2022)"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "72",
+      "cite_id": "72",
+      "sentence": "The emergence of chain-of-thought reasoning as a result of model scale has been a prevailing theme(Wei et al,2022b)"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "55",
+      "cite_id": "55",
+      "sentence": "Third, there is no guarantee of correct reasoning paths, which can lead to both correct and incorrect answers; improving factual generations of language models is an open direction for future work(Rashkin et al,2021; Ye and Durrett,2022; Wiegreffe et al,2022,inter alia)"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "80",
+      "cite_id": "80",
+      "sentence": "Third, there is no guarantee of correct reasoning paths, which can lead to both correct and incorrect answers; improving factual generations of language models is an open direction for future work(Rashkin et al,2021; Ye and Durrett,2022; Wiegreffe et al,2022,inter alia)"
+    },
+    {
+      "section_id": "S6",
+      "cite_enum": "73",
+      "cite_id": "73",
+      "sentence": "Third, there is no guarantee of correct reasoning paths, which can lead to both correct and incorrect answers; improving factual generations of language models is an open direction for future work(Rashkin et al,2021; Ye and Durrett,2022; Wiegreffe et al,2022,inter alia)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "36",
+      "cite_id": "36",
+      "sentence": "Ling et al (2017)pioneer the idea of using natural language rationales to solve math word problems through a series of intermediate steps"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "60",
+      "cite_id": "60",
+      "sentence": "Their work is a remarkable contrast to the literature using formal languages to reason(Roy et al,2015; Chiang and Chen,2019; Amini et al,2019; Chen et al,2019)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "14",
+      "cite_id": "14",
+      "sentence": "Their work is a remarkable contrast to the literature using formal languages to reason(Roy et al,2015; Chiang and Chen,2019; Amini et al,2019; Chen et al,2019)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "2",
+      "cite_id": "2",
+      "sentence": "Their work is a remarkable contrast to the literature using formal languages to reason(Roy et al,2015; Chiang and Chen,2019; Amini et al,2019; Chen et al,2019)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "Their work is a remarkable contrast to the literature using formal languages to reason(Roy et al,2015; Chiang and Chen,2019; Amini et al,2019; Chen et al,2019)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Cobbe et al (2021)extendLing et al (2017)by creating a larger dataset and using it to finetune a pretrained language model rather than training a model from scratch"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "36",
+      "cite_id": "36",
+      "sentence": "Ling et al (2017)pioneer the idea of using natural language rationales to solve math word problems through a series of intermediate steps"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "44",
+      "cite_id": "44",
+      "sentence": "Cobbe et al (2021)extendLing et al (2017)by creating a larger dataset and using it to finetune a pretrained language model rather than training a model from scratch"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Since the popularization of few-shot prompting as given byBrown et al (2020), several general approaches have improved the prompting ability of models, such as automatically learning prompts(Lester et al,2021)or giving models instructions describing a task(Wei et al,2022a; Sanh et al,2022; Ouyang et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "32",
+      "cite_id": "32",
+      "sentence": "Since the popularization of few-shot prompting as given byBrown et al (2020), several general approaches have improved the prompting ability of models, such as automatically learning prompts(Lester et al,2021)or giving models instructions describing a task(Wei et al,2022a; Sanh et al,2022; Ouyang et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "71",
+      "cite_id": "71",
+      "sentence": "Since the popularization of few-shot prompting as given byBrown et al (2020), several general approaches have improved the prompting ability of models, such as automatically learning prompts(Lester et al,2021)or giving models instructions describing a task(Wei et al,2022a; Sanh et al,2022; Ouyang et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "62",
+      "cite_id": "62",
+      "sentence": "Since the popularization of few-shot prompting as given byBrown et al (2020), several general approaches have improved the prompting ability of models, such as automatically learning prompts(Lester et al,2021)or giving models instructions describing a task(Wei et al,2022a; Sanh et al,2022; Ouyang et al,2022)"
+    },
+    {
+      "section_id": "S7",
+      "cite_enum": "45",
+      "cite_id": "45",
+      "sentence": "Since the popularization of few-shot prompting as given byBrown et al (2020), several general approaches have improved the prompting ability of models, such as automatically learning prompts(Lester et al,2021)or giving models instructions describing a task(Wei et al,2022a; Sanh et al,2022; Ouyang et al,2022)"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "27",
+      "cite_id": "27",
+      "sentence": "Scaling up language models has been shown to confer benefits such as improved performance and sample efficiency(Kaplan et al,2020), but chain-of-thought reasoning is emergent in the sense that its success cannot be predicted only by extrapolating the performance of small scale models, as chain of thought actually hurts performance for most models smaller than 10B parameters"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "The second observation is that small language models seem to have inherently weaker arithmetic abilities, as shown byBrown et al (2020), the ability to do simple arithmetic operations (without semantic understanding) requires sufficient model scale"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "42",
+      "cite_id": "42",
+      "sentence": "There is no shortage of work showing that prompts affect language models in unexpected ways(Min et al,2022)"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Similar to the annotation process inCobbe et al (2021), annotators were not given specific instructions about how to write the chain of thought annotations other than to simply write the step-by-step reasoning process that led to the final answer"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "The GSM8K dataset(Cobbe et al,2021)conveniently provides a training set with reasoning chains written by crowd compute workers, which enables us to investigate whether chain of thought still works with reasoning chains from an independent source without a background in machine learning"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "85",
+      "cite_id": "85",
+      "sentence": "4%)(Zhao et al,2021)"
+    },
+    {
+      "section_id": "A1",
+      "cite_enum": "85",
+      "cite_id": "85",
+      "sentence": "4%)(Zhao et al,2021)"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "A similar observation was made inCobbe et al (2021)"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "a𝑎a:Cobbe et al (2021)"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "48",
+      "cite_id": "48",
+      "sentence": "b𝑏b&e𝑒e:Pi et al (2022),c𝑐c:Lan et al (2021),d𝑑d:Piękos et al (2021)"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "30",
+      "cite_id": "30",
+      "sentence": "a𝑎a:Cobbe et al (2021)"
+    },
+    {
+      "section_id": "A2",
+      "cite_enum": "49",
+      "cite_id": "49",
+      "sentence": "a𝑎a:Cobbe et al (2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "The recent success of large-scale language models has led to growing interest in improving their capability to perform tasks via prompting (Brown et al (2020), and seeLiu et al (2021)for a survey)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "37",
+      "cite_id": "37",
+      "sentence": "The recent success of large-scale language models has led to growing interest in improving their capability to perform tasks via prompting (Brown et al (2020), and seeLiu et al (2021)for a survey)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "34",
+      "cite_id": "34",
+      "sentence": "The recent success of large-scale language models has led to growing interest in improving their capability to perform tasks via prompting (Brown et al (2020), and seeLiu et al (2021)for a survey)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "32",
+      "cite_id": "32",
+      "sentence": "The recent success of large-scale language models has led to growing interest in improving their capability to perform tasks via prompting (Brown et al (2020), and seeLiu et al (2021)for a survey)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "57",
+      "cite_id": "57",
+      "sentence": "This paper falls in the category of general prompting approaches, whereby input prompts are optimized to allow a single large language model to better perform a variety of tasks(Li and Liang,2021; Lester et al,2021; Reif et al,2022,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "51",
+      "cite_id": "51",
+      "sentence": "One recent line of work aims to improve the ability of language models to perform a task by providing instructions that describe the task(Raffel et al,2020; Wei et al,2022a; Ouyang et al,2022; Sanh et al,2022; Wang et al,2022b)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "71",
+      "cite_id": "71",
+      "sentence": "One recent line of work aims to improve the ability of language models to perform a task by providing instructions that describe the task(Raffel et al,2020; Wei et al,2022a; Ouyang et al,2022; Sanh et al,2022; Wang et al,2022b)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "45",
+      "cite_id": "45",
+      "sentence": "One recent line of work aims to improve the ability of language models to perform a task by providing instructions that describe the task(Raffel et al,2020; Wei et al,2022a; Ouyang et al,2022; Sanh et al,2022; Wang et al,2022b)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "62",
+      "cite_id": "62",
+      "sentence": "One recent line of work aims to improve the ability of language models to perform a task by providing instructions that describe the task(Raffel et al,2020; Wei et al,2022a; Ouyang et al,2022; Sanh et al,2022; Wang et al,2022b)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "70",
+      "cite_id": "70",
+      "sentence": "One recent line of work aims to improve the ability of language models to perform a task by providing instructions that describe the task(Raffel et al,2020; Wei et al,2022a; Ouyang et al,2022; Sanh et al,2022; Wang et al,2022b)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "76",
+      "cite_id": "76",
+      "sentence": "One recent line of work aims to improve the ability of language models to perform a task by providing instructions that describe the task(Raffel et al,2020; Wei et al,2022a; Ouyang et al,2022; Sanh et al,2022; Wang et al,2022b)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "77",
+      "cite_id": "77",
+      "sentence": "One recent line of work aims to improve the ability of language models to perform a task by providing instructions that describe the task(Raffel et al,2020; Wei et al,2022a; Ouyang et al,2022; Sanh et al,2022; Wang et al,2022b)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "86",
+      "cite_id": "86",
+      "sentence": "Another closely related direction uses natural language explanations (NLEs), often with the goal of improving model interpretability(Zhou et al,2020; Wiegreffe and Marasović,2021,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "74",
+      "cite_id": "74",
+      "sentence": "Another closely related direction uses natural language explanations (NLEs), often with the goal of improving model interpretability(Zhou et al,2020; Wiegreffe and Marasović,2021,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "10",
+      "cite_id": "10",
+      "sentence": "That line of work typically focuses on natural language inference(Camburu et al,2018; Yordanov et al,2021; Bostrom et al,2021), and produces explanations either simultaneously to or after the final prediction(Narang et al,2020; Majumder et al,2021; Wiegreffe et al,2021,2022)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "81",
+      "cite_id": "81",
+      "sentence": "Another closely related direction uses natural language explanations (NLEs), often with the goal of improving model interpretability(Zhou et al,2020; Wiegreffe and Marasović,2021,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "Another closely related direction uses natural language explanations (NLEs), often with the goal of improving model interpretability(Zhou et al,2020; Wiegreffe and Marasović,2021,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "43",
+      "cite_id": "43",
+      "sentence": "Another closely related direction uses natural language explanations (NLEs), often with the goal of improving model interpretability(Zhou et al,2020; Wiegreffe and Marasović,2021,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "38",
+      "cite_id": "38",
+      "sentence": "Another closely related direction uses natural language explanations (NLEs), often with the goal of improving model interpretability(Zhou et al,2020; Wiegreffe and Marasović,2021,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "75",
+      "cite_id": "75",
+      "sentence": "Another closely related direction uses natural language explanations (NLEs), often with the goal of improving model interpretability(Zhou et al,2020; Wiegreffe and Marasović,2021,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "73",
+      "cite_id": "73",
+      "sentence": "That line of work typically focuses on natural language inference(Camburu et al,2018; Yordanov et al,2021; Bostrom et al,2021), and produces explanations either simultaneously to or after the final prediction(Narang et al,2020; Majumder et al,2021; Wiegreffe et al,2021,2022)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "52",
+      "cite_id": "52",
+      "sentence": "Another closely related direction uses natural language explanations (NLEs), often with the goal of improving model interpretability(Zhou et al,2020; Wiegreffe and Marasović,2021,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "39",
+      "cite_id": "39",
+      "sentence": "That line of work typically focuses on natural language inference(Camburu et al,2018; Yordanov et al,2021; Bostrom et al,2021), and produces explanations either simultaneously to or after the final prediction(Narang et al,2020; Majumder et al,2021; Wiegreffe et al,2021,2022)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "83",
+      "cite_id": "83",
+      "sentence": "Using intermediate reasoning steps has a long history in program synthesis and execution(Zaremba and Sutskever,2014,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "9",
+      "cite_id": "9",
+      "sentence": "Recent work along in this direction has included a number of architectural innovations(Cai et al,2017; Dong et al,2019; Yan et al,2020), as well as the use of large language models(Chen et al,2021; Austin et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "18",
+      "cite_id": "18",
+      "sentence": "Recent work along in this direction has included a number of architectural innovations(Cai et al,2017; Dong et al,2019; Yan et al,2020), as well as the use of large language models(Chen et al,2021; Austin et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "78",
+      "cite_id": "78",
+      "sentence": "Recent work along in this direction has included a number of architectural innovations(Cai et al,2017; Dong et al,2019; Yan et al,2020), as well as the use of large language models(Chen et al,2021; Austin et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "Recent work along in this direction has included a number of architectural innovations(Cai et al,2017; Dong et al,2019; Yan et al,2020), as well as the use of large language models(Chen et al,2021; Austin et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "5",
+      "cite_id": "5",
+      "sentence": "Recent work along in this direction has included a number of architectural innovations(Cai et al,2017; Dong et al,2019; Yan et al,2020), as well as the use of large language models(Chen et al,2021; Austin et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "44",
+      "cite_id": "44",
+      "sentence": "Recent work along in this direction has included a number of architectural innovations(Cai et al,2017; Dong et al,2019; Yan et al,2020), as well as the use of large language models(Chen et al,2021; Austin et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "33",
+      "cite_id": "33",
+      "sentence": "Numeric and logical reasoning has been a long-studied task in machine learning and natural language processing(Lev et al,2004,inter alia)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "3",
+      "cite_id": "3",
+      "sentence": "Recent work has also aimed to inject numeric reasoning abilities in language models in various ways, such as augmenting BERT with a predefined set of executable operations(Andor et al,2019), including a graph neural network(Ran et al,2019), and using specialized training procedures(Piękos et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "54",
+      "cite_id": "54",
+      "sentence": "Recent work has also aimed to inject numeric reasoning abilities in language models in various ways, such as augmenting BERT with a predefined set of executable operations(Andor et al,2019), including a graph neural network(Ran et al,2019), and using specialized training procedures(Piękos et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "49",
+      "cite_id": "49",
+      "sentence": "Recent work has also aimed to inject numeric reasoning abilities in language models in various ways, such as augmenting BERT with a predefined set of executable operations(Andor et al,2019), including a graph neural network(Ran et al,2019), and using specialized training procedures(Piękos et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "15",
+      "cite_id": "15",
+      "sentence": "Another line of work aims to enable language models to perform logical or formal reasoning, often by verablizing the rules in natural language formal rules using language(Clark et al,2020; Saeed et al,2021; Liang et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "61",
+      "cite_id": "61",
+      "sentence": "Recent work has also aimed to inject numeric reasoning abilities in language models in various ways, such as augmenting BERT with a predefined set of executable operations(Andor et al,2019), including a graph neural network(Ran et al,2019), and using specialized training procedures(Piękos et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "35",
+      "cite_id": "35",
+      "sentence": "Recent work has also aimed to inject numeric reasoning abilities in language models in various ways, such as augmenting BERT with a predefined set of executable operations(Andor et al,2019), including a graph neural network(Ran et al,2019), and using specialized training procedures(Piękos et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "56",
+      "cite_id": "56",
+      "sentence": "Recent work has also aimed to inject numeric reasoning abilities in language models in various ways, such as augmenting BERT with a predefined set of executable operations(Andor et al,2019), including a graph neural network(Ran et al,2019), and using specialized training procedures(Piękos et al,2021)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "82",
+      "cite_id": "82",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "79",
+      "cite_id": "79",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "23",
+      "cite_id": "23",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "21",
+      "cite_id": "21",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "11",
+      "cite_id": "11",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "22",
+      "cite_id": "22",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "19",
+      "cite_id": "19",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "4",
+      "cite_id": "4",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "10",
+      "cite_id": "10",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "53",
+      "cite_id": "53",
+      "sentence": "To endow models with the ability to produce intermediate steps, prior work typically finetunes models on either manually annotated training datasets(Camburu et al,2018; Rajani et al,2019,inter alia)or generates synthetic datasets(Talmor et al,2020; Zelikman et al,2022)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "65",
+      "cite_id": "65",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A3",
+      "cite_enum": "84",
+      "cite_id": "84",
+      "sentence": "As examples, it has been shown that natural language intermediate steps can improve performance(Zaidan et al,2007; Yao et al,2021; Hase and Bansal,2022; Gu et al,2022), improve robustness(Chen et al,2022), speed up training(Hancock et al,2018), mitigate bias(Dua et al,2020), and even help in image and reinforcement learning settings(Andreas et al,2018)"
+    },
+    {
+      "section_id": "A4",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "We found that 8% of the chains of thought were completely correct except for a calculator error—in other words, applying an external calculator to equations, as done inCobbe et al (2021), would make the chain of thought correct"
+    },
+    {
+      "section_id": "A4",
+      "cite_enum": "40",
+      "cite_id": "40",
+      "sentence": "Overall, there are no guarantees that the reasoning processes generated by large language models are coherent or factually correct, as underscored by the recent work evaluating the factuality of language model generations and explanations(Maynez et al,2020; Rashkin et al,2021; Ye and Durrett,2022; Marasović et al,2022; Wiegreffe et al,2022)"
+    },
+    {
+      "section_id": "A4",
+      "cite_enum": "55",
+      "cite_id": "55",
+      "sentence": "Overall, there are no guarantees that the reasoning processes generated by large language models are coherent or factually correct, as underscored by the recent work evaluating the factuality of language model generations and explanations(Maynez et al,2020; Rashkin et al,2021; Ye and Durrett,2022; Marasović et al,2022; Wiegreffe et al,2022)"
+    },
+    {
+      "section_id": "A4",
+      "cite_enum": "80",
+      "cite_id": "80",
+      "sentence": "Overall, there are no guarantees that the reasoning processes generated by large language models are coherent or factually correct, as underscored by the recent work evaluating the factuality of language model generations and explanations(Maynez et al,2020; Rashkin et al,2021; Ye and Durrett,2022; Marasović et al,2022; Wiegreffe et al,2022)"
+    },
+    {
+      "section_id": "A4",
+      "cite_enum": "39",
+      "cite_id": "39",
+      "sentence": "Overall, there are no guarantees that the reasoning processes generated by large language models are coherent or factually correct, as underscored by the recent work evaluating the factuality of language model generations and explanations(Maynez et al,2020; Rashkin et al,2021; Ye and Durrett,2022; Marasović et al,2022; Wiegreffe et al,2022)"
+    },
+    {
+      "section_id": "A4",
+      "cite_enum": "73",
+      "cite_id": "73",
+      "sentence": "Overall, there are no guarantees that the reasoning processes generated by large language models are coherent or factually correct, as underscored by the recent work evaluating the factuality of language model generations and explanations(Maynez et al,2020; Rashkin et al,2021; Ye and Durrett,2022; Marasović et al,2022; Wiegreffe et al,2022)"
+    },
+    {
+      "section_id": "A4",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Overall, there are no guarantees that the reasoning processes generated by large language models are coherent or factually correct, as underscored by the recent work evaluating the factuality of language model generations and explanations(Maynez et al,2020; Rashkin et al,2021; Ye and Durrett,2022; Marasović et al,2022; Wiegreffe et al,2022)"
+    },
+    {
+      "section_id": "A4",
+      "cite_enum": "63",
+      "cite_id": "63",
+      "sentence": "Overall, there are no guarantees that the reasoning processes generated by large language models are coherent or factually correct, as underscored by the recent work evaluating the factuality of language model generations and explanations(Maynez et al,2020; Rashkin et al,2021; Ye and Durrett,2022; Marasović et al,2022; Wiegreffe et al,2022)"
+    },
+    {
+      "section_id": "A4",
+      "cite_enum": "68",
+      "cite_id": "68",
+      "sentence": "Overall, there are no guarantees that the reasoning processes generated by large language models are coherent or factually correct, as underscored by the recent work evaluating the factuality of language model generations and explanations(Maynez et al,2020; Rashkin et al,2021; Ye and Durrett,2022; Marasović et al,2022; Wiegreffe et al,2022)"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "28",
+      "cite_id": "28",
+      "sentence": "Math Word Problem Repository(Koncel-Kedziorski et al,2016): AddSub(Hosseini et al,2014):https://www"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "25",
+      "cite_id": "25",
+      "sentence": "Math Word Problem Repository(Koncel-Kedziorski et al,2016): AddSub(Hosseini et al,2014):https://www"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "59",
+      "cite_id": "59",
+      "sentence": "edu/nlp/arithmetic; MultiArith(Roy and Roth,2015), license: CC BY 4"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "41",
+      "cite_id": "41",
+      "sentence": "ASDiv(Miao et al,2020):https://github"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "36",
+      "cite_id": "36",
+      "sentence": "AQuA(Ling et al,2017):https://github"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "GSM8K(Cobbe et al,2021):https://github"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "46",
+      "cite_id": "46",
+      "sentence": "SVAMP(Patel et al,2021):https://github"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "64",
+      "cite_id": "64",
+      "sentence": "CSQA(Talmor et al,2019):https://www"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "20",
+      "cite_id": "20",
+      "sentence": "StrategyQA(Geva et al,2021): we use the open-domain setting (question-only set) fromBIG-bench collaboration (2021):https://github"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "StrategyQA(Geva et al,2021): we use the open-domain setting (question-only set) fromBIG-bench collaboration (2021):https://github"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "Date understanding and sports understanding from BIG-Bench(BIG-bench collaboration,2021): Apache License v"
+    },
+    {
+      "section_id": "Ax1",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "SayCan(Ahn et al,2022): SayCan dataset can be accessed athttps://say-can"
+    }
+  ],
+  "preview": "<div class=\"ltx_para\" id=\"S1.p1\">\n<p class=\"ltx_p\" id=\"S1.p1.1\">The NLP landscape has recently been revolutionized by language models .\nScaling up the size of language models has been shown to confer a range of benefits, such as improved performance and sample efficiency .\nHowever, scaling up model size alone has not proved sufficient for achieving high performance on challenging tasks such as arithmetic, commonsense, and symbolic reasoning .</p>\n</div><div class=\"ltx_para\" id=\"S1.p2\">\n<p class=\"ltx_p\" id=\"S1.p2.1\">This work explores how the reasoning ability of large language models can be unlocked by a simple method motivated by two ideas. First, techniques for arithmetic reasoning can benefit from generating natural language rationales that lead to the final answer.\nPrior work has given models the ability to generate natural language intermediate steps by training from scratch  or finetuning a pretrained model , in addition to neuro-symbolic methods that use formal languages instead of natural language .\nSecond, large language models offer the exciting prospect of in-context few-shot learning via <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p2.1.1\">prompting</em>.\nThat is, instead of finetuning a separate language model checkpoint for each new task, one can simply “prompt” the model with a few input–output exemplars demonstrating the task.\nRemarkably, this has been successful for a range of simple question-answering tasks .</p>\n</div><div class=\"ltx_para\" id=\"S1.p3\">\n<p class=\"ltx_p\" id=\"S1.p3.2\">Both of the above ideas, however, have key limitations. For rationale-augmented training and finetuning methods, it is costly to create a large set of high quality rationales, which is much more complicated than simple input–output pairs used in normal machine learning.\nFor the traditional few-shot prompting method used in , it works poorly on tasks that require reasoning abilities, and often does not improve substantially with increasing language model scale .\nIn this paper, we combine the strengths of these two ideas in a way that avoids their limitations. Specifically, we explore the ability of language models to perform few-shot prompting for reasoning tasks, given a prompt that consists of triples: <math alttext=\"\\langle\" class=\"ltx_Math\" display=\"inline\" id=\"S1.p3.1.m1.1\"><semantics id=\"S1.p3.1.m1.1a\"><mo id=\"S1.p3.1.m1.1.1\" stretchy=\"false\" xref=\"S1.p3.1.m1.1.1.cmml\">⟨</mo><annotation-xml encoding=\"MathML-Content\" id=\"S1.p3.1.m1.1b\"><ci id=\"S1.p3.1.m1.1.1.cmml\" xref=\"S1.p3.1.m1.1.1\">⟨</ci></annotation-xml><annotation encoding=\"application/x-tex\" id=\"S1.p3.1.m1.1c\">\\langle</annotation></semantics></math>input, <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p3.2.1\">chain of thought</em>, output<math alttext=\"\\rangle\" class=\"ltx_Math\" display=\"inline\" id=\"S1.p3.2.m2.1\"><semantics id=\"S1.p3.2.m2.1a\"><mo id=\"S1.p3.2.m2.1.1\" stretchy=\"false\" xref=\"S1.p3.2.m2.1.1.cmml\">⟩</mo><annotation-xml encoding=\"MathML-Content\" id=\"S1.p3.2.m2.1b\"><ci id=\"S1.p3.2.m2.1.1.cmml\" xref=\"S1.p3.2.m2.1.1\">⟩</ci></annotation-xml><annotation encoding=\"application/x-tex\" id=\"S1.p3.2.m2.1c\">\\rangle</annotation></semantics></math>.\nA <em class=\"ltx_emph ltx_font_italic\" id=\"S1.p3.2.2\">chain of thought</em> is a series of intermediate natural language reasoning steps that lead to the final output, and we refer to this approach as <span class=\"ltx_text ltx_font_italic\" id=\"S1.p3.2.3\">chain-of-thought prompting</span>. An example prompt is shown in <a class=\"ltx_ref\" href=\"#S0.F1\" title=\"In Chain-of-Thought Prompting Elicits Reasoning in Large Language Models\"><span class=\"ltx_text ltx_ref_tag\">Figure</span> <span class=\"ltx_text ltx_ref_tag\">1</span></a>.</p>\n</div><div class=\"ltx_para\" id=\"S1.p4\">\n<p class=\"ltx_p\" id=\"S1.p4.1\">We present empirical evaluations on arithmetic, commonsense, and symbolic reasoning benchmarks, showing that chain-of-thought prompting outperforms standard prompting, sometimes to a striking degree.\n<a class=\"ltx_ref\" href=\"#S0.F2\" title=\"In Chain-of-Thought Prompting Elicits Reasoning in Large Language Models\"><span class=\"ltx_text ltx_ref_tag\">Figure</span> <span class=\"ltx_text ltx_ref_tag\">2</span></a> illustrates one such result—on the GSM8K benchmark of math word problems , chain-of-thought prompting with PaLM 540B outperforms standard prompting by a large margin and achieves new state-of-the-art performance.\nA prompting only approach is important because it does not require a large training dataset and because a single model checkpoint can perform many tasks without loss of generality.\nThis work underscores how large language models can learn via a few examples with natural language data about the task (c.f. automatically learning the patterns underlying inputs and outputs via a large training dataset).</p>\n</div>",
+  "references": {
+    "1": {
+      "enum": "1",
+      "authors": "Michael Ahn, Anthony Brohan, Noah Brown, Yevgen Chebotar, Omar Cortes, Byron David, Chelsea Finn, Chuyuan Fu, Keerthana Gopalakrishnan, Karol Hausman, Alex Herzog, Daniel Ho, Jasmine Hsu, Julian Ibarz, Brian Ichter, Alex Irpan, Eric Jang, Rosario Jauregui Ruano, Kyle Jeffrey, Sally Jesmonth, Nikhil J Joshi, Ryan Julian, Dmitry Kalashnikov, Yuheng Kuang, Kuang-Huei Lee, Sergey Levine, Yao Lu, Linda Luu, Carolina Parada, Peter Pastor, Jornell Quiambao, Kanishka Rao, Jarek Rettinghouse, Diego Reyes, Pierre Sermanet, Nicolas Sievers, Clayton Tan, Alexander Toshev, Vincent Vanhoucke, Fei Xia, Ted Xiao, Peng Xu, Sichun Xu, Mengyuan Yan, Andy Zeng",
+      "title": "Do as I can, not as I say: Grounding language in robotic affordances",
+      "publication": "arXiv preprint arXiv:2204.01691",
+      "year": 2022,
+      "summary": "Large language models can encode a wealth of semantic knowledge about the world. Such knowledge could be extremely useful to robots aiming to act upon high-level, temporally extended instructions expressed in natural language. However, a significant weakness of language models is that they lack real-world experience, which makes it difficult to leverage them for decision making within a given embodiment. For example, asking a language model to describe how to clean a spill might result in a reasonable narrative, but it may not be applicable to a particular agent, such as a robot, that needs to perform this task in a particular environment. We propose to provide real-world grounding by means of pretrained skills, which are used to constrain the model to propose natural language actions that are both feasible and contextually appropriate. The robot can act as the language model's \"hands and eyes,\" while the language model supplies high-level semantic knowledge about the task. We show how low-level skills can be combined with large language models so that the language model provides high-level knowledge about the procedures for performing complex and temporally-extended instructions, while value functions associated with these skills provide the grounding necessary to connect this knowledge to a particular physical environment. We evaluate our method on a number of real-world robotic tasks, where we show the need for real-world grounding and that this approach is capable of completing long-horizon, abstract, natural language instructions on a mobile manipulator. The project's website and the video can be found at https://say-can.github.io/.",
+      "standard_url": "http://arxiv.org/abs/2204.01691v2",
+      "id": "2022-do_as_i_can_not_as_i_say:_grounding_language_in_robotic_affordances"
+    },
+    "2": {
+      "enum": "2",
+      "authors": "Aida Amini, Saadia Gabriel, Peter Lin, Rik Koncel-Kedziorski, Yejin Choi, Hannaneh Hajishirzi",
+      "title": "MathQA: Towards interpretable math word problem solving with operation-based formalisms",
+      "publication": "In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), Minneapolis, Minnesota. Association for Computational Linguistics",
+      "year": 2019,
+      "summary": "We introduce a large-scale dataset of math word problems and an interpretable neural math problem solver that learns to map problems to operation programs. Due to annotation challenges, current datasets in this domain have been either relatively small in scale or did not offer precise operational annotations over diverse problem types. We introduce a new representation language to model precise operation programs corresponding to each math problem that aim to improve both the performance and the interpretability of the learned models. Using this representation language, our new dataset, MathQA, significantly enhances the AQuA dataset with fully-specified operational programs. We additionally introduce a neural sequence-to-program model enhanced with automatic problem categorization. Our experiments show improvements over competitive baselines in our MathQA as well as the AQuA dataset. The results are still significantly lower than human performance indicating that the dataset poses new challenges for future research. Our dataset is available at: https://math-qa.github.io/math-QA/",
+      "standard_url": "http://arxiv.org/abs/1905.13319v1",
+      "id": "2019-mathqa:_towards_interpretable_math_word_problem_solving_with_operation-based_formalisms"
+    },
+    "3": {
+      "enum": "3",
+      "authors": "Daniel Andor, Luheng He, Kenton Lee, Emily Pitler",
+      "title": "Giving BERT a calculator: Finding operations and arguments with reading comprehension",
+      "publication": "EMNLP",
+      "year": 2019,
+      "summary": "Reading comprehension models have been successfully applied to extractive text answers, but it is unclear how best to generalize these models to abstractive numerical answers. We enable a BERT-based reading comprehension model to perform lightweight numerical reasoning. We augment the model with a predefined set of executable 'programs' which encompass simple arithmetic as well as extraction. Rather than having to learn to manipulate numbers directly, the model can pick a program and execute it. On the recent Discrete Reasoning Over Passages (DROP) dataset, designed to challenge reading comprehension models, we show a 33% absolute improvement by adding shallow programs. The model can learn to predict new operations when appropriate in a math word problem setting (Roy and Roth, 2015) with very few training examples.",
+      "standard_url": "http://arxiv.org/abs/1909.00109v2",
+      "id": "2019-giving_bert_a_calculator:_finding_operations_and_arguments_with_reading_comprehension"
+    },
+    "4": {
+      "enum": "4",
+      "authors": "Jacob Andreas, Dan Klein, Sergey Levine",
+      "title": "Learning with latent language",
+      "publication": "NAACL",
+      "year": 2017,
+      "summary": "The named concepts and compositional operators present in natural language provide a rich source of information about the kinds of abstractions humans use to navigate the world. Can this linguistic background knowledge improve the generality and efficiency of learned classifiers and control policies? This paper aims to show that using the space of natural language strings as a parameter space is an effective way to capture natural task structure. In a pretraining phase, we learn a language interpretation model that transforms inputs (e.g. images) into outputs (e.g. labels) given natural language descriptions. To learn a new concept (e.g. a classifier), we search directly in the space of descriptions to minimize the interpreter's loss on training examples. Crucially, our models do not require language data to learn these concepts: language is used only in pretraining to impose structure on subsequent learning. Results on image classification, text editing, and reinforcement learning show that, in all settings, models with a linguistic parameterization outperform those without.",
+      "standard_url": "http://arxiv.org/abs/1711.00482v1",
+      "id": "2017-learning_with_latent_language"
+    },
+    "5": {
+      "enum": "5",
+      "authors": "Jacob Austin, Augustus Odena, Maxwell Nye, Maarten Bosma, Henryk Michalewski, David Dohan, Ellen Jiang, Carrie Cai, Michael Terry, Quoc Le, Charles Sutton",
+      "title": "Program synthesis with large language models",
+      "publication": "arXiv preprint arXiv:2108.07732",
+      "year": 2021,
+      "summary": "This paper explores the limits of the current generation of large language models for program synthesis in general purpose programming languages. We evaluate a collection of such models (with between 244M and 137B parameters) on two new benchmarks, MBPP and MathQA-Python, in both the few-shot and fine-tuning regimes. Our benchmarks are designed to measure the ability of these models to synthesize short Python programs from natural language descriptions. The Mostly Basic Programming Problems (MBPP) dataset contains 974 programming tasks, designed to be solvable by entry-level programmers. The MathQA-Python dataset, a Python version of the MathQA benchmark, contains 23914 problems that evaluate the ability of the models to synthesize code from more complex text. On both datasets, we find that synthesis performance scales log-linearly with model size. Our largest models, even without finetuning on a code dataset, can synthesize solutions to 59.6 percent of the problems from MBPP using few-shot learning with a well-designed prompt. Fine-tuning on a held-out portion of the dataset improves performance by about 10 percentage points across most model sizes. On the MathQA-Python dataset, the largest fine-tuned model achieves 83.8 percent accuracy. Going further, we study the model's ability to engage in dialog about code, incorporating human feedback to improve its solutions. We find that natural language feedback from a human halves the error rate compared to the model's initial prediction. Additionally, we conduct an error analysis to shed light on where these models fall short and what types of programs are most difficult to generate. Finally, we explore the semantic grounding of these models by fine-tuning them to predict the results of program execution. We find that even our best models are generally unable to predict the output of a program given a specific input.",
+      "standard_url": "http://arxiv.org/abs/2108.07732v1",
+      "id": "2021-program_synthesis_with_large_language_models"
+    },
+    "6": {
+      "enum": "6",
+      "authors": "BIG-bench collaboration. 2021",
+      "title": "Beyond the imitation game: Measuring and extrapolating the capabilities of language models",
+      "publication": "In preparation",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-beyond_the_imitation_game:_measuring_and_extrapolating_the_capabilities_of_language_models"
+    },
+    "7": {
+      "enum": "7",
+      "authors": "Kaj Bostrom, Xinyu Zhao, Swarat Chaudhuri, Greg Durrett",
+      "title": "Flexible generation of natural language deductions",
+      "publication": "EMNLP",
+      "year": 2021,
+      "summary": "An interpretable system for open-domain reasoning needs to express its reasoning process in a transparent form. Natural language is an attractive representation for this purpose -- it is both highly expressive and easy for humans to understand. However, manipulating natural language statements in logically consistent ways is hard: models must cope with variation in how meaning is expressed while remaining precise. In this paper, we describe ParaPattern, a method for building models to generate deductive inferences from diverse natural language inputs without direct human supervision. We train BART-based models (Lewis et al., 2020) to generate the result of applying a particular logical operation to one or more premise statements. Crucially, we develop a largely automated pipeline for constructing suitable training examples from Wikipedia. We evaluate our models using out-of-domain sentence compositions from the QASC (Khot et al., 2020) and EntailmentBank (Dalvi et al., 2021) datasets as well as targeted perturbation sets. Our results show that our models are substantially more accurate and flexible than baseline systems. ParaPattern achieves 85% validity on examples of the 'substitution' operation from EntailmentBank without the use of any in-domain training data, matching the performance of a model fine-tuned for EntailmentBank. The full source code for our method is publicly available.",
+      "standard_url": "http://arxiv.org/abs/2104.08825v2",
+      "id": "2021-flexible_generation_of_natural_language_deductions"
+    },
+    "8": {
+      "enum": "8",
+      "authors": "Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, Dario Amodei",
+      "title": "Language models are few-shot learners",
+      "publication": "NeurIPS",
+      "year": 2020,
+      "summary": "Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to do. Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same time, we also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally, we find that GPT-3 can generate samples of news articles which human evaluators have difficulty distinguishing from articles written by humans. We discuss broader societal impacts of this finding and of GPT-3 in general.",
+      "standard_url": "http://arxiv.org/abs/2005.14165v4",
+      "id": "2020-language_models_are_few-shot_learners"
+    },
+    "9": {
+      "enum": "9",
+      "authors": "Jonathon Cai, Richard Shin, Dawn Song",
+      "title": "Making neural programming architectures generalize via recursion",
+      "publication": "ICLR",
+      "year": 2017,
+      "summary": "Empirically, neural networks that attempt to learn programs from data have exhibited poor generalizability. Moreover, it has traditionally been difficult to reason about the behavior of these models beyond a certain level of input complexity. In order to address these issues, we propose augmenting neural architectures with a key abstraction: recursion. As an application, we implement recursion in the Neural Programmer-Interpreter framework on four tasks: grade-school addition, bubble sort, topological sort, and quicksort. We demonstrate superior generalizability and interpretability with small amounts of training data. Recursion divides the problem into smaller pieces and drastically reduces the domain of each neural network component, making it tractable to prove guarantees about the overall system's behavior. Our experience suggests that in order for neural architectures to robustly learn program semantics, it is necessary to incorporate a concept like recursion.",
+      "standard_url": "http://arxiv.org/abs/1704.06611v1",
+      "id": "2017-making_neural_programming_architectures_generalize_via_recursion"
+    },
+    "10": {
+      "enum": "10",
+      "authors": "Oana-Maria Camburu, Tim Rocktäschel, Thomas Lukasiewicz, Phil Blunsom",
+      "title": "e-SNLI: Natural language inference with natural language explanations",
+      "publication": "NeurIPS",
+      "year": 2018,
+      "summary": "In order for machine learning to garner widespread public adoption, models must be able to provide interpretable and robust explanations for their decisions, as well as learn from human-provided explanations at train time. In this work, we extend the Stanford Natural Language Inference dataset with an additional layer of human-annotated natural language explanations of the entailment relations. We further implement models that incorporate these explanations into their training process and output them at test time. We show how our corpus of explanations, which we call e-SNLI, can be used for various goals, such as obtaining full sentence justifications of a model's decisions, improving universal sentence representations and transferring to out-of-domain NLI datasets. Our dataset thus opens up a range of research directions for using natural language explanations, both for improving models and for asserting their trust.",
+      "standard_url": "http://arxiv.org/abs/1812.01193v2",
+      "id": "2018-e-snli:_natural_language_inference_with_natural_language_explanations"
+    },
+    "11": {
+      "enum": "11",
+      "authors": "Howard Chen, Jacqueline He, Karthik Narasimhan, Danqi Chen",
+      "title": "Can rationalization improve robustness?",
+      "publication": "NAACL",
+      "year": 2022,
+      "summary": "A growing line of work has investigated the development of neural NLP models that can produce rationales--subsets of input that can explain their model predictions. In this paper, we ask whether such rationale models can also provide robustness to adversarial attacks in addition to their interpretable nature. Since these models need to first generate rationales (\"rationalizer\") before making predictions (\"predictor\"), they have the potential to ignore noise or adversarially added text by simply masking it out of the generated rationale. To this end, we systematically generate various types of 'AddText' attacks for both token and sentence-level rationalization tasks, and perform an extensive empirical evaluation of state-of-the-art rationale models across five different tasks. Our experiments reveal that the rationale models show the promise to improve robustness, while they struggle in certain scenarios--when the rationalizer is sensitive to positional bias or lexical choices of attack text. Further, leveraging human rationale as supervision does not always translate to better performance. Our study is a first step towards exploring the interplay between interpretability and robustness in the rationalize-then-predict framework.",
+      "standard_url": "http://arxiv.org/abs/2204.11790v2",
+      "id": "2022-can_rationalization_improve_robustness?"
+    },
+    "12": {
+      "enum": "12",
+      "authors": "Mark Chen, Jerry Tworek, Heewoo Jun, Qiming Yuan, Henrique Ponde de Oliveira Pinto, Jared Kaplan, Harri Edwards, Yuri Burda, Nicholas Joseph, Greg Brockman, Alex Ray, Raul Puri, Gretchen Krueger, Michael Petrov, Heidy Khlaaf, Girish Sastry, Pamela Mishkin, Brooke Chan, Scott Gray, Nick Ryder, Mikhail Pavlov, Alethea Power, Lukasz Kaiser, Mohammad Bavarian, Clemens Winter, Philippe Tillet, Felipe Petroski Such, Dave Cummings, Matthias Plappert, Fotios Chantzis, Elizabeth Barnes, Ariel Herbert-Voss, William Hebgen Guss, Alex Nichol, Alex Paino, Nikolas Tezak, Jie Tang, Igor Babuschkin, Suchir Balaji, Shantanu Jain, William Saunders, Christopher Hesse, Andrew N. Carr, Jan Leike, Josh Achiam, Vedant Misra, Evan Morikawa, Alec Radford, Matthew Knight, Miles Brundage, Mira Murati, Katie Mayer, Peter Welinder, Bob McGrew, Dario Amodei, Sam McCandlish, Ilya Sutskever, Wojciech Zaremba",
+      "title": "Evaluating large language models trained on code",
+      "publication": "arXiv preprint arXiv:2107.03374",
+      "year": 2021,
+      "summary": "We introduce Codex, a GPT language model fine-tuned on publicly available code from GitHub, and study its Python code-writing capabilities. A distinct production version of Codex powers GitHub Copilot. On HumanEval, a new evaluation set we release to measure functional correctness for synthesizing programs from docstrings, our model solves 28.8% of the problems, while GPT-3 solves 0% and GPT-J solves 11.4%. Furthermore, we find that repeated sampling from the model is a surprisingly effective strategy for producing working solutions to difficult prompts. Using this method, we solve 70.2% of our problems with 100 samples per problem. Careful investigation of our model reveals its limitations, including difficulty with docstrings describing long chains of operations and with binding operations to variables. Finally, we discuss the potential broader impacts of deploying powerful code generation technologies, covering safety, security, and economics.",
+      "standard_url": "http://arxiv.org/abs/2107.03374v2",
+      "id": "2021-evaluating_large_language_models_trained_on_code"
+    },
+    "13": {
+      "enum": "13",
+      "authors": "Xinyun Chen, Chen Liang, Adams Wei Yu, Denny Zhou, Dawn Song, and Quoc V. Le. 2019",
+      "title": "Neural symbolic reader: Scalable integration of distributed and symbolic representations for reading comprehension",
+      "publication": "ICLR",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-neural_symbolic_reader:_scalable_integration_of_distributed_and_symbolic_representations_for_reading_comprehension"
+    },
+    "14": {
+      "enum": "14",
+      "authors": "Ting-Rui Chiang, Yun-Nung Chen",
+      "title": "Semantically-aligned equation generation for solving and reasoning math word problems",
+      "publication": "In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), pages 2656–2668, Minneapolis, Minnesota. Association for Computational Linguistics",
+      "year": 2018,
+      "summary": "Solving math word problems is a challenging task that requires accurate natural language understanding to bridge natural language texts and math expressions. Motivated by the intuition about how human generates the equations given the problem texts, this paper presents a neural approach to automatically solve math word problems by operating symbols according to their semantic meanings in texts. This paper views the process of generating equation as a bridge between the semantic world and the symbolic world, where the proposed neural math solver is based on an encoder-decoder framework. In the proposed model, the encoder is designed to understand the semantics of problems, and the decoder focuses on tracking semantic meanings of the generated symbols and then deciding which symbol to generate next. The preliminary experiments are conducted in a dataset Math23K, and our model significantly outperforms both the state-of-the-art single model and the best non-retrieval-based model over about 10% accuracy, demonstrating the effectiveness of bridging the symbolic and semantic worlds from math word problems.",
+      "standard_url": "http://arxiv.org/abs/1811.00720v2",
+      "id": "2018-semantically-aligned_equation_generation_for_solving_and_reasoning_math_word_problems"
+    },
+    "15": {
+      "enum": "15",
+      "authors": "Peter Clark, Oyvind Tafjord, Kyle Richardson",
+      "title": "Transformers as soft reasoners over language",
+      "publication": "IJCAI",
+      "year": 2020,
+      "summary": "Beginning with McCarthy's Advice Taker (1959), AI has pursued the goal of providing a system with explicit, general knowledge and having the system reason over that knowledge. However, expressing the knowledge in a formal (logical or probabilistic) representation has been a major obstacle to this research. This paper investigates a modern approach to this problem where the facts and rules are provided as natural language sentences, thus bypassing a formal representation. We train transformers to reason (or emulate reasoning) over these sentences using synthetically generated data. Our models, that we call RuleTakers, provide the first empirical demonstration that this kind of soft reasoning over language is learnable, can achieve high (99%) accuracy, and generalizes to test data requiring substantially deeper chaining than seen during training (95%+ scores). We also demonstrate that the models transfer well to two hand-authored rulebases, and to rulebases paraphrased into more natural language. These findings are significant as it suggests a new role for transformers, namely as limited \"soft theorem provers\" operating over explicit theories in language. This in turn suggests new possibilities for explainability, correctability, and counterfactual reasoning in question-answering.",
+      "standard_url": "http://arxiv.org/abs/2002.05867v2",
+      "id": "2020-transformers_as_soft_reasoners_over_language"
+    },
+    "16": {
+      "enum": "16",
+      "authors": "Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, John Schulman",
+      "title": "Training verifiers to solve math word problems",
+      "publication": "arXiv preprint arXiv:2110.14168",
+      "year": 2021,
+      "summary": "State-of-the-art language models can match human performance on many tasks, but they still struggle to robustly perform multi-step mathematical reasoning. To diagnose the failures of current models and support research, we introduce GSM8K, a dataset of 8.5K high quality linguistically diverse grade school math word problems. We find that even the largest transformer models fail to achieve high test performance, despite the conceptual simplicity of this problem distribution. To increase performance, we propose training verifiers to judge the correctness of model completions. At test time, we generate many candidate solutions and select the one ranked highest by the verifier. We demonstrate that verification significantly improves performance on GSM8K, and we provide strong empirical evidence that verification scales more effectively with increased data than a finetuning baseline.",
+      "standard_url": "http://arxiv.org/abs/2110.14168v2",
+      "id": "2021-training_verifiers_to_solve_math_word_problems"
+    },
+    "17": {
+      "enum": "17",
+      "authors": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova",
+      "title": "BERT: Pre-training of deep bidirectional transformers for language understanding",
+      "publication": "NAACL",
+      "year": 2018,
+      "summary": "We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications.\n  BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5% (7.7% point absolute improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).",
+      "standard_url": "http://arxiv.org/abs/1810.04805v2",
+      "id": "2018-bert:_pre-training_of_deep_bidirectional_transformers_for_language_understanding"
+    },
+    "18": {
+      "enum": "18",
+      "authors": "Honghua Dong, Jiayuan Mao, Tian Lin, Chong Wang, Lihong Li, Denny Zhou",
+      "title": "Neural logic machines",
+      "publication": "ICLR",
+      "year": 2019,
+      "summary": "We propose the Neural Logic Machine (NLM), a neural-symbolic architecture for both inductive learning and logic reasoning. NLMs exploit the power of both neural networks---as function approximators, and logic programming---as a symbolic processor for objects with properties, relations, logic connectives, and quantifiers. After being trained on small-scale tasks (such as sorting short arrays), NLMs can recover lifted rules, and generalize to large-scale tasks (such as sorting longer arrays). In our experiments, NLMs achieve perfect generalization in a number of tasks, from relational reasoning tasks on the family tree and general graphs, to decision making tasks including sorting arrays, finding shortest paths, and playing the blocks world. Most of these tasks are hard to accomplish for neural networks or inductive logic programming alone.",
+      "standard_url": "http://arxiv.org/abs/1904.11694v1",
+      "id": "2019-neural_logic_machines"
+    },
+    "19": {
+      "enum": "19",
+      "authors": "Dheeru Dua, Sameer Singh, and Matt Gardner. 2020",
+      "title": "Benefits of intermediate annotations in reading comprehension",
+      "publication": "ACL",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-benefits_of_intermediate_annotations_in_reading_comprehension"
+    },
+    "20": {
+      "enum": "20",
+      "authors": "Mor Geva, Daniel Khashabi, Elad Segal, Tushar Khot, Dan Roth, Jonathan Berant",
+      "title": "Did aristotle use a laptop? A question answering benchmark with implicit reasoning strategies",
+      "publication": "TACL",
+      "year": 2021,
+      "summary": "A key limitation in current datasets for multi-hop reasoning is that the required steps for answering the question are mentioned in it explicitly. In this work, we introduce StrategyQA, a question answering (QA) benchmark where the required reasoning steps are implicit in the question, and should be inferred using a strategy. A fundamental challenge in this setup is how to elicit such creative questions from crowdsourcing workers, while covering a broad range of potential strategies. We propose a data collection procedure that combines term-based priming to inspire annotators, careful control over the annotator population, and adversarial filtering for eliminating reasoning shortcuts. Moreover, we annotate each question with (1) a decomposition into reasoning steps for answering it, and (2) Wikipedia paragraphs that contain the answers to each step. Overall, StrategyQA includes 2,780 examples, each consisting of a strategy question, its decomposition, and evidence paragraphs. Analysis shows that questions in StrategyQA are short, topic-diverse, and cover a wide range of strategies. Empirically, we show that humans perform well (87%) on this task, while our best baseline reaches an accuracy of $\\sim$66%.",
+      "standard_url": "http://arxiv.org/abs/2101.02235v1",
+      "id": "2021-did_aristotle_use_a_laptop?_a_question_answering_benchmark_with_implicit_reasoning_strategies"
+    },
+    "21": {
+      "enum": "21",
+      "authors": "Yuling Gu, Bhavana Dalvi Mishra, and Peter Clark. 2022",
+      "title": "DREAM: Uncovering mental models behind language models",
+      "publication": "NAACL",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-dream:_uncovering_mental_models_behind_language_models"
+    },
+    "22": {
+      "enum": "22",
+      "authors": "Braden Hancock, Paroma Varma, Stephanie Wang, Martin Bringmann, Percy Liang, Christopher Ré",
+      "title": "Training classifiers with natural language explanations",
+      "publication": "ACL",
+      "year": 2018,
+      "summary": "Training accurate classifiers requires many labels, but each label provides only limited information (one bit for binary classification). In this work, we propose BabbleLabble, a framework for training classifiers in which an annotator provides a natural language explanation for each labeling decision. A semantic parser converts these explanations into programmatic labeling functions that generate noisy labels for an arbitrary amount of unlabeled data, which is used to train a classifier. On three relation extraction tasks, we find that users are able to train classifiers with comparable F1 scores from 5-100$\\times$ faster by providing explanations instead of just labels. Furthermore, given the inherent imperfection of labeling functions, we find that a simple rule-based semantic parser suffices.",
+      "standard_url": "http://arxiv.org/abs/1805.03818v4",
+      "id": "2018-training_classifiers_with_natural_language_explanations"
+    },
+    "23": {
+      "enum": "23",
+      "authors": "Peter Hase, Mohit Bansal",
+      "title": "When can models learn from explanations? a formal framework for understanding the roles of explanation data",
+      "publication": "ACL",
+      "year": 2021,
+      "summary": "Many methods now exist for conditioning model outputs on task instructions, retrieved documents, and user-provided explanations and feedback. Rather than relying solely on examples of task inputs and outputs, these approaches use valuable additional data for improving model correctness and aligning learned models with human priors. Meanwhile, a growing body of evidence suggests that some language models can (1) store a large amount of knowledge in their parameters, and (2) perform inference over tasks in textual inputs at test time. These results raise the possibility that, for some tasks, humans cannot explain to a model any more about the task than it already knows or could infer on its own. In this paper, we study the circumstances under which explanations of individual data points can (or cannot) improve modeling performance. In order to carefully control important properties of the data and explanations, we introduce a synthetic dataset for experiments, and we also make use of three existing datasets with explanations: e-SNLI, TACRED, and SemEval. We first give a formal framework for the available modeling approaches, in which explanation data can be used as model inputs, as targets, or as a prior. After arguing that the most promising role for explanation data is as model inputs, we propose to use a retrieval-based method and show that it solves our synthetic task with accuracies upwards of 95%, while baselines without explanation data achieve below 65% accuracy. We then identify properties of datasets for which retrieval-based modeling fails. With the three existing datasets, we find no improvements from explanation retrieval. Drawing on findings from our synthetic task, we suggest that at least one of six preconditions for successful modeling fails to hold with these datasets. Our code is publicly available at https://github.com/peterbhase/ExplanationRoles",
+      "standard_url": "http://arxiv.org/abs/2102.02201v2",
+      "id": "2021-when_can_models_learn_from_explanations?_a_formal_framework_for_understanding_the_roles_of_explanation_data"
+    },
+    "24": {
+      "enum": "24",
+      "authors": "Dan Hendrycks, Collin Burns, Saurav Kadavath, Akul Arora, Steven Basart, Eric Tang, Dawn Song, Jacob Steinhardt",
+      "title": "Measuring mathematical problem solving with the math dataset",
+      "publication": "arXiv preprint arXiv:2103.03874",
+      "year": 2021,
+      "summary": "Many intellectual endeavors require mathematical problem solving, but this skill remains beyond the capabilities of computers. To measure this ability in machine learning models, we introduce MATH, a new dataset of 12,500 challenging competition mathematics problems. Each problem in MATH has a full step-by-step solution which can be used to teach models to generate answer derivations and explanations. To facilitate future research and increase accuracy on MATH, we also contribute a large auxiliary pretraining dataset which helps teach models the fundamentals of mathematics. Even though we are able to increase accuracy on MATH, our results show that accuracy remains relatively low, even with enormous Transformer models. Moreover, we find that simply increasing budgets and model parameter counts will be impractical for achieving strong mathematical reasoning if scaling trends continue. While scaling Transformers is automatically solving most other text-based tasks, scaling is not currently solving MATH. To have more traction on mathematical problem solving we will likely need new algorithmic advancements from the broader research community.",
+      "standard_url": "http://arxiv.org/abs/2103.03874v2",
+      "id": "2021-measuring_mathematical_problem_solving_with_the_math_dataset"
+    },
+    "25": {
+      "enum": "25",
+      "authors": "Mohammad Javad Hosseini, Hannaneh Hajishirzi, Oren Etzioni, and Nate Kushman. 2014",
+      "title": "Learning to solve arithmetic word problems with verb categorization",
+      "publication": "EMNLP",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-learning_to_solve_arithmetic_word_problems_with_verb_categorization"
+    },
+    "26": {
+      "enum": "26",
+      "authors": "Zhanming Jie, Jierui Li, Wei Lu",
+      "title": "Learning to reason deductively: Math word problem solving as complex relation extraction",
+      "publication": "arXiv preprint arXiv:2203.10316",
+      "year": 2022,
+      "summary": "Solving math word problems requires deductive reasoning over the quantities in the text. Various recent research efforts mostly relied on sequence-to-sequence or sequence-to-tree models to generate mathematical expressions without explicitly performing relational reasoning between quantities in the given context. While empirically effective, such approaches typically do not provide explanations for the generated expressions. In this work, we view the task as a complex relation extraction problem, proposing a novel approach that presents explainable deductive reasoning steps to iteratively construct target expressions, where each step involves a primitive operation over two quantities defining their relation. Through extensive experiments on four benchmark datasets, we show that the proposed model significantly outperforms existing strong baselines. We further demonstrate that the deductive procedure not only presents more explainable steps but also enables us to make more accurate predictions on questions that require more complex reasoning.",
+      "standard_url": "http://arxiv.org/abs/2203.10316v4",
+      "id": "2022-learning_to_reason_deductively:_math_word_problem_solving_as_complex_relation_extraction"
+    },
+    "27": {
+      "enum": "27",
+      "authors": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, Dario Amodei",
+      "title": "Scaling laws for neural language models",
+      "publication": "arXiv preprint arXiv:2001.08361",
+      "year": 2020,
+      "summary": "We study empirical scaling laws for language model performance on the cross-entropy loss. The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude. Other architectural details such as network width or depth have minimal effects within a wide range. Simple equations govern the dependence of overfitting on model/dataset size and the dependence of training speed on model size. These relationships allow us to determine the optimal allocation of a fixed compute budget. Larger models are significantly more sample-efficient, such that optimally compute-efficient training involves training very large models on a relatively modest amount of data and stopping significantly before convergence.",
+      "standard_url": "http://arxiv.org/abs/2001.08361v1",
+      "id": "2020-scaling_laws_for_neural_language_models"
+    },
+    "28": {
+      "enum": "28",
+      "authors": "Rik Koncel-Kedziorski, Subhro Roy, Aida Amini, Nate Kushman, and Hannaneh Hajishirzi. 2016",
+      "title": "MAWPS: A math word problem repository",
+      "publication": "NAACL",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-mawps:_a_math_word_problem_repository"
+    },
+    "29": {
+      "enum": "29",
+      "authors": "Andrew K. Lampinen, Ishita Dasgupta, Stephanie C. Y. Chan, Kory Matthewson, Michael Henry Tessler, Antonia Creswell, James L. McClelland, Jane X. Wang, Felix Hill",
+      "title": "Can language models learn from explanations in context?",
+      "publication": "arXiv preprint arXiv:2204.02329",
+      "year": 2022,
+      "summary": "Language Models (LMs) can perform new tasks by adapting to a few in-context examples. For humans, explanations that connect examples to task principles can improve learning. We therefore investigate whether explanations of few-shot examples can help LMs. We annotate questions from 40 challenging tasks with answer explanations, and various matched control explanations. We evaluate how different types of explanations, instructions, and controls affect zero- and few-shot performance. We analyze these results using statistical multilevel modeling techniques that account for the nested dependencies among conditions, tasks, prompts, and models. We find that explanations can improve performance -- even without tuning. Furthermore, explanations hand-tuned for performance on a small validation set offer substantially larger benefits, and building a prompt by selecting examples and explanations together substantially improves performance over selecting examples alone. Finally, even untuned explanations outperform carefully matched controls, suggesting that the benefits are due to the link between an example and its explanation, rather than lower-level features. However, only large models benefit. In summary, explanations can support the in-context learning of large LMs on challenging tasks.",
+      "standard_url": "http://arxiv.org/abs/2204.02329v4",
+      "id": "2022-can_language_models_learn_from_explanations_in_context?"
+    },
+    "30": {
+      "enum": "30",
+      "authors": "Yihuai Lan, Lei Wang, Qiyuan Zhang, Yunshi Lan, Bing Tian Dai, Yan Wang, Dongxiang Zhang, Ee-Peng Lim",
+      "title": "MWPToolkit: An open-source framework for deep learning-based math word problem solvers",
+      "publication": "arXiv preprint arXiv:2109.00799",
+      "year": 2021,
+      "summary": "Developing automatic Math Word Problem (MWP) solvers has been an interest of NLP researchers since the 1960s. Over the last few years, there are a growing number of datasets and deep learning-based methods proposed for effectively solving MWPs. However, most existing methods are benchmarked soly on one or two datasets, varying in different configurations, which leads to a lack of unified, standardized, fair, and comprehensive comparison between methods. This paper presents MWPToolkit, the first open-source framework for solving MWPs. In MWPToolkit, we decompose the procedure of existing MWP solvers into multiple core components and decouple their models into highly reusable modules. We also provide a hyper-parameter search function to boost the performance. In total, we implement and compare 17 MWP solvers on 4 widely-used single equation generation benchmarks and 2 multiple equations generation benchmarks. These features enable our MWPToolkit to be suitable for researchers to reproduce advanced baseline models and develop new MWP solvers quickly. Code and documents are available at https://github.com/LYH-YF/MWPToolkit.",
+      "standard_url": "http://arxiv.org/abs/2109.00799v2",
+      "id": "2021-mwptoolkit:_an_open-source_framework_for_deep_learning-based_math_word_problem_solvers"
+    },
+    "31": {
+      "enum": "31",
+      "authors": "Teven Le Scao, Alexander M. Rush",
+      "title": "How many data points is a prompt worth?",
+      "publication": "NAACL",
+      "year": 2021,
+      "summary": "When fine-tuning pretrained models for classification, researchers either use a generic model head or a task-specific prompt for prediction. Proponents of prompting have argued that prompts provide a method for injecting task-specific guidance, which is beneficial in low-data regimes. We aim to quantify this benefit through rigorous testing of prompts in a fair setting: comparing prompted and head-based fine-tuning in equal conditions across many tasks and data sizes. By controlling for many sources of advantage, we find that prompting does indeed provide a benefit, and that this benefit can be quantified per task. Results show that prompting is often worth 100s of data points on average across classification tasks.",
+      "standard_url": "http://arxiv.org/abs/2103.08493v2",
+      "id": "2021-how_many_data_points_is_a_prompt_worth?"
+    },
+    "32": {
+      "enum": "32",
+      "authors": "Brian Lester, Rami Al-Rfou, Noah Constant",
+      "title": "The power of scale for parameter-efficient prompt tuning",
+      "publication": "EMNLP",
+      "year": 2021,
+      "summary": "In this work, we explore \"prompt tuning\", a simple yet effective mechanism for learning \"soft prompts\" to condition frozen language models to perform specific downstream tasks. Unlike the discrete text prompts used by GPT-3, soft prompts are learned through backpropagation and can be tuned to incorporate signal from any number of labeled examples. Our end-to-end learned approach outperforms GPT-3's \"few-shot\" learning by a large margin. More remarkably, through ablations on model size using T5, we show that prompt tuning becomes more competitive with scale: as models exceed billions of parameters, our method \"closes the gap\" and matches the strong performance of model tuning (where all model weights are tuned). This finding is especially relevant in that large models are costly to share and serve, and the ability to reuse one frozen model for multiple downstream tasks can ease this burden. Our method can be seen as a simplification of the recently proposed \"prefix tuning\" of Li and Liang (2021), and we provide a comparison to this and other similar approaches. Finally, we show that conditioning a frozen model with soft prompts confers benefits in robustness to domain transfer, as compared to full model tuning.",
+      "standard_url": "http://arxiv.org/abs/2104.08691v2",
+      "id": "2021-the_power_of_scale_for_parameter-efficient_prompt_tuning"
+    },
+    "33": {
+      "enum": "33",
+      "authors": "Iddo Lev, Bill MacCartney, Christopher Manning, and Roger Levy. 2004",
+      "title": "Solving logic puzzles: From robust processing to precise semantics",
+      "publication": "Proceedings of the 2nd Workshop on Text Meaning and Interpretation",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-solving_logic_puzzles:_from_robust_processing_to_precise_semantics"
+    },
+    "34": {
+      "enum": "34",
+      "authors": "Xiang Lisa Li, Percy Liang",
+      "title": "Prefix-tuning: Optimizing continuous prompts for generation",
+      "publication": "ACL",
+      "year": 2021,
+      "summary": "Fine-tuning is the de facto way to leverage large pretrained language models to perform downstream tasks. However, it modifies all the language model parameters and therefore necessitates storing a full copy for each task. In this paper, we propose prefix-tuning, a lightweight alternative to fine-tuning for natural language generation tasks, which keeps language model parameters frozen, but optimizes a small continuous task-specific vector (called the prefix). Prefix-tuning draws inspiration from prompting, allowing subsequent tokens to attend to this prefix as if it were \"virtual tokens\". We apply prefix-tuning to GPT-2 for table-to-text generation and to BART for summarization. We find that by learning only 0.1\\% of the parameters, prefix-tuning obtains comparable performance in the full data setting, outperforms fine-tuning in low-data settings, and extrapolates better to examples with topics unseen during training.",
+      "standard_url": "http://arxiv.org/abs/2101.00190v1",
+      "id": "2021-prefix-tuning:_optimizing_continuous_prompts_for_generation"
+    },
+    "35": {
+      "enum": "35",
+      "authors": "Zhengzhong Liang, Steven Bethard, and Mihai Surdeanu. 2021",
+      "title": "Explainable multi-hop verbal reasoning through internal monologue",
+      "publication": "NAACL",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-explainable_multi-hop_verbal_reasoning_through_internal_monologue"
+    },
+    "36": {
+      "enum": "36",
+      "authors": "Wang Ling, Dani Yogatama, Chris Dyer, Phil Blunsom",
+      "title": "Program induction by rationale generation: Learning to solve and explain algebraic word problems",
+      "publication": "ACL",
+      "year": 2017,
+      "summary": "Solving algebraic word problems requires executing a series of arithmetic operations---a program---to obtain a final answer. However, since programs can be arbitrarily complicated, inducing them directly from question-answer pairs is a formidable challenge. To make this task more feasible, we solve these problems by generating answer rationales, sequences of natural language and human-readable mathematical expressions that derive the final answer through a series of small steps. Although rationales do not explicitly specify programs, they provide a scaffolding for their structure via intermediate milestones. To evaluate our approach, we have created a new 100,000-sample dataset of questions, answers and rationales. Experimental results show that indirect supervision of program learning via answer rationales is a promising strategy for inducing arithmetic programs.",
+      "standard_url": "http://arxiv.org/abs/1705.04146v3",
+      "id": "2017-program_induction_by_rationale_generation:_learning_to_solve_and_explain_algebraic_word_problems"
+    },
+    "37": {
+      "enum": "37",
+      "authors": "Pengfei Liu, Weizhe Yuan, Jinlan Fu, Zhengbao Jiang, Hiroaki Hayashi, Graham Neubig",
+      "title": "Pre-train, prompt, and predict: A systematic survey of prompting methods in natural language processing",
+      "publication": "arXiv preprint arXiv:2107.13586",
+      "year": 2021,
+      "summary": "This paper surveys and organizes research works in a new paradigm in natural language processing, which we dub \"prompt-based learning\". Unlike traditional supervised learning, which trains a model to take in an input x and predict an output y as P(y|x), prompt-based learning is based on language models that model the probability of text directly. To use these models to perform prediction tasks, the original input x is modified using a template into a textual string prompt x' that has some unfilled slots, and then the language model is used to probabilistically fill the unfilled information to obtain a final string x, from which the final output y can be derived. This framework is powerful and attractive for a number of reasons: it allows the language model to be pre-trained on massive amounts of raw text, and by defining a new prompting function the model is able to perform few-shot or even zero-shot learning, adapting to new scenarios with few or no labeled data. In this paper we introduce the basics of this promising paradigm, describe a unified set of mathematical notations that can cover a wide variety of existing work, and organize existing work along several dimensions, e.g.the choice of pre-trained models, prompts, and tuning strategies. To make the field more accessible to interested beginners, we not only make a systematic review of existing works and a highly structured typology of prompt-based concepts, but also release other resources, e.g., a website http://pretrain.nlpedia.ai/ including constantly-updated survey, and paperlist.",
+      "standard_url": "http://arxiv.org/abs/2107.13586v1",
+      "id": "2021-pre-train_prompt_and_predict:_a_systematic_survey_of_prompting_methods_in_natural_language_processing"
+    },
+    "38": {
+      "enum": "38",
+      "authors": "Bodhisattwa Prasad Majumder, Oana-Maria Camburu, Thomas Lukasiewicz, and Julian McAuley. 2021",
+      "title": "Rationale-inspired natural language explanations with commonsense",
+      "publication": "arXiv preprint arXiv:2106.13876",
+      "year": "2106",
+      "summary": null,
+      "standard_url": null,
+      "id": "2106-rationale-inspired_natural_language_explanations_with_commonsense"
+    },
+    "39": {
+      "enum": "39",
+      "authors": "Ana Marasović, Iz Beltagy, Doug Downey, Matthew E. Peters",
+      "title": "Few-shot self-rationalization with natural language prompts",
+      "publication": "NAACL Findings",
+      "year": 2021,
+      "summary": "Self-rationalization models that predict task labels and generate free-text elaborations for their predictions could enable more intuitive interaction with NLP systems. These models are, however, currently trained with a large amount of human-written free-text explanations for each task which hinders their broader usage. We propose to study a more realistic setting of self-rationalization using few training examples. We present FEB -- a standardized collection of four existing English-language datasets and associated metrics. We identify the right prompting approach by extensively exploring natural language prompts on FEB. Then, by using this prompt and scaling the model size, we demonstrate that making progress on few-shot self-rationalization is possible. We show there is still ample room for improvement in this task: the average plausibility of generated explanations assessed by human annotators is at most 51% (with GPT-3), while plausibility of human explanations is 76%. We hope that FEB and our proposed approach will spur the community to take on the few-shot self-rationalization challenge.",
+      "standard_url": "http://arxiv.org/abs/2111.08284v2",
+      "id": "2021-few-shot_self-rationalization_with_natural_language_prompts"
+    },
+    "40": {
+      "enum": "40",
+      "authors": "Joshua Maynez, Shashi Narayan, Bernd Bohnet, Ryan McDonald",
+      "title": "On faithfulness and factuality in abstractive summarization",
+      "publication": "In ACL",
+      "year": 2020,
+      "summary": "It is well known that the standard likelihood training and approximate decoding objectives in neural text generation models lead to less human-like responses for open-ended tasks such as language modeling and story generation. In this paper we have analyzed limitations of these models for abstractive document summarization and found that these models are highly prone to hallucinate content that is unfaithful to the input document. We conducted a large scale human evaluation of several neural abstractive summarization systems to better understand the types of hallucinations they produce. Our human annotators found substantial amounts of hallucinated content in all model generated summaries. However, our analysis does show that pretrained models are better summarizers not only in terms of raw metrics, i.e., ROUGE, but also in generating faithful and factual summaries as evaluated by humans. Furthermore, we show that textual entailment measures better correlate with faithfulness than standard metrics, potentially leading the way to automatic evaluation metrics as well as training and decoding criteria.",
+      "standard_url": "http://arxiv.org/abs/2005.00661v1",
+      "id": "2020-on_faithfulness_and_factuality_in_abstractive_summarization"
+    },
+    "41": {
+      "enum": "41",
+      "authors": "Shen-Yun Miao, Chao-Chun Liang, Keh-Yih Su",
+      "title": "A diverse corpus for evaluating and developing English math word problem solvers",
+      "publication": "ACL",
+      "year": 2021,
+      "summary": "We present ASDiv (Academia Sinica Diverse MWP Dataset), a diverse (in terms of both language patterns and problem types) English math word problem (MWP) corpus for evaluating the capability of various MWP solvers. Existing MWP corpora for studying AI progress remain limited either in language usage patterns or in problem types. We thus present a new English MWP corpus with 2,305 MWPs that cover more text patterns and most problem types taught in elementary school. Each MWP is annotated with its problem type and grade level (for indicating the level of difficulty). Furthermore, we propose a metric to measure the lexicon usage diversity of a given MWP corpus, and demonstrate that ASDiv is more diverse than existing corpora. Experiments show that our proposed corpus reflects the true capability of MWP solvers more faithfully.",
+      "standard_url": "http://arxiv.org/abs/2106.15772v1",
+      "id": "2021-a_diverse_corpus_for_evaluating_and_developing_english_math_word_problem_solvers"
+    },
+    "42": {
+      "enum": "42",
+      "authors": "Sewon Min, Xinxi Lyu, Ari Holtzman, Mikel Artetxe, Mike Lewis, Hannaneh Hajishirzi, Luke Zettlemoyer",
+      "title": "Rethinking the role of demonstrations: What makes in-context learning work?",
+      "publication": "arXiv preprint arXiv:2202.12837",
+      "year": 2022,
+      "summary": "Large language models (LMs) are able to in-context learn -- perform a new task via inference alone by conditioning on a few input-label pairs (demonstrations) and making predictions for new inputs. However, there has been little understanding of how the model learns and which aspects of the demonstrations contribute to end task performance. In this paper, we show that ground truth demonstrations are in fact not required -- randomly replacing labels in the demonstrations barely hurts performance on a range of classification and multi-choce tasks, consistently over 12 different models including GPT-3. Instead, we find that other aspects of the demonstrations are the key drivers of end task performance, including the fact that they provide a few examples of (1) the label space, (2) the distribution of the input text, and (3) the overall format of the sequence. Together, our analysis provides a new way of understanding how and why in-context learning works, while opening up new questions about how much can be learned from large language models through inference alone.",
+      "standard_url": "http://arxiv.org/abs/2202.12837v2",
+      "id": "2022-rethinking_the_role_of_demonstrations:_what_makes_in-context_learning_work?"
+    },
+    "43": {
+      "enum": "43",
+      "authors": "Sharan Narang, Colin Raffel, Katherine Lee, Adam Roberts, Noah Fiedel, Karishma Malkan",
+      "title": "WT5?! Training text-to-text models to explain their predictions",
+      "publication": "arXiv preprint arXiv:2004.14546",
+      "year": 2020,
+      "summary": "Neural networks have recently achieved human-level performance on various challenging natural language processing (NLP) tasks, but it is notoriously difficult to understand why a neural network produced a particular prediction. In this paper, we leverage the text-to-text framework proposed by Raffel et al.(2019) to train language models to output a natural text explanation alongside their prediction. Crucially, this requires no modifications to the loss function or training and decoding procedures -- we simply train the model to output the explanation after generating the (natural text) prediction. We show that this approach not only obtains state-of-the-art results on explainability benchmarks, but also permits learning from a limited set of labeled explanations and transferring rationalization abilities across datasets. To facilitate reproducibility and future work, we release our code use to train the models.",
+      "standard_url": "http://arxiv.org/abs/2004.14546v1",
+      "id": "2020-wt5?!_training_text-to-text_models_to_explain_their_predictions"
+    },
+    "44": {
+      "enum": "44",
+      "authors": "Maxwell Nye, Anders Johan Andreassen, Guy Gur-Ari, Henryk Michalewski, Jacob Austin, David Bieber, David Dohan, Aitor Lewkowycz, Maarten Bosma, David Luan, Charles Sutton, Augustus Odena",
+      "title": "Show your work: Scratchpads for intermediate computation with language models",
+      "publication": "arXiv preprint arXiv:2112.00114",
+      "year": 2021,
+      "summary": "Large pre-trained language models perform remarkably well on tasks that can be done \"in one pass\", such as generating realistic text or synthesizing computer programs. However, they struggle with tasks that require unbounded multi-step computation, such as adding integers or executing programs. Surprisingly, we find that these same models are able to perform complex multi-step computations -- even in the few-shot regime -- when asked to perform the operation \"step by step\", showing the results of intermediate computations. In particular, we train transformers to perform multi-step computations by asking them to emit intermediate computation steps into a \"scratchpad\". On a series of increasingly complex tasks ranging from long addition to the execution of arbitrary programs, we show that scratchpads dramatically improve the ability of language models to perform multi-step computations.",
+      "standard_url": "http://arxiv.org/abs/2112.00114v1",
+      "id": "2021-show_your_work:_scratchpads_for_intermediate_computation_with_language_models"
+    },
+    "45": {
+      "enum": "45",
+      "authors": "Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul Christiano, Jan Leike, Ryan Lowe",
+      "title": "Training language models to follow instructions with human feedback",
+      "publication": "arXiv preprint arXiv:2203.02155",
+      "year": 2022,
+      "summary": "Making language models bigger does not inherently make them better at following a user's intent. For example, large language models can generate outputs that are untruthful, toxic, or simply not helpful to the user. In other words, these models are not aligned with their users. In this paper, we show an avenue for aligning language models with user intent on a wide range of tasks by fine-tuning with human feedback. Starting with a set of labeler-written prompts and prompts submitted through the OpenAI API, we collect a dataset of labeler demonstrations of the desired model behavior, which we use to fine-tune GPT-3 using supervised learning. We then collect a dataset of rankings of model outputs, which we use to further fine-tune this supervised model using reinforcement learning from human feedback. We call the resulting models InstructGPT. In human evaluations on our prompt distribution, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters. Moreover, InstructGPT models show improvements in truthfulness and reductions in toxic output generation while having minimal performance regressions on public NLP datasets. Even though InstructGPT still makes simple mistakes, our results show that fine-tuning with human feedback is a promising direction for aligning language models with human intent.",
+      "standard_url": "http://arxiv.org/abs/2203.02155v1",
+      "id": "2022-training_language_models_to_follow_instructions_with_human_feedback"
+    },
+    "46": {
+      "enum": "46",
+      "authors": "Arkil Patel, Satwik Bhattamishra, Navin Goyal",
+      "title": "Are NLP models really able to solve simple math word problems?",
+      "publication": "NAACL",
+      "year": 2021,
+      "summary": "The problem of designing NLP solvers for math word problems (MWP) has seen sustained research activity and steady gains in the test accuracy. Since existing solvers achieve high performance on the benchmark datasets for elementary level MWPs containing one-unknown arithmetic word problems, such problems are often considered \"solved\" with the bulk of research attention moving to more complex MWPs. In this paper, we restrict our attention to English MWPs taught in grades four and lower. We provide strong evidence that the existing MWP solvers rely on shallow heuristics to achieve high performance on the benchmark datasets. To this end, we show that MWP solvers that do not have access to the question asked in the MWP can still solve a large fraction of MWPs. Similarly, models that treat MWPs as bag-of-words can also achieve surprisingly high accuracy. Further, we introduce a challenge dataset, SVAMP, created by applying carefully chosen variations over examples sampled from existing datasets. The best accuracy achieved by state-of-the-art models is substantially lower on SVAMP, thus showing that much remains to be done even for the simplest of the MWPs.",
+      "standard_url": "http://arxiv.org/abs/2103.07191v2",
+      "id": "2021-are_nlp_models_really_able_to_solve_simple_math_word_problems?"
+    },
+    "47": {
+      "enum": "47",
+      "authors": "Matthew E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, Luke Zettlemoyer",
+      "title": "Deep contextualized word representations",
+      "publication": "NAACL",
+      "year": 2018,
+      "summary": "We introduce a new type of deep contextualized word representation that models both (1) complex characteristics of word use (e.g., syntax and semantics), and (2) how these uses vary across linguistic contexts (i.e., to model polysemy). Our word vectors are learned functions of the internal states of a deep bidirectional language model (biLM), which is pre-trained on a large text corpus. We show that these representations can be easily added to existing models and significantly improve the state of the art across six challenging NLP problems, including question answering, textual entailment and sentiment analysis. We also present an analysis showing that exposing the deep internals of the pre-trained network is crucial, allowing downstream models to mix different types of semi-supervision signals.",
+      "standard_url": "http://arxiv.org/abs/1802.05365v2",
+      "id": "2018-deep_contextualized_word_representations"
+    },
+    "48": {
+      "enum": "48",
+      "authors": "Xinyu Pi, Qian Liu, Bei Chen, Morteza Ziyadi, Zeqi Lin, Qiang Fu, Yan Gao, Jian-Guang Lou, Weizhu Chen",
+      "title": "Reasoning like program executors",
+      "publication": "arXiv preprint arXiv:2201.11473",
+      "year": 2022,
+      "summary": "Reasoning over natural language is a long-standing goal for the research community. However, studies have shown that existing language models are inadequate in reasoning. To address the issue, we present POET, a novel reasoning pre-training paradigm. Through pre-training language models with programs and their execution results, POET empowers language models to harvest the reasoning knowledge possessed by program executors via a data-driven approach. POET is conceptually simple and can be instantiated by different kinds of program executors. In this paper, we showcase two simple instances POET-Math and POET-Logic, in addition to a complex instance, POET-SQL. Experimental results on six benchmarks demonstrate that POET can significantly boost model performance in natural language reasoning, such as numerical reasoning, logical reasoning, and multi-hop reasoning. POET opens a new gate on reasoning-enhancement pre-training, and we hope our analysis would shed light on the future research of reasoning like program executors.",
+      "standard_url": "http://arxiv.org/abs/2201.11473v2",
+      "id": "2022-reasoning_like_program_executors"
+    },
+    "49": {
+      "enum": "49",
+      "authors": "Piotr Piękos, Henryk Michalewski, Mateusz Malinowski",
+      "title": "Measuring and improving BERT’s mathematical abilities by predicting the order of reasoning",
+      "publication": "ACL",
+      "year": 2021,
+      "summary": "Imagine you are in a supermarket. You have two bananas in your basket and want to buy four apples. How many fruits do you have in total? This seemingly straightforward question can be challenging for data-driven language models, even if trained at scale. However, we would expect such generic language models to possess some mathematical abilities in addition to typical linguistic competence. Towards this goal, we investigate if a commonly used language model, BERT, possesses such mathematical abilities and, if so, to what degree. For that, we fine-tune BERT on a popular dataset for word math problems, AQuA-RAT, and conduct several tests to understand learned representations better. Since we teach models trained on natural language to do formal mathematics, we hypothesize that such models would benefit from training on semi-formal steps that explain how math results are derived. To better accommodate such training, we also propose new pretext tasks for learning mathematical rules. We call them (Neighbor) Reasoning Order Prediction (ROP or NROP). With this new model, we achieve significantly better outcomes than data-driven baselines and even on-par with more tailored models. We also show how to reduce positional bias in such models.",
+      "standard_url": "http://arxiv.org/abs/2106.03921v1",
+      "id": "2021-measuring_and_improving_bert’s_mathematical_abilities_by_predicting_the_order_of_reasoning"
+    },
+    "50": {
+      "enum": "50",
+      "authors": "Jack W. Rae, Sebastian Borgeaud, Trevor Cai, Katie Millican, Jordan Hoffmann, Francis Song, John Aslanides, Sarah Henderson, Roman Ring, Susannah Young, Eliza Rutherford, Tom Hennigan, Jacob Menick, Albin Cassirer, Richard Powell, George van den Driessche, Lisa Anne Hendricks, Maribeth Rauh, Po-Sen Huang, Amelia Glaese, Johannes Welbl, Sumanth Dathathri, Saffron Huang, Jonathan Uesato, John Mellor, Irina Higgins, Antonia Creswell, Nat McAleese, Amy Wu, Erich Elsen, Siddhant Jayakumar, Elena Buchatskaya, David Budden, Esme Sutherland, Karen Simonyan, Michela Paganini, Laurent Sifre, Lena Martens, Xiang Lorraine Li, Adhiguna Kuncoro, Aida Nematzadeh, Elena Gribovskaya, Domenic Donato, Angeliki Lazaridou, Arthur Mensch, Jean-Baptiste Lespiau, Maria Tsimpoukelli, Nikolai Grigorev, Doug Fritz, Thibault Sottiaux, Mantas Pajarskas, Toby Pohlen, Zhitao Gong, Daniel Toyama, Cyprien de Masson d'Autume, Yujia Li, Tayfun Terzi, Vladimir Mikulik, Igor Babuschkin, Aidan Clark, Diego de Las Casas, Aurelia Guy, Chris Jones, James Bradbury, Matthew Johnson, Blake Hechtman, Laura Weidinger, Iason Gabriel, William Isaac, Ed Lockhart, Simon Osindero, Laura Rimell, Chris Dyer, Oriol Vinyals, Kareem Ayoub, Jeff Stanway, Lorrayne Bennett, Demis Hassabis, Koray Kavukcuoglu, Geoffrey Irving",
+      "title": "Scaling language models: Methods, analysis & insights from training Gopher",
+      "publication": "arXiv preprint arXiv:2112.11446",
+      "year": 2021,
+      "summary": "Language modelling provides a step towards intelligent communication systems by harnessing large repositories of written human knowledge to better predict and understand the world. In this paper, we present an analysis of Transformer-based language model performance across a wide range of model scales -- from models with tens of millions of parameters up to a 280 billion parameter model called Gopher. These models are evaluated on 152 diverse tasks, achieving state-of-the-art performance across the majority. Gains from scale are largest in areas such as reading comprehension, fact-checking, and the identification of toxic language, but logical and mathematical reasoning see less benefit. We provide a holistic analysis of the training dataset and model's behaviour, covering the intersection of model scale with bias and toxicity. Finally we discuss the application of language models to AI safety and the mitigation of downstream harms.",
+      "standard_url": "http://arxiv.org/abs/2112.11446v2",
+      "id": "2021-scaling_language_models:_methods_analysis_&_insights_from_training_gopher"
+    },
+    "51": {
+      "enum": "51",
+      "authors": "Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu",
+      "title": "Exploring the limits of transfer learning with a unified text-to-text transformer",
+      "publication": "Journal of Machine Learning Research, 21:1–67",
+      "year": 2019,
+      "summary": "Transfer learning, where a model is first pre-trained on a data-rich task before being fine-tuned on a downstream task, has emerged as a powerful technique in natural language processing (NLP). The effectiveness of transfer learning has given rise to a diversity of approaches, methodology, and practice. In this paper, we explore the landscape of transfer learning techniques for NLP by introducing a unified framework that converts all text-based language problems into a text-to-text format. Our systematic study compares pre-training objectives, architectures, unlabeled data sets, transfer approaches, and other factors on dozens of language understanding tasks. By combining the insights from our exploration with scale and our new ``Colossal Clean Crawled Corpus'', we achieve state-of-the-art results on many benchmarks covering summarization, question answering, text classification, and more. To facilitate future work on transfer learning for NLP, we release our data set, pre-trained models, and code.",
+      "standard_url": "http://arxiv.org/abs/1910.10683v4",
+      "id": "2019-exploring_the_limits_of_transfer_learning_with_a_unified_text-to-text_transformer"
+    },
+    "52": {
+      "enum": "52",
+      "authors": "Dheeraj Rajagopal, Vidhisha Balachandran, Eduard Hovy, Yulia Tsvetkov",
+      "title": "SelfExplain: A self-explaining architecture for neural text classifiers",
+      "publication": "EMNLP",
+      "year": 2021,
+      "summary": "We introduce SelfExplain, a novel self-explaining model that explains a text classifier's predictions using phrase-based concepts. SelfExplain augments existing neural classifiers by adding (1) a globally interpretable layer that identifies the most influential concepts in the training set for a given sample and (2) a locally interpretable layer that quantifies the contribution of each local input concept by computing a relevance score relative to the predicted label. Experiments across five text-classification datasets show that SelfExplain facilitates interpretability without sacrificing performance. Most importantly, explanations from SelfExplain show sufficiency for model predictions and are perceived as adequate, trustworthy and understandable by human judges compared to existing widely-used baselines.",
+      "standard_url": "http://arxiv.org/abs/2103.12279v2",
+      "id": "2021-selfexplain:_a_self-explaining_architecture_for_neural_text_classifiers"
+    },
+    "53": {
+      "enum": "53",
+      "authors": "Nazneen Fatema Rajani, Bryan McCann, Caiming Xiong, Richard Socher",
+      "title": "Explain yourself! Leveraging language models for commonsense reasoning",
+      "publication": "ACL",
+      "year": 2019,
+      "summary": "Deep learning models perform poorly on tasks that require commonsense reasoning, which often necessitates some form of world-knowledge or reasoning over information not immediately present in the input. We collect human explanations for commonsense reasoning in the form of natural language sequences and highlighted annotations in a new dataset called Common Sense Explanations (CoS-E). We use CoS-E to train language models to automatically generate explanations that can be used during training and inference in a novel Commonsense Auto-Generated Explanation (CAGE) framework. CAGE improves the state-of-the-art by 10% on the challenging CommonsenseQA task. We further study commonsense reasoning in DNNs using both human and auto-generated explanations including transfer to out-of-domain tasks. Empirical results indicate that we can effectively leverage language models for commonsense reasoning.",
+      "standard_url": "http://arxiv.org/abs/1906.02361v1",
+      "id": "2019-explain_yourself!_leveraging_language_models_for_commonsense_reasoning"
+    },
+    "54": {
+      "enum": "54",
+      "authors": "Qiu Ran, Yankai Lin, Peng Li, Jie Zhou, Zhiyuan Liu",
+      "title": "NumNet: Machine reading comprehension with numerical reasoning",
+      "publication": "EMNLP",
+      "year": 2019,
+      "summary": "Numerical reasoning, such as addition, subtraction, sorting and counting is a critical skill in human's reading comprehension, which has not been well considered in existing machine reading comprehension (MRC) systems. To address this issue, we propose a numerical MRC model named as NumNet, which utilizes a numerically-aware graph neural network to consider the comparing information and performs numerical reasoning over numbers in the question and passage. Our system achieves an EM-score of 64.56% on the DROP dataset, outperforming all existing machine reading comprehension models by considering the numerical relations among numbers.",
+      "standard_url": "http://arxiv.org/abs/1910.06701v1",
+      "id": "2019-numnet:_machine_reading_comprehension_with_numerical_reasoning"
+    },
+    "55": {
+      "enum": "55",
+      "authors": "Hannah Rashkin, Vitaly Nikolaev, Matthew Lamm, Lora Aroyo, Michael Collins, Dipanjan Das, Slav Petrov, Gaurav Singh Tomar, Iulia Turc, David Reitter",
+      "title": "Measuring attribution in natural language generation models",
+      "publication": "arXiv preprint arXiv:2112.12870",
+      "year": 2021,
+      "summary": "With recent improvements in natural language generation (NLG) models for various applications, it has become imperative to have the means to identify and evaluate whether NLG output is only sharing verifiable information about the external world. In this work, we present a new evaluation framework entitled Attributable to Identified Sources (AIS) for assessing the output of natural language generation models, when such output pertains to the external world. We first define AIS and introduce a two-stage annotation pipeline for allowing annotators to appropriately evaluate model output according to AIS guidelines. We empirically validate this approach on generation datasets spanning three tasks (two conversational QA datasets, a summarization dataset, and a table-to-text dataset) via human evaluation studies that suggest that AIS could serve as a common framework for measuring whether model-generated statements are supported by underlying sources. We release guidelines for the human evaluation studies.",
+      "standard_url": "http://arxiv.org/abs/2112.12870v2",
+      "id": "2021-measuring_attribution_in_natural_language_generation_models"
+    },
+    "56": {
+      "enum": "56",
+      "authors": "Gabriel Recchia",
+      "title": "Teaching autoregressive language models complex tasks by demonstration",
+      "publication": "arXiv preprint arXiv:2109.02102",
+      "year": 2021,
+      "summary": "This paper demonstrates that by fine-tuning an autoregressive language model (GPT-Neo) on appropriately structured step-by-step demonstrations, it is possible to teach it to execute a mathematical task that has previously proved difficult for Transformers - longhand modulo operations - with a relatively small number of examples. Specifically, we fine-tune GPT-Neo to solve the numbers__div_remainder task from the DeepMind Mathematics Dataset; Saxton et al. (arXiv:1904.01557) reported below 40% accuracy on this task with 2 million training examples. We show that after fine-tuning on 200 appropriately structured demonstrations of solving long division problems and reporting the remainders, the smallest available GPT-Neo model achieves over 80% accuracy. This is achieved by constructing an appropriate dataset for fine-tuning, with no changes to the learning algorithm. These results suggest that fine-tuning autoregressive language models on small sets of well-crafted demonstrations may be a useful paradigm for enabling individuals without training in machine learning to coax such models to perform some kinds of complex multi-step tasks.",
+      "standard_url": "http://arxiv.org/abs/2109.02102v3",
+      "id": "2021-teaching_autoregressive_language_models_complex_tasks_by_demonstration"
+    },
+    "57": {
+      "enum": "57",
+      "authors": "Emily Reif, Daphne Ippolito, Ann Yuan, Andy Coenen, Chris Callison-Burch, Jason Wei",
+      "title": "A recipe for arbitrary text style transfer with large language models",
+      "publication": "ACL",
+      "year": 2021,
+      "summary": "In this paper, we leverage large language models (LMs) to perform zero-shot text style transfer. We present a prompting method that we call augmented zero-shot learning, which frames style transfer as a sentence rewriting task and requires only a natural language instruction, without model fine-tuning or exemplars in the target style. Augmented zero-shot learning is simple and demonstrates promising results not just on standard style transfer tasks such as sentiment, but also on arbitrary transformations such as \"make this melodramatic\" or \"insert a metaphor.\"",
+      "standard_url": "http://arxiv.org/abs/2109.03910v4",
+      "id": "2021-a_recipe_for_arbitrary_text_style_transfer_with_large_language_models"
+    },
+    "58": {
+      "enum": "58",
+      "authors": "Laria Reynolds, Kyle McDonell",
+      "title": "Prompt programming for large language models: Beyond the few-shot paradigm",
+      "publication": "Extended Abstracts of the 2021 CHI Conference on Human Factors in Computing Systems",
+      "year": 2021,
+      "summary": "Prevailing methods for mapping large generative language models to supervised tasks may fail to sufficiently probe models' novel capabilities. Using GPT-3 as a case study, we show that 0-shot prompts can significantly outperform few-shot prompts. We suggest that the function of few-shot examples in these cases is better described as locating an already learned task rather than meta-learning. This analysis motivates rethinking the role of prompts in controlling and evaluating powerful language models. In this work, we discuss methods of prompt programming, emphasizing the usefulness of considering prompts through the lens of natural language. We explore techniques for exploiting the capacity of narratives and cultural anchors to encode nuanced intentions and techniques for encouraging deconstruction of a problem into components before producing a verdict. Informed by this more encompassing theory of prompt programming, we also introduce the idea of a metaprompt that seeds the model to generate its own natural language prompts for a range of tasks. Finally, we discuss how these more general methods of interacting with language models can be incorporated into existing and future benchmarks and practical applications.",
+      "standard_url": "http://arxiv.org/abs/2102.07350v1",
+      "id": "2021-prompt_programming_for_large_language_models:_beyond_the_few-shot_paradigm"
+    },
+    "59": {
+      "enum": "59",
+      "authors": "Subhro Roy, Dan Roth",
+      "title": "Solving general arithmetic word problems",
+      "publication": "EMNLP",
+      "year": 2016,
+      "summary": "This paper presents a novel approach to automatically solving arithmetic word problems. This is the first algorithmic approach that can handle arithmetic problems with multiple steps and operations, without depending on additional annotations or predefined templates. We develop a theory for expression trees that can be used to represent and evaluate the target arithmetic expressions; we use it to uniquely decompose the target arithmetic problem to multiple classification problems; we then compose an expression tree, combining these with world knowledge through a constrained inference framework. Our classifiers gain from the use of {\\em quantity schemas} that supports better extraction of features. Experimental results show that our method outperforms existing systems, achieving state of the art performance on benchmark datasets of arithmetic word problems.",
+      "standard_url": "http://arxiv.org/abs/1608.01413v2",
+      "id": "2016-solving_general_arithmetic_word_problems"
+    },
+    "60": {
+      "enum": "60",
+      "authors": "Subhro Roy, Tim Vieira, and Dan Roth. 2015",
+      "title": "Reasoning about Quantities in Natural Language",
+      "publication": "TACL",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-reasoning_about_quantities_in_natural_language"
+    },
+    "61": {
+      "enum": "61",
+      "authors": "Mohammed Saeed, Naser Ahmadi, Preslav Nakov, Paolo Papotti",
+      "title": "RuleBERT: Teaching soft rules to pre-trained language models",
+      "publication": "EMNLP",
+      "year": 2021,
+      "summary": "While pre-trained language models (PLMs) are the go-to solution to tackle many natural language processing problems, they are still very limited in their ability to capture and to use common-sense knowledge. In fact, even if information is available in the form of approximate (soft) logical rules, it is not clear how to transfer it to a PLM in order to improve its performance for deductive reasoning tasks. Here, we aim to bridge this gap by teaching PLMs how to reason with soft Horn rules. We introduce a classification task where, given facts and soft rules, the PLM should return a prediction with a probability for a given hypothesis. We release the first dataset for this task, and we propose a revised loss function that enables the PLM to learn how to predict precise probabilities for the task. Our evaluation results show that the resulting fine-tuned models achieve very high performance, even on logical rules that were unseen at training. Moreover, we demonstrate that logical notions expressed by the rules are transferred to the fine-tuned model, yielding state-of-the-art results on external datasets.",
+      "standard_url": "http://arxiv.org/abs/2109.13006v1",
+      "id": "2021-rulebert:_teaching_soft_rules_to_pre-trained_language_models"
+    },
+    "62": {
+      "enum": "62",
+      "authors": "Victor Sanh, Albert Webson, Colin Raffel, Stephen H. Bach, Lintang Sutawika, Zaid Alyafeai, Antoine Chaffin, Arnaud Stiegler, Teven Le Scao, Arun Raja, Manan Dey, M Saiful Bari, Canwen Xu, Urmish Thakker, Shanya Sharma Sharma, Eliza Szczechla, Taewoon Kim, Gunjan Chhablani, Nihal Nayak, Debajyoti Datta, Jonathan Chang, Mike Tian-Jian Jiang, Han Wang, Matteo Manica, Sheng Shen, Zheng Xin Yong, Harshit Pandey, Rachel Bawden, Thomas Wang, Trishala Neeraj, Jos Rozen, Abheesht Sharma, Andrea Santilli, Thibault Fevry, Jason Alan Fries, Ryan Teehan, Tali Bers, Stella Biderman, Leo Gao, Thomas Wolf, Alexander M. Rush",
+      "title": "Multitask prompted training enables zero-shot task generalization",
+      "publication": "ICLR",
+      "year": 2021,
+      "summary": "Large language models have recently been shown to attain reasonable zero-shot generalization on a diverse set of tasks (Brown et al., 2020). It has been hypothesized that this is a consequence of implicit multitask learning in language models' pretraining (Radford et al., 2019). Can zero-shot generalization instead be directly induced by explicit multitask learning? To test this question at scale, we develop a system for easily mapping any natural language tasks into a human-readable prompted form. We convert a large set of supervised datasets, each with multiple prompts with diverse wording. These prompted datasets allow for benchmarking the ability of a model to perform completely held-out tasks. We fine-tune a pretrained encoder-decoder model (Raffel et al., 2020; Lester et al., 2021) on this multitask mixture covering a wide variety of tasks. The model attains strong zero-shot performance on several standard datasets, often outperforming models up to 16x its size. Further, our approach attains strong performance on a subset of tasks from the BIG-bench benchmark, outperforming models up to 6x its size. All trained models are available at https://github.com/bigscience-workshop/t-zero and all prompts are available at https://github.com/bigscience-workshop/promptsource.",
+      "standard_url": "http://arxiv.org/abs/2110.08207v3",
+      "id": "2021-multitask_prompted_training_enables_zero-shot_task_generalization"
+    },
+    "63": {
+      "enum": "63",
+      "authors": "Jianhao Shen, Yichun Yin, Lin Li, Lifeng Shang, Xin Jiang, Ming Zhang, Qun Liu",
+      "title": "Generate & rank: A multi-task framework for math word problems",
+      "publication": "In Findings of the Association for Computational Linguistics: EMNLP 2021",
+      "year": 2021,
+      "summary": "Math word problem (MWP) is a challenging and critical task in natural language processing. Many recent studies formalize MWP as a generation task and have adopted sequence-to-sequence models to transform problem descriptions to mathematical expressions. However, mathematical expressions are prone to minor mistakes while the generation objective does not explicitly handle such mistakes. To address this limitation, we devise a new ranking task for MWP and propose Generate & Rank, a multi-task framework based on a generative pre-trained language model. By joint training with generation and ranking, the model learns from its own mistakes and is able to distinguish between correct and incorrect expressions. Meanwhile, we perform tree-based disturbance specially designed for MWP and an online update to boost the ranker. We demonstrate the effectiveness of our proposed method on the benchmark and the results show that our method consistently outperforms baselines in all datasets. Particularly, in the classical Math23k, our method is 7% (78.4% $\\rightarrow$ 85.4%) higher than the state-of-the-art.",
+      "standard_url": "http://arxiv.org/abs/2109.03034v1",
+      "id": "2021-generate_&_rank:_a_multi-task_framework_for_math_word_problems"
+    },
+    "64": {
+      "enum": "64",
+      "authors": "Alon Talmor, Jonathan Herzig, Nicholas Lourie, Jonathan Berant",
+      "title": "CommonsenseQA: A question answering challenge targeting commonsense knowledge",
+      "publication": "NAACL",
+      "year": 2018,
+      "summary": "When answering a question, people often draw upon their rich world knowledge in addition to the particular context. Recent work has focused primarily on answering questions given some relevant document or context, and required very little general background. To investigate question answering with prior knowledge, we present CommonsenseQA: a challenging new dataset for commonsense question answering. To capture common sense beyond associations, we extract from ConceptNet (Speer et al., 2017) multiple target concepts that have the same semantic relation to a single source concept. Crowd-workers are asked to author multiple-choice questions that mention the source concept and discriminate in turn between each of the target concepts. This encourages workers to create questions with complex semantics that often require prior knowledge. We create 12,247 questions through this procedure and demonstrate the difficulty of our task with a large number of strong baselines. Our best baseline is based on BERT-large (Devlin et al., 2018) and obtains 56% accuracy, well below human performance, which is 89%.",
+      "standard_url": "http://arxiv.org/abs/1811.00937v2",
+      "id": "2018-commonsenseqa:_a_question_answering_challenge_targeting_commonsense_knowledge"
+    },
+    "65": {
+      "enum": "65",
+      "authors": "Alon Talmor, Oyvind Tafjord, Peter Clark, Yoav Goldberg, Jonathan Berant",
+      "title": "Leap-of-thought: Teaching pre-trained models to systematically reason over implicit knowledge",
+      "publication": "NeurIPS",
+      "year": 2020,
+      "summary": "To what extent can a neural network systematically reason over symbolic facts? Evidence suggests that large pre-trained language models (LMs) acquire some reasoning capacity, but this ability is difficult to control. Recently, it has been shown that Transformer-based models succeed in consistent reasoning over explicit symbolic facts, under a \"closed-world\" assumption. However, in an open-domain setup, it is desirable to tap into the vast reservoir of implicit knowledge already encoded in the parameters of pre-trained LMs. In this work, we provide a first demonstration that LMs can be trained to reliably perform systematic reasoning combining both implicit, pre-trained knowledge and explicit natural language statements. To do this, we describe a procedure for automatically generating datasets that teach a model new reasoning skills, and demonstrate that models learn to effectively perform inference which involves implicit taxonomic and world knowledge, chaining and counting. Finally, we show that \"teaching\" models to reason generalizes beyond the training distribution: they successfully compose the usage of multiple reasoning skills in single examples. Our work paves a path towards open-domain systems that constantly improve by interacting with users who can instantly correct a model by adding simple natural language statements.",
+      "standard_url": "http://arxiv.org/abs/2006.06609v3",
+      "id": "2020-leap-of-thought:_teaching_pre-trained_models_to_systematically_reason_over_implicit_knowledge"
+    },
+    "66": {
+      "enum": "66",
+      "authors": "Alon Talmor, Ori Yoran, Ronan Le Bras, Chandra Bhagavatula, Yoav Goldberg, Yejin Choi, Jonathan Berant",
+      "title": "CommonsenseQA 2.0: Exposing the limits of ai through gamification",
+      "publication": "NeurIPS Track on Datasets and Benchmarks",
+      "year": 2022,
+      "summary": "Constructing benchmarks that test the abilities of modern natural language understanding models is difficult - pre-trained language models exploit artifacts in benchmarks to achieve human parity, but still fail on adversarial examples and make errors that demonstrate a lack of common sense. In this work, we propose gamification as a framework for data construction. The goal of players in the game is to compose questions that mislead a rival AI while using specific phrases for extra points. The game environment leads to enhanced user engagement and simultaneously gives the game designer control over the collected data, allowing us to collect high-quality data at scale. Using our method we create CommonsenseQA 2.0, which includes 14,343 yes/no questions, and demonstrate its difficulty for models that are orders-of-magnitude larger than the AI used in the game itself. Our best baseline, the T5-based Unicorn with 11B parameters achieves an accuracy of 70.2%, substantially higher than GPT-3 (52.9%) in a few-shot inference setup. Both score well below human performance which is at 94.1%.",
+      "standard_url": "http://arxiv.org/abs/2201.05320v1",
+      "id": "2022-commonsenseqa_2.0:_exposing_the_limits_of_ai_through_gamification"
+    },
+    "67": {
+      "enum": "67",
+      "authors": "Yi Tay, Mostafa Dehghani, Vinh Q. Tran, Xavier Garcia, Jason Wei, Xuezhi Wang, Hyung Won Chung, Siamak Shakeri, Dara Bahri, Tal Schuster, Huaixiu Steven Zheng, Denny Zhou, Neil Houlsby, Donald Metzler",
+      "title": "Unifying language learning paradigms",
+      "publication": "arXiv preprint arXiv:2205.05131",
+      "year": 2022,
+      "summary": "Existing pre-trained models are generally geared towards a particular class of problems. To date, there seems to be still no consensus on what the right architecture and pre-training setup should be. This paper presents a unified framework for pre-training models that are universally effective across datasets and setups. We begin by disentangling architectural archetypes with pre-training objectives -- two concepts that are commonly conflated. Next, we present a generalized & unified perspective for self-supervision in NLP and show how different pre-training objectives can be cast as one another and how interpolating between different objectives can be effective. We then propose Mixture-of-Denoisers (MoD), a pre-training objective that combines diverse pre-training paradigms together. We furthermore introduce a notion of mode switching, wherein downstream fine-tuning is associated with specific pre-training schemes. We conduct extensive ablative experiments to compare multiple pre-training objectives and find that our method pushes the Pareto-frontier by outperforming T5 & GPT-like models across multiple diverse setups. By scaling our model up to 20B parameters, we achieve SOTA performance on 50 well-established supervised finetuning based NLP tasks. Our model also achieve strong results at in-context learning, outperforming 175B GPT-3 on zero-shot SuperGLUE and tripling the performance of T5-XXL on one-shot summarization. On 0-shot MMLU, UL2 20B outperforms T0 and T5 models. UL2 20B also works well with chain-of-thought prompting and reasoning, making it an appealing choice for research into reasoning at a small to medium scale of 20B parameters. Finally, we apply FLAN instruction tuning to the UL2 20B model, achieving MMLU and Big-Bench scores competitive to FLAN-PaLM 62B. We release Flax-based T5X checkpoints for the UL2 20B & Flan-UL2 20B.",
+      "standard_url": "http://arxiv.org/abs/2205.05131v3",
+      "id": "2022-unifying_language_learning_paradigms"
+    },
+    "68": {
+      "enum": "68",
+      "authors": "Romal Thoppilan, Daniel De Freitas, Jamie Hall, Noam Shazeer, Apoorv Kulshreshtha, Heng-Tze Cheng, Alicia Jin, Taylor Bos, Leslie Baker, Yu Du, YaGuang Li, Hongrae Lee, Huaixiu Steven Zheng, Amin Ghafouri, Marcelo Menegali, Yanping Huang, Maxim Krikun, Dmitry Lepikhin, James Qin, Dehao Chen, Yuanzhong Xu, Zhifeng Chen, Adam Roberts, Maarten Bosma, Vincent Zhao, Yanqi Zhou, Chung-Ching Chang, Igor Krivokon, Will Rusch, Marc Pickett, Pranesh Srinivasan, Laichee Man, Kathleen Meier-Hellstern, Meredith Ringel Morris, Tulsee Doshi, Renelito Delos Santos, Toju Duke, Johnny Soraker, Ben Zevenbergen, Vinodkumar Prabhakaran, Mark Diaz, Ben Hutchinson, Kristen Olson, Alejandra Molina, Erin Hoffman-John, Josh Lee, Lora Aroyo, Ravi Rajakumar, Alena Butryna, Matthew Lamm, Viktoriya Kuzmina, Joe Fenton, Aaron Cohen, Rachel Bernstein, Ray Kurzweil, Blaise Aguera-Arcas, Claire Cui, Marian Croak, Ed Chi, Quoc Le",
+      "title": "LaMDA: Language models for dialog applications",
+      "publication": "arXiv preprint arXiv:2201.08239",
+      "year": 2022,
+      "summary": "We present LaMDA: Language Models for Dialog Applications. LaMDA is a family of Transformer-based neural language models specialized for dialog, which have up to 137B parameters and are pre-trained on 1.56T words of public dialog data and web text. While model scaling alone can improve quality, it shows less improvements on safety and factual grounding. We demonstrate that fine-tuning with annotated data and enabling the model to consult external knowledge sources can lead to significant improvements towards the two key challenges of safety and factual grounding. The first challenge, safety, involves ensuring that the model's responses are consistent with a set of human values, such as preventing harmful suggestions and unfair bias. We quantify safety using a metric based on an illustrative set of human values, and we find that filtering candidate responses using a LaMDA classifier fine-tuned with a small amount of crowdworker-annotated data offers a promising approach to improving model safety. The second challenge, factual grounding, involves enabling the model to consult external knowledge sources, such as an information retrieval system, a language translator, and a calculator. We quantify factuality using a groundedness metric, and we find that our approach enables the model to generate responses grounded in known sources, rather than responses that merely sound plausible. Finally, we explore the use of LaMDA in the domains of education and content recommendations, and analyze their helpfulness and role consistency.",
+      "standard_url": "http://arxiv.org/abs/2201.08239v3",
+      "id": "2022-lamda:_language_models_for_dialog_applications"
+    },
+    "69": {
+      "enum": "69",
+      "authors": "Xuezhi Wang, Jason Wei, Dale Schuurmans, Quoc Le, Ed Chi, Sharan Narang, Aakanksha Chowdhery, Denny Zhou",
+      "title": "Self-consistency improves chain of thought reasoning in language models",
+      "publication": "arXiv preprint arXiv:2203.11171",
+      "year": 2022,
+      "summary": "Chain-of-thought prompting combined with pre-trained large language models has achieved encouraging results on complex reasoning tasks. In this paper, we propose a new decoding strategy, self-consistency, to replace the naive greedy decoding used in chain-of-thought prompting. It first samples a diverse set of reasoning paths instead of only taking the greedy one, and then selects the most consistent answer by marginalizing out the sampled reasoning paths. Self-consistency leverages the intuition that a complex reasoning problem typically admits multiple different ways of thinking leading to its unique correct answer. Our extensive empirical evaluation shows that self-consistency boosts the performance of chain-of-thought prompting with a striking margin on a range of popular arithmetic and commonsense reasoning benchmarks, including GSM8K (+17.9%), SVAMP (+11.0%), AQuA (+12.2%), StrategyQA (+6.4%) and ARC-challenge (+3.9%).",
+      "standard_url": "http://arxiv.org/abs/2203.11171v4",
+      "id": "2022-self-consistency_improves_chain_of_thought_reasoning_in_language_models"
+    },
+    "70": {
+      "enum": "70",
+      "authors": "Yizhong Wang, Swaroop Mishra, Pegah Alipoormolabashi, Yeganeh Kordi, Amirreza Mirzaei, Anjana Arunkumar, Arjun Ashok, Arut Selvan Dhanasekaran, Atharva Naik, David Stap, et al. 2022b",
+      "title": "Benchmarking generalization via in-context instructions on 1,600+ language tasks",
+      "publication": "arXiv preprint arXiv:2204.07705",
+      "year": "2204",
+      "summary": null,
+      "standard_url": null,
+      "id": "2204-benchmarking_generalization_via_in-context_instructions_on_1600+_language_tasks"
+    },
+    "71": {
+      "enum": "71",
+      "authors": "Jason Wei, Maarten Bosma, Vincent Y. Zhao, Kelvin Guu, Adams Wei Yu, Brian Lester, Nan Du, Andrew M. Dai, Quoc V. Le",
+      "title": "Finetuned language models are zero-shot learners",
+      "publication": "ICLR",
+      "year": 2021,
+      "summary": "This paper explores a simple method for improving the zero-shot learning abilities of language models. We show that instruction tuning -- finetuning language models on a collection of tasks described via instructions -- substantially improves zero-shot performance on unseen tasks.\n  We take a 137B parameter pretrained language model and instruction-tune it on over 60 NLP tasks verbalized via natural language instruction templates. We evaluate this instruction-tuned model, which we call FLAN, on unseen task types. FLAN substantially improves the performance of its unmodified counterpart and surpasses zero-shot 175B GPT-3 on 20 of 25 tasks that we evaluate. FLAN even outperforms few-shot GPT-3 by a large margin on ANLI, RTE, BoolQ, AI2-ARC, OpenbookQA, and StoryCloze. Ablation studies reveal that number of finetuning datasets, model scale, and natural language instructions are key to the success of instruction tuning.",
+      "standard_url": "http://arxiv.org/abs/2109.01652v5",
+      "id": "2021-finetuned_language_models_are_zero-shot_learners"
+    },
+    "72": {
+      "enum": "72",
+      "authors": "Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph, Sebastian Borgeaud, Dani Yogatama, Maarten Bosma, Denny Zhou, Donald Metzler, Ed H. Chi, Tatsunori Hashimoto, Oriol Vinyals, Percy Liang, Jeff Dean, William Fedus",
+      "title": "Emergent abilities of large language models",
+      "publication": "Transactions on Machine Learning Research",
+      "year": 2022,
+      "summary": "Scaling up language models has been shown to predictably improve performance and sample efficiency on a wide range of downstream tasks. This paper instead discusses an unpredictable phenomenon that we refer to as emergent abilities of large language models. We consider an ability to be emergent if it is not present in smaller models but is present in larger models. Thus, emergent abilities cannot be predicted simply by extrapolating the performance of smaller models. The existence of such emergence implies that additional scaling could further expand the range of capabilities of language models.",
+      "standard_url": "http://arxiv.org/abs/2206.07682v2",
+      "id": "2022-emergent_abilities_of_large_language_models"
+    },
+    "73": {
+      "enum": "73",
+      "authors": "Sarah Wiegreffe, Jack Hessel, Swabha Swayamdipta, Mark Riedl, Yejin Choi",
+      "title": "Reframing human-AI collaboration for generating free-text explanations",
+      "publication": "NAACL",
+      "year": 2021,
+      "summary": "Large language models are increasingly capable of generating fluent-appearing text with relatively little task-specific supervision. But can these models accurately explain classification decisions? We consider the task of generating free-text explanations using human-written examples in a few-shot manner. We find that (1) authoring higher quality prompts results in higher quality generations; and (2) surprisingly, in a head-to-head comparison, crowdworkers often prefer explanations generated by GPT-3 to crowdsourced explanations in existing datasets. Our human studies also show, however, that while models often produce factual, grammatical, and sufficient explanations, they have room to improve along axes such as providing novel information and supporting the label. We create a pipeline that combines GPT-3 with a supervised filter that incorporates binary acceptability judgments from humans in the loop. Despite the intrinsic subjectivity of acceptability judgments, we demonstrate that acceptability is partially correlated with various fine-grained attributes of explanations. Our approach is able to consistently filter GPT-3-generated explanations deemed acceptable by humans.",
+      "standard_url": "http://arxiv.org/abs/2112.08674v2",
+      "id": "2021-reframing_human-ai_collaboration_for_generating_free-text_explanations"
+    },
+    "74": {
+      "enum": "74",
+      "authors": "Sarah Wiegreffe and Ana Marasović. 2021",
+      "title": "Teach me to explain: A review of datasets for explainable NLP",
+      "publication": "NeurIPS",
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-teach_me_to_explain:_a_review_of_datasets_for_explainable_nlp"
+    },
+    "75": {
+      "enum": "75",
+      "authors": "Sarah Wiegreffe, Ana Marasović, Noah A. Smith",
+      "title": "Measuring association between labels and free-text rationales",
+      "publication": "EMNLP",
+      "year": 2020,
+      "summary": "In interpretable NLP, we require faithful rationales that reflect the model's decision-making process for an explained instance. While prior work focuses on extractive rationales (a subset of the input words), we investigate their less-studied counterpart: free-text natural language rationales. We demonstrate that pipelines, existing models for faithful extractive rationalization on information-extraction style tasks, do not extend as reliably to \"reasoning\" tasks requiring free-text rationales. We turn to models that jointly predict and rationalize, a class of widely used high-performance models for free-text rationalization whose faithfulness is not yet established. We define label-rationale association as a necessary property for faithfulness: the internal mechanisms of the model producing the label and the rationale must be meaningfully correlated. We propose two measurements to test this property: robustness equivalence and feature importance agreement. We find that state-of-the-art T5-based joint models exhibit both properties for rationalizing commonsense question-answering and natural language inference, indicating their potential for producing faithful free-text rationales.",
+      "standard_url": "http://arxiv.org/abs/2010.12762v4",
+      "id": "2020-measuring_association_between_labels_and_free-text_rationales"
+    },
+    "76": {
+      "enum": "76",
+      "authors": "Tongshuang Wu, Ellen Jiang, Aaron Donsbach, Jeff Gray, Alejandra Molina, Michael Terry, Carrie J Cai",
+      "title": "PromptChainer: Chaining large language model prompts through visual programming",
+      "publication": "CHI Extended Abstracts",
+      "year": 2022,
+      "summary": "While LLMs can effectively help prototype single ML functionalities, many real-world applications involve complex tasks that cannot be easily handled via a single run of an LLM. Recent work has found that chaining multiple LLM runs together (with the output of one step being the input to the next) can help users accomplish these more complex tasks, and in a way that is perceived to be more transparent and controllable. However, it remains unknown what users need when authoring their own LLM chains -- a key step for lowering the barriers for non-AI-experts to prototype AI-infused applications. In this work, we explore the LLM chain authoring process. We conclude from pilot studies find that chaining requires careful scaffolding for transforming intermediate node outputs, as well as debugging the chain at multiple granularities; to help with these needs, we designed PromptChainer, an interactive interface for visually programming chains. Through case studies with four people, we show that PromptChainer supports building prototypes for a range of applications, and conclude with open questions on scaling chains to complex tasks, and supporting low-fi chain prototyping.",
+      "standard_url": "http://arxiv.org/abs/2203.06566v1",
+      "id": "2022-promptchainer:_chaining_large_language_model_prompts_through_visual_programming"
+    },
+    "77": {
+      "enum": "77",
+      "authors": "Tongshuang Wu, Michael Terry, Carrie J. Cai",
+      "title": "AI chains: Transparent and controllable human-AI interaction by chaining large language model prompts",
+      "publication": "CHI",
+      "year": 2021,
+      "summary": "Although large language models (LLMs) have demonstrated impressive potential on simple tasks, their breadth of scope, lack of transparency, and insufficient controllability can make them less effective when assisting humans on more complex tasks. In response, we introduce the concept of Chaining LLM steps together, where the output of one step becomes the input for the next, thus aggregating the gains per step. We first define a set of LLM primitive operations useful for Chain construction, then present an interactive system where users can modify these Chains, along with their intermediate results, in a modular way. In a 20-person user study, we found that Chaining not only improved the quality of task outcomes, but also significantly enhanced system transparency, controllability, and sense of collaboration. Additionally, we saw that users developed new ways of interacting with LLMs through Chains: they leveraged sub-tasks to calibrate model expectations, compared and contrasted alternative strategies by observing parallel downstream effects, and debugged unexpected model outputs by \"unit-testing\" sub-components of a Chain. In two case studies, we further explore how LLM Chains may be used in future applications",
+      "standard_url": "http://arxiv.org/abs/2110.01691v3",
+      "id": "2021-ai_chains:_transparent_and_controllable_human-ai_interaction_by_chaining_large_language_model_prompts"
+    },
+    "78": {
+      "enum": "78",
+      "authors": "Yujun Yan, Kevin Swersky, Danai Koutra, Parthasarathy Ranganathan, Milad Hashemi",
+      "title": "Neural execution engines: Learning to execute subroutines",
+      "publication": "NeurIPS",
+      "year": 2020,
+      "summary": "A significant effort has been made to train neural networks that replicate algorithmic reasoning, but they often fail to learn the abstract concepts underlying these algorithms. This is evidenced by their inability to generalize to data distributions that are outside of their restricted training sets, namely larger inputs and unseen data. We study these generalization issues at the level of numerical subroutines that comprise common algorithms like sorting, shortest paths, and minimum spanning trees. First, we observe that transformer-based sequence-to-sequence models can learn subroutines like sorting a list of numbers, but their performance rapidly degrades as the length of lists grows beyond those found in the training set. We demonstrate that this is due to attention weights that lose fidelity with longer sequences, particularly when the input numbers are numerically similar. To address the issue, we propose a learned conditional masking mechanism, which enables the model to strongly generalize far outside of its training range with near-perfect accuracy on a variety of algorithms. Second, to generalize to unseen data, we show that encoding numbers with a binary representation leads to embeddings with rich structure once trained on downstream tasks like addition or multiplication. This allows the embedding to handle missing data by faithfully interpolating numbers not seen during training.",
+      "standard_url": "http://arxiv.org/abs/2006.08084v3",
+      "id": "2020-neural_execution_engines:_learning_to_execute_subroutines"
+    },
+    "79": {
+      "enum": "79",
+      "authors": "Huihan Yao, Ying Chen, Qinyuan Ye, Xisen Jin, Xiang Ren",
+      "title": "Refining language models with compositional explanations",
+      "publication": "NeurIPS",
+      "year": 2021,
+      "summary": "Pre-trained language models have been successful on text classification tasks, but are prone to learning spurious correlations from biased datasets, and are thus vulnerable when making inferences in a new domain. Prior work reveals such spurious patterns via post-hoc explanation algorithms which compute the importance of input features. Further, the model is regularized to align the importance scores with human knowledge, so that the unintended model behaviors are eliminated. However, such a regularization technique lacks flexibility and coverage, since only importance scores towards a pre-defined list of features are adjusted, while more complex human knowledge such as feature interaction and pattern generalization can hardly be incorporated. In this work, we propose to refine a learned language model for a target domain by collecting human-provided compositional explanations regarding observed biases. By parsing these explanations into executable logic rules, the human-specified refinement advice from a small set of explanations can be generalized to more training examples. We additionally introduce a regularization term allowing adjustments for both importance and interaction of features to better rectify model behavior. We demonstrate the effectiveness of the proposed approach on two text classification tasks by showing improved performance in target domain as well as improved model fairness after refinement.",
+      "standard_url": "http://arxiv.org/abs/2103.10415v3",
+      "id": "2021-refining_language_models_with_compositional_explanations"
+    },
+    "80": {
+      "enum": "80",
+      "authors": "Xi Ye and Greg Durrett. 2022",
+      "title": "The unreliability of explanations in few-shot in-context learning",
+      "publication": "arXiv preprint arXiv:2205.03401",
+      "year": "2205",
+      "summary": null,
+      "standard_url": null,
+      "id": "2205-the_unreliability_of_explanations_in_few-shot_in-context_learning"
+    },
+    "81": {
+      "enum": "81",
+      "authors": "Yordan Yordanov, Vid Kocijan, Thomas Lukasiewicz, Oana-Maria Camburu",
+      "title": "Few-shot out-of-domain transfer learning of natural language explanations",
+      "publication": "arXiv preprint arXiv:2112.06204",
+      "year": 2021,
+      "summary": "Training a model to provide natural language explanations (NLEs) for its predictions usually requires the acquisition of task-specific NLEs, which is time- and resource-consuming. A potential solution is the few-shot out-of-domain transfer of NLEs from a parent task with many NLEs to a child task. In this work, we examine the setup in which the child task has few NLEs but abundant labels. We establish four few-shot transfer learning methods that cover the possible fine-tuning combinations of the labels and NLEs for the parent and child tasks. We transfer explainability from a large natural language inference dataset (e-SNLI) separately to two child tasks: (1) hard cases of pronoun resolution, where we introduce the small-e-WinoGrande dataset of NLEs on top of the WinoGrande dataset, and (2)~commonsense validation (ComVE). Our results demonstrate that the parent task helps with NLE generation and we establish the best methods for this setup.",
+      "standard_url": "http://arxiv.org/abs/2112.06204v2",
+      "id": "2021-few-shot_out-of-domain_transfer_learning_of_natural_language_explanations"
+    },
+    "82": {
+      "enum": "82",
+      "authors": "Bhavya Ghai, Q. Vera Liao, Yunfeng Zhang, Klaus Mueller",
+      "title": "annotator rationales",
+      "publication": "",
+      "year": 2020,
+      "summary": "We propose a new active learning (AL) framework, Active Learning++, which can utilize an annotator's labels as well as its rationale. Annotators can provide their rationale for choosing a label by ranking input features based on their importance for a given query. To incorporate this additional input, we modified the disagreement measure for a bagging-based Query by Committee (QBC) sampling strategy. Instead of weighing all committee models equally to select the next instance, we assign higher weight to the committee model with higher agreement with the annotator's ranking. Specifically, we generated a feature importance-based local explanation for each committee model. The similarity score between feature rankings provided by the annotator and the local model explanation is used to assign a weight to each corresponding committee model. This approach is applicable to any kind of ML model using model-agnostic techniques to generate local explanation such as LIME. With a simulation study, we show that our framework significantly outperforms a QBC based vanilla AL framework.",
+      "standard_url": "http://arxiv.org/abs/2009.04568v1",
+      "id": "2020-annotator_rationales"
+    },
+    "83": {
+      "enum": "83",
+      "authors": "Wojciech Zaremba, Ilya Sutskever",
+      "title": "Learning to execute",
+      "publication": "arXiv preprint arXiv:1410.4615",
+      "year": 2014,
+      "summary": "Recurrent Neural Networks (RNNs) with Long Short-Term Memory units (LSTM) are widely used because they are expressive and are easy to train. Our interest lies in empirically evaluating the expressiveness and the learnability of LSTMs in the sequence-to-sequence regime by training them to evaluate short computer programs, a domain that has traditionally been seen as too complex for neural networks. We consider a simple class of programs that can be evaluated with a single left-to-right pass using constant memory. Our main result is that LSTMs can learn to map the character-level representations of such programs to their correct outputs. Notably, it was necessary to use curriculum learning, and while conventional curriculum learning proved ineffective, we developed a new variant of curriculum learning that improved our networks' performance in all experimental conditions. The improved curriculum had a dramatic impact on an addition problem, making it possible to train an LSTM to add two 9-digit numbers with 99% accuracy.",
+      "standard_url": "http://arxiv.org/abs/1410.4615v3",
+      "id": "2014-learning_to_execute"
+    },
+    "84": {
+      "enum": "84",
+      "authors": "Eric Zelikman, Yuhuai Wu, Jesse Mu, Noah D. Goodman",
+      "title": "STaR: Bootstrapping reasoning with reasoning",
+      "publication": "arXiv preprint arXiv:2203.14465",
+      "year": 2022,
+      "summary": "Generating step-by-step \"chain-of-thought\" rationales improves language model performance on complex reasoning tasks like mathematics or commonsense question-answering. However, inducing language model rationale generation currently requires either constructing massive rationale datasets or sacrificing accuracy by using only few-shot inference. We propose a technique to iteratively leverage a small number of rationale examples and a large dataset without rationales, to bootstrap the ability to perform successively more complex reasoning. This technique, the \"Self-Taught Reasoner\" (STaR), relies on a simple loop: generate rationales to answer many questions, prompted with a few rationale examples; if the generated answers are wrong, try again to generate a rationale given the correct answer; fine-tune on all the rationales that ultimately yielded correct answers; repeat. We show that STaR significantly improves performance on multiple datasets compared to a model fine-tuned to directly predict final answers, and performs comparably to fine-tuning a 30$\\times$ larger state-of-the-art language model on CommensenseQA. Thus, STaR lets a model improve itself by learning from its own generated reasoning.",
+      "standard_url": "http://arxiv.org/abs/2203.14465v2",
+      "id": "2022-star:_bootstrapping_reasoning_with_reasoning"
+    },
+    "85": {
+      "enum": "85",
+      "authors": "Tony Z. Zhao, Eric Wallace, Shi Feng, Dan Klein, Sameer Singh",
+      "title": "Calibrate before use: Improving few-shot performance of language models",
+      "publication": "ICML",
+      "year": 2021,
+      "summary": "GPT-3 can perform numerous tasks when provided a natural language prompt that contains a few training examples. We show that this type of few-shot learning can be unstable: the choice of prompt format, training examples, and even the order of the training examples can cause accuracy to vary from near chance to near state-of-the-art. We demonstrate that this instability arises from the bias of language models towards predicting certain answers, e.g., those that are placed near the end of the prompt or are common in the pre-training data. To mitigate this, we first estimate the model's bias towards each answer by asking for its prediction when given the training prompt and a content-free test input such as \"N/A\". We then fit calibration parameters that cause the prediction for this input to be uniform across answers. On a diverse set of tasks, this contextual calibration procedure substantially improves GPT-3 and GPT-2's average accuracy (up to 30.0% absolute) and reduces variance across different choices of the prompt.",
+      "standard_url": "http://arxiv.org/abs/2102.09690v2",
+      "id": "2021-calibrate_before_use:_improving_few-shot_performance_of_language_models"
+    },
+    "86": {
+      "enum": "86",
+      "authors": "Wangchunshu Zhou, Jinyi Hu, Hanlin Zhang, Xiaodan Liang, Maosong Sun, Chenyan Xiong, Jian Tang",
+      "title": "Towards interpretable natural language understanding with explanations as latent variables",
+      "publication": "NeurIPS",
+      "year": 2020,
+      "summary": "Recently generating natural language explanations has shown very promising results in not only offering interpretable explanations but also providing additional information and supervision for prediction. However, existing approaches usually require a large set of human annotated explanations for training while collecting a large set of explanations is not only time consuming but also expensive. In this paper, we develop a general framework for interpretable natural language understanding that requires only a small set of human annotated explanations for training. Our framework treats natural language explanations as latent variables that model the underlying reasoning process of a neural model. We develop a variational EM framework for optimization where an explanation generation module and an explanation-augmented prediction module are alternatively optimized and mutually enhance each other. Moreover, we further propose an explanation-based self-training method under this framework for semi-supervised learning. It alternates between assigning pseudo-labels to unlabeled data and generating new explanations to iteratively improve each other. Experiments on two natural language understanding tasks demonstrate that our framework can not only make effective predictions in both supervised and semi-supervised settings, but also generate good natural language explanation.",
+      "standard_url": "http://arxiv.org/abs/2011.05268v3",
+      "id": "2020-towards_interpretable_natural_language_understanding_with_explanations_as_latent_variables"
+    }
+  },
+  "authors": "Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, Denny Zhou",
+  "summary": "We explore how generating a chain of thought -- a series of intermediate reasoning steps -- significantly improves the ability of large language models to perform complex reasoning. In particular, we show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain of thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting. Experiments on three large language models show that chain of thought prompting improves performance on a range of arithmetic, commonsense, and symbolic reasoning tasks. The empirical gains can be striking. For instance, prompting a 540B-parameter language model with just eight chain of thought exemplars achieves state of the art accuracy on the GSM8K benchmark of math word problems, surpassing even finetuned GPT-3 with a verifier.",
+  "standard_url": "http://arxiv.org/abs/2201.11903v6",
+  "id": "2022-chain-of-thought_prompting_elicits_reasoning_in_large_language_models"
+}

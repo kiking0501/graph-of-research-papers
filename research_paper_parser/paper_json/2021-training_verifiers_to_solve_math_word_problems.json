@@ -1,0 +1,536 @@
+{
+  "name": "Math Verifiers",
+  "year": 2021,
+  "url": "https://ar5iv.labs.arxiv.org/html/2110.14168v2",
+  "title": "Training Verifiers to Solve Math Word Problems",
+  "sections": {
+    "S1": "1 Introduction",
+    "S2": "2 Dataset",
+    "S3": "3 Related Work",
+    "S4": "4 Methods",
+    "S5": "5 Additional Experiments",
+    "S6": "6 Conclusion",
+    "Sx1": "Acknowledgements"
+  },
+  "citations": [
+    {
+      "section_id": "S1",
+      "cite_enum": "26",
+      "cite_id": "26",
+      "sentence": "In recent years, large language models have demonstrated impressive skills across many diverse tasks(Wang et al,2019,Brown et al,2020)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "2",
+      "cite_id": "2",
+      "sentence": "In recent years, large language models have demonstrated impressive skills across many diverse tasks(Wang et al,2019,Brown et al,2020)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "9",
+      "cite_id": "9",
+      "sentence": "In recent years, large language models have demonstrated impressive skills across many diverse tasks(Wang et al,2019,Brown et al,2020)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "However, even the largest models falter when required to perform multi-step mathematical reasoning(Hendrycks et al,2021)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "21",
+      "cite_id": "21",
+      "sentence": "One significant challenge in mathematical reasoning is the high sensitivity to individual mistakes(Shen et al,2021a)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "One significant challenge in mathematical reasoning is the high sensitivity to individual mistakes(Shen et al,2021a)"
+    },
+    {
+      "section_id": "S1",
+      "cite_enum": "21",
+      "cite_id": "21",
+      "sentence": "We propose training verifiers to evaluate the correctness of model generated solutions, similar to concurrent work byShen et al(2021a)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "11",
+      "cite_id": "11",
+      "sentence": "Early math word problem datasets(Kushman et al,2014,Roy and Roth,2015)are relatively small and are not well suited for testing the limits of modern language models"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "20",
+      "cite_id": "20",
+      "sentence": "Early math word problem datasets(Kushman et al,2014,Roy and Roth,2015)are relatively small and are not well suited for testing the limits of modern language models"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "7",
+      "cite_id": "7",
+      "sentence": "Dolphin18K(Huang et al,2016)is a larger dataset containing 18K problems, but solutions are provided only in the form of equations or final answers"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "15",
+      "cite_id": "15",
+      "sentence": "AQuA-RAT(Ling et al,2017)contains 100K problems, but this dataset unfortunately suffers from both a high degree of problem templatization and poor quality control of the natural language solutions"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "MathQA is a recently released subset of AQuA-RAT focused on correcting these mistakes(Amini et al,2019), but even the corrected dataset has data quality issues, with around 30% of the data having inconsistencies(Miao et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "17",
+      "cite_id": "17",
+      "sentence": "MathQA is a recently released subset of AQuA-RAT focused on correcting these mistakes(Amini et al,2019), but even the corrected dataset has data quality issues, with around 30% of the data having inconsistencies(Miao et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "29",
+      "cite_id": "29",
+      "sentence": "Ape210K(Zhao et al,2020)is the largest publicly available dataset, consisting of 210K Chinese elementary school-level math problems"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "17",
+      "cite_id": "17",
+      "sentence": "The recently developed ASDiv dataset(Miao et al,2021), which contains 2"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "The recently developed ASDiv dataset(Miao et al,2021), which contains 2"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "12",
+      "cite_id": "12",
+      "sentence": "Other recent reasoning-related datasets have focused on mathematical reasoning on symbolic math(Lample and Charton,2019), reading comprehension (LogiQA)(Liu et al,2020), and commonsense question answering (CommonsenseQA)(Talmor et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "16",
+      "cite_id": "16",
+      "sentence": "Other recent reasoning-related datasets have focused on mathematical reasoning on symbolic math(Lample and Charton,2019), reading comprehension (LogiQA)(Liu et al,2020), and commonsense question answering (CommonsenseQA)(Talmor et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "24",
+      "cite_id": "24",
+      "sentence": "Other recent reasoning-related datasets have focused on mathematical reasoning on symbolic math(Lample and Charton,2019), reading comprehension (LogiQA)(Liu et al,2020), and commonsense question answering (CommonsenseQA)(Talmor et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "23",
+      "cite_id": "23",
+      "sentence": "Previous work has attempted to solve classic math word problem benchmarks with recurrent seq2seq models(Sutskever et al,2014)and closely related variants(Wang et al,2017,Huang et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "27",
+      "cite_id": "27",
+      "sentence": "Previous work has attempted to solve classic math word problem benchmarks with recurrent seq2seq models(Sutskever et al,2014)and closely related variants(Wang et al,2017,Huang et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "8",
+      "cite_id": "8",
+      "sentence": "Previous work has attempted to solve classic math word problem benchmarks with recurrent seq2seq models(Sutskever et al,2014)and closely related variants(Wang et al,2017,Huang et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "1",
+      "cite_id": "1",
+      "sentence": "More recent work has improved performance by designing specialized encoder-decoder architectures(Amini et al,2019,Chiang and Chen,2018,Xie and Sun,2019,Chen et al,2020,Li et al,2020), with the strongest results often relying on large pretrained encoders from the BERT family(Chen et al,2019,Kim et al,2020,Liang et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "5",
+      "cite_id": "5",
+      "sentence": "Previous work has attempted to solve classic math word problem benchmarks with recurrent seq2seq models(Sutskever et al,2014)and closely related variants(Wang et al,2017,Huang et al,2018)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "28",
+      "cite_id": "28",
+      "sentence": "More recent work has improved performance by designing specialized encoder-decoder architectures(Amini et al,2019,Chiang and Chen,2018,Xie and Sun,2019,Chen et al,2020,Li et al,2020), with the strongest results often relying on large pretrained encoders from the BERT family(Chen et al,2019,Kim et al,2020,Liang et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "3",
+      "cite_id": "3",
+      "sentence": "More recent work has improved performance by designing specialized encoder-decoder architectures(Amini et al,2019,Chiang and Chen,2018,Xie and Sun,2019,Chen et al,2020,Li et al,2020), with the strongest results often relying on large pretrained encoders from the BERT family(Chen et al,2019,Kim et al,2020,Liang et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "13",
+      "cite_id": "13",
+      "sentence": "More recent work has improved performance by designing specialized encoder-decoder architectures(Amini et al,2019,Chiang and Chen,2018,Xie and Sun,2019,Chen et al,2020,Li et al,2020), with the strongest results often relying on large pretrained encoders from the BERT family(Chen et al,2019,Kim et al,2020,Liang et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "4",
+      "cite_id": "4",
+      "sentence": "More recent work has improved performance by designing specialized encoder-decoder architectures(Amini et al,2019,Chiang and Chen,2018,Xie and Sun,2019,Chen et al,2020,Li et al,2020), with the strongest results often relying on large pretrained encoders from the BERT family(Chen et al,2019,Kim et al,2020,Liang et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "10",
+      "cite_id": "10",
+      "sentence": "More recent work has improved performance by designing specialized encoder-decoder architectures(Amini et al,2019,Chiang and Chen,2018,Xie and Sun,2019,Chen et al,2020,Li et al,2020), with the strongest results often relying on large pretrained encoders from the BERT family(Chen et al,2019,Kim et al,2020,Liang et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "14",
+      "cite_id": "14",
+      "sentence": "More recent work has improved performance by designing specialized encoder-decoder architectures(Amini et al,2019,Chiang and Chen,2018,Xie and Sun,2019,Chen et al,2020,Li et al,2020), with the strongest results often relying on large pretrained encoders from the BERT family(Chen et al,2019,Kim et al,2020,Liang et al,2021)"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "6",
+      "cite_id": "6",
+      "sentence": "Hendrycks et al(2021)propose pretraining models on a new AMPS corpus, derived from Khan Academy problems and Mathematica scripts"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "22",
+      "cite_id": "22",
+      "sentence": "Similarly,Shen et al(2021b)propose a pretrained a corpus of pre-K to college level curricula extracted from the internet, andPeng et al(2021)propose pretraining by predicting masked subexpressions from expression trees"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "19",
+      "cite_id": "19",
+      "sentence": "Hendrycks et al(2021)propose pretraining models on a new AMPS corpus, derived from Khan Academy problems and Mathematica scripts"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "18",
+      "cite_id": "18",
+      "sentence": "Nichols et al(2020)proposed a sample-and-rank approach to improve the collaborative storytelling ability of large language models, with the training signal coming from the preferences of human workers"
+    },
+    {
+      "section_id": "S3",
+      "cite_enum": "21",
+      "cite_id": "21",
+      "sentence": "In concurrent work closely related to our own,Shen et al(2021a)applied a similar approach to solving math word problems, jointly training a model to both generate and rank solutions"
+    },
+    {
+      "section_id": "S4",
+      "cite_enum": "2",
+      "cite_id": "2",
+      "sentence": "Finetuning, our baseline method, uses the same language modeling objective as the generative pretraining in GPT-3(Brown et al,2020)"
+    },
+    {
+      "section_id": "S5",
+      "cite_enum": "25",
+      "cite_id": "25",
+      "sentence": "Specifically, we apply residual dropout(Vaswani et al,2017)along the residual paths of each layer in the network"
+    }
+  ],
+  "preview": "<div class=\"ltx_para\" id=\"S1.p1\">\n<p class=\"ltx_p\" id=\"S1.p1.1\"><span class=\"ltx_text\" id=\"S1.p1.1.1\" style=\"font-size:90%;\">In recent years, large language models have demonstrated impressive skills across many diverse tasks </span><span class=\"ltx_text\" id=\"S1.p1.1.5\" style=\"font-size:90%;\">. </span><span class=\"ltx_text\" id=\"S1.p1.1.8\" style=\"font-size:90%;\"> describe the consistent benefits of increasing model size, characterizing scaling trends that hold across many orders of magnitude. However, even the largest models falter when required to perform multi-step mathematical reasoning </span><span class=\"ltx_text\" id=\"S1.p1.1.12\" style=\"font-size:90%;\">. Model samples frequently contain catastrophic mistakes, even after the model has been appropriately finetuned. Mathematical reasoning thus reveals a critical weakness in modern language models.</span></p>\n</div><div class=\"ltx_para\" id=\"S1.p2\">\n<p class=\"ltx_p\" id=\"S1.p2.1\"><span class=\"ltx_text\" id=\"S1.p2.1.1\" style=\"font-size:90%;\">One significant challenge in mathematical reasoning is the high sensitivity to individual mistakes </span><span class=\"ltx_text\" id=\"S1.p2.1.5\" style=\"font-size:90%;\">. When generating a solution, autoregressive models have no mechanism to correct their own errors. Solutions that veer off-course quickly become unrecoverable. If we rely purely on generative methods and extrapolate from current trends, we will require an exorbitant parameter count to achieve even moderate performance on distributions as challenging as the MATH dataset </span><span class=\"ltx_text\" id=\"S1.p2.1.9\" style=\"font-size:90%;\">. This evidence strongly motivates the search for methods with more favorable scaling laws.</span></p>\n</div><div class=\"ltx_para\" id=\"S1.p3\">\n<p class=\"ltx_p\" id=\"S1.p3.1\"><span class=\"ltx_text\" id=\"S1.p3.1.1\" style=\"font-size:90%;\">We propose training verifiers to evaluate the correctness of model generated solutions, similar to concurrent work by </span><span class=\"ltx_text\" id=\"S1.p3.1.4\" style=\"font-size:90%;\">. At test time, we sample a fixed number of candidate solutions and select the solution ranked highest by the verifier. Verifiers benefit both from their inherent optionality and from verification being a simpler task than generation in general.</span></p>\n</div><div class=\"ltx_para\" id=\"S1.p4\">\n<p class=\"ltx_p\" id=\"S1.p4.1\"><span class=\"ltx_text\" id=\"S1.p4.1.1\" style=\"font-size:90%;\">To facilitate research, we are releasing GSM8K, a dataset of 8.5K high quality problems at the grade school math level. We designed this dataset to have high linguistic diversity while relying on relatively simple grade school math concepts. State-of-the-art language models struggle to achieve high performance on this dataset, primarily due to the high diversity among problems. At the same time, GSM8K solutions depend only on elementary concepts, so achieving high test performance is a tractable goal.</span></p>\n</div><div class=\"ltx_para\" id=\"S1.p5\">\n<p class=\"ltx_p\" id=\"S1.p5.1\"><span class=\"ltx_text\" id=\"S1.p5.1.1\" style=\"font-size:90%;\">Our main contributions are as follows:</span></p>\n</div><div class=\"ltx_para\" id=\"S1.p6\">\n<ol class=\"ltx_enumerate\" id=\"S1.I1\">\n<li class=\"ltx_item\" id=\"S1.I1.i1\" style=\"list-style-type:none;\">\n<span class=\"ltx_tag ltx_tag_item\">1.</span>\n<div class=\"ltx_para\" id=\"S1.I1.i1.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i1.p1.1\"><span class=\"ltx_text\" id=\"S1.I1.i1.p1.1.1\" style=\"font-size:90%;\">We present a curated dataset of 8.5K grade school math questions and natural language solutions, useful for probing the informal reasoning ability of large language models.</span></p>\n</div>\n</li>\n<li class=\"ltx_item\" id=\"S1.I1.i2\" style=\"list-style-type:none;\">\n<span class=\"ltx_tag ltx_tag_item\">2.</span>\n<div class=\"ltx_para\" id=\"S1.I1.i2.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i2.p1.1\"><span class=\"ltx_text\" id=\"S1.I1.i2.p1.1.1\" style=\"font-size:90%;\">We show that, compared to a finetuning baseline, the use of verifiers results in approximately the same performance boost as a 30x model size increase, and that verifiers scale significantly better with increased data.</span></p>\n</div>\n</li>\n<li class=\"ltx_item\" id=\"S1.I1.i3\" style=\"list-style-type:none;\">\n<span class=\"ltx_tag ltx_tag_item\">3.</span>\n<div class=\"ltx_para\" id=\"S1.I1.i3.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i3.p1.1\"><span class=\"ltx_text\" id=\"S1.I1.i3.p1.1.1\" style=\"font-size:90%;\">We show that dropout acts as a strong regularizer, significantly improving performance for both finetuning and verification.</span></p>\n</div>\n</li>\n</ol>\n</div><div class=\"ltx_para\" id=\"S1.I1.i1.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i1.p1.1\"><span class=\"ltx_text\" id=\"S1.I1.i1.p1.1.1\" style=\"font-size:90%;\">We present a curated dataset of 8.5K grade school math questions and natural language solutions, useful for probing the informal reasoning ability of large language models.</span></p>\n</div><div class=\"ltx_para\" id=\"S1.I1.i2.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i2.p1.1\"><span class=\"ltx_text\" id=\"S1.I1.i2.p1.1.1\" style=\"font-size:90%;\">We show that, compared to a finetuning baseline, the use of verifiers results in approximately the same performance boost as a 30x model size increase, and that verifiers scale significantly better with increased data.</span></p>\n</div><div class=\"ltx_para\" id=\"S1.I1.i3.p1\">\n<p class=\"ltx_p\" id=\"S1.I1.i3.p1.1\"><span class=\"ltx_text\" id=\"S1.I1.i3.p1.1.1\" style=\"font-size:90%;\">We show that dropout acts as a strong regularizer, significantly improving performance for both finetuning and verification.</span></p>\n</div>",
+  "references": {
+    "1": {
+      "enum": "1",
+      "authors": "Aida Amini, Saadia Gabriel, Peter Lin, Rik Koncel-Kedziorski, Yejin Choi, Hannaneh Hajishirzi",
+      "title": "Mathqa: Towards interpretable math word problem solving with operation-based formalisms",
+      "publication": "arXiv preprint arXiv:1905.13319, 2019",
+      "year": 2019,
+      "summary": "We introduce a large-scale dataset of math word problems and an interpretable neural math problem solver that learns to map problems to operation programs. Due to annotation challenges, current datasets in this domain have been either relatively small in scale or did not offer precise operational annotations over diverse problem types. We introduce a new representation language to model precise operation programs corresponding to each math problem that aim to improve both the performance and the interpretability of the learned models. Using this representation language, our new dataset, MathQA, significantly enhances the AQuA dataset with fully-specified operational programs. We additionally introduce a neural sequence-to-program model enhanced with automatic problem categorization. Our experiments show improvements over competitive baselines in our MathQA as well as the AQuA dataset. The results are still significantly lower than human performance indicating that the dataset poses new challenges for future research. Our dataset is available at: https://math-qa.github.io/math-QA/",
+      "standard_url": "http://arxiv.org/abs/1905.13319v1",
+      "id": "2019-mathqa:_towards_interpretable_math_word_problem_solving_with_operation-based_formalisms"
+    },
+    "2": {
+      "enum": "2",
+      "authors": "Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, Dario Amodei",
+      "title": "Language models are few-shot learners",
+      "publication": "arXiv preprint arXiv:2005.14165, 2020",
+      "year": 2020,
+      "summary": "Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to do. Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same time, we also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally, we find that GPT-3 can generate samples of news articles which human evaluators have difficulty distinguishing from articles written by humans. We discuss broader societal impacts of this finding and of GPT-3 in general.",
+      "standard_url": "http://arxiv.org/abs/2005.14165v4",
+      "id": "2020-language_models_are_few-shot_learners"
+    },
+    "3": {
+      "enum": "3",
+      "authors": "Kezhen Chen, Qiuyuan Huang, Hamid Palangi, Paul Smolensky, Kenneth D. Forbus, Jianfeng Gao",
+      "title": "Mapping natural-language problems to formal-language solutions using structured neural representations",
+      "publication": "In ICML, 2020",
+      "year": 2019,
+      "summary": "Generating formal-language programs represented by relational tuples, such as Lisp programs or mathematical operations, to solve problems stated in natural language is a challenging task because it requires explicitly capturing discrete symbolic structural information implicit in the input. However, most general neural sequence models do not explicitly capture such structural information, limiting their performance on these tasks. In this paper, we propose a new encoder-decoder model based on a structured neural representation, Tensor Product Representations (TPRs), for mapping Natural-language problems to Formal-language solutions, called TP-N2F. The encoder of TP-N2F employs TPR `binding' to encode natural-language symbolic structure in vector space and the decoder uses TPR `unbinding' to generate, in symbolic space, a sequential program represented by relational tuples, each consisting of a relation (or operation) and a number of arguments. TP-N2F considerably outperforms LSTM-based seq2seq models on two benchmarks and creates new state-of-the-art results. Ablation studies show that improvements can be attributed to the use of structured TPRs explicitly in both the encoder and decoder. Analysis of the learned structures shows how TPRs enhance the interpretability of TP-N2F.",
+      "standard_url": "http://arxiv.org/abs/1910.02339v3",
+      "id": "2019-mapping_natural-language_problems_to_formal-language_solutions_using_structured_neural_representations"
+    },
+    "4": {
+      "enum": "4",
+      "authors": "X. Chen, C. Liang, A. W. Yu, D. Zhou, D. Song, and Q. V. Le",
+      "title": "Neural symbolic reader: Scalable integration of distributed and symbolic representations for reading comprehension",
+      "publication": "In International Conference on Learning Representations, 2019",
+      "year": "2019",
+      "summary": null,
+      "standard_url": null,
+      "id": "2019-neural_symbolic_reader:_scalable_integration_of_distributed_and_symbolic_representations_for_reading_comprehension"
+    },
+    "5": {
+      "enum": "5",
+      "authors": "Ting-Rui Chiang, Yun-Nung Chen",
+      "title": "Semantically-aligned equation generation for solving and reasoning math word problems",
+      "publication": "arXiv preprint arXiv:1811.00720, 2018",
+      "year": 2018,
+      "summary": "Solving math word problems is a challenging task that requires accurate natural language understanding to bridge natural language texts and math expressions. Motivated by the intuition about how human generates the equations given the problem texts, this paper presents a neural approach to automatically solve math word problems by operating symbols according to their semantic meanings in texts. This paper views the process of generating equation as a bridge between the semantic world and the symbolic world, where the proposed neural math solver is based on an encoder-decoder framework. In the proposed model, the encoder is designed to understand the semantics of problems, and the decoder focuses on tracking semantic meanings of the generated symbols and then deciding which symbol to generate next. The preliminary experiments are conducted in a dataset Math23K, and our model significantly outperforms both the state-of-the-art single model and the best non-retrieval-based model over about 10% accuracy, demonstrating the effectiveness of bridging the symbolic and semantic worlds from math word problems.",
+      "standard_url": "http://arxiv.org/abs/1811.00720v2",
+      "id": "2018-semantically-aligned_equation_generation_for_solving_and_reasoning_math_word_problems"
+    },
+    "6": {
+      "enum": "6",
+      "authors": "Dan Hendrycks, Collin Burns, Saurav Kadavath, Akul Arora, Steven Basart, Eric Tang, Dawn Song, Jacob Steinhardt",
+      "title": "Measuring mathematical problem solving with the math dataset",
+      "publication": "arXiv preprint arXiv:2103.03874, 2021",
+      "year": 2021,
+      "summary": "Many intellectual endeavors require mathematical problem solving, but this skill remains beyond the capabilities of computers. To measure this ability in machine learning models, we introduce MATH, a new dataset of 12,500 challenging competition mathematics problems. Each problem in MATH has a full step-by-step solution which can be used to teach models to generate answer derivations and explanations. To facilitate future research and increase accuracy on MATH, we also contribute a large auxiliary pretraining dataset which helps teach models the fundamentals of mathematics. Even though we are able to increase accuracy on MATH, our results show that accuracy remains relatively low, even with enormous Transformer models. Moreover, we find that simply increasing budgets and model parameter counts will be impractical for achieving strong mathematical reasoning if scaling trends continue. While scaling Transformers is automatically solving most other text-based tasks, scaling is not currently solving MATH. To have more traction on mathematical problem solving we will likely need new algorithmic advancements from the broader research community.",
+      "standard_url": "http://arxiv.org/abs/2103.03874v2",
+      "id": "2021-measuring_mathematical_problem_solving_with_the_math_dataset"
+    },
+    "7": {
+      "enum": "7",
+      "authors": "D. Huang, S. Shi, C.-Y. Lin, J. Yin, and W.-Y. Ma",
+      "title": "How well do computers solve math word problems? large-scale dataset construction and evaluation",
+      "publication": "In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 887–896, 2016",
+      "year": "2016",
+      "summary": null,
+      "standard_url": null,
+      "id": "2016-how_well_do_computers_solve_math_word_problems?_large-scale_dataset_construction_and_evaluation"
+    },
+    "8": {
+      "enum": "8",
+      "authors": "D. Huang, J. Liu, C.-Y. Lin, and J. Yin",
+      "title": "Neural math word problem solver with reinforcement learning",
+      "publication": "In Proceedings of the 27th International Conference on Computational Linguistics, pages 213–223, 2018",
+      "year": "2018",
+      "summary": null,
+      "standard_url": null,
+      "id": "2018-neural_math_word_problem_solver_with_reinforcement_learning"
+    },
+    "9": {
+      "enum": "9",
+      "authors": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, Dario Amodei",
+      "title": "Scaling laws for neural language models",
+      "publication": "arXiv preprint arXiv:2001.08361, 2020",
+      "year": 2020,
+      "summary": "We study empirical scaling laws for language model performance on the cross-entropy loss. The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude. Other architectural details such as network width or depth have minimal effects within a wide range. Simple equations govern the dependence of overfitting on model/dataset size and the dependence of training speed on model size. These relationships allow us to determine the optimal allocation of a fixed compute budget. Larger models are significantly more sample-efficient, such that optimally compute-efficient training involves training very large models on a relatively modest amount of data and stopping significantly before convergence.",
+      "standard_url": "http://arxiv.org/abs/2001.08361v1",
+      "id": "2020-scaling_laws_for_neural_language_models"
+    },
+    "10": {
+      "enum": "10",
+      "authors": "B. Kim, K. S. Ki, D. Lee, and G. Gweon",
+      "title": "Point to the expression: Solving algebraic word problems using the expression-pointer transformer model",
+      "publication": "In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 3768–3779, 2020",
+      "year": "2020",
+      "summary": null,
+      "standard_url": null,
+      "id": "2020-point_to_the_expression:_solving_algebraic_word_problems_using_the_expression-pointer_transformer_model"
+    },
+    "11": {
+      "enum": "11",
+      "authors": "N. Kushman, Y. Artzi, L. Zettlemoyer, and R. Barzilay",
+      "title": "Learning to automatically solve algebra word problems",
+      "publication": "In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 271–281, 2014",
+      "year": "2014",
+      "summary": null,
+      "standard_url": null,
+      "id": "2014-learning_to_automatically_solve_algebra_word_problems"
+    },
+    "12": {
+      "enum": "12",
+      "authors": "Guillaume Lample, François Charton",
+      "title": "Deep learning for symbolic mathematics",
+      "publication": "arXiv preprint arXiv:1912.01412, 2019",
+      "year": 2019,
+      "summary": "Neural networks have a reputation for being better at solving statistical or approximate problems than at performing calculations or working with symbolic data. In this paper, we show that they can be surprisingly good at more elaborated tasks in mathematics, such as symbolic integration and solving differential equations. We propose a syntax for representing mathematical problems, and methods for generating large datasets that can be used to train sequence-to-sequence models. We achieve results that outperform commercial Computer Algebra Systems such as Matlab or Mathematica.",
+      "standard_url": "http://arxiv.org/abs/1912.01412v1",
+      "id": "2019-deep_learning_for_symbolic_mathematics"
+    },
+    "13": {
+      "enum": "13",
+      "authors": "Shucheng Li, Lingfei Wu, Shiwei Feng, Fangli Xu, Fengyuan Xu, Sheng Zhong",
+      "title": "Graph-to-tree neural networks for learning structured input-output translation with applications to semantic parsing and math word problem",
+      "publication": "EMNLP, 2020",
+      "year": 2020,
+      "summary": "The celebrated Seq2Seq technique and its numerous variants achieve excellent performance on many tasks such as neural machine translation, semantic parsing, and math word problem solving. However, these models either only consider input objects as sequences while ignoring the important structural information for encoding, or they simply treat output objects as sequence outputs instead of structural objects for decoding. In this paper, we present a novel Graph-to-Tree Neural Networks, namely Graph2Tree consisting of a graph encoder and a hierarchical tree decoder, that encodes an augmented graph-structured input and decodes a tree-structured output. In particular, we investigated our model for solving two problems, neural semantic parsing and math word problem. Our extensive experiments demonstrate that our Graph2Tree model outperforms or matches the performance of other state-of-the-art models on these tasks.",
+      "standard_url": "http://arxiv.org/abs/2004.13781v2",
+      "id": "2020-graph-to-tree_neural_networks_for_learning_structured_input-output_translation_with_applications_to_semantic_parsing_and_math_word_problem"
+    },
+    "14": {
+      "enum": "14",
+      "authors": "Z. Liang, J. Zhang, J. Shao, and X. Zhang",
+      "title": "Mwp-bert: A strong baseline for math word problems, 07 2021",
+      "publication": null,
+      "year": "2021",
+      "summary": null,
+      "standard_url": null,
+      "id": "2021-mwp-bert:_a_strong_baseline_for_math_word_problems_07_2021"
+    },
+    "15": {
+      "enum": "15",
+      "authors": "Wang Ling, Dani Yogatama, Chris Dyer, Phil Blunsom",
+      "title": "Program induction by rationale generation: Learning to solve and explain algebraic word problems",
+      "publication": "arXiv preprint arXiv:1705.04146, 2017",
+      "year": 2017,
+      "summary": "Solving algebraic word problems requires executing a series of arithmetic operations---a program---to obtain a final answer. However, since programs can be arbitrarily complicated, inducing them directly from question-answer pairs is a formidable challenge. To make this task more feasible, we solve these problems by generating answer rationales, sequences of natural language and human-readable mathematical expressions that derive the final answer through a series of small steps. Although rationales do not explicitly specify programs, they provide a scaffolding for their structure via intermediate milestones. To evaluate our approach, we have created a new 100,000-sample dataset of questions, answers and rationales. Experimental results show that indirect supervision of program learning via answer rationales is a promising strategy for inducing arithmetic programs.",
+      "standard_url": "http://arxiv.org/abs/1705.04146v3",
+      "id": "2017-program_induction_by_rationale_generation:_learning_to_solve_and_explain_algebraic_word_problems"
+    },
+    "16": {
+      "enum": "16",
+      "authors": "Jian Liu, Leyang Cui, Hanmeng Liu, Dandan Huang, Yile Wang, Yue Zhang",
+      "title": "Logiqa: A challenge dataset for machine reading comprehension with logical reasoning",
+      "publication": "In IJCAI, 2020",
+      "year": 2020,
+      "summary": "Machine reading is a fundamental task for testing the capability of natural language understanding, which is closely related to human cognition in many aspects. With the rising of deep learning techniques, algorithmic models rival human performances on simple QA, and thus increasingly challenging machine reading datasets have been proposed. Though various challenges such as evidence integration and commonsense knowledge have been integrated, one of the fundamental capabilities in human reading, namely logical reasoning, is not fully investigated. We build a comprehensive dataset, named LogiQA, which is sourced from expert-written questions for testing human Logical reasoning. It consists of 8,678 QA instances, covering multiple types of deductive reasoning. Results show that state-of-the-art neural models perform by far worse than human ceiling. Our dataset can also serve as a benchmark for reinvestigating logical AI under the deep learning NLP setting. The dataset is freely available at https://github.com/lgw863/LogiQA-dataset",
+      "standard_url": "http://arxiv.org/abs/2007.08124v1",
+      "id": "2020-logiqa:_a_challenge_dataset_for_machine_reading_comprehension_with_logical_reasoning"
+    },
+    "17": {
+      "enum": "17",
+      "authors": "Shen-Yun Miao, Chao-Chun Liang, Keh-Yih Su",
+      "title": "A diverse corpus for evaluating and developing english math word problem solvers",
+      "publication": "arXiv preprint arXiv:2106.15772, 2021",
+      "year": 2021,
+      "summary": "We present ASDiv (Academia Sinica Diverse MWP Dataset), a diverse (in terms of both language patterns and problem types) English math word problem (MWP) corpus for evaluating the capability of various MWP solvers. Existing MWP corpora for studying AI progress remain limited either in language usage patterns or in problem types. We thus present a new English MWP corpus with 2,305 MWPs that cover more text patterns and most problem types taught in elementary school. Each MWP is annotated with its problem type and grade level (for indicating the level of difficulty). Furthermore, we propose a metric to measure the lexicon usage diversity of a given MWP corpus, and demonstrate that ASDiv is more diverse than existing corpora. Experiments show that our proposed corpus reflects the true capability of MWP solvers more faithfully.",
+      "standard_url": "http://arxiv.org/abs/2106.15772v1",
+      "id": "2021-a_diverse_corpus_for_evaluating_and_developing_english_math_word_problem_solvers"
+    },
+    "18": {
+      "enum": "18",
+      "authors": "Eric Nichols, Leo Gao, Randy Gomez",
+      "title": "Collaborative storytelling with large-scale neural language models",
+      "publication": "arXiv preprint arXiv:2011.10208, 2020",
+      "year": 2020,
+      "summary": "Storytelling plays a central role in human socializing and entertainment. However, much of the research on automatic storytelling generation assumes that stories will be generated by an agent without any human interaction. In this paper, we introduce the task of collaborative storytelling, where an artificial intelligence agent and a person collaborate to create a unique story by taking turns adding to it. We present a collaborative storytelling system which works with a human storyteller to create a story by generating new utterances based on the story so far. We constructed the storytelling system by tuning a publicly-available large scale language model on a dataset of writing prompts and their accompanying fictional works. We identify generating sufficiently human-like utterances to be an important technical issue and propose a sample-and-rank approach to improve utterance quality. Quantitative evaluation shows that our approach outperforms a baseline, and we present qualitative evaluation of our system's capabilities.",
+      "standard_url": "http://arxiv.org/abs/2011.10208v1",
+      "id": "2020-collaborative_storytelling_with_large-scale_neural_language_models"
+    },
+    "19": {
+      "enum": "19",
+      "authors": "Shuai Peng, Ke Yuan, Liangcai Gao, Zhi Tang",
+      "title": "Mathbert: A pre-trained model for mathematical formula understanding",
+      "publication": "ArXiv, abs/2105.00377, 2021",
+      "year": 2021,
+      "summary": "Large-scale pre-trained models like BERT, have obtained a great success in various Natural Language Processing (NLP) tasks, while it is still a challenge to adapt them to the math-related tasks. Current pre-trained models neglect the structural features and the semantic correspondence between formula and its context. To address these issues, we propose a novel pre-trained model, namely \\textbf{MathBERT}, which is jointly trained with mathematical formulas and their corresponding contexts. In addition, in order to further capture the semantic-level structural features of formulas, a new pre-training task is designed to predict the masked formula substructures extracted from the Operator Tree (OPT), which is the semantic structural representation of formulas. We conduct various experiments on three downstream tasks to evaluate the performance of MathBERT, including mathematical information retrieval, formula topic classification and formula headline generation. Experimental results demonstrate that MathBERT significantly outperforms existing methods on all those three tasks. Moreover, we qualitatively show that this pre-trained model effectively captures the semantic-level structural information of formulas. To the best of our knowledge, MathBERT is the first pre-trained model for mathematical formula understanding.",
+      "standard_url": "http://arxiv.org/abs/2105.00377v1",
+      "id": "2021-mathbert:_a_pre-trained_model_for_mathematical_formula_understanding"
+    },
+    "20": {
+      "enum": "20",
+      "authors": "Subhro Roy, Dan Roth",
+      "title": "Solving general arithmetic word problems",
+      "publication": "In Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing, pages 1743–1752, Lisbon, Portugal, Sept. 2015. Association for Computational Linguistics",
+      "year": 2016,
+      "summary": "This paper presents a novel approach to automatically solving arithmetic word problems. This is the first algorithmic approach that can handle arithmetic problems with multiple steps and operations, without depending on additional annotations or predefined templates. We develop a theory for expression trees that can be used to represent and evaluate the target arithmetic expressions; we use it to uniquely decompose the target arithmetic problem to multiple classification problems; we then compose an expression tree, combining these with world knowledge through a constrained inference framework. Our classifiers gain from the use of {\\em quantity schemas} that supports better extraction of features. Experimental results show that our method outperforms existing systems, achieving state of the art performance on benchmark datasets of arithmetic word problems.",
+      "standard_url": "http://arxiv.org/abs/1608.01413v2",
+      "id": "2016-solving_general_arithmetic_word_problems"
+    },
+    "21": {
+      "enum": "21",
+      "authors": "Jianhao Shen, Yichun Yin, Lin Li, Lifeng Shang, Xin Jiang, Ming Zhang, Qun Liu",
+      "title": "Generate & rank: A multi-task framework for math word problems",
+      "publication": "arXiv preprint arXiv:2109.03034, 2021a",
+      "year": 2021,
+      "summary": "Math word problem (MWP) is a challenging and critical task in natural language processing. Many recent studies formalize MWP as a generation task and have adopted sequence-to-sequence models to transform problem descriptions to mathematical expressions. However, mathematical expressions are prone to minor mistakes while the generation objective does not explicitly handle such mistakes. To address this limitation, we devise a new ranking task for MWP and propose Generate & Rank, a multi-task framework based on a generative pre-trained language model. By joint training with generation and ranking, the model learns from its own mistakes and is able to distinguish between correct and incorrect expressions. Meanwhile, we perform tree-based disturbance specially designed for MWP and an online update to boost the ranker. We demonstrate the effectiveness of our proposed method on the benchmark and the results show that our method consistently outperforms baselines in all datasets. Particularly, in the classical Math23k, our method is 7% (78.4% $\\rightarrow$ 85.4%) higher than the state-of-the-art.",
+      "standard_url": "http://arxiv.org/abs/2109.03034v1",
+      "id": "2021-generate_&_rank:_a_multi-task_framework_for_math_word_problems"
+    },
+    "22": {
+      "enum": "22",
+      "authors": "J. T. Shen, M. Yamashita, E. Prihar, N. Heffernan, X. Wu, B. Graff, and D. Lee",
+      "title": "Mathbert: A pre-trained language model for general nlp tasks in mathematics education, 08 2021b",
+      "publication": null,
+      "year": null,
+      "summary": null,
+      "standard_url": null,
+      "id": "None-mathbert:_a_pre-trained_language_model_for_general_nlp_tasks_in_mathematics_education_08_2021b"
+    },
+    "23": {
+      "enum": "23",
+      "authors": "Ilya Sutskever, Oriol Vinyals, Quoc V. Le",
+      "title": "Sequence to sequence learning with neural networks",
+      "publication": "In Advances in neural information processing systems, pages 3104–3112, 2014",
+      "year": 2014,
+      "summary": "Deep Neural Networks (DNNs) are powerful models that have achieved excellent performance on difficult learning tasks. Although DNNs work well whenever large labeled training sets are available, they cannot be used to map sequences to sequences. In this paper, we present a general end-to-end approach to sequence learning that makes minimal assumptions on the sequence structure. Our method uses a multilayered Long Short-Term Memory (LSTM) to map the input sequence to a vector of a fixed dimensionality, and then another deep LSTM to decode the target sequence from the vector. Our main result is that on an English to French translation task from the WMT'14 dataset, the translations produced by the LSTM achieve a BLEU score of 34.8 on the entire test set, where the LSTM's BLEU score was penalized on out-of-vocabulary words. Additionally, the LSTM did not have difficulty on long sentences. For comparison, a phrase-based SMT system achieves a BLEU score of 33.3 on the same dataset. When we used the LSTM to rerank the 1000 hypotheses produced by the aforementioned SMT system, its BLEU score increases to 36.5, which is close to the previous best result on this task. The LSTM also learned sensible phrase and sentence representations that are sensitive to word order and are relatively invariant to the active and the passive voice. Finally, we found that reversing the order of the words in all source sentences (but not target sentences) improved the LSTM's performance markedly, because doing so introduced many short term dependencies between the source and the target sentence which made the optimization problem easier.",
+      "standard_url": "http://arxiv.org/abs/1409.3215v3",
+      "id": "2014-sequence_to_sequence_learning_with_neural_networks"
+    },
+    "24": {
+      "enum": "24",
+      "authors": "Alon Talmor, Jonathan Herzig, Nicholas Lourie, Jonathan Berant",
+      "title": "Commonsenseqa: A question answering challenge targeting commonsense knowledge",
+      "publication": "arXiv preprint arXiv:1811.00937, 2018",
+      "year": 2018,
+      "summary": "When answering a question, people often draw upon their rich world knowledge in addition to the particular context. Recent work has focused primarily on answering questions given some relevant document or context, and required very little general background. To investigate question answering with prior knowledge, we present CommonsenseQA: a challenging new dataset for commonsense question answering. To capture common sense beyond associations, we extract from ConceptNet (Speer et al., 2017) multiple target concepts that have the same semantic relation to a single source concept. Crowd-workers are asked to author multiple-choice questions that mention the source concept and discriminate in turn between each of the target concepts. This encourages workers to create questions with complex semantics that often require prior knowledge. We create 12,247 questions through this procedure and demonstrate the difficulty of our task with a large number of strong baselines. Our best baseline is based on BERT-large (Devlin et al., 2018) and obtains 56% accuracy, well below human performance, which is 89%.",
+      "standard_url": "http://arxiv.org/abs/1811.00937v2",
+      "id": "2018-commonsenseqa:_a_question_answering_challenge_targeting_commonsense_knowledge"
+    },
+    "25": {
+      "enum": "25",
+      "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin",
+      "title": "Attention is all you need",
+      "publication": "In Advances in neural information processing systems, pages 5998–6008, 2017",
+      "year": 2017,
+      "summary": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.",
+      "standard_url": "http://arxiv.org/abs/1706.03762v7",
+      "id": "2017-attention_is_all_you_need"
+    },
+    "26": {
+      "enum": "26",
+      "authors": "Alex Wang, Yada Pruksachatkun, Nikita Nangia, Amanpreet Singh, Julian Michael, Felix Hill, Omer Levy, Samuel R. Bowman",
+      "title": "Superglue: A stickier benchmark for general-purpose language understanding systems",
+      "publication": "arXiv preprint arXiv:1905.00537, 2019",
+      "year": 2019,
+      "summary": "In the last year, new models and methods for pretraining and transfer learning have driven striking performance improvements across a range of language understanding tasks. The GLUE benchmark, introduced a little over one year ago, offers a single-number metric that summarizes progress on a diverse set of such tasks, but performance on the benchmark has recently surpassed the level of non-expert humans, suggesting limited headroom for further research. In this paper we present SuperGLUE, a new benchmark styled after GLUE with a new set of more difficult language understanding tasks, a software toolkit, and a public leaderboard. SuperGLUE is available at super.gluebenchmark.com.",
+      "standard_url": "http://arxiv.org/abs/1905.00537v3",
+      "id": "2019-superglue:_a_stickier_benchmark_for_general-purpose_language_understanding_systems"
+    },
+    "27": {
+      "enum": "27",
+      "authors": "Y. Wang, X. Liu, and S. Shi",
+      "title": "Deep neural solver for math word problems",
+      "publication": "In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 845–854, Copenhagen, Denmark, Sept. 2017. Association for Computational Linguistics",
+      "year": "2017",
+      "summary": null,
+      "standard_url": null,
+      "id": "2017-deep_neural_solver_for_math_word_problems"
+    },
+    "28": {
+      "enum": "28",
+      "authors": "Z. Xie and S. Sun",
+      "title": "A goal-driven tree-structured neural model for math word problems",
+      "publication": "In IJCAI, 2019",
+      "year": "2019",
+      "summary": null,
+      "standard_url": null,
+      "id": "2019-a_goal-driven_tree-structured_neural_model_for_math_word_problems"
+    },
+    "29": {
+      "enum": "29",
+      "authors": "Wei Zhao, Mingyue Shang, Yang Liu, Liang Wang, Jingming Liu",
+      "title": "Ape210k: A large-scale and template-rich dataset of math word problems",
+      "publication": "arXiv preprint arXiv:2009.11506, 2020",
+      "year": 2020,
+      "summary": "Automatic math word problem solving has attracted growing attention in recent years. The evaluation datasets used by previous works have serious limitations in terms of scale and diversity. In this paper, we release a new large-scale and template-rich math word problem dataset named Ape210K. It consists of 210K Chinese elementary school-level math problems, which is 9 times the size of the largest public dataset Math23K. Each problem contains both the gold answer and the equations needed to derive the answer. Ape210K is also of greater diversity with 56K templates, which is 25 times more than Math23K. Our analysis shows that solving Ape210K requires not only natural language understanding but also commonsense knowledge. We expect Ape210K to be a benchmark for math word problem solving systems. Experiments indicate that state-of-the-art models on the Math23K dataset perform poorly on Ape210K. We propose a copy-augmented and feature-enriched sequence to sequence (seq2seq) model, which outperforms existing models by 3.2% on the Math23K dataset and serves as a strong baseline of the Ape210K dataset. The gap is still significant between human and our baseline model, calling for further research efforts. We make Ape210K dataset publicly available at https://github.com/yuantiku/ape210k",
+      "standard_url": "http://arxiv.org/abs/2009.11506v2",
+      "id": "2020-ape210k:_a_large-scale_and_template-rich_dataset_of_math_word_problems"
+    }
+  },
+  "authors": "Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, John Schulman",
+  "summary": "State-of-the-art language models can match human performance on many tasks, but they still struggle to robustly perform multi-step mathematical reasoning. To diagnose the failures of current models and support research, we introduce GSM8K, a dataset of 8.5K high quality linguistically diverse grade school math word problems. We find that even the largest transformer models fail to achieve high test performance, despite the conceptual simplicity of this problem distribution. To increase performance, we propose training verifiers to judge the correctness of model completions. At test time, we generate many candidate solutions and select the one ranked highest by the verifier. We demonstrate that verification significantly improves performance on GSM8K, and we provide strong empirical evidence that verification scales more effectively with increased data than a finetuning baseline.",
+  "standard_url": "http://arxiv.org/abs/2110.14168v2",
+  "id": "2021-training_verifiers_to_solve_math_word_problems"
+}

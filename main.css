@@ -48,7 +48,8 @@ body {
 	max-height:400px; 
 	overflow-y:scroll;
 }
-.cite_bullet {
+.cite_bullet a{
+	font-family: "Lucida Console";
 	/*color:grey;*/
 }
 .cite_bullet:hover{
@@ -60,4 +61,12 @@ body {
 	color:grey;
 	font-style:italic;
 	font-family:"Noto Serif", "Noto Serif Fallback", serif;
+}
+.back_link_target {
+	font-family: "Lucida Console";
+}
+.back_link_target:hover{
+	color:#428bca;
+	cursor: pointer;
+	text-decoration:underline;
 }
