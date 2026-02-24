@@ -24,7 +24,7 @@ $( document ).ready(function() {
         const svg = d3.select("#tangle-svg");
         const container = svg.select(".view-container");
         const zoom = d3.zoom()
-            .scaleExtent([0.1, 5]) // [minZoom, maxZoom]
+            .scaleExtent([0.1, 20]) // [minZoom, maxZoom]
             .filter((event) => {         
               if (event.type === 'mousedown') {
                   return event.button === 2; // Only allow right-click to start a drag
@@ -485,7 +485,7 @@ function constructD3TangleLayout(levels, options={}){
   });
 
   const node_width = 70;     // Horizontal space.
-  const node_height = 25;     // Vertical space between nodes.
+  const node_height = 30;     // Vertical space between nodes.
   const padding = 50;        // Margin around the graph so text isn't cut at the edges
   const bundle_width = 50; //15
   const level_y_padding = 16;
