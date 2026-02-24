@@ -1,8 +1,8 @@
 # Graph of Research Papers
 
-Turning research papers into navigable knowledge networks through citation relationships to empower literature exploration and discovery.
+Turning research papers into navigable knowledge networks through citation relationships, to empower literature exploration and discovery.
 
-**Current focus**: Search and Recommendation research across evolving machine learning techniques
+**Current focus**: Machine Learning, with a focus on Search and Recommendation systems
 
 https://kiking0501.github.io/graph-of-research-papers
 
