@@ -24,7 +24,7 @@ $( document ).ready(function() {
         const svg = d3.select("#tangle-svg");
         const container = svg.select(".view-container");
         const zoom = d3.zoom()
-            .scaleExtent([0.1, 20]) // [minZoom, maxZoom]
+            .scaleExtent([0.5, 20]) // [minZoom, maxZoom]
             .filter((event) => {         
               if (event.type === 'mousedown') {
                   return event.button === 2; // Only allow right-click to start a drag
@@ -38,7 +38,7 @@ $( document ).ready(function() {
             .on("dblclick.zoom", null);
         svg.call(
           zoom.transform,
-          d3.zoomIdentity.scale(3)
+          d3.zoomIdentity.scale(5)
         );
         svg.on("contextmenu", (event) => {
             event.preventDefault();

@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import re
 from copy import copy
 import arxiv
+import time
 
 def get_id(title, year):
     clean_title = '_'.join([x.lower() for x in title.replace(",", "").split(' ')]).replace("__", "_")
@@ -91,7 +92,7 @@ class ArXivURL:
 
         def _parse_reference(parser):
             print("Parsing References...")
-            for item in parser.body.find_all(attrs={'class': 'ltx_bibitem'}):
+            for ind, item in enumerate(parser.body.find_all(attrs={'class': 'ltx_bibitem'})):
                 blocks = item.find_all(attrs={'class': 'ltx_bibblock'})
                 if "“" in item.text and "”" in item.text: # authors, “title”, publication, year
                     authors = _clean(item.text.partition("“")[0])
@@ -121,7 +122,9 @@ class ArXivURL:
                     "publication": publication,
                     "year": year,
                 }
+                print("%d..." % (ind + 1))
                 _add_addl_info(content)
+                time.sleep(0.5)
                 content["id"] = get_id(title=content["title"], year=content["year"])
                 yield content
 
